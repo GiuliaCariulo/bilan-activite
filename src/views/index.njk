@@ -2,6 +2,7 @@
 layout: base.njk
 title: Accueil
 permalink: "/"
+
 ---
 
 {# ============================================================
@@ -26,7 +27,16 @@ permalink: "/"
   <p>{{ config.intro_directeur | markdown | safe }}</p>
 </section>
 
-<p>test</p>
+<section>
+  <h2>portfolio</h2>
+  <div class="wrapper-portfolio">
+    {% for portfolio in config.medias %}
+      <div class="card card-img" data-pos="{{loop.index}}">
+        {% include "card-portfolio.njk" %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
 
 <section>
   <h2>Avant-propos</h2>

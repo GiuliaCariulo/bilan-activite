@@ -1,0 +1,69 @@
+// styles/components/_carte-projet.scss
+.card {
+  width: 267px;
+  height: 267px;
+}
+
+.card-img {
+  position: relative;
+  background-color: red;
+  cursor: pointer;
+}
+
+.card-text p {
+  display: flex;
+  padding: 6px 9px;
+  justify-content: center;
+  align-items: center;
+  cursor: default;
+}
+
+.card-text {
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.legende-portfolio {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  opacity: 0;
+  display: flex;
+  padding: 6px 9px;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  width: calc(100% - 18px);
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+  z-index: 1;
+}
+
+.card-img:hover .legende-portfolio {
+  opacity: 1;
+}
+
+article.card-portfolio {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+
+  figure {
+    height: 100%;
+    margin: 0;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+      border-radius: 0;
+    }
+      figcaption {
+      width: 100%;
+    }
+  }
+}

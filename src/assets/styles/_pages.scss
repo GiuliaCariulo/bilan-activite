@@ -64,6 +64,181 @@ body > header {
   }
 }
 
+// ============================================================
+// section portfolio : grille de cartes
+// ============================================================
+
+.wrapper-portfolio {
+  max-height: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(15, 1fr);
+}
+
+.card[data-pos="1"] {
+  grid-column: 2 / 2;
+  grid-row: 1;
+}
+
+.card[data-pos="2"] {
+  grid-column: 4 / 4;
+  grid-row: 2;
+}
+
+.card[data-pos="3"] {
+  grid-column: 1 / 1;
+  grid-row: 3;
+}
+
+.card[data-pos="4"] {
+  grid-column: 3 / 3;
+  grid-row: 3;
+}
+
+.card[data-pos="5"] {
+  grid-column: 4 / 4;
+  grid-row: 4;
+}
+
+.card[data-pos="6"] {
+  grid-column: 1 / 1;
+  grid-row: 5;
+}
+
+.card[data-pos="7"] {
+  grid-column: 2 / 2;
+  grid-row: 5;
+}
+
+.card[data-pos="8"] {
+  grid-column: 1 / 1;
+  grid-row: 6;
+}
+
+.card[data-pos="9"] {
+  grid-column: 2 / 2;
+  grid-row: 6;
+}
+
+.card[data-pos="10"] {
+  grid-column: 3 / 3;
+  grid-row: 6;
+}
+
+.card[data-pos="11"] {
+  grid-column: 4 / 4;
+  grid-row: 6;
+}
+
+.card[data-pos="12"] {
+  grid-column: 1 / 1;
+  grid-row: 7;
+}
+
+.card[data-pos="13"] {
+  grid-column: 2 / 2;
+  grid-row: 7;
+}
+
+.card[data-pos="14"] {
+  grid-column: 3 / 3;
+  grid-row: 7;
+}
+
+.card[data-pos="15"] {
+  grid-column: 4 / 4;
+  grid-row: 7;
+}
+
+.card[data-pos="16"] {
+  grid-column: 1 / 1;
+  grid-row: 8;
+}
+
+.card[data-pos="17"] {
+  grid-column: 2 / 2;
+  grid-row: 8;
+}
+.card[data-pos="18"] {
+  grid-column: 3 / 3;
+  grid-row: 8;
+}
+
+.card[data-pos="19"] {
+  grid-column: 4 / 4;
+  grid-row: 8;
+}
+
+.card[data-pos="20"] {
+  grid-column: 1 / 4;
+  grid-row: 9;
+}
+
+.card[data-pos="21"] {
+  grid-column: 1 / 1;
+  grid-row: 10;
+}
+
+.card[data-pos="22"] {
+  grid-column: 2 / 2;
+  grid-row: 10;
+}
+
+.card[data-pos="23"] {
+  grid-column: 3 / 3;
+  grid-row: 10;
+}
+
+.card[data-pos="24"] {
+  grid-column: 4 / 4;
+  grid-row: 10;
+}
+
+.card[data-pos="25"] {
+  grid-column: 1 / 1;
+  grid-row: 11;
+}
+
+.card[data-pos="26"] {
+  grid-column: 2 / 2;
+  grid-row: 11;
+}
+
+.card[data-pos="27"] {
+  grid-column: 3 / 3;
+  grid-row: 11;
+}
+
+.card[data-pos="28"] {
+  grid-column: 2 / 2;
+  grid-row: 12;
+}
+
+.card[data-pos="29"] {
+  grid-column: 4 / 4;
+  grid-row: 12;
+}
+
+.card[data-pos="30"] {
+  grid-column: 1 / 1;
+  grid-row: 13;
+}
+
+.card[data-pos="31"] {
+  grid-column: 3 / 3;
+  grid-row: 13;
+}
+
+.card[data-pos="32"] {
+  grid-column: 4 / 4;
+  grid-row: 14;
+}
+
+.card[data-pos="33"] {
+  grid-column: 2 / 2;
+  grid-row: 15;
+}
+
 // ── Listes génériques ─────────────────────────────────────────
 ul {
   list-style: none;
