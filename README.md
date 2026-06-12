@@ -73,7 +73,7 @@ Le fichier `.github/workflows/deploy.yml` automatise le build et le déploiement
 
 | Variable         | Description                                                                |
 | ---------------- | -------------------------------------------------------------------------- |
-| `FTP_SERVER_DIR` | Chemin vers le ossier cible sur le serveur (ex. `/www/bilan-activite/`)    |
+| `FTP_SERVER_DIR` | Chemin vers le dossier cible sur le serveur (ex. `/www/bilan-activite/`)    |
 | `PATH_PREFIX`    | Préfixe d'URL si sous-dossier (ex. `/bilan-activite/`), laisser vide sinon |
 
 Une fois configuré, pousser sur `main` suffit à mettre le site à jour. Il est aussi possible de déclencher le déploiement manuellement depuis l'onglet **Actions** du dépôt GitHub.
