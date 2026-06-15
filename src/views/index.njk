@@ -15,11 +15,188 @@ permalink: "/"
    ============================================================ #}
 
 {# ── CONFIG : infos générales ───────────────────────────────── #}
-<header>
+{# <header>
   <p>{{ config.organisation }}</p>
   <h1>{{ config.titre }}</h1>
   <p>TEST</p>
-</header>
+</header> #}
+
+{# ============================================================
+   index.njk — Page d'accueil
+   Variables injectées par Eleventy depuis src/_data/ :
+     - config        → config.json
+     - projets       → projets.js
+     - encadrants    → encadrants.json
+     - stagiaires    → stagiaires.json
+   ============================================================ #}
+
+{# ============================================================
+   HERO — Grille d'accueil (27 cellules sur 5 rangées de 8 colonnes)
+   ============================================================
+
+   "cases" décrit, dans l'ordre, le contenu de chaque cellule de la
+   grille. loop.index donne sa position (1 à 27), utilisée en CSS
+   via [data-pos="N"] pour le placement (grid-column: span X, etc.)
+
+   Types de cases :
+     - "img"        → image placeholder (portfolio / projets)
+     - "eikonlab"   → titre de section
+     - "mot"        → mot du directeur (ouvre hero-grid-expand-r2)
+     - "sessions"   → titre de section
+     - "edito"      → avant-propos (ouvre hero-grid-expand-r3)
+     - "bilan"      → titre "Bilan d'activité"
+     - "priorites"  → priorités eikonlab (ouvre hero-grid-expand-r4)
+     - "annee"      → année scolaire
+     - "encadrants" → titre de section (span 3)
+     - "partenaires"→ titre de section
+#}
+{% set cases = [
+  "img", "img", "img", "img", "img", "img",
+  "eikonlab", "img", "mot", "img", "sessions",
+  "img", "edito", "img", "img", "img", "bilan",
+  "img", "img", "priorites", "img", "img", "annee",
+  "encadrants", "img", "img", "partenaires"
+] %}
+
+<div class="hero-grid">
+
+  {% for case in cases %}
+    {% if case == "img" %}
+      {# Placeholder image — sera remplacé par une vraie image de projet #}
+      <div class="hero-grid-cell hero-grid-cell-img" data-pos="{{ loop.index }}"></div>
+
+    {% elif case == "eikonlab" %}
+      <div class="hero-grid-cell hero-grid-cell-eikonlab" data-pos="{{ loop.index }}">
+        eikonlab
+      </div>
+
+    {% elif case == "mot" %}
+      {# Cellule cliquable → ouvre hero-grid-expand-r2 (mot du directeur) #}
+      <div
+        class="hero-grid-cell hero-grid-cell-mot"
+        data-pos="{{ loop.index }}"
+        data-row="r2"
+      >
+        mot du directeur
+      </div>
+
+    {% elif case == "sessions" %}
+      <div class="hero-grid-cell hero-grid-cell-sessions" data-pos="{{ loop.index }}">
+        sessions
+      </div>
+
+    {% elif case == "edito" %}
+      {# Cellule cliquable → ouvre hero-grid-expand-r3 (avant-propos / édito) #}
+      <div
+        class="hero-grid-cell hero-grid-cell-edito"
+        data-pos="{{ loop.index }}"
+        data-row="r3"
+      >
+        edito
+      </div>
+
+    {% elif case == "bilan" %}
+      <div class="hero-grid-cell hero-grid-cell-bilan" data-pos="{{ loop.index }}">
+        Bilan d'activité
+      </div>
+
+    {% elif case == "priorites" %}
+      {# Cellule cliquable → ouvre hero-grid-expand-r4 (priorités) #}
+      <div
+        class="hero-grid-cell hero-grid-cell-priorites"
+        data-pos="{{ loop.index }}"
+        data-row="r4"
+      >
+        priorités
+      </div>
+
+    {% elif case == "annee" %}
+      <div class="hero-grid-cell hero-grid-cell-annee" data-pos="{{ loop.index }}">
+        25/26
+      </div>
+
+    {% elif case == "encadrants" %}
+      <div class="hero-grid-cell hero-grid-cell-encadrants" data-pos="{{ loop.index }}">
+        encadrant.e.s
+      </div>
+
+    {% elif case == "partenaires" %}
+      <div class="hero-grid-cell hero-grid-cell-partenaires" data-pos="{{ loop.index }}">
+        partenaires
+      </div>
+    {% endif %}
+  {% endfor %}
+
+  {# ── EXPAND r2 : mot du directeur ──────────────────────────── #}
+  <div class="hero-grid-expand hero-grid-expand-r2">
+    <div class="hero-grid-expand-sizer">
+      <div class="hero-grid-expand-content">
+        <div class="hero-grid-expand-left">
+          {# Le texte est injecté dynamiquement en JS depuis DATA #}
+          <p class="hero-grid-expand-text"></p>
+        </div>
+        <p class="hero-grid-expand-signature"></p>
+      </div>
+    </div>
+  </div>
+
+  {# ── EXPAND r3 : édito / avant-propos ──────────────────────── #}
+  <div class="hero-grid-expand hero-grid-expand-r3">
+    <div class="hero-grid-expand-sizer">
+      <div class="hero-grid-expand-content">
+        <div class="hero-grid-expand-left">
+          <p class="hero-grid-expand-text"></p>
+          <p class="hero-grid-expand-text-suite"></p>
+          <button class="hero-grid-voir-plus">voir plus...</button>
+          <button class="hero-grid-voir-moins" style="display: none">
+            voir moins...
+          </button>
+        </div>
+        <p class="hero-grid-expand-signature"></p>
+      </div>
+    </div>
+  </div>
+
+  {# ── EXPAND r4 : priorités (rempli dynamiquement en JS) ────── #}
+  <div class="hero-grid-expand hero-grid-expand-r4">
+    <div class="hero-grid-expand-sizer">
+      <div class="hero-grid-expand-content"></div>
+    </div>
+  </div>
+
+</div>
+
+{# ============================================================
+   Données injectées pour le JS du hero (voir assets/js/main.js)
+   On expose ici les textes longs venant de config.json, lus par
+   le script via window.HERO_DATA.
+   ============================================================ #}
+<script>
+  window.HERO_DATA = {
+    "hero-grid-cell-mot": {
+      row: "r2",
+      text: {{ config.intro_directeur | markdown | safe | dump }},
+      textSuite: null,
+      signature: "Felix Kaufmann, directeur d'eikon",
+    },
+    "hero-grid-cell-edito": {
+      row: "r3",
+      text: {{ config.intro_edito | markdown | safe | dump }},
+      textSuite: null,
+      signature: "l'équipe eikonlab",
+    },
+    "hero-grid-cell-priorites": {
+      row: "r4",
+      items: [
+        {% for priorite in config.priorites %}
+          { titre: {{ priorite.titre | dump }}, texte: {{ priorite.texte | dump }} }{% if not loop.last %},{% endif %}
+        {% endfor %}
+      ],
+      signature: null,
+    },
+  };
+</script>
+
 
 <section>
   <h2>Mot du directeur</h2>
