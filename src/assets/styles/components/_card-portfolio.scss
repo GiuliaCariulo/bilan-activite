@@ -35,9 +35,8 @@
   padding: 6px 9px;
   justify-content: center;
   align-items: center;
-  background: rgba(0, 0, 0, 0.8);
+  background: black;
   color: #fff;
-  width: calc(100% - 18px);
   transition:
     transform 0.2s ease,
     opacity 0.2s ease;
@@ -62,7 +61,7 @@ article.card-portfolio {
       object-fit: cover;
       border-radius: 0;
     }
-      figcaption {
+    figcaption {
       width: 100%;
     }
   }
