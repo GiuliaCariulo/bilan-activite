@@ -1,9 +1,17 @@
-// Couleurs
-$collor-main: #000000;
+$color-primary: #000000;
+$color-secondary: #ffffff;
+$color-main-accent: #ff9f1a;
+$color-second-accent: #0048ff;
 
-// Typographie
-$font-text: "Playfair Display", serif;
-$font-corps: "DM Sans", sans-serif;
+$font-title: "Noi Grotesk", sans-serif;
+$font-weight-title: 100;
+$font-line-height-title: 1.2;
+$font-text: "Noi Grotesk", sans-serif;
+$font-weight-text: 200;
+$font-line-height-text: 1.4;
+$font-legend: "Noi Grotesk", sans-serif;
+$font-weight-legend: 500;
+$font-line-height-legend: 1.4;
 
 // Espacement
 $espace-xs: 8px;
