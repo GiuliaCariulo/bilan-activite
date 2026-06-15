@@ -51,7 +51,7 @@ permalink: "/"
      - "partenaires"→ titre de section
 #}
 {% set cases = [
-  "img", "img", "img", "img", "img", "img",
+  "img", "img", "img", "img", "img",
   "eikonlab", "img", "mot", "img", "sessions",
   "img", "edito", "img", "img", "img", "bilan",
   "img", "img", "priorites", "img", "img", "annee",
@@ -63,13 +63,13 @@ permalink: "/"
   {% for case in cases %}
     {% if case == "img" %}
       {# Placeholder image — sera remplacé par une vraie image de projet #}
-      <div class="hero-grid-cell hero-grid-cell-img" data-pos="{{ loop.index }}"></div>
+      <img class="hero-grid-cell hero-grid-cell-img" data-pos="{{ loop.index }}" alt="image"></img>
 
     {% elif case == "eikonlab" %}
       <div class="hero-grid-cell hero-grid-cell-eikonlab" data-pos="{{ loop.index }}">
         eikonlab
       </div>
-
+  
     {% elif case == "mot" %}
       {# Cellule cliquable → ouvre hero-grid-expand-r2 (mot du directeur) #}
       <div
