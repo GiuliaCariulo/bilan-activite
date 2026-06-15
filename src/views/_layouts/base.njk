@@ -1,0 +1,22 @@
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {# Le titre de la page est défini dans chaque page,
+         avec un fallback sur config.titre #}
+    <title>
+      {% if title %}
+        {{ title }}
+        —
+      {% endif %}
+      {{ config.titre }}
+    </title>
+    <link rel="stylesheet" href="{{ '/assets/styles/main.css' | url }}" />
+  </head>
+  <body>
+    {# Le contenu de chaque page est injecté ici #}
+    {{ content | safe }}
+    <script type="module" src="{{ '/assets/js/main.js' | url }}"></script>
+    {% block scripts %}{% endblock %}
+  </body>
+</html>
