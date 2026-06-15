@@ -1,16 +1,19 @@
 <article class="card-portfolio">
-  <figure>
-    <img
-      src="{{ portfolio.fichier | url }}"
-      alt="legende de l'image ou titre du projet"
-    >
-    {% if portfolio.legende %}
-      <figcaption class="legende-portfolio">{{ portfolio.legende }}</figcaption>
-    {% endif %}
-    {% if portfolio.quote.length %}
-      <p class="card-text">
-        {{ portfolio.quote }}
-      </p>
-    {% endif %}
-  </figure>
+  {% if portfolio.fichier %}
+    <figure>
+      <img
+        src="{{ portfolio.fichier | url }}"
+        alt="légende de l'image ou titre du projet"
+      >
+      {% if portfolio.legende %}
+        <figcaption class="legende-portfolio">
+          {{ portfolio.legende }}
+        </figcaption>
+      {% endif %}
+    </figure>
+  {% endif %}
+
+  {% if portfolio.quote %}
+    <p class="card-text">{{ portfolio.quote }}</p>
+  {% endif %}
 </article>
