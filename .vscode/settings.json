@@ -1,6 +1,13 @@
 {
   "prettier.documentSelectors": ["**/*.njk"],
   "editor.formatOnSave": true,
+  "files.associations": {
+    "*.njk": "html"
+  },
+  "emmet.includeLanguages": {
+    "html": "html",
+    "nunjucks": "html"
+  },
   "[njk]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
