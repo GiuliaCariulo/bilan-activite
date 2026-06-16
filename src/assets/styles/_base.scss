@@ -1,12 +1,5 @@
 @use "variables" as *;
 
-html {
-  font-family: $font;
-  font-weight: $font-weight-text;
-  font-size: 24px;
-  scroll-behavior: smooth;
-}
-
 *,
 *::before,
 *::after {
@@ -14,4 +7,11 @@ html {
   margin: 0;
 
   padding: 0;
+}
+
+html {
+  font-family: $font;
+  font-weight: $font-weight-text;
+  font-size: 24px;
+  scroll-behavior: smooth;
 }
