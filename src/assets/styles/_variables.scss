@@ -1,29 +1,38 @@
+// ============================================================
+// Colors
+// ============================================================
 $color-primary: #000000;
 $color-secondary: #ffffff;
 $color-main-accent: #ff9f1a;
 $color-second-accent: #0048ff;
 
-$font-title: "Noi Grotesk", sans-serif;
+// ============================================================
+// Fonts
+// ============================================================
+$font: "Noi Grotesk", sans-serif;
+
 $font-weight-title: 100;
+$font-style-title: italic;
 $font-line-height-title: 1.2;
-$font-text: "Noi Grotesk", sans-serif;
+
 $font-weight-text: 200;
-$font-line-height-text: 1.4;
-$font-legend: "Noi Grotesk", sans-serif;
+$font-line-height-text: 1.5;
+
 $font-weight-legend: 500;
-$font-line-height-legend: 1.4;
+$font-style-legend: italic;
+$font-line-height-legend: 1.5;
 
-// Espacement
-$espace-xs: 8px;
-$espace-sm: 16px;
-$espace-md: 24px;
-$espace-lg: 48px;
-$espace-xl: 80px;
+// ============================================================
+// Spacements
+// ============================================================
+$space-xs: 8px;
+$space-sm: 16px;
+$space-md: 24px;
+$space-lg: 48px;
+$space-xl: 80px;
 
-// Grilles
-$colonnes-projets: repeat(auto-fill, minmax(280px, 1fr));
-$colonnes-intervenants: repeat(auto-fill, minmax(220px, 1fr));
-$colonnes-chiffres: repeat(4, 1fr);
-
-// Misc
-$rayon: 6px;
+// ============================================================
+// Grids
+// ============================================================
+$col-d: repeat(8, 1fr);
+$col-m: repeat(6, 1fr);
