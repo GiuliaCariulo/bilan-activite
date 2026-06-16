@@ -16,6 +16,12 @@
   <body>
     {# Le contenu de chaque page est injecté ici #}
     {{ content | safe }}
+    <footer>
+      <p>
+        Voici le footer écrit dans base.njk qui se développe automatiquement sur
+        chaque page
+      </p>
+    </footer>
     <script type="module" src="{{ '/assets/js/main.js' | url }}"></script>
     {% block scripts %}{% endblock %}
   </body>
