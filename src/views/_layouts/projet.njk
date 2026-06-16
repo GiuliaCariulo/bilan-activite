@@ -1,3 +1,7 @@
+---
+layout: base.njk
+---
+
 {# ============================================================
    projet.njk — Page de détail d'un projet
    Ce layout est utilisé par projets.njk (pagination Eleventy).
@@ -7,6 +11,11 @@
    ============================================================ #}
 <h1>Layout de projet</h1>
 <p>C'est le composant de la page type projet</p>
+<div class="row">
+  <div class="col-2 col-lg-7">
+    Je suis un système de griles calqué au modèle Bootstrap
+  </div>
+</div>
 <a href="{{ '/' | url }}">Retour au Index.njk</a>
 {% block scripts %}
   <script type="module" src="{{ '/assets/js/projet.js' | url }}"></script>
