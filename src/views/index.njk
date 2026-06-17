@@ -17,3 +17,27 @@ permalink: "/"
 <a href="{{ '/projets/ecole-de-couture/' | url }}"
   >Écriture du permalink utilisé dans ce projet</a
 >
+
+{# ============================================================
+   Exemple : Portfolio (config.portfolio)
+   Chaque entrée est soit une image (item.media.fichier),
+   soit une phrase/citation (item.quote).
+   ============================================================ #}
+{% if config.portfolio and config.portfolio.length %}
+  <section class="portfolio">
+    {% for item in config.portfolio %}
+      {% if item.media and item.media.fichier %}
+        <figure>
+          <img src="{{ item.media.fichier }}" alt="{{ item.media.legende or '' }}">
+          {% if item.media.legende %}
+            <figcaption>{{ item.media.legende }}</figcaption>
+          {% endif %}
+        </figure>
+      {% elif item.quote %}
+        <blockquote>
+          <p>{{ item.quote }}</p>
+        </blockquote>
+      {% endif %}
+    {% endfor %}
+  </section>
+{% endif %}

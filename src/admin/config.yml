@@ -27,17 +27,25 @@ collections:
               summary: "{{priorite}}",
               field: { label: "Priorité", name: "priorite", widget: text },
             }
-          - label: Médias
-            name: medias
+          - label: Portfolio
+            name: portfolio
             widget: list
             required: false
             fields:
-              - { label: Image, name: fichier, widget: image }
+              - label: "Image + légende"
+                name: media
+                widget: object
+                required: false
+                hint: "Option A — Remplir uniquement si l'entrée est une image (pas les deux)."
+                fields:
+                  - { label: Image, name: fichier, widget: image, required: false }
+                  - { label: Légende, name: legende, widget: string, required: false, hint: "Optionnelle, accompagne l'image." }
               - {
-                  label: Légende,
-                  name: legende,
+                  label: Phrase / citation,
+                  name: quote,
                   widget: string,
                   required: false,
+                  hint: "Option B — Remplir uniquement si l'entrée est une phrase/citation (pas les deux).",
                 }
           - label: Partenaires
             name: partenaires
