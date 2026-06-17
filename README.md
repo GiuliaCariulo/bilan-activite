@@ -88,8 +88,9 @@ Toutes les données du site vivent dans ce dossier sous forme de fichiers JSON. 
 
 ```
 src/_data/
-├── config.json          ← Infos générales : titre, organisation, édito, partenaires…
-├── encadrants.json      ← Liste des encadrant·es (nom, photo, titre, secteurs)
+├── config.json          ← Infos générales : titre, organisation, intro, priorités, portfolio, ressources, partenaires…
+├── encadrants.json      ← Liste des encadrant·es (nom, titre pro, bio, photo)
+├── sections.json        ← Sections de texte libre (titre, auteur·rice, accroche, texte)
 ├── stagiaires.json      ← Stagiaires groupés par session (août–déc, jan–avr, avr–juil)
 └── projets/             ← Un fichier JSON par projet
     ├── miam.json
@@ -225,6 +226,7 @@ bilan-eleventy/
 │   ├── _data/                 ← Contenu (JSON) — saisie via CMS ou éditeur
 │   │   ├── config.json
 │   │   ├── encadrants.json
+│   │   ├── sections.json
 │   │   ├── stagiaires.json
 │   │   ├── projets.js         ← Lit le dossier projets/ et retourne un tableau
 │   │   └── projets/
