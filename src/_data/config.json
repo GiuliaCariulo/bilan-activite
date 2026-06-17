@@ -18,14 +18,26 @@
   "titre": "Bilan d'activité 2025-26",
   "ressources": "Les travaux réalisés pour les client·es de eikonlab sont systématiquement évalués d’un point de vue financier de manière à ne créer aucune concurrence avec les entreprises locales.\n\nLorsqu’un·e mandataire propose un budget dépassant potentiellement les seuls frais de production (prix atelier), le projet est adapté afin d’intégrer un prestataire et d’augmenter les enjeux de conception. Ainsi la démarche profite à la qualité des travaux réalisés, et permet de mettre les stagiaires dans une situation professionnelle d’autant plus enrichissante.\n\nCela crée une triangulaire entre les stagiaires de eikonlab, le·la mandataire et un·e prestataire, dans un contexte de production au plus près de la réalité du métier.\n\nAu-delà du lien de confiance que cela établit entre l’école et le tissu professionnel local, eikonlab peut justifier de faire valoir les compétences de ses prestataires auprès de ses mandants, et d’avoir reversé une partie des recettes sur cinq de ses principaux projets de 2024-2025 à des entreprises locales, associations ou travailleur·euses indépendant·es.",
   "organisation": "eikonlab",
-  "partenaires": [
-    "Festival International du Film de Fribourg",
-    "Volontiers",
-    "Association imprimerie",
-    "Benoit Dietrich",
-    "Ville de Fribourg",
-    "EMF",
-    "Eliane Brügger Jecker",
-    "Festival des lumières"
+  "partners": [
+    {
+      "title": "Festival International du Film de Fribourg",
+      "image": ""
+    },
+    {
+      "title": "Volontiers",
+      "image": ""
+    },
+    {
+      "title": "Association imprimerie",
+      "image": ""
+    },
+    {
+      "title": "Ville de Fribourg",
+      "image": ""
+    },
+    {
+      "title": "EMF",
+      "image": ""
+    }
   ]
 }

@@ -38,8 +38,19 @@ collections:
                 required: false
                 hint: "Option A — Remplir uniquement si l'entrée est une image (pas les deux)."
                 fields:
-                  - { label: Image, name: image, widget: image, required: false }
-                  - { label: Légende, name: legend, widget: string, required: false, hint: "Optionnelle, accompagne l'image." }
+                  - {
+                      label: Image,
+                      name: image,
+                      widget: image,
+                      required: false,
+                    }
+                  - {
+                      label: Légende,
+                      name: legend,
+                      widget: string,
+                      required: false,
+                      hint: "Optionnelle, accompagne l'image.",
+                    }
               - {
                   label: Phrase / citation,
                   name: quote,
@@ -48,11 +59,13 @@ collections:
                   hint: "Option B — Remplir uniquement si l'entrée est une phrase/citation (pas les deux).",
                 }
           - label: Partenaires
-            name: partenaires
-            summary: "{{nom}}"
+            name: partners
+            summary: "{{title}}"
             widget: list
             required: false
-            field: { label: Nom du partenaire, name: nom, widget: string }
+            fields:
+              - { label: Nom du partenaire, name: title, widget: string }
+              - { label: Image, name: image, widget: image, required: false }
           - {
               label: Ressources,
               name: ressources,
@@ -75,6 +88,7 @@ collections:
             label_singular: "un·e encadrant·e"
             fields:
               - { label: Nom, name: title, widget: string }
+              - { label: Titre pro, name: statut, widget: string }
               - { label: Bio, name: bio, widget: string }
               - { label: Image, name: image, widget: image, required: false }
 
@@ -124,11 +138,7 @@ collections:
     fields:
       - { label: Titre du projet, name: title, widget: string }
       - { label: Image de couverture, name: thumbnail, widget: image }
-      - {
-          label: "Description",
-          name: description,
-          widget: text,
-        }
+      - { label: "Description", name: description, widget: text }
       - label: Tags
         name: tags
         widget: list
