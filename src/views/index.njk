@@ -29,17 +29,17 @@ permalink: "/"
       <article class="projet">
 
         {# Image de couverture #}
-        {% if projet.cover_image %}
-          <img src="{{ projet.cover_image }}" alt="{{ projet.titre }}">
+        {% if projet.thumbnail %}
+          <img src="{{ projet.thumbnail }}" alt="{{ projet.title }}">
         {% endif %}
 
         {# Titre + lien vers la page du projet #}
         <h2>
-          <a href="{{ ('/projets/' + projet.id + '/') | url }}">{{ projet.titre }}</a>
+          <a href="{{ ('/projets/' + projet.id + '/') | url }}">{{ projet.title }}</a>
         </h2>
 
         {# Type de mandat #}
-        <p>{{ projet.type }}</p>
+        <p>{{ projet.mandate }}</p>
 
         {# Sessions (tableau de strings) #}
         {% if projet.sessions and projet.sessions.length %}
@@ -64,19 +64,19 @@ permalink: "/"
         <p>{{ projet.description }}</p>
 
         {# Compétences mises en œuvre #}
-        {% if projet.competences %}
-          <p>Compétences : {{ projet.competences }}</p>
+        {% if projet.skills %}
+          <p>Compétences : {{ projet.skills }}</p>
         {% endif %}
 
-        {# Autres images (tableau de {fichier, legende}) #}
+        {# Autres images (tableau de {fichier, legend}) #}
         {% if projet.images and projet.images.length %}
           <ul class="images">
             {% for image in projet.images %}
               <li>
                 <figure>
-                  <img src="{{ image.fichier }}" alt="{{ image.legende or '' }}">
-                  {% if image.legende %}
-                    <figcaption>{{ image.legende }}</figcaption>
+                  <img src="{{ image.fichier }}" alt="{{ image.legend or '' }}">
+                  {% if image.legend %}
+                    <figcaption>{{ image.legend }}</figcaption>
                   {% endif %}
                 </figure>
               </li>
@@ -85,11 +85,11 @@ permalink: "/"
         {% endif %}
 
         {# Liens (tableau de {label, url}) #}
-        {% if projet.liens and projet.liens.length %}
+        {% if projet.links and projet.links.length %}
           <ul class="liens">
-            {% for lien in projet.liens %}
+            {% for link in projet.links %}
               <li>
-                <a href="{{ lien.url }}" target="_blank">{{ lien.label }}</a>
+                <a href="{{ link.url }}" target="_blank">{{ link.label }}</a>
               </li>
             {% endfor %}
           </ul>
@@ -108,11 +108,11 @@ permalink: "/"
 {% if config.portfolio and config.portfolio.length %}
   <section class="portfolio">
     {% for item in config.portfolio %}
-      {% if item.media and item.media.fichier %}
+      {% if item.media and item.media.image %}
         <figure>
-          <img src="{{ item.media.fichier }}" alt="{{ item.media.legende or '' }}">
-          {% if item.media.legende %}
-            <figcaption>{{ item.media.legende }}</figcaption>
+          <img src="{{ item.media.image }}" alt="{{ item.media.legend or '' }}">
+          {% if item.media.legend %}
+            <figcaption>{{ item.media.legend }}</figcaption>
           {% endif %}
         </figure>
       {% elif item.quote %}

@@ -38,8 +38,8 @@ collections:
                 required: false
                 hint: "Option A — Remplir uniquement si l'entrée est une image (pas les deux)."
                 fields:
-                  - { label: Image, name: fichier, widget: image, required: false }
-                  - { label: Légende, name: legende, widget: string, required: false, hint: "Optionnelle, accompagne l'image." }
+                  - { label: Image, name: image, widget: image, required: false }
+                  - { label: Légende, name: legend, widget: string, required: false, hint: "Optionnelle, accompagne l'image." }
               - {
                   label: Phrase / citation,
                   name: quote,
@@ -74,24 +74,14 @@ collections:
             summary: "{{nom}}"
             label_singular: "un·e encadrant·e"
             fields:
-              - { label: Nom, name: nom, widget: string }
-              - { label: Photo, name: photo, widget: image, required: false }
-              - {
-                  label: Titre professionnel,
-                  name: titre,
-                  widget: string,
-                  required: false,
-                }
-              - label: Secteurs professionnels
-                name: secteurs
-                widget: list
-                required: false
-                field: { label: Secteur, name: secteur, widget: string }
+              - { label: Nom, name: title, widget: string }
+              - { label: Bio, name: bio, widget: string }
+              - { label: Image, name: image, widget: image, required: false }
 
-  - name: stagiaires
+  - name: interns
     label: Stagiaires
     files:
-      - name: stagiaires_liste
+      - name: interns_list
         label: Liste des stagiaires
         file: src/_data/stagiaires.json
         format: json
@@ -99,27 +89,27 @@ collections:
           - label: "Août – décembre"
             name: aout_decembre
             widget: list
-            summary: "{{nom}}"
+            summary: "{{title}}"
             label_singular: "un·e stagiaire"
             fields:
-              - { label: Nom, name: nom, widget: string }
-              - { label: Photo, name: photo, widget: image, required: false }
+              - { label: Nom, name: title, widget: string }
+              - { label: Image, name: image, widget: image, required: false }
           - label: "Janvier – avril"
             name: janvier_avril
             widget: list
-            summary: "{{nom}}"
+            summary: "{{title}}"
             label_singular: "un·e stagiaire"
             fields:
-              - { label: Nom, name: nom, widget: string }
-              - { label: Photo, name: photo, widget: image, required: false }
+              - { label: Nom, name: title, widget: string }
+              - { label: Image, name: image, widget: image, required: false }
           - label: "Avril – juillet"
             name: avril_juillet
             widget: list
-            summary: "{{nom}}"
+            summary: "{{title}}"
             label_singular: "un·e stagiaire"
             fields:
-              - { label: Nom, name: nom, widget: string }
-              - { label: Photo, name: photo, widget: image, required: false }
+              - { label: Nom, name: title, widget: string }
+              - { label: Image, name: image, widget: image, required: false }
 
   - name: projets
     label: Projets
@@ -127,13 +117,13 @@ collections:
     folder: src/_data/projets
     format: json
     extension: json
-    identifier_field: titre
-    slug: "{{titre | slugify}}"
-    summary: "{{titre}}"
+    identifier_field: title
+    slug: "{{title | slugify}}"
+    summary: "{{title}}"
     create: true
     fields:
-      - { label: Titre du projet, name: titre, widget: string }
-      - { label: Image de couverture, name: cover_image, widget: image }
+      - { label: Titre du projet, name: title, widget: string }
+      - { label: Image de couverture, name: thumbnail, widget: image }
       - {
           label: "Description",
           name: description,
@@ -150,7 +140,7 @@ collections:
         multiple: true
         options: ["Août - décembre", "Janvier - avril", "Avril - Juillet"]
       - label: Type de mandat
-        name: type
+        name: mandate
         widget: select
         options: [Communication, Événement, Installation]
       - label: Autres images
@@ -159,7 +149,7 @@ collections:
         required: false
         fields:
           - { label: Image, name: fichier, widget: image }
-          - { label: Légende, name: legende, widget: string, required: false }
+          - { label: Légende, name: legend, widget: string, required: false }
       - label: Client·e·s
         name: clients
         widget: list
@@ -167,12 +157,12 @@ collections:
         field: { label: Client·e, name: client, widget: string }
       - {
           label: "Compétences mises en œuvre",
-          name: competences,
+          name: skills,
           widget: string,
           required: false,
         }
       - label: Liens
-        name: liens
+        name: links
         widget: list
         required: false
         fields:
