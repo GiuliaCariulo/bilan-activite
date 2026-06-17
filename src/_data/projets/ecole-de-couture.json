@@ -1,5 +1,5 @@
 {
-  "clients": "Ecole de couture, Fribourg",
+  "clients": ["Ecole de couture, Fribourg"],
   "competences": "Communication visuelle, 3D, graphisme, décoration scénique",
   "liens": [
     {

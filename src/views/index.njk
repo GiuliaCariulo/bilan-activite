@@ -19,6 +19,88 @@ permalink: "/"
 >
 
 {# ============================================================
+   Exemple : Liste des projets (variable `projets`)
+   `projets` est un tableau injecté par src/_data/projets.js,
+   qui lit tous les fichiers JSON du dossier src/_data/projets/.
+   ============================================================ #}
+{% if projets and projets.length %}
+  <section class="projets">
+    {% for projet in projets %}
+      <article class="projet">
+
+        {# Image de couverture #}
+        {% if projet.cover_image %}
+          <img src="{{ projet.cover_image }}" alt="{{ projet.titre }}">
+        {% endif %}
+
+        {# Titre + lien vers la page du projet #}
+        <h2>
+          <a href="{{ ('/projets/' + projet.id + '/') | url }}">{{ projet.titre }}</a>
+        </h2>
+
+        {# Type de mandat #}
+        <p>{{ projet.type }}</p>
+
+        {# Sessions (tableau de strings) #}
+        {% if projet.sessions and projet.sessions.length %}
+          <p>Sessions : {{ projet.sessions | join(', ') }}</p>
+        {% endif %}
+
+        {# Client·e·s (tableau de strings) #}
+        {% if projet.clients and projet.clients.length %}
+          <p>Client·e·s : {{ projet.clients | join(', ') }}</p>
+        {% endif %}
+
+        {# Tags (tableau de strings) #}
+        {% if projet.tags and projet.tags.length %}
+          <ul class="tags">
+            {% for tag in projet.tags %}
+              <li>{{ tag }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+        {# Description #}
+        <p>{{ projet.description }}</p>
+
+        {# Compétences mises en œuvre #}
+        {% if projet.competences %}
+          <p>Compétences : {{ projet.competences }}</p>
+        {% endif %}
+
+        {# Autres images (tableau de {fichier, legende}) #}
+        {% if projet.images and projet.images.length %}
+          <ul class="images">
+            {% for image in projet.images %}
+              <li>
+                <figure>
+                  <img src="{{ image.fichier }}" alt="{{ image.legende or '' }}">
+                  {% if image.legende %}
+                    <figcaption>{{ image.legende }}</figcaption>
+                  {% endif %}
+                </figure>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+        {# Liens (tableau de {label, url}) #}
+        {% if projet.liens and projet.liens.length %}
+          <ul class="liens">
+            {% for lien in projet.liens %}
+              <li>
+                <a href="{{ lien.url }}" target="_blank">{{ lien.label }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+      </article>
+    {% endfor %}
+  </section>
+{% endif %}
+
+{# ============================================================
    Exemple : Portfolio (config.portfolio)
    Chaque entrée est soit une image (item.media.fichier),
    soit une phrase/citation (item.quote).

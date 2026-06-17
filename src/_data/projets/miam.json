@@ -1,5 +1,5 @@
 {
-  "clients": "Association MIAM",
+  "clients": ["Association MIAM"],
   "competences": "UX / UI design, production vidéo, rédactionnel, travail d’équipe et collaboration",
   "liens": [
     {

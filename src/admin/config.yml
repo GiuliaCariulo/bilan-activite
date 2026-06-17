@@ -132,63 +132,39 @@ collections:
     summary: "{{titre}}"
     create: true
     fields:
-      - { label: Nom du projet, name: titre, widget: string }
-      - label: Sessions de réalisation
+      - { label: Titre du projet, name: titre, widget: string }
+      - { label: Image de couverture, name: cover_image, widget: image }
+      - {
+          label: "Description",
+          name: description,
+          widget: text,
+        }
+      - label: Tags
+        name: tags
+        widget: list
+        required: false
+        field: { label: Tag, name: tag, widget: string }
+      - label: Session·s
         name: sessions
         widget: select
         multiple: true
         options: ["Août - décembre", "Janvier - avril", "Avril - Juillet"]
-      - label: "Stagiaires — Août–décembre"
-        name: interns_aout_decembre
-        widget: relation
-        collection: stagiaires
-        file: stagiaires_liste
-        value_field: "aout_decembre.*.nom"
-        display_fields: ["aout_decembre.*.nom"]
-        search_fields: ["aout_decembre.*.nom"]
-        multiple: true
-        required: false
-      - label: "Stagiaires — Janvier–avril"
-        name: stagiaire_janvier_avril
-        widget: relation
-        collection: stagiaire
-        file: stagiaires_liste
-        value_field: "janvier_avril.*.nom"
-        display_fields: ["janvier_avril.*.nom"]
-        search_fields: ["janvier_avril.*.nom"]
-        multiple: true
-        required: false
-      - label: "Stagiaires — Avril–juillet"
-        name: interns_avril_juillet
-        widget: relation
-        collection: interns
-        file: stagiaires_liste
-        value_field: "avril_juillet.*.nom"
-        display_fields: ["avril_juillet.*.nom"]
-        search_fields: ["avril_juillet.*.nom"]
-        multiple: true
-        required: false
       - label: Type de mandat
         name: type
         widget: select
         options: [Communication, Événement, Installation]
-      - { label: "Client·e·s", name: clients, widget: string, required: false }
-      - label: "Description / pitch"
-        name: description
-        widget: text
-      - label: Images
+      - label: Autres images
         name: images
         widget: list
         required: false
         fields:
           - { label: Image, name: fichier, widget: image }
           - { label: Légende, name: legende, widget: string, required: false }
-      - label: Vidéos
-        name: videos
+      - label: Client·e·s
+        name: clients
         widget: list
         required: false
-        field:
-          { label: "URL vidéo (YouTube, Vimeo…)", name: url, widget: string }
+        field: { label: Client·e, name: client, widget: string }
       - {
           label: "Compétences mises en œuvre",
           name: competences,
@@ -202,11 +178,3 @@ collections:
         fields:
           - { label: Libellé, name: label, widget: string }
           - { label: URL, name: url, widget: string }
-      - label: Témoignage client
-        name: retour_client
-        widget: object
-        required: false
-        fields:
-          - { label: Citation, name: phrase, widget: text, required: false }
-          - { label: Nom, name: nom, widget: string, required: false }
-          - { label: Rôle, name: role, widget: string, required: false }
