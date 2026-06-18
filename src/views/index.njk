@@ -23,7 +23,10 @@ permalink: "/"
   <h2>portfolio</h2>
   <div class="portfolio-wrapper">
     {% for item in config.portfolio %}
-      <div class="card portfolio-card-img" data-pos="{{ loop.index }}">
+      <div
+        class="portfolio-card-pos portfolio-card-img"
+        data-pos="{{ loop.index }}"
+      >
         {% include "portfolio-card.njk" %}
       </div>
     {% endfor %}
