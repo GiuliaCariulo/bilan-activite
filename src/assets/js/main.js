@@ -3,3 +3,4 @@ import "./hero.js";
 
 // Entrée globale (garder un petit log pour vérifier le chargement)
 console.log("main.js chargé");
+console.log("test");
