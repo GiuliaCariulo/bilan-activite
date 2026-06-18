@@ -5,10 +5,10 @@
         src="{{ portfolio.fichier | url }}"
         alt="légende de l'image ou titre du projet"
       >
-      {% if portfolio.legende %}
-        <figcaption class="legende-portfolio">
-          {{ portfolio.legende }}
-        </figcaption>
+      {% include portfolio.legende %}
+      <figcaption class="legende-portfolio">
+        {{ portfolio.legende }}
+      </figcaption>
       {% endif %}
     </figure>
   {% endif %}
