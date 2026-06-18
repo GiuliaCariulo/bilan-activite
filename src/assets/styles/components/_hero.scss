@@ -5,17 +5,12 @@
 
 // ── Grille principale ────────────────────────────────────────
 .hero-grid {
-  font-family: "Helvetica Neue", Arial, sans-serif;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
   align-items: stretch;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
-
-  // 5 rangées de cellules (20% chacune) + 3 rangées d'expand (0fr par défaut)
-  // ordre : r1 - r2 - expand-r2 - r3 - expand-r3 - r4 - expand-r4 - r5
-  // ordre HTML réel : r1 - r2 - expand-r2 - r3 - expand-r3 - r4 - expand-r4 - r5
   grid-template-rows: 1fr 1fr 0fr 1fr 0fr 1fr 0fr 1fr;
   transition: grid-template-rows 0.6s cubic-bezier(0.77, 0, 0.175, 1);
 
@@ -115,12 +110,12 @@
       cursor: pointer;
 
       &:hover {
-        color: #2020ff;
+        color: var(--color-main-accent);
         font-weight: 700;
       }
 
       &.active {
-        color: #2020ff;
+        color: var(--color-main-accent);
       }
     }
 
@@ -161,10 +156,10 @@
   &-expand {
     grid-column: 1 / -1;
     overflow: hidden;
-    background: #fff;
     min-height: 0; // nécessaire pour que 0fr écrase bien la rangée
     max-height: 0;
     transition: max-height 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: -1;
 
     // Position des expand sur les rangées spécifiques
     &-r2 {
@@ -187,7 +182,6 @@
       height: 100%;
       display: grid;
       grid-template-columns: repeat(8, 1fr);
-      background: #fff;
       padding: 80px 0;
       opacity: 0;
       transform: translateY(20px);
@@ -235,12 +229,16 @@
     }
   }
 
+  &-expand.is-active {
+    overflow: visible;
+  }
+
   // ── Boutons voir plus / voir moins ──────────────────────────
   &-voir-plus,
   &-voir-moins {
     background: none;
     border: none;
-    color: #2020ff;
+    color: var(--color-primary);
     font-weight: 700;
     font-size: clamp(15px, 1.3vw, 18px);
     cursor: pointer;
