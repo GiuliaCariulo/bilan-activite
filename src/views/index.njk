@@ -50,28 +50,36 @@ permalink: "/"
      - "encadrants" → titre de section (span 3)
      - "partenaires"→ titre de section
 #}
-{% set cases = [
-  "img", "img", "img", "img", "img",
-  "eikonlab", "img", "mot", "img", "sessions",
-  "img", "edito", "img", "img", "img", "bilan",
-  "img", "img", "priorites", "img", "img", "annee",
-  "encadrants", "img", "img", "partenaires"
-] %}
+{%
+  set cases = [
+    "img", "img", "img", "img", "img",
+    "eikonlab", "img", "mot", "img", "sessions",
+    "img", "edito", "img", "img", "img", "bilan",
+    "img", "img", "priorites", "img", "img", "annee",
+    "encadrants", "img", "img", "partenaires"
+  ]
+%}
 
 <div class="hero-grid">
-
   {% for case in cases %}
     {% if case == "img" %}
-  {# Image de projet — src à adapter selon la source de données choisie #}
-  <div class="hero-grid-cell hero-grid-cell-img" data-pos="{{ loop.index }}">
-    <img src="{{ config.medias[0].fichier | url }}" alt="{{ config.medias[0].legende }}" />
-  </div>
-
+      {# Image de projet — src à adapter selon la source de données choisie #}
+      <div
+        class="hero-grid-cell hero-grid-cell-img"
+        data-pos="{{ loop.index }}"
+      >
+        <img
+          src="{{ config.medias[0].fichier | url }}"
+          alt="{{ config.medias[0].legende }}"
+        />
+      </div>
     {% elif case == "eikonlab" %}
-      <div class="hero-grid-cell hero-grid-cell-eikonlab" data-pos="{{ loop.index }}">
+      <div
+        class="hero-grid-cell hero-grid-cell-eikonlab"
+        data-pos="{{ loop.index }}"
+      >
         eikonlab
       </div>
-  
     {% elif case == "mot" %}
       {# Cellule cliquable → ouvre hero-grid-expand-r2 (mot du directeur) #}
       <div
@@ -81,12 +89,13 @@ permalink: "/"
       >
         mot du directeur
       </div>
-
     {% elif case == "sessions" %}
-      <div class="hero-grid-cell hero-grid-cell-sessions" data-pos="{{ loop.index }}">
+      <div
+        class="hero-grid-cell hero-grid-cell-sessions"
+        data-pos="{{ loop.index }}"
+      >
         sessions
       </div>
-
     {% elif case == "edito" %}
       {# Cellule cliquable → ouvre hero-grid-expand-r3 (avant-propos / édito) #}
       <div
@@ -96,12 +105,13 @@ permalink: "/"
       >
         edito
       </div>
-
     {% elif case == "bilan" %}
-      <div class="hero-grid-cell hero-grid-cell-bilan" data-pos="{{ loop.index }}">
+      <div
+        class="hero-grid-cell hero-grid-cell-bilan"
+        data-pos="{{ loop.index }}"
+      >
         Bilan d'activité
       </div>
-
     {% elif case == "priorites" %}
       {# Cellule cliquable → ouvre hero-grid-expand-r4 (priorités) #}
       <div
@@ -111,19 +121,25 @@ permalink: "/"
       >
         priorités
       </div>
-
     {% elif case == "annee" %}
-      <div class="hero-grid-cell hero-grid-cell-annee" data-pos="{{ loop.index }}">
+      <div
+        class="hero-grid-cell hero-grid-cell-annee"
+        data-pos="{{ loop.index }}"
+      >
         25/26
       </div>
-
     {% elif case == "encadrants" %}
-      <div class="hero-grid-cell hero-grid-cell-encadrants" data-pos="{{ loop.index }}">
+      <div
+        class="hero-grid-cell hero-grid-cell-encadrants"
+        data-pos="{{ loop.index }}"
+      >
         encadrant.e.s
       </div>
-
     {% elif case == "partenaires" %}
-      <div class="hero-grid-cell hero-grid-cell-partenaires" data-pos="{{ loop.index }}">
+      <div
+        class="hero-grid-cell hero-grid-cell-partenaires"
+        data-pos="{{ loop.index }}"
+      >
         partenaires
       </div>
     {% endif %}
@@ -165,17 +181,14 @@ permalink: "/"
       <div class="hero-grid-expand-content"></div>
     </div>
   </div>
-
 </div>
-
-
 
 {# ============================================================
    Données injectées pour le JS du hero (voir assets/js/main.js)
    On expose ici les textes longs venant de config.json, lus par
    le script via window.HERO_DATA.
    ============================================================ #}
-<script>
+{# <script>
   window.HERO_DATA = {
     "hero-grid-cell-mot": {
       row: "r2",
@@ -196,8 +209,7 @@ permalink: "/"
     },
   };
   console.log("hero.js: window.HERO_DATA loaded:", window.HERO_DATA);
-</script>
-
+</script> #}
 
 <section>
   <h2>Mot du directeur</h2>
