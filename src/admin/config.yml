@@ -80,7 +80,7 @@ collections:
           - label: Encadrants
             name: encadrants
             widget: list
-            summary: "{{nom}}"
+            summary: "{{title}}"
             label_singular: "un·e encadrant·e"
             fields:
               - { label: Nom, name: title, widget: string }
