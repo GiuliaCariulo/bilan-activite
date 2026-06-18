@@ -11,153 +11,142 @@ permalink: "/"
      - config        → config.json
      - projets       → projets.js (lit le dossier projets/)
      - encadrants    → encadrants.json  (variable = objet entier)
+     - sections      → sections.json    (variable = objet entier)
      - interns       → interns.json     (variable = objet entier)
    ============================================================ #}
+<h1>Index aka Homepage</h1>
+<a href="{{ '/projets/ecole-de-couture/' | url }}"
+  >Écriture du permalink utilisé dans ce projet</a
+>
 
-{# ── CONFIG : infos générales ───────────────────────────────── #}
-<header>
-  <p>{{ config.organisation }}</p>
-  <h1>{{ config.titre }}</h1>
-</header>
+{# ============================================================
+   Exemple : Liste des projets (variable `projets`)
+   `projets` est un tableau injecté par src/_data/projets.js,
+   qui lit tous les fichiers JSON du dossier src/_data/projets/.
+   ============================================================ #}
+{% if projets and projets.length %}
+  <section class="projets">
+    {% for projet in projets %}
+      <article class="projet">
 
-<section>
-  <h2>Mot du directeur</h2>
-  {# Champ texte long : on utilise | nl2br pour respecter les sauts de ligne #}
-  <p>{{ config.intro_directeur | markdown | safe }}</p>
-</section>
+        {# Image de couverture #}
+        {% if projet.thumbnail %}
+          <img src="{{ projet.thumbnail }}" alt="{{ projet.title }}">
+        {% endif %}
 
-<p>test</p>
+        {# Titre + lien vers la page du projet #}
+        <h2>
+          <a href="{{ ('/projets/' + projet.id + '/') | url }}">{{ projet.title }}</a>
+        </h2>
 
-<section>
-  <h2>Avant-propos</h2>
-  <p>{{ config.intro_edito | markdown | safe }}</p>
+        {# Type de mandat #}
+        <p>{{ projet.mandate }}</p>
 
-  {# Priorités : liste, on vérifie qu'elle n'est pas vide avant d'afficher #}
-  {% if config.priorites and config.priorites.length %}
-    <h3>Les priorités pour eikonlab</h3>
-    <ol>
-      {% for priorite in config.priorites %}
-        <li>{{ priorite }}</li>
-      {% endfor %}
-    </ol>
-  {% endif %}
-</section>
+        {# Sessions (tableau de strings) #}
+        {% if projet.sessions and projet.sessions.length %}
+          <p>Sessions : {{ projet.sessions | join(', ') }}</p>
+        {% endif %}
 
-{# ── MÉDIAS GÉNÉRAUX ─────────────────────────────────────────── #}
-{# Condition : on n'affiche la section que si le tableau contient au moins un élément #}
-{% if config.medias and config.medias.length %}
-  <section>
-    <h2>Médias</h2>
-    <div>
-      {% for media in config.medias %}
+        {# Client·e·s (tableau de strings) #}
+        {% if projet.clients and projet.clients.length %}
+          <p>Client·e·s : {{ projet.clients | join(', ') }}</p>
+        {% endif %}
+
+        {# Tags (tableau de strings) #}
+        {% if projet.tags and projet.tags.length %}
+          <ul class="tags">
+            {% for tag in projet.tags %}
+              <li>{{ tag }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+        {# Description #}
+        <p>{{ projet.description }}</p>
+
+        {# Compétences mises en œuvre #}
+        {% if projet.skills %}
+          <p>Compétences : {{ projet.skills }}</p>
+        {% endif %}
+
+        {# Autres images (tableau de {fichier, legend}) #}
+        {% if projet.images and projet.images.length %}
+          <ul class="images">
+            {% for image in projet.images %}
+              <li>
+                <figure>
+                  <img src="{{ image.fichier }}" alt="{{ image.legend or '' }}">
+                  {% if image.legend %}
+                    <figcaption>{{ image.legend }}</figcaption>
+                  {% endif %}
+                </figure>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+        {# Liens (tableau de {label, url}) #}
+        {% if projet.links and projet.links.length %}
+          <ul class="liens">
+            {% for link in projet.links %}
+              <li>
+                <a href="{{ link.url }}" target="_blank">{{ link.label }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+      </article>
+    {% endfor %}
+  </section>
+{% endif %}
+
+{# ============================================================
+   Exemple : Sections (variable `sections`)
+   `sections` est l'objet injecté par src/_data/sections.json
+   (variable = objet entier, donc on boucle sur `sections.sections`).
+   `hook` et `text` sont du Markdown (widget: markdown dans le CMS),
+   on utilise le filtre `markdown` + `safe` pour les convertir en HTML.
+   ============================================================ #}
+{% if sections.sections and sections.sections.length %}
+  <section class="sections">
+    {% for section in sections.sections %}
+      <article class="section">
+        <h2>{{ section.title }}</h2>
+        {% if section.author %}
+          <p class="auteur">{{ section.author }}</p>
+        {% endif %}
+        {% if section.hook %}
+          <div class="accroche">{{ section.hook | markdown | safe }}</div>
+        {% endif %}
+        {% if section.text %}
+          <div class="texte">{{ section.text | markdown | safe }}</div>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </section>
+{% endif %}
+
+{# ============================================================
+   Exemple : Portfolio (config.portfolio)
+   Chaque entrée est soit une image (item.media.fichier),
+   soit une phrase/citation (item.quote).
+   ============================================================ #}
+{% if config.portfolio and config.portfolio.length %}
+  <section class="portfolio">
+    {% for item in config.portfolio %}
+      {% if item.media and item.media.image %}
         <figure>
-          <img src="{{ media.fichier | url }}" alt="{{ media.legende }}" />
-          {# Condition : légende affichée uniquement si elle existe #}
-          {% if media.legende %}
-            <figcaption>{{ media.legende }}</figcaption>
+          <img src="{{ item.media.image }}" alt="{{ item.media.legend or '' }}">
+          {% if item.media.legend %}
+            <figcaption>{{ item.media.legend }}</figcaption>
           {% endif %}
         </figure>
-      {% endfor %}
-    </div>
-  </section>
-{% endif %}
-
-{# ── PROJETS ─────────────────────────────────────────────────── #}
-<section>
-  <h2>Projets</h2>
-  <ul>
-    {% for projet in projets %}
-      {% include "carte-projet.njk" %}
+      {% elif item.quote %}
+        <blockquote>
+          <p>{{ item.quote }}</p>
+        </blockquote>
+      {% endif %}
     {% endfor %}
-  </ul>
-</section>
-
-{# ── ÉQUIPE : encadrants ─────────────────────────────────────── #}
-{# encadrants.encadrants : le fichier encadrants.json a la clé "encadrants" à la racine #}
-{% if encadrants.encadrants and encadrants.encadrants.length %}
-  <section>
-    <h2>Encadrant·es</h2>
-    <ul>
-      {% for encadrant in encadrants.encadrants %}
-        <li>
-          {# Condition : photo affichée uniquement si le champ est renseigné #}
-          {% if encadrant.photo %}
-            <img src="{{ encadrant.photo }}" alt="{{ encadrant.nom }}" />
-          {% endif %}
-
-          <strong>{{ encadrant.nom }}</strong>
-
-          {% if encadrant.titre %}
-            <span>{{ encadrant.titre }}</span>
-          {% endif %}
-
-          {# Condition : secteurs affichés uniquement si la liste est non vide #}
-          {% if encadrant.secteurs and encadrant.secteurs.length %}
-            <ul>
-              {% for secteur in encadrant.secteurs %}
-                <li>{{ secteur }}</li>
-              {% endfor %}
-            </ul>
-          {% endif %}
-        </li>
-      {% endfor %}
-    </ul>
   </section>
 {% endif %}
-
-{# ── ÉQUIPE : stagiaires par session ─────────────────────────── #}
-{# interns.aout_decembre / .janvier_avril / .avril_juillet
-   sont les trois tableaux définis dans interns.json #}
-<section>
-  <h2>Stagiaires</h2>
-
-  {%
-    set sessions = [
-      { label: "Août – décembre",  liste: stagiaires.aout_decembre },
-      { label: "Janvier – avril",  liste: stagiaires.janvier_avril },
-      { label: "Avril – juillet",  liste: stagiaires.avril_juillet }
-    ]
-  %}
-
-  {% for session in sessions %}
-    {# Condition : on n'affiche une session que si elle a au moins un stagiaire #}
-    {% if session.liste and session.liste.length %}
-      <h3>{{ session.label }}</h3>
-      <ul>
-        {% for stagiaire in session.liste %}
-          <li>
-            {% if stagiaire.photo %}
-              <img src="{{ stagiaire.photo }}" alt="{{ stagiaire.nom }}" />
-            {% endif %}
-            {{ stagiaire.nom }}
-          </li>
-        {% endfor %}
-      </ul>
-    {% endif %}
-  {% endfor %}
-</section>
-
-{# ── PARTENAIRES ─────────────────────────────────────────────── #}
-{% if config.partenaires and config.partenaires.length %}
-  <section>
-    <h2>Partenaires</h2>
-    <ul>
-      {% for partenaire in config.partenaires %}
-        <li>{{ partenaire }}</li>
-      {% endfor %}
-    </ul>
-  </section>
-{% endif %}
-
-{# ── RESSOURCES ──────────────────────────────────────────────── #}
-{# Condition : champ texte simple, on vérifie qu'il n'est pas vide #}
-{% if config.ressources %}
-  <section>
-    <h2>Ressources</h2>
-    <p>{{ config.ressources | markdown | safe }}</p>
-  </section>
-{% endif %}
-
-<footer>
-  <p>{{ config.organisation }}</p>
-</footer>

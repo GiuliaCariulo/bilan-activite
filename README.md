@@ -73,7 +73,7 @@ Le fichier `.github/workflows/deploy.yml` automatise le build et le déploiement
 
 | Variable         | Description                                                                |
 | ---------------- | -------------------------------------------------------------------------- |
-| `FTP_SERVER_DIR` | Chemin vers le ossier cible sur le serveur (ex. `/www/bilan-activite/`)    |
+| `FTP_SERVER_DIR` | Chemin vers le dossier cible sur le serveur (ex. `/www/bilan-activite/`)   |
 | `PATH_PREFIX`    | Préfixe d'URL si sous-dossier (ex. `/bilan-activite/`), laisser vide sinon |
 
 Une fois configuré, pousser sur `main` suffit à mettre le site à jour. Il est aussi possible de déclencher le déploiement manuellement depuis l'onglet **Actions** du dépôt GitHub.
@@ -88,8 +88,9 @@ Toutes les données du site vivent dans ce dossier sous forme de fichiers JSON. 
 
 ```
 src/_data/
-├── config.json          ← Infos générales : titre, organisation, édito, partenaires…
-├── encadrants.json      ← Liste des encadrant·es (nom, photo, titre, secteurs)
+├── config.json          ← Infos générales : titre, organisation, intro, priorités, portfolio, ressources, partenaires…
+├── encadrants.json      ← Liste des encadrant·es (nom, titre pro, bio, photo)
+├── sections.json        ← Sections de texte libre (titre, auteur·rice, accroche, texte)
 ├── stagiaires.json      ← Stagiaires groupés par session (août–déc, jan–avr, avr–juil)
 └── projets/             ← Un fichier JSON par projet
     ├── miam.json
@@ -156,11 +157,11 @@ title: Accueil
 
 ```njk
 {% for projet in projets %}
-  {% include "carte-projet.njk" %}
+  {% include "project-card.njk" %}
 {% endfor %}
 ```
 
-Le fichier inclus a accès aux mêmes variables que le template parent — ici `projet` est disponible dans `carte-projet.njk` sans passer de paramètre.
+Le fichier inclus a accès aux mêmes variables que le template parent — ici `projet` est disponible dans `project-card.njk` sans passer de paramètre.
 
 ---
 
@@ -225,6 +226,7 @@ bilan-eleventy/
 │   ├── _data/                 ← Contenu (JSON) — saisie via CMS ou éditeur
 │   │   ├── config.json
 │   │   ├── encadrants.json
+│   │   ├── sections.json
 │   │   ├── stagiaires.json
 │   │   ├── projets.js         ← Lit le dossier projets/ et retourne un tableau
 │   │   └── projets/
@@ -235,7 +237,7 @@ bilan-eleventy/
 │   │   │   ├── base.njk       ← Wrappeur universel (head, body, CSS, JS)
 │   │   │   └── projet.njk     ← Page de détail d'un projet
 │   │   ├── _includes/         ← Composants réutilisables
-│   │   │   └── carte-projet.njk
+│   │   │   └── project-card.njk
 │   │   ├── index.njk          ← Page d'accueil
 │   │   └── projets.njk        ← Génère une page par projet (pagination Eleventy)
 │   │
