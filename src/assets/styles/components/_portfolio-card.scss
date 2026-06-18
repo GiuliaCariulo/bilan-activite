@@ -7,7 +7,7 @@
   height: 267px;
 }
 
-.card-img {
+.portfolio-card-img {
   position: relative;
   background-color: red;
   cursor: pointer;
@@ -46,7 +46,7 @@
   z-index: 1;
 }
 
-.card-img:hover .portfolio-legende {
+.portfolio-card-img:hover .portfolio-legende {
   opacity: 1;
 }
 

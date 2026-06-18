@@ -31,7 +31,7 @@ permalink: "/"
   <h2>portfolio</h2>
   <div class="portfolio-wrapper">
     {% for portfolio in config.medias %}
-      <div class="card card-img" data-pos="{{loop.index}}">
+      <div class="card portfolio-card-img" data-pos="{{loop.index}}">
         {% include "portfolio-card.njk" %}
       </div>
     {% endfor %}
