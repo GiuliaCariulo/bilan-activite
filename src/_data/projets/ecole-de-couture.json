@@ -11,11 +11,11 @@
   "titre": "Ecole de couture",
   "images": [
     {
-      "fichier": "/public/images/anik-das-y7uesldr0-e-unsplash.jpg",
+      "fichier": "/public/images/portfolio_001.png",
       "legende": "une làgende chouette"
     },
     {
-      "fichier": "/public/images/li-yang-rpmxonjh3hm-unsplash.jpg"
+      "fichier": "/public/images/portfolio_001.png"
     }
   ],
   "videos": [],
