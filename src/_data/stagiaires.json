@@ -1,121 +1,121 @@
 {
   "aout_decembre": [
     {
-      "nom": "Axel Bütikofer",
-      "photo": ""
+      "title": "Axel Bütikofer",
+      "image": ""
     },
     {
-      "nom": "Joris Sommerhalder"
+      "title": "Joris Sommerhalder"
     },
     {
-      "nom": "Jeanne Sciboz"
+      "title": "Jeanne Sciboz"
     },
     {
-      "nom": "Meg Roulin"
+      "title": "Meg Roulin"
     },
     {
-      "nom": "Lauriane Sauteur"
+      "title": "Lauriane Sauteur"
     },
     {
-      "nom": "Yuma Comazzi"
+      "title": "Yuma Comazzi"
     },
     {
-      "nom": "Maëva Christan"
+      "title": "Maëva Christan"
     },
     {
-      "nom": "Clémentine Couchet"
+      "title": "Clémentine Couchet"
     },
     {
-      "nom": "Jordan Crettenand"
+      "title": "Jordan Crettenand"
     },
     {
-      "nom": "Anaïs Chassot"
+      "title": "Anaïs Chassot"
     },
     {
-      "nom": "Lilia Aouissaoui"
+      "title": "Lilia Aouissaoui"
     }
   ],
   "janvier_avril": [
     {
-      "nom": "Bertschy Victor",
-      "photo": ""
+      "title": "Bertschy Victor",
+      "image": ""
     },
     {
-      "nom": "Schüler Noé"
+      "title": "Schüler Noé"
     },
     {
-      "nom": "Oliva Baeriswyl"
+      "title": "Oliva Baeriswyl"
     },
     {
-      "nom": "Elisa von der Forst"
+      "title": "Elisa von der Forst"
     },
     {
-      "nom": "Matilde Ribeiro da Conceição"
+      "title": "Matilde Ribeiro da Conceição"
     },
     {
-      "nom": "Saya Pelloni"
+      "title": "Saya Pelloni"
     },
     {
-      "nom": "Jolie Helfer"
+      "title": "Jolie Helfer"
     },
     {
-      "nom": "Camille Gillon"
+      "title": "Camille Gillon"
     },
     {
-      "nom": "Zoé Busigny"
+      "title": "Zoé Busigny"
     },
     {
-      "nom": "Flavio Rotunno"
+      "title": "Flavio Rotunno"
     },
     {
-      "nom": "Elise Mutrux"
+      "title": "Elise Mutrux"
     },
     {
-      "nom": "Léna Benninger"
+      "title": "Léna Benninger"
     }
   ],
   "avril_juillet": [
     {
-      "nom": "Oscar Tomasetti"
+      "title": "Oscar Tomasetti"
     },
     {
-      "nom": "Lysiane Rial"
+      "title": "Lysiane Rial"
     },
     {
-      "nom": "Matéo Reichenbach"
+      "title": "Matéo Reichenbach"
     },
     {
-      "nom": "Magnolia Occhipinti"
+      "title": "Magnolia Occhipinti"
     },
     {
-      "nom": "Paula Melo"
+      "title": "Paula Melo"
     },
     {
-      "nom": "Elisa Kahraman"
+      "title": "Elisa Kahraman"
     },
     {
-      "nom": "Andrea Iacoviello"
+      "title": "Andrea Iacoviello"
     },
     {
-      "nom": "Nina Toscanelli"
+      "title": "Nina Toscanelli"
     },
     {
-      "nom": "Simon Ruchet"
+      "title": "Simon Ruchet"
     },
     {
-      "nom": "Fiona Perina"
+      "title": "Fiona Perina"
     },
     {
-      "nom": "Camille Magnin"
+      "title": "Camille Magnin"
     },
     {
-      "nom": "Charlot Kolly"
+      "title": "Charlot Kolly"
     },
     {
-      "nom": "Liam Kohler"
+      "title": "Liam Kohler"
     },
     {
-      "nom": "Jade Gomez"
+      "title": "Jade Gomez"
     }
   ]
 }
