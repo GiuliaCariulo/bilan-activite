@@ -1,19 +1,17 @@
 <article class="portfolio-card">
-  {% if portfolio.fichier %}
+  {% if item.media.image %}
     <figure>
       <img
-        src="{{ portfolio.fichier | url }}"
+        src="{{ item.media.image | url }}"
         alt="légende de l'image ou titre du projet"
-      >
-      {% include portfolio.legende %}
-      <figcaption class="portfolio-legende">
-        {{ portfolio.legende }}
-      </figcaption>
+      />
+      {% if item.media.legend %}
+        <figcaption class="portfolio-legende">
+          {{ item.media.legend }}
+        </figcaption>
       {% endif %}
     </figure>
-  {% endif %}
-
-  {% if portfolio.quote %}
-    <p class="portfolio-card-text">{{ portfolio.quote }}</p>
+  {% elif item.quote %}
+    <p class="portfolio-card-text">{{ item.quote }}</p>
   {% endif %}
 </article>
