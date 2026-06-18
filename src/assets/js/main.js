@@ -1,2 +1,5 @@
 // main.js — Point d'entrée JS chargé sur toutes les pages
-console.log("test");
+import "./hero.js";
+
+// Entrée globale (garder un petit log pour vérifier le chargement)
+console.log("main.js chargé");

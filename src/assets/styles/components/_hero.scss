@@ -8,18 +8,20 @@
   font-family: "Helvetica Neue", Arial, sans-serif;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
+  align-items: stretch;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
 
   // 5 rangées de cellules (20% chacune) + 3 rangées d'expand (0fr par défaut)
   // ordre : r1 - r2 - expand-r2 - r3 - expand-r3 - r4 - expand-r4 - r5
-  // grid-template-rows: 20% 20% 0fr 20% 0fr 20% 0fr 20%;
-  grid-template-rows: repeat(5, 1fr) 0fr 0fr 0fr;
+  // ordre HTML réel : r1 - r2 - expand-r2 - r3 - expand-r3 - r4 - expand-r4 - r5
+  grid-template-rows: 1fr 1fr 0fr 1fr 0fr 1fr 0fr 1fr;
   transition: grid-template-rows 0.6s cubic-bezier(0.77, 0, 0.175, 1);
 
   // état "ouvert" : la rangée d'expand correspondante passe à 1fr
   &.open-r2 {
-    grid-template-rows: 20% 20% 1fr 20% 0fr 20% 0fr 20%;
+    grid-template-rows: 1fr 1fr 1fr 1fr 0fr 1fr 0fr 1fr;
 
     .hero-grid-expand-r2 .hero-grid-expand-content {
       opacity: 1;
@@ -28,7 +30,7 @@
   }
 
   &.open-r3 {
-    grid-template-rows: 20% 20% 0fr 20% 1fr 20% 0fr 20%;
+    grid-template-rows: 1fr 1fr 0fr 1fr 1fr 1fr 0fr 1fr;
 
     .hero-grid-expand-r3 .hero-grid-expand-content {
       opacity: 1;
@@ -37,7 +39,7 @@
   }
 
   &.open-r4 {
-    grid-template-rows: 20% 20% 0fr 20% 0fr 20% 1fr 20%;
+    grid-template-rows: 1fr 1fr 0fr 1fr 0fr 1fr 1fr 1fr;
 
     .hero-grid-expand-r4 .hero-grid-expand-content {
       opacity: 1;
@@ -58,6 +60,8 @@
     line-height: 1.1;
     text-align: center;
     color: #111;
+    min-height: 0; // déjà là ?
+    min-width: 0; // ajoute ça aussi
 
     // Placement par position (data-pos) — cellules sur 2 colonnes
     &[data-pos="2"],
@@ -83,6 +87,18 @@
     // Placeholder photo (sera remplacé par une vraie image)
     &-img {
       background: #ccc;
+      padding: 0;
+      display: block;
+      overflow: hidden;
+      flex: 1;
+      align-self: stretch;
+      min-height: 0;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
     }
 
     // Cellules avec fond blanc et interactions
@@ -147,6 +163,21 @@
     overflow: hidden;
     background: #fff;
     min-height: 0; // nécessaire pour que 0fr écrase bien la rangée
+    max-height: 0;
+    transition: max-height 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+
+    // Position des expand sur les rangées spécifiques
+    &-r2 {
+      grid-row: 3;
+    }
+
+    &-r3 {
+      grid-row: 5;
+    }
+
+    &-r4 {
+      grid-row: 7;
+    }
 
     &-sizer {
       overflow: hidden;

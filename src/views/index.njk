@@ -62,8 +62,10 @@ permalink: "/"
 
   {% for case in cases %}
     {% if case == "img" %}
-      {# Placeholder image — sera remplacé par une vraie image de projet #}
-      <img class="hero-grid-cell hero-grid-cell-img" data-pos="{{ loop.index }}" alt="image"></img>
+  {# Image de projet — src à adapter selon la source de données choisie #}
+  <div class="hero-grid-cell hero-grid-cell-img" data-pos="{{ loop.index }}">
+    <img src="{{ config.medias[0].fichier | url }}" alt="{{ config.medias[0].legende }}" />
+  </div>
 
     {% elif case == "eikonlab" %}
       <div class="hero-grid-cell hero-grid-cell-eikonlab" data-pos="{{ loop.index }}">
@@ -166,6 +168,8 @@ permalink: "/"
 
 </div>
 
+
+
 {# ============================================================
    Données injectées pour le JS du hero (voir assets/js/main.js)
    On expose ici les textes longs venant de config.json, lus par
@@ -175,26 +179,23 @@ permalink: "/"
   window.HERO_DATA = {
     "hero-grid-cell-mot": {
       row: "r2",
-      text: {{ config.intro_directeur | markdown | safe | dump }},
+      text: `{{ config.intro_directeur | markdown | safe }}`,
       textSuite: null,
       signature: "Felix Kaufmann, directeur d'eikon",
     },
     "hero-grid-cell-edito": {
       row: "r3",
-      text: {{ config.intro_edito | markdown | safe | dump }},
+      text: `{{ config.intro_edito | markdown | safe }}`,
       textSuite: null,
       signature: "l'équipe eikonlab",
     },
     "hero-grid-cell-priorites": {
       row: "r4",
-      items: [
-        {% for priorite in config.priorites %}
-          { titre: {{ priorite.titre | dump }}, texte: {{ priorite.texte | dump }} }{% if not loop.last %},{% endif %}
-        {% endfor %}
-      ],
+      items: {{ config.priorites | tojson }},
       signature: null,
     },
   };
+  console.log("hero.js: window.HERO_DATA loaded:", window.HERO_DATA);
 </script>
 
 
