@@ -3,6 +3,11 @@
 // Nomenclature : hero-grid-*
 // ============================================================
 
+$color-primary: #000000;
+$color-secondary: #ffffff;
+$color-main-accent: #ff9f1a;
+$color-second-accent: #0048ff;
+
 // ── Grille principale ────────────────────────────────────────
 .hero-grid {
   width: 100vw;
@@ -16,7 +21,7 @@
 
   // état "ouvert" : la rangée d'expand correspondante passe à 1fr
   &.open-r2 {
-    grid-template-rows: 1fr 1fr 1fr 1fr 0fr 1fr 0fr 1fr;
+    grid-template-rows: 1fr 1fr auto 1fr 0fr 1fr 0fr 1fr;
 
     .hero-grid-expand-r2 .hero-grid-expand-content {
       opacity: 1;
@@ -25,7 +30,7 @@
   }
 
   &.open-r3 {
-    grid-template-rows: 1fr 1fr 0fr 1fr 1fr 1fr 0fr 1fr;
+    grid-template-rows: 1fr 1fr 0fr 1fr auto 1fr 0fr 1fr;
 
     .hero-grid-expand-r3 .hero-grid-expand-content {
       opacity: 1;
@@ -34,7 +39,7 @@
   }
 
   &.open-r4 {
-    grid-template-rows: 1fr 1fr 0fr 1fr 0fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 0fr 1fr 0fr 1fr auto 1fr;
 
     .hero-grid-expand-r4 .hero-grid-expand-content {
       opacity: 1;
@@ -122,7 +127,7 @@
     // Titres de section (orange, gros)
     &-bilan,
     &-eikonlab {
-      color: #ff8c00;
+      color: $color-main-accent;
       font-size: clamp(18px, 3.2vw, 40px);
       font-weight: 900;
       padding: 14px 18px;
@@ -157,9 +162,9 @@
     grid-column: 1 / -1;
     overflow: hidden;
     min-height: 0; // nécessaire pour que 0fr écrase bien la rangée
-    max-height: 0;
     transition: max-height 0.6s cubic-bezier(0.77, 0, 0.175, 1);
-    z-index: -1;
+    z-index: 0;
+    height: auto;
 
     // Position des expand sur les rangées spécifiques
     &-r2 {
@@ -179,7 +184,7 @@
     }
 
     &-content {
-      height: 100%;
+      height: auto;
       display: grid;
       grid-template-columns: repeat(8, 1fr);
       padding: 80px 0;
