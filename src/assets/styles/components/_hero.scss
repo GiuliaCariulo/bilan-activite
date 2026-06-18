@@ -1,12 +1,9 @@
+@use "../variables" as *;
+
 // ============================================================
 // _hero.scss — Grille héro de la page d'accueil
 // Nomenclature : hero-grid-*
 // ============================================================
-
-$color-primary: #000000;
-$color-secondary: #ffffff;
-$color-main-accent: #ff9f1a;
-$color-second-accent: #0048ff;
 
 // ── Grille principale ────────────────────────────────────────
 .hero-grid {
@@ -49,17 +46,16 @@ $color-second-accent: #0048ff;
 
   // ── Cellules génériques ─────────────────────────────────────
   &-cell {
-    background: #ccc;
-    border: 1px solid #e0e0e0;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 12px;
-    font-size: clamp(14px, 2.2vw, 28px);
-    font-weight: 400;
-    line-height: 1.1;
     text-align: center;
-    color: #111;
+    font-size: clamp(32px, 2.2vw, 36px);
+    font-family: $font;
+    font-weight: $font-weight-title;
+    line-height: $font-line-height-title;
+    font-style: $font-style-title;
+    color: $color-primary;
     min-height: 0; // déjà là ?
     min-width: 0; // ajoute ça aussi
 
@@ -86,8 +82,6 @@ $color-second-accent: #0048ff;
 
     // Placeholder photo (sera remplacé par une vraie image)
     &-img {
-      background: #ccc;
-      padding: 0;
       display: block;
       overflow: hidden;
       flex: 1;
@@ -102,40 +96,43 @@ $color-second-accent: #0048ff;
     }
 
     // Cellules avec fond blanc et interactions
-    &-eikonlab,
     &-mot,
     &-sessions,
     &-edito,
-    &-bilan,
-    &-annee,
     &-priorites,
     &-encadrants,
     &-partenaires {
-      background: #fff;
+      background: $color-secondary;
       cursor: pointer;
 
       &:hover {
-        color: var(--color-main-accent);
-        font-weight: 700;
+        color: $color-accent;
+        font-style: $font-style-title;
+        font-weight: $font-weight-legend;
       }
 
       &.active {
-        color: var(--color-main-accent);
+        color: $color-accent;
       }
     }
 
-    // Titres de section (orange, gros)
+    // Titres de section (lime, gros)
     &-bilan,
     &-eikonlab {
-      color: $color-main-accent;
-      font-size: clamp(18px, 3.2vw, 40px);
-      font-weight: 900;
+      color: $color-primary;
+      background: $color-accent;
+      font-size: clamp(60px, 3.2vw, 64px);
+      font-family: $font;
+      font-weight: $font-weight-title;
+      line-height: $font-line-height-title;
+      font-style: $font-style-title;
       padding: 14px 18px;
     }
 
     &-annee {
-      font-size: clamp(16px, 2.8vw, 36px);
-      font-weight: 900;
+      font-size: clamp(60px, 2.8vw, 64px);
+      font-weight: $font-weight-title;
+      background: $color-accent;
     }
 
     // Sous-éléments du bloc priorités (générés en JS)
@@ -143,16 +140,16 @@ $color-second-accent: #0048ff;
       &-title {
         grid-column: 2 / 4;
         font-size: clamp(18px, 2vw, 28px);
-        font-weight: 900;
-        line-height: 1.15;
+        font-weight: $font-weight-title;
+        line-height: $font-line-height-title;
       }
 
       &-text {
         grid-column: 4 / 8;
         font-size: clamp(15px, 1.3vw, 18px);
-        line-height: 1.37;
+        line-height: $font-line-height-text;
         letter-spacing: 0.9px;
-        font-weight: 300;
+        font-weight: $font-weight-text;
       }
     }
   }
@@ -212,7 +209,7 @@ $color-second-accent: #0048ff;
       line-height: 1.37;
       letter-spacing: 0.9px;
       color: #111;
-      font-weight: 300;
+      font-weight: $font-weight-text;
 
       &-suite {
         display: none;
@@ -221,7 +218,7 @@ $color-second-accent: #0048ff;
         line-height: 1.37;
         letter-spacing: 0.9px;
         color: #111;
-        font-weight: 300;
+        font-weight: $font-weight-text;
       }
     }
 
