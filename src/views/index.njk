@@ -21,7 +21,7 @@ permalink: "/"
 
 <section>
   <h2>portfolio</h2>
-  <div class="portfolio-wrapper">
+  <div class="portfolio-wrapper row" href="#portfolio-popup">
     {% for item in config.portfolio %}
       <div
         class="portfolio-card-pos portfolio-card-img"
@@ -32,15 +32,6 @@ permalink: "/"
     {% endfor %}
   </div>
 </section>
-
-<div id="portfolio-popup" class="portfolio-overlay">
-  <div class="portfolio-popup">
-    <a class="portfolio-close" href="#"><h2>fermer</h2></a>
-    <div class="portfolio-content">
-      <img src="../public/img/portfolio/Portfolio_001.png" alt="legende" />
-    </div>
-  </div>
-</div>
 
 {# ============================================================
    Exemple : Liste des projets (variable `projets`)

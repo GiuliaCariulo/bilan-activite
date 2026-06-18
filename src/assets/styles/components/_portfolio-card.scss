@@ -1,3 +1,5 @@
+@use "../variables" as *;
+@use "../layout" as *;
 // ============================================================
 // section portfolio : cartes et textes
 // ============================================================
@@ -19,6 +21,8 @@
   justify-content: center;
   align-items: center;
   cursor: default;
+  font-family: $font;
+  font-size: 0.6rem;
 }
 
 .portfolio-card-text {
@@ -28,7 +32,7 @@
   align-items: center;
 }
 
-.portfolio-legende {
+.portfolio-legend {
   width: 100%;
   position: absolute;
   left: 0;
@@ -39,14 +43,19 @@
   justify-content: center;
   align-items: center;
   background: black;
-  color: #fff;
   transition:
     transform 0.2s ease,
     opacity 0.2s ease;
   z-index: 1;
+
+  p {
+    font-family: $font;
+    font-size: 0.6rem;
+    color: #fff;
+  }
 }
 
-.portfolio-card-img:hover .portfolio-legende {
+article.portfolio-card:hover .portfolio-legend {
   opacity: 1;
 }
 
@@ -65,6 +74,7 @@ article.portfolio-card {
       object-fit: cover;
       border-radius: 0;
     }
+
     figcaption {
       width: 100%;
     }
@@ -77,50 +87,77 @@ article.portfolio-card {
 
 .portfolio-overlay {
   position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  inset: 0;
+  transition: opacity 500ms;
+  display: none;
+
+  // grid-template-areas: ". portfoliobuttonclose . . portfolioimgpopup portfolioimgpopup portfolioimgpopup .";
+}
+
+// .portfolio-overlay:target {
+//   display: flex;
+// }
+
+.portfolio-popup-box {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 137px 180px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(5px);
-  transition: opacity 500ms;
-  visibility: hidden;
-  opacity: 0;
-}
-
-.portfolio-overlay:target {
-  visibility: visible;
-  opacity: 1;
-}
-
-.popup {
-  margin: 70px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 5px;
-  width: 30%;
   position: relative;
   transition: all 5s ease-in-out;
 }
 
-.portfolio-popup .portfolio-close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
+.portfolio-close {
   transition: all 200ms;
-  font-size: 30px;
-  font-weight: normal;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding: 24px;
   text-decoration: none;
-  color: blue;
+
+  button {
+    border: none;
+    background: none;
+    grid-area: portfoliobuttonclose;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: blue;
+  }
 }
 
-.portfolio-popup .portfolio-close:hover {
+.portfolio-close h4:hover {
   font-weight: bold;
 }
 
-.portfolio-popup .portfolio-content {
-  max-height: 30%;
-  overflow: auto;
+.portfolio-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    align-items: end;
+    justify-self: start;
+    background-color: black;
+    padding: $space-md;
+    color: #fff;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    grid-area: portfolioimgpopup;
+  }
 }
 
 // ============================================================
@@ -129,14 +166,16 @@ article.portfolio-card {
 
 .portfolio-wrapper {
   max-height: 100%;
-  display: grid;
-  grid-template-columns: repeat(30, 1fr);
-  grid-template-rows: repeat(8, 1fr);
+  // display: grid;
+  // grid-template-columns: repeat(30, 1fr);
+  // grid-template-rows: repeat(8, 1fr);
+  grid-template-areas: ". . img1 img1 . . . .";
 }
 
 .portfolio-card-pos[data-pos="1"] {
-  grid-column: 1 / 2;
-  grid-row: 3 / 4;
+  // grid-column: 1 / 2;
+  // grid-row: 3 / 4;
+  grid-area: img1;
 }
 
 .portfolio-card-pos[data-pos="2"] {

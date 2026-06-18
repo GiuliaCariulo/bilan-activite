@@ -1,17 +1,30 @@
 <article class="portfolio-card">
   {% if item.media.image %}
-    <figure href="#portfolio-popup">
+    <figure>
       <img
         src="{{ item.media.image | url }}"
         alt="légende de l'image ou titre du projet"
       />
       {% if item.media.legend %}
-        <figcaption class="portfolio-legende">
-          {{ item.media.legend }}
+        <figcaption class="portfolio-legend">
+          <p class="portfolio-card-legend">{{ item.media.legend }}</p>
         </figcaption>
       {% endif %}
     </figure>
   {% elif item.quote %}
     <p class="portfolio-card-text">{{ item.quote }}</p>
   {% endif %}
+</article>
+
+<article class="portfolio-popup">
+  {% for item in config.portfolio %}
+    <div id="popup-{{ loop.index }}" class="portfolio-overlay row">
+      <div class="portfolio-popup-box">
+        <a class="portfolio-close" href="#"
+          ><button><h4>fermer</h4></button></a
+        >
+        <div class="portfolio-content">{% include "portfolio-card.njk" %}</div>
+      </div>
+    </div>
+  {% endfor %}
 </article>
