@@ -1,4 +1,4 @@
-<article class="card-portfolio">
+<article class="portfolio-card">
   {% if portfolio.fichier %}
     <figure>
       <img
@@ -6,7 +6,7 @@
         alt="légende de l'image ou titre du projet"
       >
       {% include portfolio.legende %}
-      <figcaption class="legende-portfolio">
+      <figcaption class="portfolio-legende">
         {{ portfolio.legende }}
       </figcaption>
       {% endif %}
@@ -14,6 +14,6 @@
   {% endif %}
 
   {% if portfolio.quote %}
-    <p class="card-text">{{ portfolio.quote }}</p>
+    <p class="portfolio-card-text">{{ portfolio.quote }}</p>
   {% endif %}
 </article>

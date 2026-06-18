@@ -29,10 +29,10 @@ permalink: "/"
 
 <section>
   <h2>portfolio</h2>
-  <div class="wrapper-portfolio">
+  <div class="portfolio-wrapper">
     {% for portfolio in config.medias %}
       <div class="card card-img" data-pos="{{loop.index}}">
-        {% include "card-portfolio.njk" %}
+        {% include "portfolio-card.njk" %}
       </div>
     {% endfor %}
   </div>
