@@ -1,14 +1,9 @@
-// .teams {
-//   margin: 240px 0;
-// }
-
-.team-box-container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 30px;
-}
+@use "../variables" as *;
 
 .team-box {
-  background-color: red;
+  background-color: $color-accent;
+}
+
+figure.team-card img {
+  width: 100px;
 }
