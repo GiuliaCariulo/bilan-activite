@@ -1,0 +1,14 @@
+// .teams {
+//   margin: 240px 0;
+// }
+
+.team-box-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.team-box {
+  background-color: red;
+}

@@ -19,24 +19,46 @@ permalink: "/"
   >Écriture du permalink utilisé dans ce projet</a
 >
 
+<section class="teams">
+  <section class="sessions">
+    <div class="teams-sessions">
+      <div class="team-container">
+        <div class="team-box-container">
+          <div class="team-box">
+            <h2>Automne</h2>
+            <p>
+              <br />du 31 août au <br />
+              18 décembre 2025
+            </p>
+          </div>
+        </div>
+        <div class="team-cards">
+          {% include "team-card.njk" ignore missing %}
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
 {# ============================================================
    Exemple : Liste des projets (variable `projets`)
    `projets` est un tableau injecté par src/_data/projets.js,
    qui lit tous les fichiers JSON du dossier src/_data/projets/.
    ============================================================ #}
-{% if projets and projets.length %}
+<!-- {% if projets and projets.length %}
   <section class="projets">
     {% for projet in projets %}
       <article class="projet">
-
         {# Image de couverture #}
         {% if projet.thumbnail %}
-          <img src="{{ projet.thumbnail }}" alt="{{ projet.title }}">
+          <img src="{{ projet.thumbnail }}" alt="{{ projet.title }}" />
         {% endif %}
 
         {# Titre + lien vers la page du projet #}
         <h2>
-          <a href="{{ ('/projets/' + projet.id + '/') | url }}">{{ projet.title }}</a>
+          <a href="{{ ('/projets/' + projet.id + '/') | url }}"
+            >{{ projet.title }}</a
+          >
         </h2>
 
         {# Type de mandat #}
@@ -75,7 +97,10 @@ permalink: "/"
             {% for image in projet.images %}
               <li>
                 <figure>
-                  <img src="{{ image.fichier }}" alt="{{ image.legend or '' }}">
+                  <img
+                    src="{{ image.fichier }}"
+                    alt="{{ image.legend or '' }}"
+                  />
                   {% if image.legend %}
                     <figcaption>{{ image.legend }}</figcaption>
                   {% endif %}
@@ -95,7 +120,6 @@ permalink: "/"
             {% endfor %}
           </ul>
         {% endif %}
-
       </article>
     {% endfor %}
   </section>
@@ -137,7 +161,10 @@ permalink: "/"
     {% for item in config.portfolio %}
       {% if item.media and item.media.image %}
         <figure>
-          <img src="{{ item.media.image }}" alt="{{ item.media.legend or '' }}">
+          <img
+            src="{{ item.media.image }}"
+            alt="{{ item.media.legend or '' }}"
+          />
           {% if item.media.legend %}
             <figcaption>{{ item.media.legend }}</figcaption>
           {% endif %}
@@ -149,4 +176,4 @@ permalink: "/"
       {% endif %}
     {% endfor %}
   </section>
-{% endif %}
+{% endif %} -->
