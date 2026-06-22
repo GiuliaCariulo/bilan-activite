@@ -13,12 +13,18 @@ html {
   font-family: $font;
   font-weight: $font-weight-text;
   font-size: 24px;
+  text-align: right;
   scroll-behavior: smooth;
 }
 
-h1 {
-  span {
-    opacity: 0;
-    font-size: 0;
-  }
+h1,
+h2,
+h3 {
+  font-weight: $font-weight-title;
+  font-style: $font-style-title;
+  line-height: $font-line-height-title;
+}
+
+h3 {
+  font-size: 18px;
 }

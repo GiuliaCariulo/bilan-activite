@@ -17,9 +17,19 @@
   "portfolio": [
     {
       "media": {
-        "image": "/public/images/adam-wilson-isowgfjz2u0-unsplash.jpg",
+        "image": "/public/images/portfolio_001.png",
         "legend": "test"
       }
+    },
+    {
+      "quote": "salut cest moi choupi je rentre vers lecole youpiiiiii"
+    },
+    {
+      "media": {
+        "image": "/public/images/58adofoto.jpg",
+        "legend": "legende de popop"
+      },
+      "quote": "salut cest moi choupi je rentre vers lecole youpiiiiii"
     }
   ],
   "titre": "Bilan d'activité 2025-26",
@@ -28,7 +38,7 @@
   "partners": [
     {
       "title": "Festival International du Film de Fribourg",
-      "image": ""
+      "image": "/public/images/adam-wilson-isowgfjz2u0-unsplash.jpg"
     },
     {
       "title": "Volontiers",

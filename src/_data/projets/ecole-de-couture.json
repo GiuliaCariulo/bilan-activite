@@ -10,11 +10,11 @@
   "title": "Ecole de couture",
   "images": [
     {
-      "fichier": "/public/images/anik-das-y7uesldr0-e-unsplash.jpg",
-      "legend": "une làgende chouette"
+      "fichier": "/public/images/portfolio_001.png",
+      "legend": "une légende chouette"
     },
     {
-      "fichier": "/public/images/li-yang-rpmxonjh3hm-unsplash.jpg"
+      "fichier": "/public/images/portfolio_001.png"
     }
   ],
   "mandate": "Événement",
