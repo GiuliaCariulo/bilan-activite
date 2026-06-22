@@ -18,7 +18,9 @@ permalink: "/"
 <a href="{{ '/projets/ecole-de-couture/' | url }}"
   >Écriture du permalink utilisé dans ce projet</a
 >
-
+<!-- // ============================================================
+// section portfolio : wrapper
+// ============================================================ -->
 <section>
   <h2>portfolio</h2>
   <div class="portfolio-wrapper row">
@@ -33,12 +35,13 @@ permalink: "/"
     {% endfor %}
   </div>
 </section>
-
+<!-- // ============================================================
+// section portfolio : pop up
+// ============================================================ -->
 <div class="porfolio-content-modal portfolio-hidden-modal row">
   <div class="modal-header">
     <button class="portfolio-close-modal"><h4>fermer</h4></button>
   </div>
-
   {% for item in config.portfolio %}
     <div
       class="portfolio-body-modal portfolio-selector-hidden"
@@ -49,32 +52,6 @@ permalink: "/"
     </div>
   {% endfor %}
 </div>
-<!-- <article class="portfolio-popup hidden-modal">
-  {% for item in config.portfolio %}
-    <div class="portfolio-overlay row" id="popup-{{ loop.index }}">
-      <div class="portfolio-popup-box">
-        <a class="portfolio-close close-modal" href="#">
-          <button><h4>fermer</h4></button>
-        </a>
-        <div class="portfolio-content">
-          {% if item.media.image %}
-            <figure>
-              <img
-                src="{{ item.media.image | url }}"
-                alt="{{ item.media.legend or 'image du projet' }}"
-              />
-              {% if item.media.legend %}
-                <figcaption class="portfolio-legend">
-                  <p class="portfolio-card-legend">{{ item.media.legend }}</p>
-                </figcaption>
-              {% endif %}
-            </figure>
-          {% endif %}
-        </div>
-      </div>
-    </div>
-  {% endfor %}
-</article> -->
 
 {# ============================================================
    Exemple : Liste des projets (variable `projets`)
