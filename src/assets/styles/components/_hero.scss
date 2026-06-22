@@ -1,25 +1,35 @@
 @use "../variables" as *;
 
-// ============================================================
-// _hero.scss — Grille héro de la page d'accueil
-// Nomenclature : hero-grid-*
-// ============================================================
+// ==========================================================================
+// hero-grid — Grille héro de la page d'accueil
+// ==========================================================================
 
-// ── Grille principale ────────────────────────────────────────
 .hero-grid {
   width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  align-items: stretch;
+  min-height: 100vh;
+  height: auto; // ← permet à la grille de grandir
+  overflow: visible;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: 1fr 1fr 0fr 1fr 0fr 1fr 0fr 1fr;
+  grid-template-rows: 20% 20% 0px 20% 0px 20% 0px 20%;
+  grid-template-areas:
+    "img1     img2     img2  img3      contact   contact     img4        img4"
+    "eikonlab eikonlab img5  mot       mot       img6        sessions    sessions"
+    ".        .        .     .         .         .           .           ."
+    "img7     edito    img8  img8      img9      img10       bilan       bilan"
+    ".        .        .     .         .         .           .           ."
+    "img11    img12    priorites priorites img13 img14       img14       annee"
+    ".        .        .     .         .         .           .           ."
+    "encadrants encadrants encadrants img15 img15 partenaires partenaires img16";
+  gap: 0;
   transition: grid-template-rows 0.6s cubic-bezier(0.77, 0, 0.175, 1);
 
-  // état "ouvert" : la rangée d'expand correspondante passe à 1fr
-  &.open-r2 {
-    grid-template-rows: 1fr 1fr auto 1fr 0fr 1fr 0fr 1fr;
+  // ==========================================================================
+  // États d'ouverture des expands
+  // ==========================================================================
 
+  &.open-r2 {
+    grid-template-rows: 20% 20% auto 20% 0px 20% 0px 20%;
     .hero-grid-expand-r2 .hero-grid-expand-content {
       opacity: 1;
       transform: translateY(0);
@@ -27,8 +37,7 @@
   }
 
   &.open-r3 {
-    grid-template-rows: 1fr 1fr 0fr 1fr auto 1fr 0fr 1fr;
-
+    grid-template-rows: 20% 20% 0px 20% auto 20% 0px 20%;
     .hero-grid-expand-r3 .hero-grid-expand-content {
       opacity: 1;
       transform: translateY(0);
@@ -36,57 +45,80 @@
   }
 
   &.open-r4 {
-    grid-template-rows: 1fr 1fr 0fr 1fr 0fr 1fr auto 1fr;
-
+    grid-template-rows: 20% 20% 0px 20% 0px 20% auto 20%;
     .hero-grid-expand-r4 .hero-grid-expand-content {
       opacity: 1;
       transform: translateY(0);
     }
   }
 
-  // ── Cellules génériques ─────────────────────────────────────
+  // ==========================================================================
+  // Cellules
+  // ==========================================================================
+
   &-cell {
+    min-height: 0;
+    min-width: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: clamp(32px, 2.2vw, 36px);
     font-family: $font;
+    font-size: clamp(32px, 2.2vw, 36px);
     font-weight: $font-weight-title;
-    line-height: $font-line-height-title;
     font-style: $font-style-title;
+    line-height: $font-line-height-title;
     color: $color-primary;
-    min-height: 0; // déjà là ?
-    min-width: 0; // ajoute ça aussi
 
-    // Placement par position (data-pos) — cellules sur 2 colonnes
-    &[data-pos="2"],
-    &[data-pos="4"],
-    &[data-pos="5"],
-    &[data-pos="6"],
-    &[data-pos="8"],
-    &[data-pos="10"],
-    &[data-pos="13"],
-    &[data-pos="16"],
-    &[data-pos="19"],
-    &[data-pos="21"],
-    &[data-pos="24"],
-    &[data-pos="25"] {
-      grid-column: span 2;
+    @for $i from 1 through 26 {
+      &[data-pos="#{$i}"] {
+        grid-area: unquote(
+          nth(
+            (
+              img1,
+              img2,
+              img3,
+              contact,
+              img4,
+              eikonlab,
+              img5,
+              mot,
+              img6,
+              sessions,
+              img7,
+              edito,
+              img8,
+              img9,
+              img10,
+              bilan,
+              img11,
+              img12,
+              priorites,
+              img13,
+              img14,
+              annee,
+              encadrants,
+              img15,
+              partenaires,
+              img16
+            ),
+            $i
+          )
+        );
+      }
     }
 
-    // Cellule "encadrants" sur 3 colonnes
-    &[data-pos="23"] {
-      grid-column: span 3;
-    }
+    // ==========================================================================
+    // Cellules image
+    // ==========================================================================
 
-    // Placeholder photo (sera remplacé par une vraie image)
     &-img {
       display: block;
       overflow: hidden;
       flex: 1;
       align-self: stretch;
       min-height: 0;
+
       img {
         width: 100%;
         height: 100%;
@@ -95,7 +127,11 @@
       }
     }
 
-    // Cellules avec fond blanc et interactions
+    // ==========================================================================
+    // Cellules interactives
+    // ==========================================================================
+
+    &-contact,
     &-mot,
     &-sessions,
     &-edito,
@@ -107,7 +143,6 @@
 
       &:hover {
         color: $color-accent;
-        font-style: $font-style-title;
         font-weight: $font-weight-legend;
       }
 
@@ -116,26 +151,28 @@
       }
     }
 
-    // Titres de section (lime, gros)
+    // ==========================================================================
+    // Cellules titres (fond accent)
+    // ==========================================================================
+
     &-bilan,
+    &-annee,
     &-eikonlab {
+      background: $color-accent;
       color: $color-primary;
-      background: $color-accent;
-      font-size: clamp(60px, 3.2vw, 64px);
       font-family: $font;
+      font-size: clamp(60px, 3.2vw, 64px);
       font-weight: $font-weight-title;
-      line-height: $font-line-height-title;
       font-style: $font-style-title;
+      line-height: $font-line-height-title;
       padding: 14px 18px;
+      pointer-events: none;
     }
 
-    &-annee {
-      font-size: clamp(60px, 2.8vw, 64px);
-      font-weight: $font-weight-title;
-      background: $color-accent;
-    }
+    // ==========================================================================
+    // Sous-éléments priorités (générés en JS)
+    // ==========================================================================
 
-    // Sous-éléments du bloc priorités (générés en JS)
     &-priorites {
       &-title {
         grid-column: 2 / 4;
@@ -147,31 +184,29 @@
       &-text {
         grid-column: 4 / 8;
         font-size: clamp(15px, 1.3vw, 18px);
-        line-height: $font-line-height-text;
-        letter-spacing: 0.9px;
         font-weight: $font-weight-text;
+        line-height: $font-line-height-text;
+        color: $color-primary;
+        text-align: right;
       }
     }
   }
 
-  // ── Bloc expand ─────────────────────────────────────────────
+  // ==========================================================================
+  // Blocs expand
+  // ==========================================================================
+
   &-expand {
     grid-column: 1 / -1;
-    overflow: hidden;
-    min-height: 0; // nécessaire pour que 0fr écrase bien la rangée
-    transition: max-height 0.6s cubic-bezier(0.77, 0, 0.175, 1);
-    z-index: 0;
-    height: auto;
+    overflow: hidden; // masque le contenu quand grid-row = 0px
+    background: $color-secondary;
 
-    // Position des expand sur les rangées spécifiques
     &-r2 {
       grid-row: 3;
     }
-
     &-r3 {
       grid-row: 5;
     }
-
     &-r4 {
       grid-row: 7;
     }
@@ -181,9 +216,9 @@
     }
 
     &-content {
-      height: auto;
       display: grid;
       grid-template-columns: repeat(8, 1fr);
+      background: $color-secondary;
       padding: 80px 0;
       opacity: 0;
       transform: translateY(20px);
@@ -192,7 +227,6 @@
         transform 1s 0.5s;
     }
 
-    // Colonne de texte principal (mot du directeur, edito...)
     &-left {
       grid-column: 2 / 6;
     }
@@ -200,54 +234,41 @@
     &-signature {
       grid-column: 7 / 8;
       font-size: 14px;
-      font-style: italic;
-      font-weight: 400;
+      font-style: $font-style-legend;
+      font-weight: $font-weight-legend;
     }
 
-    &-text {
+    &-text,
+    &-text-suite {
       font-size: clamp(15px, 1.3vw, 18px);
-      line-height: 1.37;
-      letter-spacing: 0.9px;
-      color: #111;
       font-weight: $font-weight-text;
-
-      &-suite {
-        display: none;
-        margin-top: 1em;
-        font-size: clamp(15px, 1.3vw, 18px);
-        line-height: 1.37;
-        letter-spacing: 0.9px;
-        color: #111;
-        font-weight: $font-weight-text;
-      }
+      line-height: $font-line-height-text;
+      color: $color-primary;
+      text-align: right;
     }
 
-    // Layout spécifique expand-r4 "priorités"
-    &-r4 {
-      .hero-grid-expand-content {
-        row-gap: 60px;
-        column-gap: 0;
-      }
+    &-r4 .hero-grid-expand-content {
+      row-gap: 60px;
     }
   }
 
-  &-expand.is-active {
-    overflow: visible;
-  }
+  // ==========================================================================
+  // Boutons voir plus / voir moins
+  // ==========================================================================
 
-  // ── Boutons voir plus / voir moins ──────────────────────────
   &-voir-plus,
   &-voir-moins {
     background: none;
     border: none;
-    color: var(--color-primary);
-    font-weight: 700;
+    color: $color-primary;
     font-size: clamp(15px, 1.3vw, 18px);
+    font-weight: 700;
     cursor: pointer;
     padding: 12px 0 0;
     display: block;
 
     &:hover {
+      color: $color-accent;
       text-decoration: underline;
     }
   }
