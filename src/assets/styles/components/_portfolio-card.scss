@@ -56,10 +56,6 @@
   }
 }
 
-article.portfolio-card:hover .portfolio-legend {
-  opacity: 1;
-}
-
 article.portfolio-card {
   padding: 0;
   margin: 0;
@@ -80,6 +76,14 @@ article.portfolio-card {
       width: 100%;
     }
   }
+}
+
+// ============================================================
+// section portfolio : hover
+// ============================================================
+
+article.portfolio-card:hover .portfolio-legend {
+  opacity: 1;
 }
 
 // ============================================================
@@ -150,10 +154,8 @@ img.portfolio-body-modal {
 // ============================================================
 
 .portfolio-wrapper {
-  // max-height: 100%;
-  // display: grid;
-  // grid-template-columns: repeat(30, 1fr);
-  // grid-template-rows: repeat(8, 1fr);
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
   grid-template-areas:
     ". . img1 img1 . . . ."
     ". . . . . . quo1 quo1"
