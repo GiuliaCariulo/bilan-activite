@@ -1,4 +1,6 @@
-<article class="portfolio-card porfolio-open-modal">
+<article
+  class="portfolio-card {% if item.media.image %}porfolio-open-modal{% endif %}"
+>
   {% if item.media.image %}
     <figure>
       <img
