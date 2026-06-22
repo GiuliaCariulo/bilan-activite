@@ -12,7 +12,6 @@ import markdownIt from "markdown-it";
 const md = markdownIt({ html: true });
 
 export default function (eleventyConfig) {
-
   // --- Fichiers copiés tels quels dans le build ---
   eleventyConfig.addPassthroughCopy("src/public");
 
@@ -32,17 +31,21 @@ export default function (eleventyConfig) {
   // Le filtre | safe est nécessaire pour que Nunjucks n'échappe pas le HTML généré.
   eleventyConfig.addFilter("markdown", (content) => md.render(content ?? ""));
 
+  // --- Filtre JSON pour Nunjucks ---
+  // Permet d'utiliser {{ value | tojson }} dans les templates.
+  eleventyConfig.addFilter("tojson", (value) => JSON.stringify(value ?? null));
+
   // --- Configuration des dossiers ---
   return {
     pathPrefix: process.env.PATH_PREFIX ?? "/",
     dir: {
-      input:    "src",
-      output:   "_site",
+      input: "src",
+      output: "_site",
       includes: "views/_includes",
-      layouts:  "views/_layouts",
-      data:     "_data",
+      layouts: "views/_layouts",
+      data: "_data",
     },
     markdownTemplateEngine: "njk",
-    htmlTemplateEngine:     "njk",
+    htmlTemplateEngine: "njk",
   };
 }

@@ -1,8 +1,17 @@
 {
   "priorites": [
-    "Compléter la formation des stagiaires en offrant un contexte de travail innovant et exploratoire, ouvrant des perspectives professionnelles multiples tout en garantissant une rigueur pédagogique. Les élèves doivent pouvoir agrémenter leur portfolio, confirmer leurs centres d’intérêt développés lors de leur formation tout en renforçant certaines lacunes. ",
-    "Augmenter la visibilité et la communication des formations proposées par eikon, en favorisant des partenariats qui offrent un relai de communication bénéfique pour les stagiaires et le travail qu’ils produisent. ",
-    "Générer des liens permanents avec le monde professionnel, et être un acteur dynamique de l’ouverture de eikon sur l’environnement professionnel auquel les élèves se destinent. "
+    {
+      "titre": "Compléter la formation des stagiaires",
+      "texte": "en offrant un contexte de travail innovant et exploratoire, ouvrant des perspectives professionnelles multiples tout en garantissant une rigueur pédagogique. Les élèves doivent pouvoir agrémenter leur portfolio, confirmer leurs centres d’intérêt développés lors de leur formation tout en renforçant certaines lacunes."
+    },
+    {
+      "titre": "Augmenter la visibilité et la communication",
+      "texte": "des formations proposées par eikon, en favorisant des partenariats qui offrent un relai de communication bénéfique pour les stagiaires et le travail qu’ils produisent."
+    },
+    {
+      "titre": "Générer des liens permanents",
+      "texte": "avec le monde professionnel, et être un acteur dynamique de l’ouverture de eikon sur l’environnement professionnel auquel les élèves se destinent."
+    }
   ],
   "intro": "Une année riche en rencontres, en créations et en échanges. Voici un aperçu de ce que nous avons construit ensemble.",
   "portfolio": [
