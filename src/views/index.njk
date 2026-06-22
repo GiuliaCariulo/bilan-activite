@@ -29,24 +29,28 @@ permalink: "/"
   <section class="projets-gallery row">
     <h2 class="projets-gallery-title">projets</h2>
     {% for projet in projets %}
-      <a href="{{ ('/projets/' + projet.id + '/') | url }}">
+      <a
+        href="{{ ('/projets/' + projet.id + '/') | url }}"
+        class="projets-gallery-project-card"
+      >
         <article class="projet">
           {# Image de couverture #}
           {% if projet.thumbnail %}
             <img src="{{ projet.thumbnail }}" alt="{{ projet.title }}" />
           {% endif %}
+          <div class="projets-gallery-label">
+            {# Titre #}
+            <h4>{{ projet.title }}</h4>
 
-          {# Titre + lien vers la page du projet #}
-          <h4>{{ projet.title }}</h4>
-
-          {# Tags (tableau de strings) #}
-          {% if projet.tags and projet.tags.length %}
-            <ul class="tags">
-              {% for tag in projet.tags %}
-                <li>{{ tag }}</li>
-              {% endfor %}
-            </ul>
-          {% endif %}
+            {# Tags (tableau de strings) #}
+            {% if projet.tags and projet.tags.length %}
+              <ul class="tags">
+                {% for tag in projet.tags %}
+                  <li>{{ tag }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
         </article>
       </a>
     {% endfor %}
