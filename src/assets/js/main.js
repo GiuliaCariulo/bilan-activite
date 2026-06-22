@@ -1,8 +1,18 @@
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 // ============================================================
-// section portfolio : pop up
+// section const
 // ============================================================
 
 const modal = document.querySelector(".porfolio-content-modal");
+const lines = gsap.utils.toArray(".footer-track h4");
+
+// ============================================================
+// section portfolio : pop up
+// ============================================================
 
 document.querySelectorAll(".porfolio-open-modal").forEach(function (card) {
   card.addEventListener("click", function () {
@@ -25,3 +35,25 @@ document
         contentModal.classList.add("portfolio-selector-hidden");
       });
   });
+
+// ============================================================
+// section footer : scrolling texts
+// ============================================================
+
+if (lines.length) {
+  const trackHeight = document.querySelector(".footer-animation").offsetHeight;
+  const spacing = 70;
+
+  gsap.to(lines.slice(1), {
+    y: (i) => (i + 1) * spacing,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".footer-contact",
+      start: "top bottom",
+      endTrigger: ".footer-contact-copyright",
+      end: "bottom bottom",
+      scrub: true,
+      markers: true,
+    },
+  });
+}

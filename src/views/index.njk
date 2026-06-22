@@ -156,3 +156,50 @@ permalink: "/"
     {% endfor %}
   </section>
 {% endif %}
+
+{# ============================================================
+   Exemple : Portfolio (config.portfolio)
+   Chaque entrée est soit une image (item.media.fichier),
+   soit une phrase/citation (item.quote).
+   ============================================================ #}
+{% if config.portfolio and config.portfolio.length %}
+  <section class="portfolio">
+    {% for item in config.portfolio %}
+      {% if item.media and item.media.image %}
+        <figure>
+          <img
+            src="{{ item.media.image }}"
+            alt="{{ item.media.legend or '' }}"
+          />
+          {% if item.media.legend %}
+            <figcaption>{{ item.media.legend }}</figcaption>
+          {% endif %}
+        </figure>
+      {% elif item.quote %}
+        <blockquote>
+          <p>{{ item.quote }}</p>
+        </blockquote>
+      {% endif %}
+    {% endfor %}
+  </section>
+{% endif %}
+
+{% if config.partenaires and config.partenaires.length %}
+  <section>
+    <h2>Partenaires</h2>
+    <ul>
+      {% for partenaire in config.partenaires %}
+        <li>{{ partenaire }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endif %}
+
+<section>
+  <h2>Partenaires</h2>
+  <div class="partners-wrapper">
+    {% for item in config.partners %}
+      <div>{% include "partner-card.njk" %}</div>
+    {% endfor %}
+  </div>
+</section>
