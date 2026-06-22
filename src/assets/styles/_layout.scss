@@ -15,7 +15,6 @@ article {
 .row {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 1rem;
 }
 .col-1 {
   grid-column: span 1;
