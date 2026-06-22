@@ -1,0 +1,7 @@
+<article class="partner-box">
+  {% if item.image %}
+    <figure>
+      <img src="{{ item.image | url }}" alt="{{ item.title }}" />
+    </figure>
+  {% endif %}
+</article>

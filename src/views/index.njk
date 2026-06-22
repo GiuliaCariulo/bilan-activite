@@ -40,4 +40,204 @@ permalink: "/"
       </div>
     </div>
   </section>
+  <section>
+    <h2>portfolio</h2>
+    <div class="portfolio-wrapper row">
+      {% for item in config.portfolio %}
+        <div
+          class="portfolio-card-pos portfolio-card-img"
+          data-portfolio-pos="{{ loop.index }}"
+        >
+          {% include "portfolio-card.njk" %}
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <div class="porfolio-content-modal portfolio-hidden-modal row">
+    <div class="modal-header">
+      <button class="portfolio-close-modal"><h4>fermer</h4></button>
+    </div>
+    <div class="portfolio-body-modal">
+      <img src="../../public/img/portfolio/Portfolio_001.png" alt="marche" />
+      <p class="porfolio-card-legend">cest la legende</p>
+    </div>
+  </div>
+  <!-- <article class="portfolio-popup hidden-modal">
+  {% for item in config.portfolio %}
+    <div class="portfolio-overlay row" id="popup-{{ loop.index }}">
+      <div class="portfolio-popup-box">
+        <a class="portfolio-close close-modal" href="#">
+          <button><h4>fermer</h4></button>
+        </a>
+        <div class="portfolio-content">
+          {% if item.media.image %}
+            <figure>
+              <img
+                src="{{ item.media.image | url }}"
+                alt="{{ item.media.legend or 'image du projet' }}"
+              />
+              {% if item.media.legend %}
+                <figcaption class="portfolio-legend">
+                  <p class="portfolio-card-legend">{{ item.media.legend }}</p>
+                </figcaption>
+              {% endif %}
+            </figure>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</article> -->
+
+  {# ============================================================
+   Exemple : Liste des projets (variable `projets`)
+   `projets` est un tableau injecté par src/_data/projets.js,
+   qui lit tous les fichiers JSON du dossier src/_data/projets/.
+   ============================================================ #}
+  {% if projets and projets.length %}
+    <section class="projets">
+      {% for projet in projets %}
+        <article class="projet">
+          {# Image de couverture #}
+          {% if projet.thumbnail %}
+            <img src="{{ projet.thumbnail }}" alt="{{ projet.title }}" />
+          {% endif %}
+
+          {# Type de mandat #}
+          <p>{{ projet.mandate }}</p>
+
+          {# Sessions (tableau de strings) #}
+          {% if projet.sessions and projet.sessions.length %}
+            <p>Sessions : {{ projet.sessions | join(', ') }}</p>
+          {% endif %}
+
+          {# Client·e·s (tableau de strings) #}
+          {% if projet.clients and projet.clients.length %}
+            <p>Client·e·s : {{ projet.clients | join(', ') }}</p>
+          {% endif %}
+
+          {# Tags (tableau de strings) #}
+          {% if projet.tags and projet.tags.length %}
+            <ul class="tags">
+              {% for tag in projet.tags %}
+                <li>{{ tag }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+
+          {# Description #}
+          <p>{{ projet.description }}</p>
+
+          {# Compétences mises en œuvre #}
+          {% if projet.skills %}
+            <p>Compétences : {{ projet.skills }}</p>
+          {% endif %}
+
+          {# Autres images (tableau de {fichier, legend}) #}
+          {% if projet.images and projet.images.length %}
+            <ul class="images">
+              {% for image in projet.images %}
+                <li>
+                  <figure>
+                    <img
+                      src="{{ image.fichier }}"
+                      alt="{{ image.legend or '' }}"
+                    />
+                    {% if image.legend %}
+                      <figcaption>{{ image.legend }}</figcaption>
+                    {% endif %}
+                  </figure>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+
+          {# Liens (tableau de {label, url}) #}
+          {% if projet.links and projet.links.length %}
+            <ul class="liens">
+              {% for link in projet.links %}
+                <li>
+                  <a href="{{ link.url }}" target="_blank">{{ link.label }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </section>
+  {% endif %}
+
+  {# ============================================================
+   Exemple : Sections (variable `sections`)
+   `sections` est l'objet injecté par src/_data/sections.json
+   (variable = objet entier, donc on boucle sur `sections.sections`).
+   `hook` et `text` sont du Markdown (widget: markdown dans le CMS),
+   on utilise le filtre `markdown` + `safe` pour les convertir en HTML.
+   ============================================================ #}
+  {% if sections.sections and sections.sections.length %}
+    <section class="sections">
+      {% for section in sections.sections %}
+        <article class="section">
+          <h2>{{ section.title }}</h2>
+          {% if section.author %}
+            <p class="auteur">{{ section.author }}</p>
+          {% endif %}
+          {% if section.hook %}
+            <div class="accroche">{{ section.hook | markdown | safe }}</div>
+          {% endif %}
+          {% if section.text %}
+            <div class="texte">{{ section.text | markdown | safe }}</div>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </section>
+  {% endif %}
+
+  {# ============================================================
+   Exemple : Portfolio (config.portfolio)
+   Chaque entrée est soit une image (item.media.fichier),
+   soit une phrase/citation (item.quote).
+   ============================================================ #}
+  {% if config.portfolio and config.portfolio.length %}
+    <section class="portfolio">
+      {% for item in config.portfolio %}
+        {% if item.media and item.media.image %}
+          <figure>
+            <img
+              src="{{ item.media.image }}"
+              alt="{{ item.media.legend or '' }}"
+            />
+            {% if item.media.legend %}
+              <figcaption>{{ item.media.legend }}</figcaption>
+            {% endif %}
+          </figure>
+        {% elif item.quote %}
+          <blockquote>
+            <p>{{ item.quote }}</p>
+          </blockquote>
+        {% endif %}
+      {% endfor %}
+    </section>
+  {% endif %}
+
+  {% if config.partenaires and config.partenaires.length %}
+    <section>
+      <h2>Partenaires</h2>
+      <ul>
+        {% for partenaire in config.partenaires %}
+          <li>{{ partenaire }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+
+  <section>
+    <h2>Partenaires</h2>
+    <div class="partners-wrapper">
+      {% for item in config.partners %}
+        <div>{% include "partner-card.njk" %}</div>
+      {% endfor %}
+    </div>
+  </section>
 </section>
