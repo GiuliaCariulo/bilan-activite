@@ -32,6 +32,7 @@ permalink: "/"
       <a
         href="{{ ('/projets/' + projet.id + '/') | url }}"
         class="projets-gallery-project-card"
+        data-pos="{{ loop.index }}"
       >
         <article class="projet">
           {# Image de couverture #}
