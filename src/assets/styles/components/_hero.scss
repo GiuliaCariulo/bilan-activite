@@ -1,0 +1,275 @@
+@use "../variables" as *;
+
+// ==========================================================================
+// hero-grid — Grille héro de la page d'accueil
+// ==========================================================================
+
+.hero-grid {
+  width: 100vw;
+  min-height: 100vh;
+  height: auto; // ← permet à la grille de grandir
+  overflow: visible;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: 20% 20% 0px 20% 0px 20% 0px 20%;
+  grid-template-areas:
+    "img1     img2     img2  img3      contact   contact     img4        img4"
+    "eikonlab eikonlab img5  mot       mot       img6        sessions    sessions"
+    ".        .        .     .         .         .           .           ."
+    "img7     edito    img8  img8      img9      img10       bilan       bilan"
+    ".        .        .     .         .         .           .           ."
+    "img11    img12    priorites priorites img13 img14       img14       annee"
+    ".        .        .     .         .         .           .           ."
+    "encadrants encadrants encadrants img15 img15 partenaires partenaires img16";
+  gap: 0;
+  transition: grid-template-rows 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+
+  // ==========================================================================
+  // États d'ouverture des expands
+  // ==========================================================================
+
+  &.open-r2 {
+    grid-template-rows: 20% 20% auto 20% 0px 20% 0px 20%;
+    .hero-grid-expand-r2 .hero-grid-expand-content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &.open-r3 {
+    grid-template-rows: 20% 20% 0px 20% auto 20% 0px 20%;
+    .hero-grid-expand-r3 .hero-grid-expand-content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &.open-r4 {
+    grid-template-rows: 20% 20% 0px 20% 0px 20% auto 20%;
+    .hero-grid-expand-r4 .hero-grid-expand-content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  // ==========================================================================
+  // Cellules
+  // ==========================================================================
+
+  &-cell {
+    min-height: 0;
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: $font;
+    font-size: clamp(32px, 2.2vw, 36px);
+    font-weight: $font-weight-title;
+    font-style: $font-style-title;
+    line-height: $font-line-height-title;
+    color: $color-primary;
+
+    @for $i from 1 through 26 {
+      &[data-pos="#{$i}"] {
+        grid-area: unquote(
+          nth(
+            (
+              img1,
+              img2,
+              img3,
+              contact,
+              img4,
+              eikonlab,
+              img5,
+              mot,
+              img6,
+              sessions,
+              img7,
+              edito,
+              img8,
+              img9,
+              img10,
+              bilan,
+              img11,
+              img12,
+              priorites,
+              img13,
+              img14,
+              annee,
+              encadrants,
+              img15,
+              partenaires,
+              img16
+            ),
+            $i
+          )
+        );
+      }
+    }
+
+    // ==========================================================================
+    // Cellules image
+    // ==========================================================================
+
+    &-img {
+      display: block;
+      overflow: hidden;
+      flex: 1;
+      align-self: stretch;
+      min-height: 0;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+    }
+
+    // ==========================================================================
+    // Cellules interactives
+    // ==========================================================================
+
+    &-contact,
+    &-mot,
+    &-sessions,
+    &-edito,
+    &-priorites,
+    &-encadrants,
+    &-partenaires {
+      background: $color-secondary;
+      cursor: pointer;
+
+      &:hover {
+        color: $color-accent;
+        font-weight: $font-weight-legend;
+      }
+
+      &.active {
+        color: $color-accent;
+      }
+    }
+
+    // ==========================================================================
+    // Cellules titres (fond accent)
+    // ==========================================================================
+
+    &-bilan,
+    &-annee,
+    &-eikonlab {
+      background: $color-accent;
+      color: $color-primary;
+      font-family: $font;
+      font-size: clamp(60px, 3.2vw, 64px);
+      font-weight: $font-weight-title;
+      font-style: $font-style-title;
+      line-height: $font-line-height-title;
+      padding: 14px 18px;
+      pointer-events: none;
+    }
+
+    // ==========================================================================
+    // Sous-éléments priorités (générés en JS)
+    // ==========================================================================
+
+    &-priorites {
+      &-title {
+        grid-column: 2 / 4;
+        font-size: clamp(18px, 2vw, 28px);
+        font-weight: $font-weight-title;
+        line-height: $font-line-height-title;
+      }
+
+      &-text {
+        grid-column: 4 / 8;
+        font-size: clamp(15px, 1.3vw, 18px);
+        font-weight: $font-weight-text;
+        line-height: $font-line-height-text;
+        color: $color-primary;
+        text-align: right;
+      }
+    }
+  }
+
+  // ==========================================================================
+  // Blocs expand
+  // ==========================================================================
+
+  &-expand {
+    grid-column: 1 / -1;
+    overflow: hidden; // masque le contenu quand grid-row = 0px
+    background: $color-secondary;
+
+    &-r2 {
+      grid-row: 3;
+    }
+    &-r3 {
+      grid-row: 5;
+    }
+    &-r4 {
+      grid-row: 7;
+    }
+
+    &-sizer {
+      overflow: hidden;
+    }
+
+    &-content {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      background: $color-secondary;
+      padding: 80px 0;
+      opacity: 0;
+      transform: translateY(20px);
+      transition:
+        opacity 1s 0.5s,
+        transform 1s 0.5s;
+    }
+
+    &-left {
+      grid-column: 2 / 6;
+    }
+
+    &-signature {
+      grid-column: 7 / 8;
+      font-size: 14px;
+      font-style: $font-style-legend;
+      font-weight: $font-weight-legend;
+    }
+
+    &-text,
+    &-text-suite {
+      font-size: clamp(15px, 1.3vw, 18px);
+      font-weight: $font-weight-text;
+      line-height: $font-line-height-text;
+      color: $color-primary;
+      text-align: right;
+    }
+
+    &-r4 .hero-grid-expand-content {
+      row-gap: 60px;
+    }
+  }
+
+  // ==========================================================================
+  // Boutons voir plus / voir moins
+  // ==========================================================================
+
+  &-voir-plus,
+  &-voir-moins {
+    background: none;
+    border: none;
+    color: $color-primary;
+    font-size: clamp(15px, 1.3vw, 18px);
+    font-weight: 700;
+    cursor: pointer;
+    padding: 12px 0 0;
+    display: block;
+
+    &:hover {
+      color: $color-accent;
+      text-decoration: underline;
+    }
+  }
+}

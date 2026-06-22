@@ -1,0 +1,81 @@
+@use "../variables" as *;
+
+.projets-gallery {
+  width: 100vw;
+  overflow: hidden;
+  grid-auto-rows: calc(min(100vw, 1100px) / 8);
+  &-title {
+    font-weight: $font-weight-title;
+    font-style: $font-style-title;
+    line-height: $font-line-height-title;
+    grid-column: 7/ -1;
+    text-align: right;
+    grid-row: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  &-project-card {
+    grid-column: span 4;
+    aspect-ratio: 1 / 1;
+    height: 100%;
+    width: 100%;
+
+    &[data-pos="1"] {
+      grid-row: 3 / span 4;
+    }
+    &[data-pos="2"] {
+      grid-row: 4 / span 4;
+    }
+  }
+  &-label {
+    background: $color-secondary;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 12px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    grid-column: span 3;
+  }
+  article {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    color: $color-primary;
+    h4 {
+      font-size: clamp(25px, 1.3vw, 30px);
+      font-weight: $font-weight-legend;
+      line-height: $font-line-height-text;
+      margin-bottom: 5px;
+    }
+    ul {
+      list-style-type: none;
+      display: flex;
+      align-items: flex-start;
+      align-content: space-between;
+      column-gap: 8px;
+      align-self: stretch;
+      flex-wrap: wrap;
+      li {
+        padding: 0 5px;
+        border: 0.5px solid $color-primary;
+        background: $color-secondary;
+      }
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: relative;
+      grid-column: span 4;
+    }
+  }
+}
