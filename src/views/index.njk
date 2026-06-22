@@ -172,19 +172,9 @@ permalink: "/"
   <h2>Partenaires</h2>
   <div class="partners-wrapper">
     <div class="partner-box">
-      <img src="../public/img/portfolio/Portfolio_001.png" alt="" />
-    </div>
-    <div class="partner-box">
-      <img src="../public/img/portfolio/Portfolio_001.png" alt="" />
-    </div>
-    <div class="partner-box">
-      <img src="../public/img/portfolio/Portfolio_001.png" alt="" />
-    </div>
-    <div class="partner-box">
-      <img src="../public/img/portfolio/Portfolio_001.png" alt="" />
-    </div>
-    <div class="partner-box">
-      <img src="../public/img/portfolio/Portfolio_001.png" alt="" />
+      {% for partenaire in config.partenaires %}
+        <img src="{{ partenaire }}" alt="la légende" />
+      {% endfor %}
     </div>
   </div>
 </section>
