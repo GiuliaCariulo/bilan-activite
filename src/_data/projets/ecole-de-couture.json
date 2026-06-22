@@ -1,25 +1,19 @@
 {
   "skills": "Communication visuelle, 3D, graphisme, décoration scénique",
   "mandate": "Événement",
-  "clients": [
-    "Ecole de couture, Fribourg"
-  ],
+  "clients": ["Ecole de couture, Fribourg"],
   "thumbnail": "/public/images/image-thumbnail.png",
   "title": "FIFF",
   "images": [
     {
-      "fichier": "/public/images/anik-das-y7uesldr0-e-unsplash.jpg",
-      "legend": "une làgende chouette"
+      "fichier": "/public/images/portfolio_001.png",
+      "legend": "une légende chouette"
     },
     {
-      "fichier": "/public/images/li-yang-rpmxonjh3hm-unsplash.jpg"
+      "fichier": "/public/images/portfolio_001.png"
     }
   ],
-  "tags": [
-    "communication visuelle",
-    "bande-annonce",
-    "projection publique"
-  ],
+  "tags": ["communication visuelle", "bande-annonce", "projection publique"],
   "links": [
     {
       "url": "https://www.ecolecouture.ch/accueil",
@@ -28,7 +22,5 @@
   ],
   "id": "ecole-de-couture",
   "description": "Plongez dans un univers enchanteur où les légendes de tous horizons se dévoilent à travers les créations inspirées et audacieuses des apprenti.e.s en couture. Laissez-vous transporter par la magie des contes de notre enfance, des récits épiques de héros et d’héroïnes, des mystères des mondes féériques et aquatiques, et des légendes emblématiques de la couture, du cinéma, du sport, de la musique et des jeux vidéo.\nProposant un univers légendaire, l’école de couture a collaboré avec eikonlab pour la création des supports visuels de son défilé 2025. Un soutien est également apporté sur l’agencement scénographique de l’événement.",
-  "sessions": [
-    "Janvier - avril"
-  ]
+  "sessions": ["Janvier - avril"]
 }
