@@ -18,7 +18,46 @@ permalink: "/"
 <a href="{{ '/projets/ecole-de-couture/' | url }}"
   >Écriture du permalink utilisé dans ce projet</a
 >
+<!-- // ============================================================
+// section portfolio : wrapper
+// ============================================================ -->
+<section>
+  <h2>portfolio</h2>
+  <div class="portfolio-wrapper row">
+    {% for item in config.portfolio %}
+      <div
+        class="portfolio-card-pos portfolio-card-img"
+        data-portfolio-pos="{{ loop.index }}"
+        data-portfolio-popup="portfolio{{ loop.index }}"
+      >
+        {% include "portfolio-card.njk" %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
+<!-- // ============================================================
+// section portfolio : pop up
+// ============================================================ -->
+<div class="porfolio-content-modal portfolio-hidden-modal row">
+  <div class="modal-header">
+    <button class="portfolio-close-modal"><h4>fermer</h4></button>
+  </div>
 
+  <article class="portfolio-popup hidden-modal">
+    {% for item in config.portfolio %}
+      <div
+        class="portfolio-body-modal portfolio-selector-hidden"
+        id="portfolio{{ loop.index }}"
+      >
+        <img src="{{ item.media.image | url }}" alt="marche" />
+        <p class="porfolio-card-legend">{{ item.media.legend }}</p>
+      </div>
+    {% endfor %}
+  </article>
+</div>
+<!-- // ============================================================
+// section teams : position
+// ============================================================ -->
 <section class="teams">
   <section>
     <div class="teams-sessions">
@@ -38,6 +77,18 @@ permalink: "/"
           {% endfor %}
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- // ============================================================
+// section partenaires : wrapper
+// ============================================================ -->
+  <section>
+    <h2>Partenaires</h2>
+    <div class="partners-wrapper">
+      {% for item in config.partners %}
+        <div>{% include "partner-card.njk" %}</div>
+      {% endfor %}
     </div>
   </section>
 </section>

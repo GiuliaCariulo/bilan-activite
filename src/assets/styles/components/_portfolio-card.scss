@@ -1,0 +1,310 @@
+@use "../variables" as *;
+@use "../layout" as *;
+
+// ============================================================
+// section portfolio : cartes et textes
+// ============================================================
+
+.portfolio-card-pos {
+  width: 267px;
+  height: 267px;
+}
+
+.portfolio-card-img {
+  position: relative;
+  cursor: pointer;
+}
+
+.portfolio-card-text p {
+  display: flex;
+  padding: 6px 9px;
+  justify-content: center;
+  align-items: center;
+  cursor: default;
+  font-family: $font;
+  font-size: 0.6rem;
+  color: black;
+}
+
+.portfolio-card-text {
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.portfolio-legend {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  opacity: 0;
+  display: flex;
+  padding: 6px 9px;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+  z-index: 1;
+
+  p {
+    font-family: $font;
+    font-size: 0.6rem;
+    color: #fff;
+  }
+}
+
+article.portfolio-card {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+
+  figure {
+    height: 100%;
+    margin: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 0;
+    }
+
+    figcaption {
+      width: 100%;
+    }
+  }
+}
+
+// ============================================================
+// section portfolio : hover
+// ============================================================
+
+article.portfolio-card:hover .portfolio-legend {
+  opacity: 1;
+}
+
+// ============================================================
+// section portfolio : pop up
+// ============================================================
+
+.portfolio-hidden-modal {
+  display: none;
+}
+
+.portfolio-content-modal {
+  // display: flex;
+  // width: 100vh;
+  // height: 100%;
+  padding: 137px 180px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  position: fixed;
+  transition: all 5s ease-in-out;
+  grid-template-areas: ". btnclose . imgpop imgpop imgpop imgpop . ";
+}
+
+.porfolio-content-modal h4 {
+  font-size: 1.5rem;
+  font-weight: normal;
+  color: blue;
+  cursor: pointer;
+}
+
+button.portfolio-close-modal {
+  border: none;
+  background: none;
+  grid-area: btnclose;
+}
+
+.portfolio-close-modal h4:hover {
+  font-weight: bold;
+}
+
+.portfolio-body-modal {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    align-items: end;
+    justify-self: start;
+    background-color: black;
+    padding: $space-md;
+    color: #fff;
+  }
+
+  &.portfolio-selector-hidden {
+    display: none;
+  }
+}
+
+img.portfolio-body-modal {
+  width: fit-content;
+  object-fit: cover;
+  grid-area: imgpop;
+}
+
+// ============================================================
+// section portfolio : grille de cartes
+// ============================================================
+
+.portfolio-wrapper {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-areas:
+    ". . img1 img1 . . . ."
+    ". . . . . . quo1 quo1"
+    "img2 img2 . . img3 img3 . ."
+    ". . . . . . img5 img5"
+    "img6 img6 . . . . . ."
+    "img7 img7 quo2 quo2 img8 img8 img9 img9"
+    "img10 img10 img11 img11 img12 img12 img13 img13"
+    "img14 img14 img15 img15 quo3 quo3 img16 img16"
+    "img17 img17 img17 img17 img17 img17 img17 img17"
+    "quo4 quo4 img18 img18 quo5 quo5 img19 img19"
+    "img20 img20 img21 img21 img22 img22 . ."
+    ". . img23 img23 . . img24 img24"
+    "img25 img25 . . img26 img26 . ."
+    ". . . . . . quo6 quo6"
+    ". . img27 img27 . . . .";
+}
+
+.portfolio-card-pos[data-portfolio-pos="1"] {
+  grid-area: img1;
+}
+
+.portfolio-card-pos[data-portfolio-pos="2"] {
+  grid-area: quo1;
+}
+
+.portfolio-card-pos[data-portfolio-pos="3"] {
+  grid-area: img2;
+}
+
+.portfolio-card-pos[data-portfolio-pos="4"] {
+  grid-area: img3;
+}
+
+.portfolio-card-pos[data-portfolio-pos="5"] {
+  grid-area: img4;
+}
+
+.portfolio-card-pos[data-portfolio-pos="6"] {
+  grid-area: img5;
+}
+
+.portfolio-card-pos[data-portfolio-pos="7"] {
+  grid-area: img6;
+}
+
+.portfolio-card-pos[data-portfolio-pos="8"] {
+  grid-area: img7;
+}
+
+.portfolio-card-pos[data-portfolio-pos="9"] {
+  grid-area: quo2;
+}
+
+.portfolio-card-pos[data-portfolio-pos="10"] {
+  grid-area: img8;
+}
+
+.portfolio-card-pos[data-portfolio-pos="11"] {
+  grid-area: img9;
+}
+
+.portfolio-card-pos[data-portfolio-pos="12"] {
+  grid-area: img10;
+}
+
+.portfolio-card-pos[data-portfolio-pos="13"] {
+  grid-area: img11;
+}
+
+.portfolio-card-pos[data-portfolio-pos="14"] {
+  grid-area: img12;
+}
+
+.portfolio-card-pos[data-portfolio-pos="15"] {
+  grid-area: img13;
+}
+
+.portfolio-card-pos[data-portfolio-pos="16"] {
+  grid-area: img14;
+}
+
+.portfolio-card-pos[data-portfolio-pos="17"] {
+  grid-area: img15;
+}
+.portfolio-card-pos[data-portfolio-pos="18"] {
+  grid-area: quo3;
+}
+
+.portfolio-card-pos[data-portfolio-pos="19"] {
+  grid-area: img16;
+}
+
+.portfolio-card-pos[data-portfolio-pos="20"] {
+  grid-area: img17;
+}
+
+.portfolio-card-pos[data-portfolio-pos="21"] {
+  grid-area: quo4;
+}
+
+.portfolio-card-pos[data-portfolio-pos="22"] {
+  grid-area: img18;
+}
+
+.portfolio-card-pos[data-portfolio-pos="23"] {
+  grid-area: quo5;
+}
+
+.portfolio-card-pos[data-portfolio-pos="24"] {
+  grid-area: img19;
+}
+
+.portfolio-card-pos[data-portfolio-pos="25"] {
+  grid-area: img20;
+}
+
+.portfolio-card-pos[data-portfolio-pos="26"] {
+  grid-area: img21;
+}
+
+.portfolio-card-pos[data-portfolio-pos="27"] {
+  grid-area: img22;
+}
+
+.portfolio-card-pos[data-portfolio-pos="28"] {
+  grid-area: img23;
+}
+
+.portfolio-card-pos[data-portfolio-pos="29"] {
+  grid-area: img24;
+}
+
+.portfolio-card-pos[data-portfolio-pos="30"] {
+  grid-area: img25;
+}
+
+.portfolio-card-pos[data-portfolio-pos="31"] {
+  grid-area: img26;
+}
+
+.portfolio-card-pos[data-portfolio-pos="32"] {
+  grid-area: quo6;
+}
+
+.portfolio-card-pos[data-portfolio-pos="33"] {
+  grid-area: img27;
+}
