@@ -79,7 +79,6 @@ permalink: "/"
   <section class="projets-gallery row">
     <h2 class="projets-gallery-title">projets</h2>
     {% for projet in projets %}
-<<<<<<< HEAD
       <a
         href="{{ ('/projets/' + projet.id + '/') | url }}"
         class="projets-gallery-project-card"
@@ -105,74 +104,6 @@ permalink: "/"
           </div>
         </article>
       </a>
-=======
-      <article class="projet">
-        {# Image de couverture #}
-        {% if projet.thumbnail %}
-          <img src="{{ projet.thumbnail }}" alt="{{ projet.title }}" />
-        {% endif %}
-
-        {# Type de mandat #}
-        <p>{{ projet.mandate }}</p>
-
-        {# Sessions (tableau de strings) #}
-        {% if projet.sessions and projet.sessions.length %}
-          <p>Sessions : {{ projet.sessions | join(', ') }}</p>
-        {% endif %}
-
-        {# Client·e·s (tableau de strings) #}
-        {% if projet.clients and projet.clients.length %}
-          <p>Client·e·s : {{ projet.clients | join(', ') }}</p>
-        {% endif %}
-
-        {# Tags (tableau de strings) #}
-        {% if projet.tags and projet.tags.length %}
-          <ul class="tags">
-            {% for tag in projet.tags %}
-              <li>{{ tag }}</li>
-            {% endfor %}
-          </ul>
-        {% endif %}
-
-        {# Description #}
-        <p>{{ projet.description }}</p>
-
-        {# Compétences mises en œuvre #}
-        {% if projet.skills %}
-          <p>Compétences : {{ projet.skills }}</p>
-        {% endif %}
-
-        {# Autres images (tableau de {fichier, legend}) #}
-        {% if projet.images and projet.images.length %}
-          <ul class="images">
-            {% for image in projet.images %}
-              <li>
-                <figure>
-                  <img
-                    src="{{ image.fichier }}"
-                    alt="{{ image.legend or '' }}"
-                  />
-                  {% if image.legend %}
-                    <figcaption>{{ image.legend }}</figcaption>
-                  {% endif %}
-                </figure>
-              </li>
-            {% endfor %}
-          </ul>
-        {% endif %}
-
-        {# Liens (tableau de {label, url}) #}
-        {% if projet.links and projet.links.length %}
-          <ul class="liens">
-            {% for link in projet.links %}
-              <li>
-                <a href="{{ link.url }}" target="_blank">{{ link.label }}</a>
-              </li>
-            {% endfor %}
-          </ul>
-        {% endif %}
-      </article>
->>>>>>> dev
     {% endfor %}
   </section>
 {% endif %}
