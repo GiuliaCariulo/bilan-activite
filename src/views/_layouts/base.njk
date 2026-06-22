@@ -1,5 +1,5 @@
-
-<!DOCTYPE html><html lang="fr">
+<!DOCTYPE html>
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,14 +17,42 @@
   <body>
     {# Le contenu de chaque page est injecté ici #}
     {{ content | safe }}
-    <footer>
-      <p>
-        Voici le footer écrit dans base.njk qui se développe automatiquement sur
-        chaque page
-      </p>
-    </footer>
+    <section>
+      <footer>
+        <article class="footer-animation">
+          <h4 class="footer-title">eikonlab</h4>
+          <div class="footer-track">
+            <h4>eikonlab</h4>
+            <h4>eikonlab</h4>
+            <h4>eikonlab</h4>
+            <h4>eikonlab</h4>
+            <h4>eikonlab</h4>
+            <h4>eikonlab</h4>
+            <h4>eikonlab</h4>
+            <h4>eikonlab</h4>
+            <h4>eikonlab</h4>
+          </div>
+        </article>
+        <article class="footer-contact">
+          <h2>contact</h2>
+          <div class="footer-contact-copyright">
+            <div class="footer-contact-info">
+              <p>eikon_lab@edufr.ch<br />+41 26 305 46 96</p>
+              <p>Rte des Arsenaux 41<br />1700 Fribourg<br />Suisse</p>
+              <a href="https://eikon.ch/" target="_blank">
+                <p>eikon.ch</p>
+              </a>
+            </div>
+            <p class="footer-copyright">
+              © eikonlab 2026, tous droits réservés.
+            </p>
+          </div>
+        </article>
+      </footer>
+    </section>
+
     <script type="module" src="{{ '/assets/js/main.js' | url }}"></script>
+    <script type="module" src="{{ '/assets/js/portfolio.js' | url }}"></script>
     {% block scripts %}{% endblock %}
   </body>
-</html>
 </html>

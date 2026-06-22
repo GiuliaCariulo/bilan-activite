@@ -1,0 +1,19 @@
+.partners-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 186px 215px;
+  flex-wrap: wrap;
+}
+
+.partner-box {
+  width: 180px;
+  height: 180px;
+  display: flex;
+
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
