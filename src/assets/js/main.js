@@ -4,15 +4,9 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 // ============================================================
-// section const
-// ============================================================
-
-const modal = document.querySelector(".porfolio-content-modal");
-const lines = gsap.utils.toArray(".footer-track h4");
-
-// ============================================================
 // section portfolio : pop up
 // ============================================================
+const modal = document.querySelector(".porfolio-content-modal");
 
 document.querySelectorAll(".porfolio-open-modal").forEach(function (card) {
   card.addEventListener("click", function () {
@@ -39,6 +33,7 @@ document
 // ============================================================
 // section footer : scrolling texts
 // ============================================================
+const lines = gsap.utils.toArray(".footer-track h4");
 
 if (lines.length) {
   const trackHeight = document.querySelector(".footer-animation").offsetHeight;
@@ -53,7 +48,7 @@ if (lines.length) {
       endTrigger: ".footer-contact-copyright",
       end: "bottom bottom",
       scrub: true,
-      markers: true,
+      markers: false,
     },
   });
 }
