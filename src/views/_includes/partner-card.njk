@@ -1,9 +1,7 @@
 <article class="partner-box">
-  {% if item.media.image %}
-  <figure>
-    <img
-      src="{{ item.media.image | url }}"
-      alt="légende de l'image ou titre du projet"
-    />
-  </figure>
+  {% if item.image %}
+    <figure>
+      <img src="{{ item.image | url }}" alt="{{ item.title }}" />
+    </figure>
+  {% endif %}
 </article>

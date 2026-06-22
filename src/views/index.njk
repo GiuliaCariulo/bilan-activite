@@ -171,10 +171,8 @@ permalink: "/"
 <section>
   <h2>Partenaires</h2>
   <div class="partners-wrapper">
-    <!-- <div class="partner-box">
-      {% for partenaire in config.partenaires %}
-        <img src="{{ partenaire }}" alt="la légende" />
-      {% endfor %}
-    </div> -->
+    {% for item in config.partners %}
+      <div>{% include "partner-card.njk" %}</div>
+    {% endfor %}
   </div>
 </section>
