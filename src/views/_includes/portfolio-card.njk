@@ -1,4 +1,4 @@
-<article class="portfolio-card">
+<article class="portfolio-card porfolio-open-modal">
   {% if item.media.image %}
     <figure>
       <img
@@ -14,17 +14,4 @@
   {% elif item.quote %}
     <p class="portfolio-card-text">{{ item.quote }}</p>
   {% endif %}
-</article>
-
-<article class="portfolio-popup">
-  {% for item in config.portfolio %}
-    <div id="popup-{{ loop.index }}" class="portfolio-overlay row">
-      <div class="portfolio-popup-box">
-        <a class="portfolio-close" href="#"
-          ><button><h4>fermer</h4></button></a
-        >
-        <div class="portfolio-content">{% include "portfolio-card.njk" %}</div>
-      </div>
-    </div>
-  {% endfor %}
 </article>

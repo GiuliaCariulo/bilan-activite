@@ -1,5 +1,6 @@
 @use "../variables" as *;
 @use "../layout" as *;
+
 // ============================================================
 // section portfolio : cartes et textes
 // ============================================================
@@ -85,56 +86,41 @@ article.portfolio-card {
 // section portfolio : pop up
 // ============================================================
 
-.portfolio-overlay {
-  position: fixed;
-  inset: 0;
-  transition: opacity 500ms;
+.portfolio-hidden-modal {
   display: none;
-
-  // grid-template-areas: ". portfoliobuttonclose . . portfolioimgpopup portfolioimgpopup portfolioimgpopup .";
 }
 
-// .portfolio-overlay:target {
-//   display: flex;
-// }
-
-.portfolio-popup-box {
-  display: flex;
-  width: 100%;
-  height: 100%;
+.portfolio-content-modal {
+  // display: flex;
+  // width: 100vh;
+  // height: 100%;
   padding: 137px 180px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(5px);
-  position: relative;
+  position: fixed;
   transition: all 5s ease-in-out;
+  grid-template-areas: ". btnclose . imgpop imgpop imgpop imgpop . ";
 }
 
-.portfolio-close {
-  transition: all 200ms;
-  display: flex;
-  justify-content: center;
-  align-items: start;
-  padding: 24px;
-  text-decoration: none;
-
-  button {
-    border: none;
-    background: none;
-    grid-area: portfoliobuttonclose;
-  }
-
-  h4 {
-    font-size: 1.5rem;
-    font-weight: normal;
-    color: blue;
-  }
+.porfolio-content-modal h4 {
+  font-size: 1.5rem;
+  font-weight: normal;
+  color: blue;
+  cursor: pointer;
 }
 
-.portfolio-close h4:hover {
+button.portfolio-close-modal {
+  border: none;
+  background: none;
+  grid-area: btnclose;
+}
+
+.portfolio-close-modal h4:hover {
   font-weight: bold;
 }
 
-.portfolio-content {
+.portfolio-body-modal {
+  width: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -151,13 +137,12 @@ article.portfolio-card {
     padding: $space-md;
     color: #fff;
   }
+}
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    grid-area: portfolioimgpopup;
-  }
+img.portfolio-body-modal {
+  width: fit-content;
+  object-fit: cover;
+  grid-area: imgpop;
 }
 
 // ============================================================
@@ -165,174 +150,221 @@ article.portfolio-card {
 // ============================================================
 
 .portfolio-wrapper {
-  max-height: 100%;
+  // max-height: 100%;
   // display: grid;
   // grid-template-columns: repeat(30, 1fr);
   // grid-template-rows: repeat(8, 1fr);
-  grid-template-areas: ". . img1 img1 . . . .";
+  grid-template-areas:
+    ". . img1 img1 . . . ."
+    ". . . . . . quo1 quo1"
+    "img2 img2 . . img3 img3 . ."
+    ". . . . . . img5 img5"
+    "img6 img6 . . . ."
+    "img7 img7 quo2 quo2 img8 img8 img9 img9"
+    "img10 img10 img11 img11 img12 img12 img13 img13"
+    "img14 img14 img15 img15 quo3 quo3 img16 img16"
+    "img17 img17 img17 img17 img17 img17 img17 img17"
+    "quo4 quo4 img18 img18 quo5 quo5 img19 img19"
+    "img20 img20 img21 img21 img22 img22 . ."
+    ". . img23 img23 . . img24 img24"
+    "img25 img25 . . img26 img26 . ."
+    ". . . . . . quo6 quo6"
+    ". . img27 img27 . . . .";
 }
 
-.portfolio-card-pos[data-pos="1"] {
+.portfolio-card-pos[data-portfolio-pos="1"] {
   // grid-column: 1 / 2;
   // grid-row: 3 / 4;
   grid-area: img1;
 }
 
-.portfolio-card-pos[data-pos="2"] {
-  grid-column: 3 / 4;
-  grid-row: 7 / 8;
+.portfolio-card-pos[data-portfolio-pos="2"] {
+  // grid-column: 3 / 4;
+  // grid-row: 7 / 8;
+  grid-area: quo1;
 }
 
-.portfolio-card-pos[data-pos="3"] {
-  grid-column: 5 / 6;
-  grid-row: 1 / 2;
+.portfolio-card-pos[data-portfolio-pos="3"] {
+  // grid-column: 5 / 6;
+  // grid-row: 1 / 2
+  grid-area: img2;
 }
 
-.portfolio-card-pos[data-pos="4"] {
-  grid-column: 5 / 6;
-  grid-row: 5 / 6;
+.portfolio-card-pos[data-portfolio-pos="4"] {
+  // grid-column: 5 / 6;
+  // grid-row: 5 / 6;
+  grid-area: img3;
 }
 
-.portfolio-card-pos[data-pos="5"] {
-  grid-column: 7 / 8;
-  grid-row: 7 / 8;
+.portfolio-card-pos[data-portfolio-pos="5"] {
+  // grid-column: 7 / 8;
+  // grid-row: 7 / 8;
+  grid-area: img4;
 }
 
-.portfolio-card-pos[data-pos="6"] {
-  grid-column: 9 / 10;
-  grid-row: 1 / 2;
+.portfolio-card-pos[data-portfolio-pos="6"] {
+  // grid-column: 9 / 10;
+  // grid-row: 1 / 2;
+  grid-area: img5;
 }
 
-.portfolio-card-pos[data-pos="7"] {
-  grid-column: 9 / 10;
-  grid-row: 3 / 4;
+.portfolio-card-pos[data-portfolio-pos="7"] {
+  // grid-column: 9 / 10;
+  // grid-row: 3 / 4;
+  grid-area: img6;
 }
 
-.portfolio-card-pos[data-pos="8"] {
-  grid-column: 11 / 12;
-  grid-row: 1 / 2;
+.portfolio-card-pos[data-portfolio-pos="8"] {
+  // grid-column: 11 / 12;
+  // grid-row: 1 / 2;
+  grid-area: img7;
 }
 
-.portfolio-card-pos[data-pos="9"] {
-  grid-column: 11 / 12;
-  grid-row: 3 / 4;
+.portfolio-card-pos[data-portfolio-pos="9"] {
+  // grid-column: 11 / 12;
+  // grid-row: 3 / 4;
+  grid-area: quo2;
 }
 
-.portfolio-card-pos[data-pos="10"] {
-  grid-column: 11 / 12;
-  grid-row: 5 / 6;
+.portfolio-card-pos[data-portfolio-pos="10"] {
+  // grid-column: 11 / 12;
+  // grid-row: 5 / 6;
+  grid-area: img8;
 }
 
-.portfolio-card-pos[data-pos="11"] {
-  grid-column: 11 / 12;
-  grid-row: 7 / 8;
+.portfolio-card-pos[data-portfolio-pos="11"] {
+  // grid-column: 11 / 12;
+  // grid-row: 7 / 8;
+  grid-area: img9;
 }
 
-.portfolio-card-pos[data-pos="12"] {
-  grid-column: 13 / 14;
-  grid-row: 1 / 2;
+.portfolio-card-pos[data-portfolio-pos="12"] {
+  // grid-column: 13 / 14;
+  // grid-row: 1 / 2;
+  grid-area: img10;
 }
 
-.portfolio-card-pos[data-pos="13"] {
-  grid-column: 13 / 14;
-  grid-row: 3 / 4;
+.portfolio-card-pos[data-portfolio-pos="13"] {
+  // grid-column: 13 / 14;
+  // grid-row: 3 / 4;
+  grid-area: img11;
 }
 
-.portfolio-card-pos[data-pos="14"] {
-  grid-column: 13 / 14;
-  grid-row: 5 / 6;
+.portfolio-card-pos[data-portfolio-pos="14"] {
+  // grid-column: 13 / 14;
+  // grid-row: 5 / 6;
+  grid-area: img12;
 }
 
-.portfolio-card-pos[data-pos="15"] {
-  grid-column: 13 / 14;
-  grid-row: 7 / 8;
+.portfolio-card-pos[data-portfolio-pos="15"] {
+  // grid-column: 13 / 14;
+  // grid-row: 7 / 8;
+  grid-area: img13;
 }
 
-.portfolio-card-pos[data-pos="16"] {
-  grid-column: 15 / 16;
-  grid-row: 1 / 2;
+.portfolio-card-pos[data-portfolio-pos="16"] {
+  // grid-column: 15 / 16;
+  // grid-row: 1 / 2;
+  grid-area: img14;
 }
 
-.portfolio-card-pos[data-pos="17"] {
-  grid-column: 15 / 16;
-  grid-row: 3 / 4;
+.portfolio-card-pos[data-portfolio-pos="17"] {
+  // grid-column: 15 / 16;
+  // grid-row: 3 / 4;
+  grid-area: img15;
 }
-.portfolio-card-pos[data-pos="18"] {
-  grid-column: 15 / 16;
-  grid-row: 5 / 6;
-}
-
-.portfolio-card-pos[data-pos="19"] {
-  grid-column: 15 / 16;
-  grid-row: 7 / 8;
+.portfolio-card-pos[data-portfolio-pos="18"] {
+  // grid-column: 15 / 16;
+  // grid-row: 5 / 6;
+  grid-area: quo3;
 }
 
-.portfolio-card-pos[data-pos="20"] {
-  grid-column: 17 / 18;
-  grid-row: 1 / 8;
+.portfolio-card-pos[data-portfolio-pos="19"] {
+  // grid-column: 15 / 16;
+  // grid-row: 7 / 8;
+  grid-area: img16;
 }
 
-.portfolio-card-pos[data-pos="21"] {
-  grid-column: 19 / 20;
-  grid-row: 1 / 2;
+.portfolio-card-pos[data-portfolio-pos="20"] {
+  // grid-column: 17 / 18;
+  // grid-row: 1 / 8;
+  grid-area: img17;
 }
 
-.portfolio-card-pos[data-pos="22"] {
-  grid-column: 19 / 20;
-  grid-row: 3 / 4;
+.portfolio-card-pos[data-portfolio-pos="21"] {
+  // grid-column: 19 / 20;
+  // grid-row: 1 / 2;
+  grid-area: quo4;
 }
 
-.portfolio-card-pos[data-pos="23"] {
-  grid-column: 19 / 20;
-  grid-row: 5 / 6;
+.portfolio-card-pos[data-portfolio-pos="22"] {
+  // grid-column: 19 / 20;
+  // grid-row: 3 / 4;
+  grid-area: img18;
 }
 
-.portfolio-card-pos[data-pos="24"] {
-  grid-column: 19 / 20;
-  grid-row: 7 / 8;
+.portfolio-card-pos[data-portfolio-pos="23"] {
+  // grid-column: 19 / 20;
+  // grid-row: 5 / 6;
+  grid-area: quo5;
 }
 
-.portfolio-card-pos[data-pos="25"] {
-  grid-column: 21 / 22;
-  grid-row: 1 / 2;
+.portfolio-card-pos[data-portfolio-pos="24"] {
+  // grid-column: 19 / 20;
+  // grid-row: 7 / 8;
+  grid-area: img19;
 }
 
-.portfolio-card-pos[data-pos="26"] {
-  grid-column: 21 / 22;
-  grid-row: 3 / 4;
+.portfolio-card-pos[data-portfolio-pos="25"] {
+  // grid-column: 21 / 22;
+  // grid-row: 1 / 2;
+  grid-area: img20;
 }
 
-.portfolio-card-pos[data-pos="27"] {
-  grid-column: 21 / 22;
-  grid-row: 5 / 6;
+.portfolio-card-pos[data-portfolio-pos="26"] {
+  // grid-column: 21 / 22;
+  // grid-row: 3 / 4;
+  grid-area: img21;
 }
 
-.portfolio-card-pos[data-pos="28"] {
-  grid-column: 23 / 24;
-  grid-row: 3 / 4;
+.portfolio-card-pos[data-portfolio-pos="27"] {
+  // grid-column: 21 / 22;
+  // grid-row: 5 / 6;
+  grid-area: img22;
 }
 
-.portfolio-card-pos[data-pos="29"] {
-  grid-column: 23 / 24;
-  grid-row: 7 / 8;
+.portfolio-card-pos[data-portfolio-pos="28"] {
+  // grid-column: 23 / 24;
+  // grid-row: 3 / 4;
+  grid-area: img23;
 }
 
-.portfolio-card-pos[data-pos="30"] {
+.portfolio-card-pos[data-portfolio-pos="29"] {
+  // grid-column: 23 / 24;
+  // grid-row: 7 / 8;
+  grid-area: img24;
+}
+
+.portfolio-card-pos[data-portfolio-pos="30"] {
+  // grid-column: 25 / 26;
+  // grid-row: 1 / 2;
+  grid-area: img25;
+}
+
+.portfolio-card-pos[data-portfolio-pos="31"] {
   grid-column: 25 / 26;
-  grid-row: 1 / 2;
-}
-
-.portfolio-card-pos[data-pos="31"] {
-  grid-column: 25 / 26;
   grid-row: 5 / 6;
+  grid-area: img26;
 }
 
-.portfolio-card-pos[data-pos="32"] {
+.portfolio-card-pos[data-portfolio-pos="32"] {
   grid-column: 27 / 28;
   grid-row: 7 / 8;
+  grid-area: quo6;
 }
 
-.portfolio-card-pos[data-pos="33"] {
+.portfolio-card-pos[data-portfolio-pos="33"] {
   grid-column: 29 / 30;
   grid-row: 3 / 4;
+  grid-area: img27;
 }

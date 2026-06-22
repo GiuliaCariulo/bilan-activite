@@ -21,17 +21,53 @@ permalink: "/"
 
 <section>
   <h2>portfolio</h2>
-  <div class="portfolio-wrapper row" href="#portfolio-popup">
+  <div class="portfolio-wrapper row">
     {% for item in config.portfolio %}
       <div
         class="portfolio-card-pos portfolio-card-img"
-        data-pos="{{ loop.index }}"
+        data-portfolio-pos="{{ loop.index }}"
       >
         {% include "portfolio-card.njk" %}
       </div>
     {% endfor %}
   </div>
 </section>
+
+<div class="porfolio-content-modal portfolio-hidden-modal row">
+  <div class="modal-header">
+    <button class="portfolio-close-modal"><h4>fermer</h4></button>
+  </div>
+  <div class="portfolio-body-modal">
+    <img src="../../public/img/portfolio/Portfolio_001.png" alt="marche" />
+    <p class="porfolio-card-legend">cest la legende</p>
+  </div>
+</div>
+<!-- <article class="portfolio-popup hidden-modal">
+  {% for item in config.portfolio %}
+    <div class="portfolio-overlay row" id="popup-{{ loop.index }}">
+      <div class="portfolio-popup-box">
+        <a class="portfolio-close close-modal" href="#">
+          <button><h4>fermer</h4></button>
+        </a>
+        <div class="portfolio-content">
+          {% if item.media.image %}
+            <figure>
+              <img
+                src="{{ item.media.image | url }}"
+                alt="{{ item.media.legend or 'image du projet' }}"
+              />
+              {% if item.media.legend %}
+                <figcaption class="portfolio-legend">
+                  <p class="portfolio-card-legend">{{ item.media.legend }}</p>
+                </figcaption>
+              {% endif %}
+            </figure>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</article> -->
 
 {# ============================================================
    Exemple : Liste des projets (variable `projets`)
