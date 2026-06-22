@@ -17,7 +17,7 @@
   "portfolio": [
     {
       "media": {
-        "image": "/public/images/portfolio_001.png",
+        "image": "/public/images/portfolio_001.webp",
         "legend": "test"
       }
     },
@@ -38,7 +38,7 @@
   "partners": [
     {
       "title": "Festival International du Film de Fribourg",
-      "image": "/public/images/adam-wilson-isowgfjz2u0-unsplash.jpg"
+      "image": "/public/images/img1.webp"
     },
     {
       "title": "Volontiers",
