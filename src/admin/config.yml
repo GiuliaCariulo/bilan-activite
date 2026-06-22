@@ -112,7 +112,7 @@ collections:
     files:
       - name: interns_list
         label: Liste des stagiaires
-        file: src/_data/stagiaires.json
+        file: src/_data/interns.json
         format: json
         fields:
           - label: "Août – décembre"

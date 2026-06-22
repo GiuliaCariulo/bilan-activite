@@ -2,7 +2,7 @@
   "aout_decembre": [
     {
       "title": "Axel Bütikofer",
-      "image": ""
+      "image": "/public/images/Portfolio_001.webp"
     },
     {
       "title": "Joris Sommerhalder"
@@ -14,7 +14,8 @@
       "title": "Meg Roulin"
     },
     {
-      "title": "Lauriane Sauteur"
+      "title": "Lauriane Sauteur",
+      "image": "/public/images/Portfolio_004.webp"
     },
     {
       "title": "Yuma Comazzi"

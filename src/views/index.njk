@@ -20,20 +20,24 @@ permalink: "/"
 >
 
 <section class="teams">
-  <section class="sessions">
+  <section>
     <div class="teams-sessions">
       <div class="team-container">
-        <div class="team-box-container row">
-          <div class="team-box">
-            <div>
-              <h2>Automne</h2>
-              <p>
-                <br />du 31 août au <br />
-                18 décembre 2025
-              </p>
-            </div>
+        <div class="team-box">
+          <div>
+            <h2>Automne</h2>
+            <p>
+              <br />du 31 août au <br />
+              18 décembre 2025
+            </p>
           </div>
-          {% include "team-card.njk" %}
+        </div>
+        <div class="team-members">
+          {% for cardMember in interns.aout_decembre %}
+            <div class="team-card-member" data-member-pos="{{ loop.index }}">
+              {% include "team-card-member.njk" %}
+            </div>
+          {% endfor %}
         </div>
       </div>
     </div>
