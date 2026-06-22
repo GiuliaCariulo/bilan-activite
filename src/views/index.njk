@@ -91,45 +91,6 @@ permalink: "/"
 </article> -->
 
   {# ============================================================
-   Exemple : Liste des projets (variable `projets`)
-   `projets` est un tableau injecté par src/_data/projets.js,
-   qui lit tous les fichiers JSON du dossier src/_data/projets/.
-   ============================================================ #}
-
-  {% if projets and projets.length %}
-    <section class="projets-gallery row">
-      <h2 class="projets-gallery-title">projets</h2>
-      {% for projet in projets %}
-        <a
-          href="{{ ('/projets/' + projet.id + '/') | url }}"
-          class="projets-gallery-project-card"
-          data-pos="{{ loop.index }}"
-        >
-          <article class="projet">
-            {# Image de couverture #}
-            {% if projet.thumbnail %}
-              <img src="{{ projet.thumbnail }}" alt="{{ projet.title }}" />
-            {% endif %}
-            <div class="projets-gallery-label">
-              {# Titre #}
-              <h4>{{ projet.title }}</h4>
-
-              {# Tags (tableau de strings) #}
-              {% if projet.tags and projet.tags.length %}
-                <ul class="tags">
-                  {% for tag in projet.tags %}
-                    <li>{{ tag }}</li>
-                  {% endfor %}
-                </ul>
-              {% endif %}
-            </div>
-          </article>
-        </a>
-      {% endfor %}
-    </section>
-  {% endif %}
-
-  {# ============================================================
    Exemple : Sections (variable `sections`)
    `sections` est l'objet injecté par src/_data/sections.json
    (variable = objet entier, donc on boucle sur `sections.sections`).
@@ -202,3 +163,42 @@ permalink: "/"
     </div>
   </section>
 </section>
+
+{# ============================================================
+   Exemple : Liste des projets (variable `projets`)
+   `projets` est un tableau injecté par src/_data/projets.js,
+   qui lit tous les fichiers JSON du dossier src/_data/projets/.
+   ============================================================ #}
+
+{% if projets and projets.length %}
+  <section class="projets-gallery row">
+    <h2 class="projets-gallery-title">projets</h2>
+    {% for projet in projets %}
+      <a
+        href="{{ ('/projets/' + projet.id + '/') | url }}"
+        class="projets-gallery-project-card"
+        data-pos="{{ loop.index }}"
+      >
+        <article class="projet">
+          {# Image de couverture #}
+          {% if projet.thumbnail %}
+            <img src="{{ projet.thumbnail }}" alt="{{ projet.title }}" />
+          {% endif %}
+          <div class="projets-gallery-label">
+            {# Titre #}
+            <h4>{{ projet.title }}</h4>
+
+            {# Tags (tableau de strings) #}
+            {% if projet.tags and projet.tags.length %}
+              <ul class="tags">
+                {% for tag in projet.tags %}
+                  <li>{{ tag }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        </article>
+      </a>
+    {% endfor %}
+  </section>
+{% endif %}
