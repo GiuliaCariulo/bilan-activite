@@ -1,0 +1,80 @@
+@use "../variables" as *;
+@use "../layout" as *;
+
+footer {
+  display: flex;
+}
+
+.footer-animation {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  height: 787px;
+  overflow: hidden;
+}
+
+.footer-title {
+  position: relative;
+  z-index: 2;
+  font-size: 8.5rem;
+  line-height: 0;
+  top: 33px;
+  left: -16px;
+}
+
+.footer-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 1;
+
+  h4 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 8.5rem;
+    line-height: 0.8;
+    white-space: nowrap;
+    margin: 0;
+  }
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  gap: 29px;
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin-left: auto;
+  margin-top: 197px !important;
+  height: 540px;
+}
+
+.footer-contact-copyright {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.footer-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 29px;
+
+  p {
+    font-family: $font;
+    font-size: 0.6rem;
+    font-weight: $font-weight-text;
+  }
+}
+
+.footer-copyright {
+  font-family: $font;
+  font-size: 0.4rem;
+  font-weight: $font-weight-text;
+}
