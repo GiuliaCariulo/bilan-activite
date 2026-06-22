@@ -1,35 +1,190 @@
 {
   "priorites": [
-    {
-      "titre": "Compléter la formation des stagiaires",
-      "texte": "en offrant un contexte de travail innovant et exploratoire, ouvrant des perspectives professionnelles multiples tout en garantissant une rigueur pédagogique. Les élèves doivent pouvoir agrémenter leur portfolio, confirmer leurs centres d’intérêt développés lors de leur formation tout en renforçant certaines lacunes."
-    },
-    {
-      "titre": "Augmenter la visibilité et la communication",
-      "texte": "des formations proposées par eikon, en favorisant des partenariats qui offrent un relai de communication bénéfique pour les stagiaires et le travail qu’ils produisent."
-    },
-    {
-      "titre": "Générer des liens permanents",
-      "texte": "avec le monde professionnel, et être un acteur dynamique de l’ouverture de eikon sur l’environnement professionnel auquel les élèves se destinent."
-    }
+    "sdsds",
+    "ssdfsdf",
+    "a remplire correctmenet"
   ],
   "intro": "Une année riche en rencontres, en créations et en échanges. Voici un aperçu de ce que nous avons construit ensemble.",
   "portfolio": [
     {
       "media": {
-        "image": "/public/images/portfolio_001.png",
-        "legend": "test"
+        "image": "/public/images/Portfolio_001.webp",
+        "legend": "Repérage pour le prégénérique du FIFF dans les salles du Rex. Fribourg, novembre 2025"
       }
     },
     {
-      "quote": "salut cest moi choupi je rentre vers lecole youpiiiiii"
+      "quote": "C'est vraiment cool de faire eikonlab. Les projets sont plus intéressants, et plus réels. C'est un bon début dans le monde professionnel parce qu'on a toujours accès à l'aide des encadrants. Le fait qu'on travaille aussi avec les personnes de notre classe rend les tâches plus cool à faire."
     },
     {
       "media": {
-        "image": "/public/images/58adofoto.jpg",
-        "legend": "legende de popop"
-      },
-      "quote": "salut cest moi choupi je rentre vers lecole youpiiiiii"
+        "image": "/public/images/Portfolio_002.webp",
+        "legend": "Montage du plateau pour l’émission Twitch des Journées Portes Ouvertes 2025. Un design imaginé en relation à la charte visuelle de l’évènement. Fribourg, novembre 2025"
+      }
+    },
+    {
+      "media": {
+        "image": "/public/images/Portfolio_011.webp",
+        "legend": "image menconter ?"
+      }
+    },
+    {
+      "media": {
+        "image": "/public/images/Portfolio_003 2.webp",
+        "legend": "Montage de l’installation pour le Zonta dans le hall de la gare de Fribourg, novembre 2025"
+      }
+    },
+    {
+      "media": {
+        "image": "/public/images/Portfolio_004 2.webp",
+        "legend": "Séance de visionnage des interviews pour les 130 ans de l’Ecole des Métiers de Fribourg, octobre 2025"
+      }
+    },
+    {
+      "media": {
+        "legend": "Test d’affichage sur des écrans de seconde main pour l’installation du Zonta. Fribourg, octobre 2025 ",
+        "image": "/public/images/Portfolio_005 2.webp"
+      }
+    },
+    {
+      "media": {
+        "image": "/public/images/Portfolio_007 2.webp",
+        "legend": "Les deux stagiaires porteurs du projet Zonta sont interviewé.e.s par le 19/30 de la RTS lors de l’inauguration de l’installation. Fribourg, novembre 2025 "
+      }
+    },
+    {
+      "quote": "Je trouve qu'eikonlab ajoute certainement des opportunités d'acquérir une expérience de vie professionnelle."
+    },
+    {
+      "media": {
+        "legend": "Présentation du projet du prégénérique 2026 à une classe d’école primaire, invitée à participer au tournage. Fribourg, décembre 2025",
+        "image": "/public/images/Portfolio_009 2.webp"
+      }
+    },
+    {
+      "media": {
+        "image": "/public/images/Portfolio_020 2.webp",
+        "legend": "Séance de travail à eikonlab. Automne 2025"
+      }
+    },
+    {
+      "media": {
+        "image": "/public/images/Portfolio_017 2.webp",
+        "legend": "Ajustement technique du média “Prism” mis à disposition par l’agence A-LL Creative Technology, une des deux institutions invitées lors de Journées Portes Ouvertes 2025."
+      }
+    },
+    {
+      "media": {
+        "image": "/public/images/Portfolio_012 2.webp",
+        "legend": "Séance de préparation avec le lancement de Journées Portes Ouvertes, novembre 2025"
+      }
+    },
+    {
+      "media": {
+        "legend": "Capture d’écran lors du tournage du prégénérique du FIFF dans les salles du Rex. Fribourg, novembre 2025",
+        "image": "/public/images/Portfolio_013 2.webp"
+      }
+    },
+    {
+      "media": {
+        "legend": "Montage de l’installation “Déclic” lors de l’inauguration pour les 130 ans de l’EMF. Fribourg, janvier 2026",
+        "image": "/public/images/Portfolio_014 2.webp"
+      }
+    },
+    {
+      "media": {
+        "image": "/public/images/Portfolio_015.webp",
+        "legend": "Présentation par les stagiaires de l’installation “Déclic” lors de l’ouverture du Festival des lumières de Morat, janvier 2026"
+      }
+    },
+    {
+      "media": {
+        "legend": "Lancement du projet du prégénérique du FIFF par Victor Ramalho (Fondateur de l’agence Volontiers) et Thierry Jobin (Directeur artistique du festival). Fribourg, septembre 2025 ",
+        "image": "/public/images/Portfolio_016.webp"
+      }
+    },
+    {
+      "quote": "eikonlab se situe à mi-chemin entre le milieu scolaire et le monde professionnel. "
+    },
+    {
+      "media": {
+        "image": "/public/images/Portfolio_018 2.webp",
+        "legend": "Séance de travail pour l’installation “Déclic”, en collaboration avec le collectif Minus3 et Hugo Siclier (étudiant de l’HEMU de Lausanne). Fribourg, décembre 2025. "
+      }
+    },
+    {
+      "media": {
+        "image": "/public/images/Portfolio_019 2.webp",
+        "legend": "Inauguration de l’installation “Sapin Porte-paroles” commandité par le club service Zonta. Fribourg, novembre 2025 "
+      }
+    },
+    {
+      "quote": "C'est plus professionnel qu'à l'école mais en même temps on a quand même un cadre assez flexible et c'est agréable."
+    },
+    {
+      "media": {
+        "legend": "Rencontre entre les stagiaires et les membres du groupe The Young Gods lors de l’avant-première du film documentaire “We are all Young Gods, Live at Fri-Son 2025” à la 40ème édition du FIFF. Fribourg, mars 2026",
+        "image": "/public/images/Portfolio_021 2.webp"
+      }
+    },
+    {
+      "quote": "J'ai trouvé le fait de placer un workshop en début de stage très sympa. On a directement touché à tous les points : trouver un concept, organisation, présentation,..."
+    },
+    {
+      "media": {
+        "image": "/public/images/Portfolio_023.webp",
+        "legend": "Montage de l’installation pour le Zonta dans le hall de la gare de Fribourg, novembre 2025"
+      }
+    },
+    {
+      "media": {
+        "image": "/public/images/Portfolio_024.webp",
+        "legend": "Séance de présentation finale du micro-site destiné à documenter le Sapin Porte-paroles. Fribourg, mars 2026. "
+      }
+    },
+    {
+      "media": {
+        "image": "/public/images/Portfolio_025 2.webp",
+        "legend": "Séance préparatoire pour l’émission Twitch des Journées Portes Ouvertes 2025. Fribourg, novembre 2025"
+      }
+    },
+    {
+      "media": {
+        "image": "/public/images/Portfolio_022.webp",
+        "legend": "Séance de visionnage du prégénérique du FIFF au cinéma Arena. Fribourg, février 2025"
+      }
+    },
+    {
+      "media": {
+        "image": "/public/images/Portfolio_008.webp",
+        "legend": "Phase préparatoire pour l’installation vidéo coordonnée par Christophe Roulet (enseignant) accompagné par les stagiaires de eikonlab et Jocelyn Raphanel, Fondateur de MIAM, une des deux institutions invitées lors de Journées Portes Ouvertes 2025. "
+      }
+    },
+    {
+      "media": {
+        "legend": "Phase préparatoire pour l’installation vidéo coordonnée par Christophe Roulet (enseignant) accompagné par le stagiaire de eikonlab et Jocelyn Raphanel, Fondateur de MIAM, une des deux institutions invitées lors de Journées Portes Ouvertes 2025. ",
+        "image": "/public/images/Portfolio_026 2.webp"
+      }
+    },
+    {
+      "media": {
+        "image": "/public/images/Portfolio_010 2.webp",
+        "legend": "Mise en place de la conférence de Théo Déchanez, un ancien élève et professeur assistant à l’ECAL, pour la présentation de la formation “Media & Interaction Design”. Novembre 2025 "
+      }
+    },
+    {
+      "media": {
+        "image": "/public/images/Portfolio_028.webp",
+        "legend": "Tournage du prégénérique du FIFF dans les salles du Rex. Fribourg, décembre 2025"
+      }
+    },
+    {
+      "quote": "Bonne ambiance et travaux de groupe c'est top."
+    },
+    {
+      "media": {
+        "image": "/public/images/Portfolio_027 2.webp",
+        "legend": "Scénographie pour les Journées Portes Ouvertes 2025. Ici, la salle des rencontres entre équipe pédagogique, les futur.e.s candidat.e.s, les familles, les partenaires. Novembre 2025 "
+      }
     }
   ],
   "titre": "Bilan d'activité 2025-26",
