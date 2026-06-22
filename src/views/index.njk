@@ -26,6 +26,7 @@ permalink: "/"
       <div
         class="portfolio-card-pos portfolio-card-img"
         data-portfolio-pos="{{ loop.index }}"
+        data-portfolio-popup="portfolio{{ loop.index }}"
       >
         {% include "portfolio-card.njk" %}
       </div>
@@ -37,10 +38,16 @@ permalink: "/"
   <div class="modal-header">
     <button class="portfolio-close-modal"><h4>fermer</h4></button>
   </div>
-  <div class="portfolio-body-modal">
-    <img src="../../public/img/portfolio/Portfolio_001.png" alt="marche" />
-    <p class="porfolio-card-legend">cest la legende</p>
-  </div>
+
+  {% for item in config.portfolio %}
+    <div
+      class="portfolio-body-modal portfolio-selector-hidden"
+      id="portfolio{{ loop.index }}"
+    >
+      <img src="{{ item.media.image | url }}" alt="marche" />
+      <p class="porfolio-card-legend">{{ item.media.legend }}</p>
+    </div>
+  {% endfor %}
 </div>
 <!-- <article class="portfolio-popup hidden-modal">
   {% for item in config.portfolio %}

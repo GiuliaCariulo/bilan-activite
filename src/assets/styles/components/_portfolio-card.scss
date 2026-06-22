@@ -141,6 +141,10 @@ button.portfolio-close-modal {
     padding: $space-md;
     color: #fff;
   }
+
+  &.portfolio-selector-hidden {
+    display: none;
+  }
 }
 
 img.portfolio-body-modal {
@@ -161,7 +165,7 @@ img.portfolio-body-modal {
     ". . . . . . quo1 quo1"
     "img2 img2 . . img3 img3 . ."
     ". . . . . . img5 img5"
-    "img6 img6 . . . ."
+    "img6 img6 . . . . . ."
     "img7 img7 quo2 quo2 img8 img8 img9 img9"
     "img10 img10 img11 img11 img12 img12 img13 img13"
     "img14 img14 img15 img15 quo3 quo3 img16 img16"
