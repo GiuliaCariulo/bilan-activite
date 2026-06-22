@@ -44,8 +44,9 @@ jobs:
         # dont l'implémentation TLS échouait à réutiliser la session sur le canal de
         # données ("tlsv1 alert decode error"). Le chiffrement reste actif de bout en bout.
         run: |
-          lftp -u "$FTP_USERNAME,$FTP_PASSWORD" -e "
+          lftp -e "
             set ftp:ssl-force true;
+            open -u \"$FTP_USERNAME,$FTP_PASSWORD\" \"ftps://$FTP_SERVER\";
             mirror -R --delete --verbose ./_site/ \"$FTP_SERVER_DIR\";
             bye
-          " "ftps://$FTP_SERVER"
+          "
