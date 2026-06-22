@@ -6,11 +6,11 @@
   "title": "FIFF",
   "images": [
     {
-      "fichier": "/public/images/portfolio_001.webp",
+      "fichier": "/public/images/Portfolio_001.webp",
       "legend": "une légende chouette"
     },
     {
-      "fichier": "/public/images/portfolio_001.webp"
+      "fichier": "/public/images/Portfolio_001.webp"
     }
   ],
   "tags": ["communication visuelle", "bande-annonce", "projection publique"],

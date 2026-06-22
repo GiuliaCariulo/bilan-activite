@@ -68,7 +68,7 @@ permalink: "/"
         <article class="projet">
           {# Image de couverture #}
           {% if projet.thumbnail %}
-            <img src="{{ projet.thumbnail }}" alt="{{ projet.title }}" />
+            <img src="{{ projet.thumbnail | url }}" alt="{{ projet.title }}" />
           {% endif %}
           <div class="projets-gallery-label">
             {# Titre #}
