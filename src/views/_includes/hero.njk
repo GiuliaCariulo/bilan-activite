@@ -1,55 +1,55 @@
 <div class="hero-grid row">
   <div class="hero-grid-cell hero-grid-cell-img" data-pos="1">
-    <img src="../../public/img/hero/img1.png" alt="" />
+    <img src="{{ '/public/images/img1.webp' | url }}" alt="" />
   </div>
   <div class="hero-grid-cell hero-grid-cell-img" data-pos="2">
-    <img src="../../public/img/hero/img2.png" alt="" />
+    <img src="{{ '/public/images/img2.webp' | url }}" alt="" />
   </div>
   <div class="hero-grid-cell hero-grid-cell-img" data-pos="3">
-    <img src="../../public/img/hero/img3.png" alt="" />
+    <img src="{{ '/public/images/img3.webp' | url }}" alt="" />
   </div>
   <div class="hero-grid-cell hero-grid-cell-contact" data-pos="4">contact</div>
   <div class="hero-grid-cell hero-grid-cell-img" data-pos="5">
-    <img src="../../public/img/hero/img4.png" alt="" />
+    <img src="{{ '/public/images/img4.webp' | url }}" alt="" />
   </div>
   <h1 class="hero-grid-cell hero-grid-cell-eikonlab" data-pos="6">
     eikonlab <span>Bilan d'activité 2025 - 2026</span>
   </h1>
   <div class="hero-grid-cell hero-grid-cell-img" data-pos="7">
-    <img src="../../public/img/hero/img5.png" alt="" />
+    <img src="{{ '/public/images/img5.webp' | url }}" alt="" />
   </div>
   <div class="hero-grid-cell hero-grid-cell-mot" data-pos="8" data-row="r2">
     mot du directeur
   </div>
   <div class="hero-grid-cell hero-grid-cell-img" data-pos="9">
-    <img src="../../public/img/hero/img6.png" alt="" />
+    <img src="{{ '/public/images/img6.webp' | url }}" alt="" />
   </div>
   <div class="hero-grid-cell hero-grid-cell-sessions" data-pos="10">
     sessions
   </div>
   <div class="hero-grid-cell hero-grid-cell-img" data-pos="11">
-    <img src="../../public/img/hero/img7.png" alt="" />
+    <img src="{{ '/public/images/img7.webp' | url }}" alt="" />
   </div>
   <div class="hero-grid-cell hero-grid-cell-edito" data-pos="12" data-row="r3">
     edito
   </div>
   <div class="hero-grid-cell hero-grid-cell-img" data-pos="13">
-    <img src="../../public/img/hero/img8.png" alt="" />
+    <img src="{{ '/public/images/img8.webp' | url }}" alt="" />
   </div>
   <div class="hero-grid-cell hero-grid-cell-img" data-pos="14">
-    <img src="../../public/img/hero/img9.png" alt="" />
+    <img src="{{ '/public/images/img9.webp' | url }}" alt="" />
   </div>
   <div class="hero-grid-cell hero-grid-cell-img" data-pos="15">
-    <img src="../../public/img/hero/img10.png" alt="" />
+    <img src="{{ '/public/images/img10.webp' | url }}" alt="" />
   </div>
   <div class="hero-grid-cell hero-grid-cell-bilan" data-pos="16">
     Bilan d'activité
   </div>
   <div class="hero-grid-cell hero-grid-cell-img" data-pos="17">
-    <img src="../../public/img/hero/img11.png" alt="" />
+    <img src="{{ '/public/images/img11.webp' | url }}" alt="" />
   </div>
   <div class="hero-grid-cell hero-grid-cell-img" data-pos="18">
-    <img src="../../public/img/hero/img12.png" alt="" />
+    <img src="{{ '/public/images/img12.webp' | url }}" alt="" />
   </div>
   <div
     class="hero-grid-cell hero-grid-cell-priorites"
@@ -59,23 +59,23 @@
     priorités
   </div>
   <div class="hero-grid-cell hero-grid-cell-img" data-pos="20">
-    <img src="../../public/img/hero/img13.png" alt="" />
+    <img src="{{ '/public/images/img13.webp' | url }}" alt="" />
   </div>
   <div class="hero-grid-cell hero-grid-cell-img" data-pos="21">
-    <img src="../../public/img/hero/img14.png" alt="" />
+    <img src="{{ '/public/images/img14.webp' | url }}" alt="" />
   </div>
   <div class="hero-grid-cell hero-grid-cell-annee" data-pos="22">25/26</div>
   <div class="hero-grid-cell hero-grid-cell-encadrants" data-pos="23">
     encadrant.e.s
   </div>
   <div class="hero-grid-cell hero-grid-cell-img" data-pos="24">
-    <img src="../../public/img/hero/img15.png" alt="" />
+    <img src="{{ '/public/images/img15.webp' | url }}" alt="" />
   </div>
   <div class="hero-grid-cell hero-grid-cell-partenaires" data-pos="25">
     partenaires
   </div>
   <div class="hero-grid-cell hero-grid-cell-img" data-pos="26">
-    <img src="../../public/img/hero/img16.png" alt="" />
+    <img src="{{ '/public/images/img16.webp' | url }}" alt="" />
   </div>
 
   {# ── EXPAND r2 : mot du directeur ──────────────────────────── #}
@@ -83,9 +83,12 @@
     <div class="hero-grid-expand-sizer">
       <div class="hero-grid-expand-content">
         <div class="hero-grid-expand-left">
-          <p class="hero-grid-expand-text">{{ config.text }}</p>
+          <p class="hero-grid-expand-text">on l'a pas encore :')</p>
         </div>
-        <p class="hero-grid-expand-signature">{{ config.director }}</p>
+        <p class="hero-grid-expand-signature">
+          Felix Kaufmann, <br />
+          directeur d'eikon
+        </p>
       </div>
     </div>
   </div>
@@ -110,58 +113,94 @@
             contexte technologique qui nous est promis – dans un avenir bien
             plus proche que l’on ne l’aurait imaginé il y a quelque temps.
           </p>
-          <p class="hero-grid-expand-text-suite">
-            Dans les métiers de la communication et plus généralement de la
-            création, les phases de productions sont effectivement amenées à
-            être modifiées, notamment par différents systèmes d’assistance mis à
-            disposition des professionnels du secteur. Dès lors, le rôle de
-            l’école est d’être attentive aux profils pouvant s’inscrire dans cet
-            environnement de travail en mouvement, tout en gardant un œil
-            critique et en ajustant si besoin l’ordre des priorités. Être
-            capable de concevoir, coordonner et maitriser un projet de
-            communication, tout en ayant une parfaite compréhension des étapes
-            de développement est essentiel pour les élèves, indépendamment du
-            fait qu’ils ou elles s’orientent par la suite dans une
-            hyperspécialisation (frontend, opérateur de caméra, graphiste 3D…)
-            ou préfèrent opter pour une voie plus généraliste (agence de
-            communication par exemple). Développer une vision et savoir piloter
-            les phases opérationnelles doit représenter un acquis prioritaire
-            aux termes des 3 ou 4 années de formation à eikon. Dans ce contexte,
-            eikonLAB a plus que jamais le devoir d’être une opportunité pour
-            notre institution formatrice. La mission pédagogique que nous nous
-            sommes fixée depuis plusieurs années, de renforcer les acquis en
-            termes de méthodologie et de mettre les compétences des élèves de
-            4ème année au profit de projets technologiquement exploratoires,
-            trouve un écho d’autant plus porteur en 2026. A l’image du code qui
-            ne se fait plus aujourd’hui sans l’assistance d’une IA, les
-            stagiaires doivent ainsi pouvoir faire l’expérience d’un certain
-            nombre de tâches qui vont être « potentiellement » automatisées,
-            mais surtout étudier les enjeux conceptuels et méthodologiques de ce
-            nouveau contexte professionnel. C’est donc dans ce sens que nous
-            avons de nouveau orienté les projets de eikonlab durant cette année
-            scolaire 2025-26, et nous sommes très heureux aujourd’hui de
-            partager avec vous le résultat de ces différentes réalisations.
-            Comme à l’accoutumée, ce document est également l’occasion de
-            transmettre nos plus vifs remerciements à nos partenaires,
-            collaborateurs et prestataires pour la confiance et l’accompagnement
-            qu’ils ou elles accordent aux jeunes professionnel. les de la
-            formation « Interactive Media Designer ». <br /><br />
-            Bonne lecture.
-          </p>
+          <div class="hero-grid-expand-text-suite">
+            <p>
+              Dans les métiers de la communication et plus généralement de la
+              création, les phases de productions sont effectivement amenées à
+              être modifiées, notamment par différents systèmes d’assistance mis
+              à disposition des professionnels du secteur. Dès lors, le rôle de
+              l’école est d’être attentive aux profils pouvant s’inscrire dans
+              cet environnement de travail en mouvement, tout en gardant un œil
+              critique et en ajustant si besoin l’ordre des priorités. Être
+              capable de concevoir, coordonner et maitriser un projet de
+              communication, tout en ayant une parfaite compréhension des étapes
+              de développement est essentiel pour les élèves, indépendamment du
+              fait qu’ils ou elles s’orientent par la suite dans une
+              hyperspécialisation (frontend, opérateur de caméra, graphiste 3D…)
+              ou préfèrent opter pour une voie plus généraliste (agence de
+              communication par exemple). Développer une vision et savoir
+              piloter les phases opérationnelles doit représenter un acquis
+              prioritaire aux termes des 3 ou 4 années de formation à eikon.
+              Dans ce contexte, eikonLAB a plus que jamais le devoir d’être une
+              opportunité pour notre institution formatrice. La mission
+              pédagogique que nous nous sommes fixée depuis plusieurs années, de
+              renforcer les acquis en termes de méthodologie et de mettre les
+              compétences des élèves de 4ème année au profit de projets
+              technologiquement exploratoires, trouve un écho d’autant plus
+              porteur en 2026. A l’image du code qui ne se fait plus aujourd’hui
+              sans l’assistance d’une IA, les stagiaires doivent ainsi pouvoir
+              faire l’expérience d’un certain nombre de tâches qui vont être «
+              potentiellement » automatisées, mais surtout étudier les enjeux
+              conceptuels et méthodologiques de ce nouveau contexte
+              professionnel. C’est donc dans ce sens que nous avons de nouveau
+              orienté les projets de eikonlab durant cette année scolaire
+              2025-26, et nous sommes très heureux aujourd’hui de partager avec
+              vous le résultat de ces différentes réalisations. Comme à
+              l’accoutumée, ce document est également l’occasion de transmettre
+              nos plus vifs remerciements à nos partenaires, collaborateurs et
+              prestataires pour la confiance et l’accompagnement qu’ils ou elles
+              accordent aux jeunes professionnel. les de la formation «
+              Interactive Media Designer ».
+            </p>
+            <p>Bonne lecture.</p>
+          </div>
           <button class="hero-grid-voir-plus">voir plus...</button>
           <button class="hero-grid-voir-moins" style="display: none">
             voir moins...
           </button>
         </div>
-        <p class="hero-grid-expand-signature"></p>
+        <p class="hero-grid-expand-signature">l'équipe eikonlab</p>
       </div>
     </div>
   </div>
 
-  {# ── EXPAND r4 : priorités (rempli dynamiquement en JS) ────── #}
+  {# ── EXPAND r4 : priorités ────── #}
   <div class="hero-grid-expand hero-grid-expand-r4">
     <div class="hero-grid-expand-sizer">
-      <div class="hero-grid-expand-content"></div>
+      <div class="hero-grid-expand-content">
+        <div class="hero-grid-expand-priorite-wrapper">
+          <h3 class="hero-grid-expand-priorite-titre">
+            compléter<br />la formation<br />des stagiaires
+          </h3>
+          <p class="hero-grid-expand-priorite-texte">
+            en offrant un contexte de travail innovant et exploratoire, ouvrant
+            des perspectives professionnelles multiples tout en garantissant une
+            rigueur pédagogique. Les élèves doivent pouvoir agrémenter leur
+            portfolio, confirmer les centres d'intérêt développés lors de leur
+            formation tout en renforçant certaines lacunes.
+          </p>
+        </div>
+        <div class="hero-grid-expand-priorite-wrapper">
+          <h3 class="hero-grid-expand-priorite-titre">
+            augmenter la<br />visibilité et la<br />communication
+          </h3>
+          <p class="hero-grid-expand-priorite-texte">
+            des formations proposées par eikon, en favorisant des partenariats
+            qui offrent un relai de communication bénéfique pour les stagiaires
+            et le travail qu'ils produisent.
+          </p>
+        </div>
+        <div class="hero-grid-expand-priorite-wrapper">
+          <h3 class="hero-grid-expand-priorite-titre">
+            générer des liens<br />permanents
+          </h3>
+          <p class="hero-grid-expand-priorite-texte">
+            avec le monde professionnel, et être un acteur dynamique de
+            l'ouverture de eikon sur l'environnement professionnel auquel les
+            élèves se destinent.
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
