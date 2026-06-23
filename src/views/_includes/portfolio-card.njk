@@ -14,6 +14,8 @@
       {% endif %}
     </figure>
   {% elif item.quote %}
-    <p class="portfolio-card-text">{{ item.quote }}</p>
+    <figure class="portfolio-card-text">
+      <p>{{ item.quote }}</p>
+    </figure>
   {% endif %}
 </article>
