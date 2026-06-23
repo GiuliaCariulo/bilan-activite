@@ -19,7 +19,10 @@ layout: base.njk
   {% endif %}
 
   {# Button + titre #}
-  <button class="projet-page-retour">retour</button>
+  <a href="{{ '/' | url }}" class="projet-page-retour"
+    ><button>retour</button></a
+  >
+
   <h1 class="projet-page-title">{{ projet.title }}</h1>
 
   {# Spacer #}
@@ -49,48 +52,51 @@ layout: base.njk
     {% endfor %}
   {% endif %}
 
-  {# Métadonnées #}
-  <div class="projet-page-meta">
+  {# Infos #}
+  <div class="projet-page-info">
     {% if projet.clients and projet.clients.length %}
-      <div class="projet-page-meta-block">
-        <p class="projet-page-meta-label">Client.e.s</p>
-        <p>{{ projet.clients | join(', ') }}</p>
+      <div class="projet-page-info-block">
+        <p class="projet-page-info-title">Client.e.s</p>
+        <p class="projet-page-info-content">
+          {{ projet.clients | join(', ') }}
+        </p>
       </div>
     {% endif %}
 
     {% if projet.mandate %}
-      <div class="projet-page-meta-block">
-        <p class="projet-page-meta-label">Type de mandat</p>
-        <p>{{ projet.mandate }}</p>
+      <div class="projet-page-info-block">
+        <p class="projet-page-info-title">Type de mandat</p>
+        <p class="projet-page-info-content">{{ projet.mandate }}</p>
       </div>
     {% endif %}
 
     {% if projet.skills %}
-      <div class="projet-page-meta-block">
-        <p class="projet-page-meta-label">Compétences</p>
-        <p>{{ projet.skills }}</p>
+      <div class="projet-page-info-block">
+        <p class="projet-page-info-title">Compétences</p>
+        <p class="projet-page-info-content">{{ projet.skills }}</p>
       </div>
     {% endif %}
 
     {% if projet.sessions and projet.sessions.length %}
-      <div class="projet-page-meta-block">
-        <p class="projet-page-meta-label">Session.s</p>
-        <p>{{ projet.sessions | join(', ') }}</p>
+      <div class="projet-page-info-block">
+        <p class="projet-page-info-title">Session.s</p>
+        <p class="projet-page-info-content">
+          {{ projet.sessions | join(', ') }}
+        </p>
       </div>
     {% endif %}
 
     {% if projet.links and projet.links.length %}
-      <div class="projet-page-meta-block">
-        <p class="projet-page-meta-label">Liens</p>
+      <div class="projet-page-info-block">
+        <p class="projet-page-info-title">Liens</p>
         {% for link in projet.links %}
-          <a href="{{ link.url }}" target="_blank">{{ link.label }}</a>
+          <p><a href="{{ link.url }}" target="_blank">{{ link.label }}</a></p>
         {% endfor %}
       </div>
     {% endif %}
   </div>
-</div>
 
-<a href="{{ '/' | url }}">Retour au Index.njk</a>
-{% block scripts %}
-  <script type="module" src="{{ '/assets/js/projet.js' | url }}"></script>
-{% endblock %}
+  {% block scripts %}
+    <script type="module" src="{{ '/assets/js/projet.js' | url }}"></script>
+  {% endblock %}
+</div>
