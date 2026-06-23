@@ -17,3 +17,16 @@
     object-fit: cover;
   }
 }
+
+@media (max-width: 390px) {
+  .partners-wrapper {
+    width: 122vh;
+    gap: 72px 180px;
+  }
+
+  .partner-box {
+    width: 180px;
+    height: 180px;
+    display: flex;
+  }
+}
