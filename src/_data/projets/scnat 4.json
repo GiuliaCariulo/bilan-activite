@@ -1,0 +1,21 @@
+{
+  "title": "SCNAT",
+  "thumbnail": "/public/images/image-1.png",
+  "description": "test",
+  "tags": [
+    "test"
+  ],
+  "sessions": [
+    "Août - décembre"
+  ],
+  "mandate": "Communication",
+  "images": [
+    {
+      "fichier": "/public/images/image-thumbnail.png",
+      "legend": "test"
+    }
+  ],
+  "clients": [
+    "miam"
+  ]
+}
