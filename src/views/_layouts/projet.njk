@@ -11,17 +11,19 @@ layout: base.njk
    ============================================================ #}
 
 <div class="projet-page row">
-  {# Image de couverture #}
+  {# Thumbnail #}
   {% if projet.thumbnail %}
     <div class="projet-page-thumbnail">
       <img src="{{ projet.thumbnail }}" alt="{{ projet.title }}" />
     </div>
   {% endif %}
 
-  <button>retour</button>
-
-  {# Titre + lien vers la page du projet #}
+  {# Button + titre #}
+  <button class="projet-page-retour">retour</button>
   <h1 class="projet-page-title">{{ projet.title }}</h1>
+
+  {# Spacer #}
+  <div class="projet-page-spacer"></div>
 
   {# Description #}
   <div class="projet-page-description">
@@ -29,55 +31,63 @@ layout: base.njk
     <p class="projet-page-description-legend">description</p>
   </div>
 
-  {# Spacer #}
-  <div class="projet-page-spacer"></div>
+  <!-- {# Spacer #}
+  <div class="projet-page-spacer"></div> -->
 
-  {# Autres images (tableau de {fichier, legend}) #}
-  <div class="projet-page-other-img">
-    {% if projet.images and projet.images.length %}
-      <ul class="images">
-        {% for image in projet.images %}
-          <li>
-            <figure>
-              <img src="{{ image.fichier }}" alt="{{ image.legend or '' }}" />
-              {% if image.legend %}
-                <figcaption>{{ image.legend }}</figcaption>
-              {% endif %}
-            </figure>
-          </li>
+  {# Images #}
+  {% if projet.images and projet.images.length %}
+    {% for image in projet.images %}
+      <div class="projet-page-spacer"></div>
+      <figure class="projet-page-images">
+        <img src="{{ image.fichier }}" alt="{{ image.legend or '' }}" />
+        {% if image.legend %}
+          <div class="projet-page-images-caption">
+            <p>{{ image.legend }}</p>
+          </div>
+        {% endif %}
+      </figure>
+    {% endfor %}
+  {% endif %}
+
+  {# Métadonnées #}
+  <div class="projet-page-meta">
+    {% if projet.clients and projet.clients.length %}
+      <div class="projet-page-meta-block">
+        <p class="projet-page-meta-label">Client.e.s</p>
+        <p>{{ projet.clients | join(', ') }}</p>
+      </div>
+    {% endif %}
+
+    {% if projet.mandate %}
+      <div class="projet-page-meta-block">
+        <p class="projet-page-meta-label">Type de mandat</p>
+        <p>{{ projet.mandate }}</p>
+      </div>
+    {% endif %}
+
+    {% if projet.skills %}
+      <div class="projet-page-meta-block">
+        <p class="projet-page-meta-label">Compétences</p>
+        <p>{{ projet.skills }}</p>
+      </div>
+    {% endif %}
+
+    {% if projet.sessions and projet.sessions.length %}
+      <div class="projet-page-meta-block">
+        <p class="projet-page-meta-label">Session.s</p>
+        <p>{{ projet.sessions | join(', ') }}</p>
+      </div>
+    {% endif %}
+
+    {% if projet.links and projet.links.length %}
+      <div class="projet-page-meta-block">
+        <p class="projet-page-meta-label">Liens</p>
+        {% for link in projet.links %}
+          <a href="{{ link.url }}" target="_blank">{{ link.label }}</a>
         {% endfor %}
-      </ul>
+      </div>
     {% endif %}
   </div>
-
-  {# Type de mandat #}
-  <p>{{ projet.mandate }}</p>
-
-  {# Sessions (tableau de strings) #}
-  {% if projet.sessions and projet.sessions.length %}
-    <p>Sessions : {{ projet.sessions | join(', ') }}</p>
-  {% endif %}
-
-  {# Client·e·s (tableau de strings) #}
-  {% if projet.clients and projet.clients.length %}
-    <p>Client·e·s : {{ projet.clients | join(', ') }}</p>
-  {% endif %}
-
-  {# Compétences mises en œuvre #}
-  {% if projet.skills %}
-    <p>Compétences : {{ projet.skills }}</p>
-  {% endif %}
-
-  {# Liens (tableau de {label, url}) #}
-  {% if projet.links and projet.links.length %}
-    <ul class="liens">
-      {% for link in projet.links %}
-        <li>
-          <a href="{{ link.url }}" target="_blank">{{ link.label }}</a>
-        </li>
-      {% endfor %}
-    </ul>
-  {% endif %}
 </div>
 
 <a href="{{ '/' | url }}">Retour au Index.njk</a>
