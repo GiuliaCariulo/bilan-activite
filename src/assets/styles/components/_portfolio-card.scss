@@ -44,15 +44,17 @@
   padding: 6px 9px;
   justify-content: center;
   align-items: center;
-  background: black;
+  background: $color-primary;
   transition:
     transform 0.2s ease,
     opacity 0.2s ease;
   z-index: 1;
 
   p {
-    font-family: $font;
     font-size: 0.6rem;
+    $font-weight-legend: 500;
+    $font-style-legend: italic;
+    $font-line-height-legend: 1.5;
     color: $color-secondary;
     text-align: end;
   }
