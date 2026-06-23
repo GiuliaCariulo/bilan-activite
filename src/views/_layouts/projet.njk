@@ -14,7 +14,7 @@ layout: base.njk
   {# Thumbnail #}
   {% if projet.thumbnail %}
     <div class="projet-page-thumbnail">
-      <img src="{{ projet.thumbnail }}" alt="{{ projet.title }}" />
+      <img src="{{ projet.thumbnail|url }}" alt="{{ projet.title }}" />
     </div>
   {% endif %}
 
@@ -44,7 +44,7 @@ layout: base.njk
     {% for image in projet.images %}
       <div class="projet-page-spacer"></div>
       <figure class="projet-page-images">
-        <img src="{{ image.fichier }}" alt="{{ image.legend or '' }}" />
+        <img src="{{ image.fichier|url }}" alt="{{ image.legend or '' }}" />
         {% if image.legend %}
           <div class="projet-page-images-caption">
             <p>{{ image.legend }}</p>
