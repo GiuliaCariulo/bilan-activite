@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .getElementById(popupId)
         .classList.remove("portfolio-selector-hidden");
       modal.classList.remove("portfolio-hidden-modal");
+      document.body.style.overflow = "hidden"; // ← ici
     });
   });
 
@@ -23,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .querySelector(".portfolio-close-modal")
     .addEventListener("click", function () {
       modal.classList.add("portfolio-hidden-modal");
+      document.body.style.overflow = ""; // ← ici
 
       document
         .querySelectorAll(".portfolio-body-modal")
