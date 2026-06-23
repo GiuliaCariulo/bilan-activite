@@ -30,7 +30,9 @@ layout: base.njk
 
   {# Description #}
   <div class="projet-page-description">
-    <p class="projet-page-description-content">{{ projet.description }}</p>
+    <div class="projet-page-description-content">
+      {{ projet.description|markdown|safe }}
+    </div>
     <p class="projet-page-description-legend">description</p>
   </div>
 
