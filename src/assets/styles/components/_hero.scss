@@ -1,4 +1,6 @@
 @use "../variables" as *;
+@use "sass:list";
+@use "sass:string";
 
 // ==========================================================================
 // hero-grid — Grille héro de la page d'accueil
@@ -81,8 +83,8 @@
 
     @for $i from 1 through 26 {
       &[data-pos="#{$i}"] {
-        grid-area: unquote(
-          nth(
+        grid-area: string.unquote(
+          list.nth(
             (
               img1,
               img2,
