@@ -1,9 +1,5 @@
 {
-  "priorites": [
-    "sdsds",
-    "ssdfsdf",
-    "a remplire correctmenet"
-  ],
+  "priorites": ["sdsds", "ssdfsdf", "a remplire correctmenet"],
   "intro": "Une année riche en rencontres, en créations et en échanges. Voici un aperçu de ce que nous avons construit ensemble.",
   "portfolio": [
     {
@@ -193,7 +189,7 @@
   "partners": [
     {
       "title": "Festival International du Film de Fribourg",
-      "image": "/public/images/adam-wilson-isowgfjz2u0-unsplash.jpg"
+      "image": "/public/images/img1.webp"
     },
     {
       "title": "Volontiers",

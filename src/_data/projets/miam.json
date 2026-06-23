@@ -1,10 +1,8 @@
 {
   "skills": "UX / UI design, production vidéo, rédactionnel, travail d’équipe et collaboration",
   "mandate": "Communication",
-  "clients": [
-    "Association MIAM"
-  ],
-  "thumbnail": "/public/images/image-thumbnail.png",
+  "clients": ["Association MIAM"],
+  "thumbnail": "/public/images/image-thumbnail.webp",
   "title": "MIAM",
   "images": [],
   "links": [
@@ -15,7 +13,5 @@
   ],
   "id": "miam",
   "description": "MIAM est une association construite autour d'une salle équipée des dernières technologies pour la création d’espaces sonores tridimensionnels ou plus largement appelés Immersifs.\nLe lancement de la première programmation du lieu est prévu pour septembre 2025. eikonlab soutient le projet en réalisant le site provisoire servant aux recherches de financements.\nLe lien entre MIAM et l'école s'inscrit dans une dynamique de veille technologique, des visites de classes pourront être organisées et des collaborations sont déjà envisagées. L'expérience des personnes qui composent le comité de cette association en matière de résidence artistique garantie un partenariat de choix pour la suite. ",
-  "sessions": [
-    "Août - décembre"
-  ]
+  "sessions": ["Août - décembre"]
 }

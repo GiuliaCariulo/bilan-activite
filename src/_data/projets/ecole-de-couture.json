@@ -2,15 +2,15 @@
   "skills": "Communication visuelle, 3D, graphisme, décoration scénique",
   "mandate": "Événement",
   "clients": ["Ecole de couture, Fribourg"],
-  "thumbnail": "/public/images/image-thumbnail.png",
+  "thumbnail": "/public/images/image-thumbnail.webp",
   "title": "FIFF",
   "images": [
     {
-      "fichier": "/public/images/portfolio_001.png",
+      "fichier": "/public/images/Portfolio_001.webp",
       "legend": "une légende chouette"
     },
     {
-      "fichier": "/public/images/portfolio_001.png"
+      "fichier": "/public/images/Portfolio_001.webp"
     }
   ],
   "tags": ["communication visuelle", "bande-annonce", "projection publique"],

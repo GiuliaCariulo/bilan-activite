@@ -17,7 +17,7 @@ layout: base.njk
     <article class="projet">
       {# Image de couverture #}
       {% if projet.thumbnail %}
-        <img src="{{ projet.thumbnail }}" alt="{{ projet.title }}" />
+        <img src="{{ projet.thumbnail | url }}" alt="{{ projet.title }}" />
       {% endif %}
 
       {# Titre + lien vers la page du projet #}
@@ -59,7 +59,10 @@ layout: base.njk
           {% for image in projet.images %}
             <li>
               <figure>
-                <img src="{{ image.fichier }}" alt="{{ image.legend or '' }}" />
+                <img
+                  src="{{ image.fichier | url }}"
+                  alt="{{ image.legend or '' }}"
+                />
                 {% if image.legend %}
                   <figcaption>{{ image.legend }}</figcaption>
                 {% endif %}
