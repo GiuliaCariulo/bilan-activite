@@ -57,7 +57,6 @@
     grid-template-columns: repeat(4, 1fr);
     color: $color-primary;
     h4 {
-      font-size: clamp(25px, 1.3vw, 30px);
       font-weight: $font-weight-legend;
       line-height: $font-line-height-text;
       margin-bottom: 5px;
