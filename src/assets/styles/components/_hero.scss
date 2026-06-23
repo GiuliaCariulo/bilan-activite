@@ -11,7 +11,10 @@
   overflow: visible;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: 20% 20% 0px 20% 0px 20% 0px 20%;
+  // vh et non % : avec height:auto le conteneur dépend de ses tracks, donc
+  // toute valeur en % serait traitée comme "auto" par la spec CSS Grid
+  // (recalcul des lignes selon le contenu → cadrage des images faussé à l'ouverture).
+  grid-template-rows: 20vh 20vh 0px 20vh 0px 20vh 0px 20vh;
   grid-template-areas:
     "img1     img2     img2  img3      contact   contact     img4        img4"
     "eikonlab eikonlab img5  mot       mot       img6        sessions    sessions"
@@ -29,7 +32,7 @@
   // ==========================================================================
 
   &.open-r2 {
-    grid-template-rows: 20% 20% auto 20% 0px 20% 0px 20%;
+    grid-template-rows: 20vh 20vh auto 20vh 0px 20vh 0px 20vh;
     .hero-grid-expand-r2 .hero-grid-expand-content {
       opacity: 1;
       transform: translateY(0);
@@ -37,7 +40,7 @@
   }
 
   &.open-r3 {
-    grid-template-rows: 20% 20% 0px 20% auto 20% 0px 20%;
+    grid-template-rows: 20vh 20vh 0px 20vh auto 20vh 0px 20vh;
     .hero-grid-expand-r3 .hero-grid-expand-content {
       opacity: 1;
       transform: translateY(0);
@@ -45,7 +48,7 @@
   }
 
   &.open-r4 {
-    grid-template-rows: 20% 20% 0px 20% 0px 20% auto 20%;
+    grid-template-rows: 20vh 20vh 0px 20vh 0px 20vh auto 20vh;
     .hero-grid-expand-r4 .hero-grid-expand-content {
       opacity: 1;
       transform: translateY(0);
@@ -250,6 +253,23 @@
     &-r4 .hero-grid-expand-content {
       row-gap: 60px;
     }
+
+    // état "voir plus" fermé par défaut
+    &-text-suite {
+      display: none;
+    }
+
+    &.is-expanded {
+      .hero-grid-expand-text-suite {
+        display: block;
+      }
+      .hero-grid-voir-plus {
+        display: none;
+      }
+      .hero-grid-voir-moins {
+        display: block;
+      }
+    }
   }
 
   // ==========================================================================
@@ -271,5 +291,10 @@
       color: $color-accent;
       text-decoration: underline;
     }
+  }
+
+  // "voir moins" caché par défaut, révélé via .is-expanded ci-dessus
+  &-voir-moins {
+    display: none;
   }
 }

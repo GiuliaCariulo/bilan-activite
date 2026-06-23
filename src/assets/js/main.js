@@ -68,10 +68,39 @@ document.addEventListener("DOMContentLoaded", () => {
     ".hero-grid-cell-mot, .hero-grid-cell-edito, .hero-grid-cell-priorites",
   );
 
+  // Doit rester synchro avec la valeur par défaut de grid-template-rows dans _hero.scss
+  // (vh et non % : voir le commentaire dans _hero.scss sur le fallback CSS Grid)
+  const DEFAULT_ROWS = "20vh 20vh 0px 20vh 0px 20vh 0px 20vh";
+
   function closeAll() {
+    heroGrid.style.gridTemplateRows = DEFAULT_ROWS;
     heroGrid.classList.remove("open-r2", "open-r3", "open-r4");
     clickableCells.forEach((c) => c.classList.remove("active"));
+    // remet "voir plus" par défaut quand on referme une ligne
+    heroGrid
+      .querySelectorAll(".hero-grid-expand")
+      .forEach((expand) => expand.classList.remove("is-expanded"));
   }
+
+  // Calcule la vraie hauteur de l'expand (scrollHeight) et l'injecte en px
+  // dans grid-template-rows : une transition CSS ne peut pas animer vers "auto".
+  function openRow(rowType) {
+    const expand = heroGrid.querySelector(`.hero-grid-expand-${rowType}`);
+    if (!expand) return;
+
+    const expandHeight = expand.scrollHeight;
+
+    const rowHeights = {
+      r2: `20vh 20vh ${expandHeight}px 20vh 0px 20vh 0px 20vh`,
+      r3: `20vh 20vh 0px 20vh ${expandHeight}px 20vh 0px 20vh`,
+      r4: `20vh 20vh 0px 20vh 0px 20vh ${expandHeight}px 20vh`,
+    };
+
+    heroGrid.classList.add(`open-${rowType}`);
+    heroGrid.style.gridTemplateRows = rowHeights[rowType];
+  }
+
+  closeAll();
 
   clickableCells.forEach((cell) => {
     cell.addEventListener("click", (e) => {
@@ -85,8 +114,9 @@ document.addEventListener("DOMContentLoaded", () => {
       closeAll();
 
       if (!isAlreadyOpen) {
-        heroGrid.classList.add(`open-${rowType}`);
         cell.classList.add("active");
+        // attend le prochain frame pour mesurer la hauteur une fois le DOM stable
+        requestAnimationFrame(() => openRow(rowType));
       }
     });
   });
@@ -102,16 +132,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!suite || !voirPlus || !voirMoins) return;
 
+    const rowType = [...expand.classList]
+      .find((cls) => /^hero-grid-expand-r\d$/.test(cls))
+      ?.replace("hero-grid-expand-", "");
+
+    // Si cet expand est actuellement ouvert, recalcule sa hauteur après le toggle
+    const refreshHeightIfOpen = () => {
+      if (rowType && heroGrid.classList.contains(`open-${rowType}`)) {
+        openRow(rowType);
+      }
+    };
+
     voirPlus.addEventListener("click", () => {
-      suite.style.display = "block";
-      voirPlus.style.display = "none";
-      voirMoins.style.display = "block";
+      expand.classList.add("is-expanded");
+      refreshHeightIfOpen();
     });
 
     voirMoins.addEventListener("click", () => {
-      suite.style.display = "none";
-      voirPlus.style.display = "block";
-      voirMoins.style.display = "none";
+      expand.classList.remove("is-expanded");
+      refreshHeightIfOpen();
     });
   });
 });
