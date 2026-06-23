@@ -8,6 +8,11 @@
 .portfolio-card-pos {
   width: 267px;
   height: 267px;
+
+  &[data-portfolio-pos="20"] {
+    width: 1068px;
+    height: 267px;
+  }
 }
 
 .portfolio-card-img {
@@ -15,22 +20,18 @@
   cursor: pointer;
 }
 
-.portfolio-card-text p {
-  display: flex;
-  padding: 6px 9px;
-  justify-content: center;
-  align-items: center;
-  cursor: default;
-  font-family: $font;
-  font-size: 0.6rem;
-  color: black;
-}
-
 .portfolio-card-text {
   display: flex;
-  padding: 20px;
   justify-content: center;
   align-items: center;
+  padding: 20px;
+  cursor: default;
+
+  p {
+    font-family: $font;
+    font-size: 0.6rem;
+    color: black;
+  }
 }
 
 .portfolio-legend {

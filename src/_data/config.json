@@ -1,5 +1,9 @@
 {
-  "priorites": ["sdsds", "ssdfsdf", "a remplire correctmenet"],
+  "priorites": [
+    "sdsds",
+    "ssdfsdf",
+    "a remplire correctmenet"
+  ],
   "intro": "Une année riche en rencontres, en créations et en échanges. Voici un aperçu de ce que nous avons construit ensemble.",
   "portfolio": [
     {
@@ -13,14 +17,14 @@
     },
     {
       "media": {
-        "image": "/public/images/Portfolio_002.webp",
-        "legend": "Montage du plateau pour l’émission Twitch des Journées Portes Ouvertes 2025. Un design imaginé en relation à la charte visuelle de l’évènement. Fribourg, novembre 2025"
+        "image": "/public/images/Portfolio_027 2.webp",
+        "legend": "Scénographie pour les Journées Portes Ouvertes 2025. Ici, la salle des rencontres entre équipe pédagogique, les futur.e.s candidat.e.s, les familles, les partenaires. Novembre 2025 "
       }
     },
     {
       "media": {
-        "image": "/public/images/Portfolio_011.webp",
-        "legend": "image menconter ?"
+        "image": "/public/images/Portfolio_002.webp",
+        "legend": "Montage du plateau pour l’émission Twitch des Journées Portes Ouvertes 2025. Un design imaginé en relation à la charte visuelle de l’évènement. Fribourg, novembre 2025"
       }
     },
     {
@@ -123,7 +127,7 @@
       }
     },
     {
-      "quote": "J'ai trouvé le fait de placer un workshop en début de stage très sympa. On a directement touché à tous les points : trouver un concept, organisation, présentation,..."
+      "quote": "J'ai trouvé le fait de placer un workshop en début de stage très sympa. On a directement touché à tous les points : trouver un concept, organisation, présentation, etc."
     },
     {
       "media": {
@@ -175,12 +179,6 @@
     },
     {
       "quote": "Bonne ambiance et travaux de groupe c'est top."
-    },
-    {
-      "media": {
-        "image": "/public/images/Portfolio_027 2.webp",
-        "legend": "Scénographie pour les Journées Portes Ouvertes 2025. Ici, la salle des rencontres entre équipe pédagogique, les futur.e.s candidat.e.s, les familles, les partenaires. Novembre 2025 "
-      }
     }
   ],
   "titre": "Bilan d'activité 2025-26",
@@ -189,23 +187,119 @@
   "partners": [
     {
       "title": "Festival International du Film de Fribourg",
-      "image": "/public/images/img1.webp"
+      "image": "/public/images/Partner-Fiff.webp"
     },
     {
       "title": "Volontiers",
-      "image": ""
+      "image": "/public/images/Partner-Volontiers.webp"
     },
     {
-      "title": "Association imprimerie",
-      "image": ""
+      "title": "ALL",
+      "image": "/public/images/Partner-All.webp"
     },
     {
       "title": "Ville de Fribourg",
-      "image": ""
+      "image": "/public/images/Partner-Fribourg.webp"
     },
     {
       "title": "EMF",
-      "image": ""
+      "image": "/public/images/Partner-Emf.webp"
+    },
+    {
+      "image": "/public/images/Partner-AssociationVictimePasSeule.webp",
+      "title": "Association Victime Pas Seule"
+    },
+    {
+      "image": "/public/images/Partner-CantonFribourg.webp",
+      "title": "Canton de Fribourg"
+    },
+    {
+      "image": "/public/images/Partner-Cinemotion.webp",
+      "title": "Cinemotion"
+    },
+    {
+      "image": "/public/images/Partner-Ecal.webp",
+      "title": "Ecal"
+    },
+    {
+      "image": "/public/images/Partner-EcolePrimaireDeBelfaux.webp",
+      "title": "Ecole Primaire de Belfaux"
+    },
+    {
+      "image": "/public/images/Partner-Eduform.webp",
+      "title": "Eduform"
+    },
+    {
+      "image": "/public/images/Partner-Festival-lumiere.webp",
+      "title": "Festival Lumiere"
+    },
+    {
+      "image": "/public/images/Partner-Heia-fr.webp",
+      "title": "HEIA-FR"
+    },
+    {
+      "image": "/public/images/Partner-Hemu.webp",
+      "title": "HEMU"
+    },
+    {
+      "image": "/public/images/Partner-Reper.webp",
+      "title": "Reper"
+    },
+    {
+      "image": "/public/images/Partner-Reservoir.webp",
+      "title": "Reservoir"
+    },
+    {
+      "image": "/public/images/Partner-Scnat.webp",
+      "title": "SCNAT"
+    },
+    {
+      "image": "/public/images/Partner-SoroptimistInternationalClub.webp",
+      "title": "Soroptimist International Club"
+    },
+    {
+      "image": "/public/images/Partner-Two-Gentlemen-Records.webp",
+      "title": "Two Gentlemen Records"
+    },
+    {
+      "image": "/public/images/Partner-la-main-tendue.webp",
+      "title": "La Main Tendue"
+    },
+    {
+      "image": "/public/images/Partner-la-ressourcerie.webp",
+      "title": "La ressourcerie"
+    },
+    {
+      "image": "/public/images/Partner-miam.webp",
+      "title": "MIAM"
+    },
+    {
+      "image": "/public/images/Partner-minus3.webp",
+      "title": "Minus 3"
+    },
+    {
+      "image": "/public/images/Partner-pro-junior-fr.webp",
+      "title": "Pro Junior Fribourg"
+    },
+    {
+      "image": "/public/images/Partner-tfff.webp",
+      "title": "The Flying Film Festival"
+    },
+    {
+      "image": "/public/images/Partner-you-com.webp",
+      "title": "You Com"
+    },
+    {
+      "image": "/public/images/Partner-young-gods.webp",
+      "title": "Young Gods"
+    },
+    {
+      "image": "/public/images/Partner-zonta.webp",
+      "title": "Zonta"
+    },
+    {
+      "image": "/public/images/Partner-Ado.webp",
+      "title": "Association AdO"
     }
   ]
 }
