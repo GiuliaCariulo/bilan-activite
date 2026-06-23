@@ -41,10 +41,9 @@
   opacity: 0;
   display: flex;
   padding: 6px 9px;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
   background: $color-primary;
-  text-align: end;
   transition:
     transform 0.2s ease,
     opacity 0.2s ease;
@@ -161,7 +160,7 @@ img.portfolio-body-modal {
 
 .portfolio-wrapper {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: $col-d;
   grid-template-areas:
     ". . img1 img1 . . . ."
     ". . . . . . quo1 quo1"
@@ -304,4 +303,48 @@ img.portfolio-body-modal {
 
 .portfolio-card-pos[data-portfolio-pos="32"] {
   grid-area: quo6;
+}
+
+@media (max-width: 390px) {
+  .portfolio-wrapper {
+    display: grid;
+    grid-template-columns: $col-m;
+    grid-template-areas:
+      "img1 img1 img1 . . ."
+      ". . . img3 img3 img3"
+      "img2 img2 img2 quo1 quo1 quo1"
+      "img4 img4 img4 img5 img5 img5"
+      "quo2 quo2 quo2 img6 img6 img6"
+      "img7 img7 img7 quo3 quo3 quo3"
+      "img8 img8 img8 img9 img9 img9"
+      "img10 img10 img10 img11 img11 img11"
+      "img12 img12 img12 img13 img13 img13"
+      "quo4 quo4 quo4 img15 img15 img15"
+      "img17 img17 img17 img17 img17 img17"
+      "img16 img16 img16 quo5 quo5 quo5"
+      "img18 img18 img18 img19 img19 img19"
+      "img20 img20 img20 img21 img21 img21"
+      "img22 img22 img22 img14 img14 img14"
+      "img23 img23 img23 img24 img24 img24"
+      "img25 img25 img25 quo6 quo6 quo6"
+      ". . . img26 img26 img26";
+  }
+
+  .portfolio-card-pos {
+    width: 534px;
+    height: 534px;
+
+    &[data-portfolio-pos="20"] {
+      width: 1068px;
+      height: 534px;
+    }
+  }
+
+  .portfolio-legend {
+    opacity: 0;
+  }
+
+  p {
+    font-size: 2rem;
+  }
 }
