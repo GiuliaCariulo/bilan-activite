@@ -13,7 +13,7 @@
   "clients": ["SCNAT"],
   "links": [],
   "sessions": ["Printemps 2025", "Automne 2025", "Hiver 2026"],
-  "thumbnail": "/public/images/image-thumbnail.webp",
+  "thumbnail": "/public/images/Hero-image-thumbnail.webp",
   "images": [
     {
       "fichier": "/public/images/Project_Scnat_01.webp",
