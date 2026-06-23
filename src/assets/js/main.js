@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
         endTrigger: ".footer-contact-copyright",
         end: "bottom bottom",
         scrub: true,
-        markers: false,
+        markers: true,
       },
     });
   }

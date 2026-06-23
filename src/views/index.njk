@@ -113,16 +113,15 @@ permalink: "/"
       </div>
     </div>
   </section>
-
-  <!-- // ============================================================
+</section>
+<!-- // ============================================================
 // section partenaires : wrapper
 // ============================================================ -->
-  <section>
-    <h2>Partenaires</h2>
-    <div class="partners-wrapper">
-      {% for item in config.partners %}
-        <div>{% include "partner-card.njk" %}</div>
-      {% endfor %}
-    </div>
-  </section>
+<section>
+  <h2>Partenaires</h2>
+  <div class="partners-wrapper">
+    {% for item in config.partners %}
+      <div>{% include "partner-card.njk" %}</div>
+    {% endfor %}
+  </div>
 </section>
