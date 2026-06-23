@@ -95,41 +95,35 @@ article.portfolio-card:hover .portfolio-legend {
   display: none;
 }
 
-.portfolio-content-modal {
-  // display: flex;
-  // width: 100vh;
-  // height: 100%;
-  padding: 137px 180px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(5px);
-  position: fixed;
-  transition: all 5s ease-in-out;
-  grid-template-areas: ". btnclose . imgpop imgpop imgpop imgpop . ";
-}
-
-.porfolio-content-modal h4 {
-  font-size: 1.5rem;
+.porfolio-content-modal {
   font-weight: normal;
-  color: blue;
+  color: $color-accent;
   cursor: pointer;
 }
 
-button.portfolio-close-modal {
-  border: none;
-  background: none;
-  grid-area: btnclose;
+.portfolio-close-modal:hover {
+  font-weight: bold;
 }
 
-.portfolio-close-modal h4:hover {
-  font-weight: bold;
+.portfolio-body-modal img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.portfolio-content-modal {
+  position: absolute;
+  // display: grid;
+  // grid-template-columns: $col-d;
+  // grid-template-areas: ". btnclose . imgpop imgpop imgpop imgpop . ";
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
 }
 
 .portfolio-body-modal {
   width: 100%;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: block;
+  align-items: end;
   justify-content: center;
 
   p {
@@ -148,12 +142,13 @@ button.portfolio-close-modal {
   }
 }
 
-img.portfolio-body-modal {
-  width: fit-content;
-  object-fit: cover;
-  grid-area: imgpop;
+.portfolio-close-modal {
+  grid-area: btnclose;
 }
 
+.portfolio-content-modal img {
+  grid-area: imgpop;
+}
 // ============================================================
 // section portfolio : grille de cartes
 // ============================================================

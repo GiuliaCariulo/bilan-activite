@@ -37,14 +37,13 @@ permalink: "/"
 // section portfolio : pop up
 // ============================================================ -->
 <div class="porfolio-content-modal portfolio-hidden-modal row">
-  <div class="modal-header">
-    <button class="portfolio-close-modal"><h4>fermer</h4></button>
+  <div class="porfolio-modal-header">
+    <button class="portfolio-close-modal col-lg-2">fermer</button>
   </div>
-
   <article class="portfolio-popup hidden-modal">
     {% for item in config.portfolio %}
       <div
-        class="portfolio-body-modal portfolio-selector-hidden"
+        class="portfolio-body-modal portfolio-selector-hidden col-lg-4"
         id="portfolio{{ loop.index }}"
       >
         <img src="{{ item.media.image | url }}" alt="marche" />
