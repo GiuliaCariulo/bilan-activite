@@ -1,0 +1,26 @@
+@use "../variables" as *;
+
+.team-container {
+  grid-template-areas: "test . . team-box . . . .";
+}
+
+.team-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+  gap: 1rem;
+  padding: 1rem;
+  width: 200px;
+  aspect-ratio: 1 / 1;
+  background-color: $color-accent;
+  grid-area: team-box;
+}
+
+.team-card-member {
+  grid-area: test;
+}
+
+figure.team-card img {
+  width: 100px;
+}

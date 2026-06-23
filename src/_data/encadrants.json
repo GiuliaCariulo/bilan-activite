@@ -1,28 +1,10 @@
 {
   "encadrants": [
     {
-      "title": "Martial Mingam"
-    },
-    {
-      "title": "Rachel Pilet"
-    },
-    {
-      "title": "Nicolas Nahornyj"
-    },
-    {
-      "title": "Estève Despond"
-    },
-    {
-      "title": "Julien Babel"
-    },
-    {
-      "title": "Iris Wolfisberg"
-    },
-    {
-      "title": "Julien Minguely"
-    },
-    {
-      "title": "Matyas Kiss"
+      "title": "Martial Mingam",
+      "image": "/public/images/S-Fall_Anais.webp",
+      "statut": "tooo",
+      "bio": "itit"
     }
   ]
 }

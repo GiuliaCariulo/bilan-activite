@@ -14,8 +14,9 @@ article {
 //===============================================================
 .row {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(6, minmax(0, 1fr));
 }
+
 .col-1 {
   grid-column: span 1;
 }
@@ -37,7 +38,7 @@ article {
 
 @media (min-width: 768px) {
   .row {
-    grid-template-columns: repeat(8, 1fr);
+    grid-template-columns: repeat(8, minmax(0, 1fr));
   }
   .col-lg-1 {
     grid-column: span 1;

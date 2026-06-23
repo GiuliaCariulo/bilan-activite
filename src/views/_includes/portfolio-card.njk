@@ -1,4 +1,6 @@
-<article class="portfolio-card porfolio-open-modal">
+<article
+  class="portfolio-card {% if item.media.image %}porfolio-open-modal{% endif %}"
+>
   {% if item.media.image %}
     <figure>
       <img
@@ -7,11 +9,13 @@
       />
       {% if item.media.legend %}
         <figcaption class="portfolio-legend">
-          <p class="portfolio-card-legend">{{ item.media.legend }}</p>
+          <p>{{ item.media.legend }}</p>
         </figcaption>
       {% endif %}
     </figure>
   {% elif item.quote %}
-    <p class="portfolio-card-text">{{ item.quote }}</p>
+    <figure class="portfolio-card-text">
+      <p>{{ item.quote }}</p>
+    </figure>
   {% endif %}
 </article>

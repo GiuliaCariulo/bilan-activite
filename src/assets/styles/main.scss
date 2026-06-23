@@ -1,7 +1,10 @@
 @use "variables" as *;
 @use "base";
 @use "layout";
-@use "components/_project-card";
-@use "components/_partners-card";
+@use "components/project-gallery";
+@use "components/project";
+@use "components/hero";
+@use "components/team";
+@use "components/partners-card";
 @use "components/portfolio-card";
 @use "components/footer";
