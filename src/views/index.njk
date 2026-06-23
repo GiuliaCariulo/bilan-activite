@@ -36,21 +36,23 @@ permalink: "/"
 <!-- // ============================================================
 // section portfolio : pop up
 // ============================================================ -->
-<div class="porfolio-content-modal portfolio-hidden-modal row">
-  <div class="porfolio-modal-header">
-    <button class="portfolio-close-modal col-lg-2">fermer</button>
+<div class="porfolio-content-modal portfolio-hidden-modal">
+  <div class="porfolio-content-modal-wrapper">
+    <div class="porfolio-modal-header">
+      <button class="portfolio-close-modal">fermer</button>
+    </div>
+    <article class="portfolio-popup hidden-modal">
+      {% for item in config.portfolio %}
+        <div
+          class="portfolio-body-modal portfolio-selector-hidden"
+          id="portfolio{{ loop.index }}"
+        >
+          <img src="{{ item.media.image | url }}" alt="marche" />
+          <p class="porfolio-card-legend">{{ item.media.legend }}</p>
+        </div>
+      {% endfor %}
+    </article>
   </div>
-  <article class="portfolio-popup hidden-modal">
-    {% for item in config.portfolio %}
-      <div
-        class="portfolio-body-modal portfolio-selector-hidden col-lg-4"
-        id="portfolio{{ loop.index }}"
-      >
-        <img src="{{ item.media.image | url }}" alt="marche" />
-        <p class="porfolio-card-legend">{{ item.media.legend }}</p>
-      </div>
-    {% endfor %}
-  </article>
 </div>
 <!-- // ============================================================
 // section projets : galerie
