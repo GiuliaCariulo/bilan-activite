@@ -34,12 +34,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
-    &:hover {
-      color: $color-accent;
-      text-decoration: underline;
-      font-weight: $font-weight-legend;
-    }
   }
 
   &-title {

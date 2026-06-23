@@ -45,8 +45,16 @@ li {
   font-size: 0.7rem;
 }
 
-button {
+button,
+a {
   font-size: 0.7rem;
-  border: none;
   background: none;
+  border: none;
+  &:hover {
+    &:hover {
+      color: $color-accent;
+      text-decoration: underline;
+      font-weight: $font-weight-legend;
+    }
+  }
 }
