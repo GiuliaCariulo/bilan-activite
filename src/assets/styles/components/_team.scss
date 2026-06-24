@@ -39,8 +39,8 @@
   background-color: $color-accent;
 }
 
-& h3 {
-  font-size: 0.7rem;
+& h2 {
+  font-size: 1.5rem;
 }
 
 & figcaption {
@@ -76,5 +76,31 @@
         )
       );
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .team-box h2 {
+    font-size: 1.25rem;
+  }
+  .team-container {
+    grid-template-areas:
+      "intern1 intern1 . . intern3 intern3"
+      "intern1 intern1 . . intern3 intern3"
+      ". . . intern2 intern2 ."
+      "intern4 intern4 . intern2 intern2 ."
+      "intern4 intern4 . . intern5 intern5"
+      ". team-box team-box team-box intern5 intern5"
+      ". team-box team-box team-box . ."
+      ". . . . intern7 intern7"
+      ". intern6 intern6 . intern7 intern7"
+      ". intern6 intern6 . . ."
+      "intern8 intern8 . . intern9 intern9"
+      "intern8 intern8 . . intern9 intern9"
+      ". . . intern10 intern10 ."
+      ". . . intern10 intern10 .";
+  }
+  .team-card-member h3 {
+    font-size: 0.75rem;
   }
 }
