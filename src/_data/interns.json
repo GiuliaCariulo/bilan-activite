@@ -2,77 +2,97 @@
   "aout_decembre": [
     {
       "title": "Axel Bütikofer",
-      "image": "/public/images/Portfolio_001.webp"
+      "image": "/public/images/Hero-img1.webp"
     },
     {
-      "title": "Joris Sommerhalder"
+      "title": "Joris Sommerhalder",
+      "image": "/public/images/S-Fall_Joris.webp"
     },
     {
-      "title": "Jeanne Sciboz"
+      "title": "Jeanne Sciboz",
+      "image": "/public/images/S-Fall_Jeanne.webp"
     },
     {
-      "title": "Meg Roulin"
+      "title": "Meg Roulin",
+      "image": "/public/images/S-Fall_Meg.webp"
     },
     {
       "title": "Lauriane Sauteur",
-      "image": "/public/images/Portfolio_004.webp"
+      "image": "/public/images/S-Fall_Laurianne.webp"
     },
     {
-      "title": "Yuma Comazzi"
+      "title": "Yuma Comazzi",
+      "image": "/public/images/S-Fall_Yuma.webp"
     },
     {
-      "title": "Maëva Christan"
+      "title": "Maëva Christan",
+      "image": "/public/images/S-Fall_Maeva.webp"
     },
     {
-      "title": "Clémentine Couchet"
+      "title": "Clémentine Couchet",
+      "image": "/public/images/S-Fall_Clementine.webp"
     },
     {
-      "title": "Jordan Crettenand"
+      "title": "Jordan Crettenand",
+      "image": "/public/images/S-Fall_Jordan.webp"
     },
     {
-      "title": "Anaïs Chassot"
+      "title": "Anaïs Chassot",
+      "image": "/public/images/S-Fall_Anais.webp"
     },
     {
-      "title": "Lilia Aouissaoui"
+      "title": "Lilia Aouissaoui",
+      "image": "/public/images/S-Fall_Lilia.webp"
     }
   ],
   "janvier_avril": [
     {
       "title": "Bertschy Victor",
-      "image": ""
+      "image": "/public/images/S-Winter_Victor.webp"
     },
     {
-      "title": "Schüler Noé"
+      "title": "Schüler Noé",
+      "image": "/public/images/S-Winter_Noe.webp"
     },
     {
-      "title": "Oliva Baeriswyl"
+      "title": "Oliva Baeriswyl",
+      "image": "/public/images/S-Winter_Olivia.webp"
     },
     {
-      "title": "Elisa von der Forst"
+      "title": "Elisa von der Forst",
+      "image": "/public/images/S-Winter_Elisa.webp"
     },
     {
-      "title": "Matilde Ribeiro da Conceição"
+      "title": "Matilde Ribeiro da Conceição",
+      "image": "/public/images/S-Winter_Matilde.webp"
     },
     {
-      "title": "Saya Pelloni"
+      "title": "Saya Pelloni",
+      "image": "/public/images/S-Winter_Saya.webp"
     },
     {
-      "title": "Jolie Helfer"
+      "title": "Jolie Helfer",
+      "image": "/public/images/S-Winter_Jolie.webp"
     },
     {
-      "title": "Camille Gillon"
+      "title": "Camille Gillon",
+      "image": "/public/images/S-Winter_Camille.webp"
     },
     {
-      "title": "Zoé Busigny"
+      "title": "Zoé Busigny",
+      "image": "/public/images/S-Winter_Zoe.webp"
     },
     {
-      "title": "Flavio Rotunno"
+      "title": "Flavio Rotunno",
+      "image": "/public/images/S-Winter_Flavio.webp"
     },
     {
-      "title": "Elise Mutrux"
+      "title": "Elise Mutrux",
+      "image": "/public/images/S-Winter_Elise.webp"
     },
     {
-      "title": "Léna Benninger"
+      "title": "Léna Benninger",
+      "image": "/public/images/S-Winter_Lena.webp"
     }
   ],
   "avril_juillet": [
