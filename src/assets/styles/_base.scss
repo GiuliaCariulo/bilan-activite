@@ -11,10 +11,9 @@
 
 html {
   font-family: $font;
-  font-weight: $font-weight-text;
-  font-size: 24px;
   text-align: right;
   scroll-behavior: smooth;
+  font-size: 24px;
 }
 
 h1,
@@ -38,6 +37,8 @@ h3 {
 }
 
 p {
+  font-weight: $font-weight-text;
+  line-height: $font-line-height-text;
   font-size: 0.75rem;
   max-width: 70ch;
 }
@@ -52,6 +53,40 @@ a {
   background: none;
   border: none;
   &:hover {
+    color: $color-accent;
+    text-decoration: underline;
+    font-weight: $font-weight-legend;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.75rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+  }
+
+  p {
+    font-size: 1rem;
+    max-width: 100ch;
+  }
+
+  li {
+    font-size: 1rem;
+    font-weight: $font-weight-text;
+  }
+
+  button,
+  a {
+    font-size: 0.7rem;
+    background: none;
+    border: none;
     &:hover {
       color: $color-accent;
       text-decoration: underline;
