@@ -27,6 +27,7 @@ collections:
             name: portfolio
             widget: list
             required: false
+            summary: "{{fields.quote}}{{fields.media.image}}"
             fields:
               - label: "Image + légende"
                 name: media
@@ -158,16 +159,17 @@ collections:
         name: tags
         widget: list
         required: false
+        summary: "{{tag}}"
         field: { label: Tag, name: tag, widget: string }
       - label: Session·s
         name: sessions
         widget: select
         multiple: true
-        options: ["Août - décembre", "Janvier - avril", "Avril - Juillet"]
+        options: ["Automne 2025", "Hiver 2026", "Printemps 2026"]
       - label: Type de mandat
         name: mandate
-        widget: select
-        options: [Communication, Événement, Installation]
+        widget: string
+        required: false
       - label: Autres images
         name: images
         widget: list
@@ -179,6 +181,7 @@ collections:
         name: clients
         widget: list
         required: false
+        summary: "{{client}}"
         field: { label: Client·e, name: client, widget: string }
       - {
           label: "Compétences mises en œuvre",

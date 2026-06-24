@@ -1,0 +1,43 @@
+{
+  "title": "Morat Lumières",
+  "id": "morat-lumieres",
+  "description": "À l’occasion du 130e anniversaire de l’École des Métiers de Fribourg (EMF) et du Festival des Lumières de Morat 2026, ce projet rassemble quatre institutions (eikon, HEIA-FR, EMF, Minus3) pour créer une œuvre lumineuse interactive. Inspirée par la conférence de Ferdinand Hodler « La mission de l’artiste », l’installation stimule les visiteurs à entrer en dialogue avec l’œuvre, les invitant intuitivement à un comportement ludique et évolutif. \n\nAinsi, Déclic est une installation interactive qui met en scène la connexion entre deux personnes qui manipulent un joystick. De chaque côté d’un monolithe vertical, deux extensions lumineuses émergent comme des sortes de filaments scintillants. A travers un jeu de coordination des joysticks, la connexion entre les deux extensions matérialise une transmission qui produit un phénomène lumineux et soore, magique et exponentiel. ",
+  "tags": [
+    "lumière",
+    "interactivité",
+    "transmission",
+    "geste",
+    "intelligence artificielle",
+    "immersion",
+    "extérieur"
+  ],
+  "skills": "conception d’installation interactive, scénarisation de l’expérience utilisateur, intégration technologique, design lumineux, coordination multi-partenaires, ingénierie éphémère.",
+  "mandate": "Installation interactive",
+  "sessions": ["Automne 2025", "Hiver 2026"],
+  "clients": ["eikon", "HEIA-FR", "EMF", "Minus3"],
+  "links": [
+    {
+      "label": "Site du festival des lumières",
+      "url": "https://fr.murtenlichtfestival.ch/"
+    },
+    {
+      "label": "Aftershow",
+      "url": "#"
+    }
+  ],
+  "thumbnail": "/public/images/Hero-image-thumbnail.webp",
+  "images": [
+    {
+      "fichier": "/public/images/Project_Morat-Lumiere_01.webp",
+      "legend": "Séance de travail lors du montage de l’installation “Déclic”, dans les locaux mis à disposition par l’Ecole des Métiers de Fribourg, en collaboration avec le collectif Minus3 et Hugo Siclier (étudiant de l’HEMU de Lausanne). Fribourg, novembre 2025. "
+    },
+    {
+      "fichier": "/public/images/Project_Morat-Lumiere_03.webp",
+      "legend": "Derniers ajustements sur l’installation “Déclic” avant son départ pour l’inauguration du 130ème anniversaire de l’EMF. Fribourg, janvier 2026. "
+    },
+    {
+      "fichier": "/public/images/Project_Morat-Lumiere_02.webp",
+      "legend": "Installation au coeur de la ville de Morat à l’occasion de Festival des Lumières. Morat, janvier 2026"
+    }
+  ]
+}
