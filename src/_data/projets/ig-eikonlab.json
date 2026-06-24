@@ -1,23 +1,33 @@
 {
-  "title": "IG eikonlab",
-  "id": "ig-eikonlab",
-  "description": "Revisité par chaque nouvelle session de stagiaires, le compte Instagram d’eikonlab est une opportunité d’expression créative et d’expérimentation. Les élèves débutent par une présentation de leur session et déterminent ensuite la ligne graphique et la tonalité qu’ils souhaitent insuffler à leurs publications.",
-  "tags": ["réseaux sociaux", "créatif", "reportage"],
   "skills": "recherche artistique et conceptuelle, développement d'une ligne éditoriale, création visuelle.",
   "mandate": "Community management, réalisation visuelle spécifique aux réseaux sociaux",
-  "sessions": ["Automne 2025", "Hiver 2026", "Printemps 2026"],
-  "clients": ["eikonlab, Fribourg"],
+  "clients": [
+    "eikonlab, Fribourg"
+  ],
+  "thumbnail": "/public/images/Project_Interne_01.webp",
+  "title": "IG eikonlab",
+  "images": [
+    {
+      "fichier": "/public/images/Project_Interne_01.webp",
+      "legend": "Tournage d’une séquence au sein du bureau de eikonlab pour une série de sketchs réalisée par les stagiaires mettant en scène les élèves de la session “Hivers 2026”. Fribourg, avril 2026 "
+    }
+  ],
+  "tags": [
+    "réseaux sociaux",
+    "créatif",
+    "reportage"
+  ],
   "links": [
     {
       "label": "Instagram",
       "url": "https://www.instagram.com/eikon_lab"
     }
   ],
-  "thumbnail": "/public/images/Hero-image-thumbnail.webp",
-  "images": [
-    {
-      "fichier": "/public/images/Project_Interne_01.webp",
-      "legend": "Tournage d’une séquence au sein du bureau de eikonlab pour une série de sketchs réalisée par les stagiaires mettant en scène les élèves de la session “Hivers 2026”. Fribourg, avril 2026"
-    }
+  "id": "ig-eikonlab",
+  "description": "Revisité par chaque nouvelle session de stagiaires, le compte Instagram d’eikonlab est une opportunité d’expression créative et d’expérimentation. Les élèves débutent par une présentation de leur session et déterminent ensuite la ligne graphique et la tonalité qu’ils souhaitent insuffler à leurs publications.",
+  "sessions": [
+    "Automne 2025",
+    "Hiver 2026",
+    "Printemps 2026"
   ]
 }
