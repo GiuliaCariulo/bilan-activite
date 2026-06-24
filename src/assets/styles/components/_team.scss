@@ -4,12 +4,12 @@
 
 .team-container {
   grid-template-areas:
-    ". . intern1 . . . . ."
-    ". . . . intern2 . . intern3"
-    "intern4 . . team-box team-box . intern5 . "
-    ". . intern6 team-box team-box . . ."
-    "intern7 . . . . intern8 . ."
-    ". . . intern9 . . . intern10";
+    ". intern1 intern1 . . . . ."
+    ". . . intern2 intern2 . intern3 intern3"
+    "intern4 intern4 . team-box team-box . intern5 intern5 "
+    ". intern6 intern6 team-box team-box . . ."
+    "intern7 intern7 . . . intern8 intern8 ."
+    ". . intern9 intern9 . . intern10 intern10";
 }
 
 .team-box {
@@ -25,8 +25,16 @@
   grid-area: team-box;
 }
 
+.team-members {
+  display: contents;
+}
+
 .team-card-member {
   background-color: $color-accent;
+}
+
+& h3 {
+  font-size: 0.7rem;
 }
 
 & figcaption {
@@ -37,26 +45,26 @@
   border: 1rem;
 }
 
-figure.team-card img {
+& img {
   width: 100%;
 }
 
 .team-cards-member {
   @for $i from 1 through 10 {
-    &[data-pos="#{$i}"] {
+    &[data-member-pos="#{$i}"] {
       grid-area: string.unquote(
         list.nth(
           (
-            intern1
-              intern2
-              intern3
-              intern4
-              intern5
-              intern6
-              intern7
-              intern8
-              intern9
-              intern10
+            intern1,
+            intern2,
+            intern3,
+            intern4,
+            intern5,
+            intern6,
+            intern7,
+            intern8,
+            intern9,
+            intern10
           ),
           $i
         )
