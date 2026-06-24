@@ -79,19 +79,16 @@ footer {
   font-weight: $font-weight-text;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 490px) {
+  .footer-animation h4 {
+    font-size: 2.7rem;
+  }
+
   .footer-contact {
-    h2 {
-      font-size: 2rem;
-    }
+    margin-top: 122px;
   }
 
-  .footer-title {
-    font-size: 5.2rem;
-  }
-
-  .footer-track h4 {
-    font-size: 5.2rem;
-    line-height: 1.3;
+  .footer-contact-copyright {
+    justify-content: space-between;
   }
 }
