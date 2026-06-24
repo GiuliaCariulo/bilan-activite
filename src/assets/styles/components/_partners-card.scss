@@ -24,15 +24,20 @@ article.partner-box {
   }
 }
 
-@media (max-width: 390px) {
+@media (max-width: 768px) {
   .partners-wrapper {
-    width: 122vh;
-    gap: 72px 180px;
+    gap: 84px;
   }
 
   .partner-box {
-    width: 180px;
-    height: 180px;
-    display: flex;
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 490px) {
+  .partner-box {
+    width: 100px;
+    height: 100px;
   }
 }
