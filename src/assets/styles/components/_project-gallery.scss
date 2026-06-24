@@ -1,6 +1,6 @@
 @use "../variables" as *;
 
-.projets-gallery {
+.project-gallery {
   width: 100vw;
   overflow: hidden;
   grid-auto-rows: calc(min(100vw, 1100px) / 8);
@@ -85,7 +85,7 @@
 }
 
 @media (max-width: 768px) {
-  .projets-gallery {
+  .project-gallery {
     min-width: 400px;
     grid-auto-rows: calc(100vw / 6);
 
