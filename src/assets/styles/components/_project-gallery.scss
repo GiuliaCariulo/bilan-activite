@@ -17,6 +17,7 @@
   }
   &-project-card {
     grid-column: span 4;
+    grid-row: span 4;
     aspect-ratio: 1 / 1;
     height: 100%;
     width: 100%;
@@ -26,12 +27,6 @@
     }
     &[data-pos="2"] {
       grid-row: 4 / span 4;
-    }
-    &[data-pos="3"] {
-      grid-row: 7 / span 4;
-    }
-    &[data-pos="4"] {
-      grid-row: 8 / span 4;
     }
   }
   &-label {
@@ -81,6 +76,47 @@
       object-fit: cover;
       position: relative;
       grid-column: span 4;
+    }
+  }
+  a:hover {
+    color: $color-accent;
+    font-weight: $font-weight-text;
+  }
+}
+
+@media (max-width: 768px) {
+  .projets-gallery {
+    min-width: 400px;
+    grid-auto-rows: calc(100vw / 6);
+
+    &-title {
+      grid-column: 1 / -1;
+      grid-row: auto;
+    }
+
+    &-project-card {
+      grid-column: 1 / -1;
+      grid-row: span 6;
+      aspect-ratio: auto;
+
+      &[data-pos="1"] {
+        grid-row: 3 / span 6;
+      }
+      &[data-pos="2"] {
+        grid-row: 9 / span 6;
+      }
+    }
+
+    &-label {
+      grid-column: span 2;
+    }
+
+    article {
+      grid-template-columns: repeat(3, 1fr);
+
+      img {
+        grid-column: span 3;
+      }
     }
   }
 }

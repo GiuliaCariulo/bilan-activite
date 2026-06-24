@@ -52,10 +52,8 @@ a {
   background: none;
   border: none;
   &:hover {
-    &:hover {
-      color: $color-accent;
-      text-decoration: underline;
-      font-weight: $font-weight-legend;
-    }
+    color: $color-accent;
+    text-decoration: underline;
+    font-weight: $font-weight-legend;
   }
 }
