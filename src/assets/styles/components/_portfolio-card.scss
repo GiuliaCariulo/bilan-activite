@@ -158,8 +158,6 @@ article.portfolio-popup {
 // ============================================================
 
 .portfolio-wrapper {
-  display: grid;
-  grid-template-columns: $col-d;
   grid-template-areas:
     ". . img1 img1 . . . ."
     ". . . . . . quo1 quo1"
@@ -304,10 +302,9 @@ article.portfolio-popup {
   grid-area: quo6;
 }
 
-@media (max-width: 390px) {
+@media (max-width: 768px) {
   .portfolio-wrapper {
-    display: grid;
-    grid-template-columns: $col-m;
+    min-width: 400px;
     grid-template-areas:
       "img1 img1 img1 . . ."
       ". . . img3 img3 img3"
@@ -329,13 +326,16 @@ article.portfolio-popup {
       ". . . img26 img26 img26";
   }
 
+  .portfolio-card {
+    aspect-ratio: 1 / 1;
+  }
+
   .portfolio-card-pos {
-    width: 534px;
-    height: 534px;
+    width: 267px;
+    height: 267px;
 
     &[data-portfolio-pos="20"] {
-      width: 1068px;
-      height: 534px;
+      width: 100%;
     }
   }
 
@@ -344,7 +344,7 @@ article.portfolio-popup {
   }
 
   p {
-    font-size: 2rem;
+    font-size: 0.4rem;
   }
 
   .porfolio-content-modal-wrapper {
