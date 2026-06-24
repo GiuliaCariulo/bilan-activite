@@ -3,17 +3,36 @@
   justify-content: center;
   align-items: center;
   align-content: center;
-  gap: 186px 215px;
+  gap: 72px 181px;
   flex-wrap: wrap;
+}
+
+article.partner-box {
+  padding: 0;
 }
 
 .partner-box {
   width: 180px;
   height: 180px;
   display: flex;
+  align-items: center;
+  justify-content: center;
 
   img {
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 390px) {
+  .partners-wrapper {
+    width: 122vh;
+    gap: 72px 180px;
+  }
+
+  .partner-box {
+    width: 180px;
+    height: 180px;
+    display: flex;
   }
 }

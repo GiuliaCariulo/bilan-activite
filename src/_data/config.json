@@ -187,119 +187,119 @@
   "partners": [
     {
       "title": "Festival International du Film de Fribourg",
-      "image": "/public/images/Partner-Fiff.webp"
+      "image": "/public/images/Partner_CinemaFiff.webp"
     },
     {
       "title": "Volontiers",
-      "image": "/public/images/Partner-Volontiers.webp"
+      "image": "/public/images/Partner_Volontiers.webp"
     },
     {
       "title": "ALL",
-      "image": "/public/images/Partner-All.webp"
+      "image": "/public/images/Partner_ALL.webp"
     },
     {
       "title": "Ville de Fribourg",
-      "image": "/public/images/Partner-Fribourg.webp"
+      "image": "/public/images/Partner_VilleFribourg.webp"
     },
     {
       "title": "EMF",
-      "image": "/public/images/Partner-Emf.webp"
+      "image": "/public/images/Partner_EMF.webp"
     },
     {
-      "image": "/public/images/Partner-AssociationVictimePasSeule.webp",
-      "title": "Association Victime Pas Seule"
-    },
-    {
-      "image": "/public/images/Partner-CantonFribourg.webp",
-      "title": "Canton de Fribourg"
-    },
-    {
-      "image": "/public/images/Partner-Cinemotion.webp",
-      "title": "Cinemotion"
-    },
-    {
-      "image": "/public/images/Partner-Ecal.webp",
-      "title": "Ecal"
-    },
-    {
-      "image": "/public/images/Partner-EcolePrimaireDeBelfaux.webp",
-      "title": "Ecole Primaire de Belfaux"
-    },
-    {
-      "image": "/public/images/Partner-Eduform.webp",
-      "title": "Eduform"
-    },
-    {
-      "image": "/public/images/Partner-Festival-lumiere.webp",
-      "title": "Festival Lumiere"
-    },
-    {
-      "image": "/public/images/Partner-Heia-fr.webp",
-      "title": "HEIA-FR"
-    },
-    {
-      "image": "/public/images/Partner-Hemu.webp",
+      "image": "/public/images/Partner_HEMU.webp",
       "title": "HEMU"
     },
     {
-      "image": "/public/images/Partner-Reper.webp",
+      "image": "/public/images/Partner_CantonFribourg.webp",
+      "title": "Canton de Fribourg"
+    },
+    {
+      "image": "/public/images/Partner_Cinemotion.webp",
+      "title": "Cinemotion"
+    },
+    {
+      "image": "/public/images/Partner_Ecal.webp",
+      "title": "Ecal"
+    },
+    {
+      "image": "/public/images/Partner_EcolePrimairedeBelfaux.webp",
+      "title": "Ecole Primaire de Belfaux"
+    },
+    {
+      "image": "/public/images/Partner_Eduform.webp",
+      "title": "Eduform"
+    },
+    {
+      "image": "/public/images/Partner_FestivaldesLumiere.webp",
+      "title": "Festival Lumiere"
+    },
+    {
+      "image": "/public/images/Partner_HEIA-FR.webp",
+      "title": "HEIA-FR"
+    },
+    {
+      "image": "/public/images/Partner_AdO.webp",
+      "title": "Association AdO"
+    },
+    {
+      "image": "/public/images/Partner_Reper.webp",
       "title": "Reper"
     },
     {
-      "image": "/public/images/Partner-Reservoir.webp",
+      "image": "/public/images/Partner_Reservoir.webp",
       "title": "Reservoir"
     },
     {
-      "image": "/public/images/Partner-Scnat.webp",
+      "image": "/public/images/Partner_SCNAT.webp",
       "title": "SCNAT"
     },
     {
-      "image": "/public/images/Partner-SoroptimistInternationalClub.webp",
+      "image": "/public/images/Partner_SoroptimistInternational.webp",
       "title": "Soroptimist International Club"
     },
     {
-      "image": "/public/images/Partner-Two-Gentlemen-Records.webp",
+      "image": "/public/images/Partner_TwoGentleme sRecords.webp",
       "title": "Two Gentlemen Records"
     },
     {
-      "image": "/public/images/Partner-la-main-tendue.webp",
+      "image": "/public/images/Partner_LaMainTendue.webp",
       "title": "La Main Tendue"
     },
     {
-      "image": "/public/images/Partner-la-ressourcerie.webp",
+      "image": "/public/images/Partner_LaRessourcerie.webp",
       "title": "La ressourcerie"
     },
     {
-      "image": "/public/images/Partner-miam.webp",
+      "image": "/public/images/Partner_MIAM.webp",
       "title": "MIAM"
     },
     {
-      "image": "/public/images/Partner-minus3.webp",
+      "image": "/public/images/Partner_Minus3.webp",
       "title": "Minus 3"
     },
     {
-      "image": "/public/images/Partner-pro-junior-fr.webp",
+      "image": "/public/images/Partner_ProJuniorFribourg.webp",
       "title": "Pro Junior Fribourg"
     },
     {
-      "image": "/public/images/Partner-tfff.webp",
+      "image": "/public/images/Partner_FlyingFilmFestival.webp",
       "title": "The Flying Film Festival"
     },
     {
-      "image": "/public/images/Partner-you-com.webp",
+      "image": "/public/images/Partner_YouComm.webp",
       "title": "You Com"
     },
     {
-      "image": "/public/images/Partner-young-gods.webp",
+      "image": "/public/images/Partner_YoungsGods.webp",
       "title": "Young Gods"
     },
     {
-      "image": "/public/images/Partner-zonta.webp",
+      "image": "/public/images/Partner_Zonta.webp",
       "title": "Zonta"
     },
     {
-      "image": "/public/images/Partner-Ado.webp",
-      "title": "Association AdO"
+      "image": "/public/images/Partner_AssociationVictimePasSeule.webp",
+      "title": "Association Victime Pas Seule"
     }
   ]
 }
