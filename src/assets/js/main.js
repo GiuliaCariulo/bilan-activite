@@ -48,31 +48,31 @@ document.addEventListener("DOMContentLoaded", () => {
       y: (i) => (i + 1) * spacing,
       ease: "none",
       scrollTrigger: {
-        trigger: ".footer-contact",
+        trigger: ".footer-contact-copyright",
         start: "top bottom",
-        endTrigger: ".footer-contact-copyright",
-        end: "bottom bottom",
+        endTrigger: ".footer-contact",
+        end: "top bottom",
         scrub: true,
-        markers: true,
+        markers: false,
       },
     });
   }
 
-  // const isMobile = window.innerWidth < 768;
-  // const spacing = 160;
+  const isMobile = window.innerWidth < 768;
+  const spacing = 38;
 
-  // gsap.to(lines.slice(1), {
-  //   y: (i) => (i + 1) * spacing,
-  //   ease: "none",
-  //   scrollTrigger: {
-  //     trigger: ".footer-animation",
-  //     start: "top bottom",
-  //     endTrigger: isMobile ? ".footer-contact" : ".footer-contact-copyright",
-  //     end: "bottom bottom",
-  //     scrub: true,
-  //     markers: false,
-  //   },
-  // });
+  gsap.to(lines.slice(1), {
+    y: (i) => (i + 1) * spacing,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".footer-animation",
+      start: "top bottom",
+      endTrigger: ".footer-contact",
+      end: "bottom bottom",
+      scrub: true,
+      markers: false,
+    },
+  });
 
   // ============================================================
   // hero.js — Gestion de la grille héro et des expansions
