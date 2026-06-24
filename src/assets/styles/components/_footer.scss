@@ -79,83 +79,108 @@ footer {
   font-weight: $font-weight-text;
 }
 
-// @media (max-width: 390px) {
+// @media (min-width: 768px) {
 //   footer {
 //     display: flex;
 //     flex-direction: column;
 //   }
 
+//   article.footer-contact {
+//     margin: 0;
+//   }
+
 //   .footer-animation {
-//     width: auto;
+//     width: 100%;
+//     position: relative;
+//     overflow: visible;
+//     flex: none;
+//     display: flex;
+//     justify-content: center;
+//   }
+
+//   .footer-title {
+//     font-size: 7.5rem;
+//   }
+
+//   .footer-track {
+//     h4 {
+//       font-size: 7.5rem;
+//     }
 //   }
 
 //   .footer-contact {
+//     margin-top: 40px;
+//     align-self: flex-end;
+//     text-align: right;
+//     width: auto;
 //     height: auto;
+//     padding: 24px;
+//     gap: 24px;
+//   }
+
+//   .footer-contact-info {
+//     p {
+//       font-size: 0.5rem;
+//     }
+//   }
+
+//   .footer-contact-info {
+//     gap: 24px;
+//   }
+
+//   .footer-contact-copyright {
+//     gap: 84px;
+//   }
+
+//   .footer-copyright {
+//     font-size: 0.3rem;
+//   }
+
+//   h2 {
+//     font-size: 2rem;
 //   }
 // }
 
-@media (max-width: 390px) {
+@media (max-width: 768px) {
   footer {
-    display: flex;
     flex-direction: column;
-    width: 122vh;
-  }
-
-  article.footer-contact {
-    margin: 0;
   }
 
   .footer-animation {
+    order: 1;
+    height: 300px;
+    overflow: hidden;
+    flex: none;
     width: 100%;
     position: relative;
-    overflow: visible;
-    flex: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
   .footer-title {
-    font-size: 11rem;
-    left: 0;
-    top: 0;
+    font-size: 5.2rem;
+    top: 20px;
+    left: -8px;
   }
 
-  .footer-track {
-    h4 {
-      font-size: 11rem;
-    }
+  .footer-track h4 {
+    font-size: 5.2rem;
   }
 
   .footer-contact {
-    margin-top: 40px;
-    align-self: flex-end;
+    order: 2;
+    margin-top: 24px;
+    margin-left: 0;
+    align-self: flex-end; /* aligné à droite comme sur ta capture */
     text-align: right;
-    width: auto;
     height: auto;
+    width: 100%;
     padding: 24px;
-    gap: 84px;
   }
 
-  .footer-contact-info {
-    p {
-      font-size: 2rem;
-    }
-  }
-
-  .footer-contact-info {
-    gap: 84px;
-  }
-
-  .footer-contact-copyright {
-    gap: 200px;
+  .footer-contact-info p {
+    font-size: 0.55rem;
   }
 
   .footer-copyright {
-    font-size: 0.8rem;
-  }
-
-  h2 {
-    font-size: 5rem;
+    font-size: 0.35rem;
   }
 }
