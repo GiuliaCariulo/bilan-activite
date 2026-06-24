@@ -79,108 +79,19 @@ footer {
   font-weight: $font-weight-text;
 }
 
-// @media (min-width: 768px) {
-//   footer {
-//     display: flex;
-//     flex-direction: column;
-//   }
-
-//   article.footer-contact {
-//     margin: 0;
-//   }
-
-//   .footer-animation {
-//     width: 100%;
-//     position: relative;
-//     overflow: visible;
-//     flex: none;
-//     display: flex;
-//     justify-content: center;
-//   }
-
-//   .footer-title {
-//     font-size: 7.5rem;
-//   }
-
-//   .footer-track {
-//     h4 {
-//       font-size: 7.5rem;
-//     }
-//   }
-
-//   .footer-contact {
-//     margin-top: 40px;
-//     align-self: flex-end;
-//     text-align: right;
-//     width: auto;
-//     height: auto;
-//     padding: 24px;
-//     gap: 24px;
-//   }
-
-//   .footer-contact-info {
-//     p {
-//       font-size: 0.5rem;
-//     }
-//   }
-
-//   .footer-contact-info {
-//     gap: 24px;
-//   }
-
-//   .footer-contact-copyright {
-//     gap: 84px;
-//   }
-
-//   .footer-copyright {
-//     font-size: 0.3rem;
-//   }
-
-//   h2 {
-//     font-size: 2rem;
-//   }
-// }
-
 @media (max-width: 768px) {
-  footer {
-    flex-direction: column;
-  }
-
-  .footer-animation {
-    order: 1;
-    height: 300px;
-    overflow: hidden;
-    flex: none;
-    width: 100%;
-    position: relative;
+  .footer-contact {
+    h2 {
+      font-size: 2rem;
+    }
   }
 
   .footer-title {
     font-size: 5.2rem;
-    top: 20px;
-    left: -8px;
   }
 
   .footer-track h4 {
     font-size: 5.2rem;
-  }
-
-  .footer-contact {
-    order: 2;
-    margin-top: 24px;
-    margin-left: 0;
-    align-self: flex-end; /* aligné à droite comme sur ta capture */
-    text-align: right;
-    height: auto;
-    width: 100%;
-    padding: 24px;
-  }
-
-  .footer-contact-info p {
-    font-size: 0.55rem;
-  }
-
-  .footer-copyright {
-    font-size: 0.35rem;
+    line-height: 1.3;
   }
 }
