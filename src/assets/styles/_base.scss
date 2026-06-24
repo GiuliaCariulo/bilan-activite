@@ -30,21 +30,32 @@ h1 {
 }
 
 h2 {
-  font-size: 1rem;
+  font-size: 1.25rem;
 }
 
 h3 {
-  font-size: 0.75rem;
+  font-size: 1rem;
 }
 
 p {
-  font-size: 0.6rem;
+  font-size: 0.75rem;
+  max-width: 70ch;
 }
 
 li {
   font-size: 0.7rem;
 }
 
-button {
+button,
+a {
   font-size: 0.7rem;
+  background: none;
+  border: none;
+  &:hover {
+    &:hover {
+      color: $color-accent;
+      text-decoration: underline;
+      font-weight: $font-weight-legend;
+    }
+  }
 }

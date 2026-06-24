@@ -1,0 +1,37 @@
+{
+  "title": "REPER",
+  "id": "reper",
+  "description": "Depuis deux décennies, REPER œuvre activement à la promotion de la santé et à la prévention des dépendances et des situations à risques. Si l’association s’adresse à l’ensemble de la population, elle place les jeunes au cœur de ses priorités, convaincue que l’accompagnement précoce et le lien humain sont les fondements d’une société résiliente.\n\nPour célébrer ce vingtième anniversaire, REPER lance un projet visant à illustrer l’impact concret de son action sur le terrain. Ce dispositif comprend un film institutionnel, vingt capsules vidéo de 30 secondes et un logo animé spécial « 20 ans ». À travers ces supports, il s’agit de donner la parole aux usagers et aux professionnels pour raconter des expériences vécues, mettant en lumière le rôle indispensable de l’association dans le canton de Fribourg.\n\nAu-delà de la célébration, ce projet a une vocation stratégique : renforcer la visibilité de REPER, promouvoir ses valeurs d’écoute et de prévention, et fournir un outil de communication pour les subventions futures.",
+  "tags": [
+    "anniversaire",
+    "santé publique",
+    "prévention",
+    "lien social",
+    "institutionnel"
+  ],
+  "skills": "scénarisation de témoignages, réalisation de film institutionnel, création de capsules vidéo, conception d’identité visuelle animée.",
+  "mandate": "Réalisation d’interviews",
+  "sessions": ["Automne 2025", "Hiver 2026"],
+  "clients": ["REPER, Fribourg"],
+  "links": [
+    {
+      "label": "Site de l'association",
+      "url": "https://www.reper-fr.ch/"
+    }
+  ],
+  "thumbnail": "/public/images/Hero-image-thumbnail.webp",
+  "images": [
+    {
+      "fichier": "/public/images/Project_Reper_03.webp",
+      "legend": "Identité visuelle animée à partir du logo de REPER pour une série d’interviews à l’occasion des 20 ans de l’association. Fribourg, mars, 2026"
+    },
+    {
+      "fichier": "/public/images/Project_Reper_01.webp",
+      "legend": "Tournage dans les locaux de l’association. Fribourg, mars 2026"
+    },
+    {
+      "fichier": "/public/images/Project_Reper_02.webp",
+      "legend": "Interviews dans les locaux de l’association. Fribourg, mars 2026"
+    }
+  ]
+}

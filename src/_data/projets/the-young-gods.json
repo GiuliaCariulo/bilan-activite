@@ -1,0 +1,36 @@
+{
+  "title": "The Young Gods",
+  "id": "the-young-gods",
+  "description": "Ce projet de post-production immortalise la rencontre légendaire entre le groupe pionnier The Young Gods et la salle mythique Fri-Son, célébrant 40 ans de parcours commun. Capté en décembre 2025, ce docu-concert, destiné à la RTS et au FIFF, nécessite une identité visuelle forte traduisant la tension entre le son industriel, la technologie du sampling et l’énergie brute du lieu. La mission consiste à concevoir un système graphique complet (motion design et print) qui ne se contente pas d’habiller le film, mais qui participe activement à sa narration autour du thème « Appear / Disappear ». Une attention particulière a été portée à la livraison de fichiers techniques documentés, prêts à l’emploi pour l’équipe de post-production.",
+  "tags": [
+    "docu-concert",
+    "rock industriel",
+    "motion design",
+    "branding",
+    "post-production",
+    "print"
+  ],
+  "skills": "direction artistique conceptuelle, motion design broadcast, design éditorial, conception de kits réseaux sociaux, rédaction de notes techniques et de chartes graphiques.",
+  "mandate": "Conception habillage graphique pour le documentaire ",
+  "clients": [
+    "TwoGentlemen",
+    "Les Productions Romandes (pour diffusion RTS et FIFF)"
+  ],
+  "links": [],
+  "sessions": ["Hiver 2026"],
+  "thumbnail": "/public/images/Hero-image-thumbnail.webp",
+  "images": [
+    {
+      "fichier": "/public/images/Project_The-Young-Gods_01.webp",
+      "legend": "Discussion autour de l’affiche réalisée pour l’avant-première du concert filmé “We are all Young Gods” dans le cadre de la 40ème édition du FIFF. Fribourg, février 2026"
+    },
+    {
+      "fichier": "/public/images/Project_The-Young-Gods_03.webp",
+      "legend": "Présentation et analyse de certains extraits du montage final du docu-concert par Julien Minguely, à la fois co-réalisateur du film et encadrant à eikonlab. Fribourg, février 2026"
+    },
+    {
+      "fichier": "/public/images/Project_The-Young-Gods_02.webp",
+      "legend": "Présentation en avant première du docu-concert à la 40ème édition du FIFF. Fribourg, mars 2026 "
+    }
+  ]
+}

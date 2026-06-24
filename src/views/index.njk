@@ -36,22 +36,23 @@ permalink: "/"
 <!-- // ============================================================
 // section portfolio : pop up
 // ============================================================ -->
-<div class="porfolio-content-modal portfolio-hidden-modal row">
-  <div class="modal-header">
-    <button class="portfolio-close-modal"><h4>fermer</h4></button>
+<div class="porfolio-content-modal portfolio-hidden-modal">
+  <div class="porfolio-content-modal-wrapper">
+    <div class="porfolio-modal-header">
+      <button class="portfolio-close-modal">fermer</button>
+    </div>
+    <article class="portfolio-popup hidden-modal">
+      {% for item in config.portfolio %}
+        <div
+          class="portfolio-body-modal portfolio-selector-hidden"
+          id="portfolio{{ loop.index }}"
+        >
+          <img src="{{ item.media.image | url }}" alt="marche" />
+          <p class="porfolio-card-legend">{{ item.media.legend }}</p>
+        </div>
+      {% endfor %}
+    </article>
   </div>
-
-  <article class="portfolio-popup hidden-modal">
-    {% for item in config.portfolio %}
-      <div
-        class="portfolio-body-modal portfolio-selector-hidden"
-        id="portfolio{{ loop.index }}"
-      >
-        <img src="{{ item.media.image | url }}" alt="marche" />
-        <p class="porfolio-card-legend">{{ item.media.legend }}</p>
-      </div>
-    {% endfor %}
-  </article>
 </div>
 <!-- // ============================================================
 // section projets : galerie
@@ -72,7 +73,7 @@ permalink: "/"
           {% endif %}
           <div class="projets-gallery-label">
             {# Titre #}
-            <h4>{{ projet.title }}</h4>
+            <h3>{{ projet.title }}</h3>
 
             {# Tags (tableau de strings) #}
             {% if projet.tags and projet.tags.length %}
@@ -91,7 +92,7 @@ permalink: "/"
 <!-- // ============================================================
 // section teams : position
 // ============================================================ -->
-<section class="teams">
+<section class="teams" id="sessions">
   <section>
     <div class="teams-sessions">
       <div class="team-container row">
@@ -116,7 +117,7 @@ permalink: "/"
   <!-- // ============================================================
 // section partenaires : wrapper
 // ============================================================ -->
-  <section>
+  <section id="partenaires">
     <h2>Partenaires</h2>
     <div class="partners-wrapper">
       {% for item in config.partners %}

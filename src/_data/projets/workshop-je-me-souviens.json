@@ -1,0 +1,31 @@
+{
+  "title": "Workshop - Je me souviens",
+  "id": "workshop-je-me-souviens",
+  "description": "Afin d’accompagner la présentation du court-métrage « Je me souviens » dans différents contextes (festivals, rencontres dans les écoles, associations, etc.), les stagiaires sont mandaté.e.s pour réaliser trois interviews de personnes à l’origine du projet : le réalisateur Miguel Béchet, Flavie qui est à l’origine de l’histoire relatée par le court-métrage et la psychologue Sandra Tu Quoc.\n\nLes stagiaires doivent scénariser et réaliser les interviews en tenant compte de l’univers visuel du film qui aborde le sujet de la violence domestique.",
+  "tags": ["interview", "documentaire", "mémoire", "sensibilisation"],
+  "skills": " scénarisation d’interview, réalisation vidéo, adaptation tonale, respect d’une charte éthique et visuelle, montage narratif.",
+  "mandate": "Réalisation d’interviews avec habillage motion ",
+  "sessions": ["Automne 2025"],
+  "clients": ["court-métrage « Je se souviens » (Miguel Béchet)"],
+  "links": [
+    {
+      "label": "Bande-annonce \"Je me souviens\"",
+      "url": "https://www.allocine.fr/film/fichefilm_gen_cfilm=1000028788.html"
+    }
+  ],
+  "thumbnail": "/public/images/Hero-image-thumbnail.webp",
+  "images": [
+    {
+      "fichier": "/public/images/Project_Workshop_01.webp",
+      "legend": "Séance de débriefing du workshop aux termes d’une semaine thématique, avec les deux auteurs du court-métrage “Je me souviens”. Fribourg, août 2025"
+    },
+    {
+      "fichier": "/public/images/Project_Workshop_03.webp",
+      "legend": "Accompagnement sur l’emploi du logiciel After Effects. Fribourg, décembre 2025"
+    },
+    {
+      "fichier": "/public/images/Project_Workshop_02.webp",
+      "legend": "Extrait de l’interview de Flavie. Fribourg, septembre 2025"
+    }
+  ]
+}

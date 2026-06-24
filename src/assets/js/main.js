@@ -1,7 +1,8 @@
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Draggable } from "gsap/Draggable";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, Draggable);
 
 document.addEventListener("DOMContentLoaded", () => {
   // ============================================================
@@ -16,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .getElementById(popupId)
         .classList.remove("portfolio-selector-hidden");
       modal.classList.remove("portfolio-hidden-modal");
+      document.body.style.overflow = "hidden"; // ← ici
     });
   });
 
@@ -23,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .querySelector(".portfolio-close-modal")
     .addEventListener("click", function () {
       modal.classList.add("portfolio-hidden-modal");
+      document.body.style.overflow = ""; // ← ici
 
       document
         .querySelectorAll(".portfolio-body-modal")
@@ -152,5 +155,9 @@ document.addEventListener("DOMContentLoaded", () => {
       expand.classList.remove("is-expanded");
       refreshHeightIfOpen();
     });
+  });
+
+  Draggable.create(".hero-grid-cell-annee-rotate", {
+    type: "rotation",
   });
 });

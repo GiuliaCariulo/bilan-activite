@@ -9,83 +9,96 @@ layout: base.njk
    Toutes les données sont affichées, avec des {% if %} pour
    les champs optionnels — c'est ça la logique conditionnelle.
    ============================================================ #}
-<h1>Layout de projet</h1>
-<p>C'est le composant de la page type projet</p>
-<div class="row">
-  <div class="col-2 col-lg-7">
-    Je suis un système de griles calqué au modèle Bootstrap
-    <article class="projet">
-      {# Image de couverture #}
-      {% if projet.thumbnail %}
-        <img src="{{ projet.thumbnail | url }}" alt="{{ projet.title }}" />
-      {% endif %}
 
-      {# Titre + lien vers la page du projet #}
-      <h4>{{ projet.title }}</h4>
+<div class="projet-page row">
+  {# Thumbnail #}
+  {% if projet.thumbnail %}
+    <div class="projet-page-thumbnail">
+      <img src="{{ projet.thumbnail|url }}" alt="{{ projet.title }}" />
+    </div>
+  {% endif %}
 
-      {# Type de mandat #}
-      <p>{{ projet.mandate }}</p>
+  {# Button + titre #}
+  <a href="{{ '/' | url }}" class="projet-page-retour"
+    ><button>retour</button></a
+  >
 
-      {# Sessions (tableau de strings) #}
-      {% if projet.sessions and projet.sessions.length %}
-        <p>Sessions : {{ projet.sessions | join(', ') }}</p>
-      {% endif %}
+  <h1 class="projet-page-title">{{ projet.title }}</h1>
 
-      {# Client·e·s (tableau de strings) #}
-      {% if projet.clients and projet.clients.length %}
-        <p>Client·e·s : {{ projet.clients | join(', ') }}</p>
-      {% endif %}
+  {# Spacer #}
+  <div class="projet-page-spacer"></div>
 
-      {# Tags (tableau de strings) #}
-      {% if projet.tags and projet.tags.length %}
-        <ul class="tags">
-          {% for tag in projet.tags %}
-            <li>{{ tag }}</li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-
-      {# Description #}
-      <p>{{ projet.description }}</p>
-
-      {# Compétences mises en œuvre #}
-      {% if projet.skills %}
-        <p>Compétences : {{ projet.skills }}</p>
-      {% endif %}
-
-      {# Autres images (tableau de {fichier, legend}) #}
-      {% if projet.images and projet.images.length %}
-        <ul class="images">
-          {% for image in projet.images %}
-            <li>
-              <figure>
-                <img
-                  src="{{ image.fichier | url }}"
-                  alt="{{ image.legend or '' }}"
-                />
-                {% if image.legend %}
-                  <figcaption>{{ image.legend }}</figcaption>
-                {% endif %}
-              </figure>
-            </li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-
-      {# Liens (tableau de {label, url}) #}
-      {% if projet.links and projet.links.length %}
-        <ul class="liens">
-          {% for link in projet.links %}
-            <li>
-              <a href="{{ link.url }}" target="_blank">{{ link.label }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-    </article>
+  {# Description #}
+  <div class="projet-page-description">
+    <div class="projet-page-description-content">
+      {{ projet.description|markdown|safe }}
+    </div>
+    <p class="projet-page-description-legend">description</p>
   </div>
+
+  <!-- {# Spacer #}
+  <div class="projet-page-spacer"></div> -->
+
+  {# Images #}
+  {% if projet.images and projet.images.length %}
+    {% for image in projet.images %}
+      <div class="projet-page-spacer"></div>
+      <figure class="projet-page-images">
+        <img src="{{ image.fichier|url }}" alt="{{ image.legend or '' }}" />
+        {% if image.legend %}
+          <div class="projet-page-images-caption">
+            <p>{{ image.legend }}</p>
+          </div>
+        {% endif %}
+      </figure>
+    {% endfor %}
+  {% endif %}
+
+  {# Infos #}
+  <div class="projet-page-info">
+    {% if projet.clients and projet.clients.length %}
+      <div class="projet-page-info-block">
+        <p class="projet-page-info-title">Client.e.s</p>
+        <p class="projet-page-info-content">
+          {{ projet.clients | join(', ') }}
+        </p>
+      </div>
+    {% endif %}
+
+    {% if projet.mandate %}
+      <div class="projet-page-info-block">
+        <p class="projet-page-info-title">Type de mandat</p>
+        <p class="projet-page-info-content">{{ projet.mandate }}</p>
+      </div>
+    {% endif %}
+
+    {% if projet.skills %}
+      <div class="projet-page-info-block">
+        <p class="projet-page-info-title">Compétences</p>
+        <p class="projet-page-info-content">{{ projet.skills }}</p>
+      </div>
+    {% endif %}
+
+    {% if projet.sessions and projet.sessions.length %}
+      <div class="projet-page-info-block">
+        <p class="projet-page-info-title">Session.s</p>
+        <p class="projet-page-info-content">
+          {{ projet.sessions | join(', ') }}
+        </p>
+      </div>
+    {% endif %}
+
+    {% if projet.links and projet.links.length %}
+      <div class="projet-page-info-block">
+        <p class="projet-page-info-title">Liens</p>
+        {% for link in projet.links %}
+          <p><a href="{{ link.url }}" target="_blank">{{ link.label }}</a></p>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+
+  {% block scripts %}
+    <script type="module" src="{{ '/assets/js/projet.js' | url }}"></script>
+  {% endblock %}
 </div>
-<a href="{{ '/' | url }}">Retour au Index.njk</a>
-{% block scripts %}
-  <script type="module" src="{{ '/assets/js/projet.js' | url }}"></script>
-{% endblock %}
