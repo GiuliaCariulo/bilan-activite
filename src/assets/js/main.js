@@ -1,7 +1,8 @@
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Draggable } from "gsap/Draggable";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, Draggable);
 
 document.addEventListener("DOMContentLoaded", () => {
   // ============================================================
@@ -152,5 +153,9 @@ document.addEventListener("DOMContentLoaded", () => {
       expand.classList.remove("is-expanded");
       refreshHeightIfOpen();
     });
+  });
+
+  Draggable.create(".hero-grid-cell-annee-rotate", {
+    type: "rotation",
   });
 });
