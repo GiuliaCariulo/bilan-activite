@@ -365,27 +365,40 @@
 @media (max-width: 768px) {
   .hero-grid {
     grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 4.5vh 4.5vh 4.5vh 4.5vh 0px 4.5vh 4.5vh 4.5vh 4.5vh 4.5vh 4.5vh 4.5vh 4.5vh 0px 4.5vh 4.5vh 0px 4.5vh 4.5vh 4.5vh 4.5vh 4.5vh 4.5vh 4.5vh 4.5vh;
     grid-template-rows:
-      repeat(2, calc(100vw / 6))
+      calc(100vw / 6)
+      calc(100vw / 6)
+      calc(100vw / 6)
+      calc(100vw / 6)
       0px
-      repeat(2, calc(100vw / 6))
+      calc(100vw / 6)
+      calc(100vw / 6)
+      calc(100vw / 6)
+      calc(100vw / 6)
+      calc(100vw / 6)
+      calc(100vw / 6)
+      calc(100vw / 6)
+      calc(100vw / 6)
       0px
-      repeat(2, calc(100vw / 6))
-      repeat(2, calc(100vw / 6))
-      repeat(2, calc(100vw / 6))
+      calc(100vw / 6)
+      calc(100vw / 6)
       0px
-      repeat(2, calc(100vw / 6))
-      0px
-      repeat(2, calc(100vw / 6))
-      repeat(2, calc(100vw / 6))
-      repeat(2, calc(100vw / 6))
-      repeat(2, calc(100vw / 6));
+      calc(100vw / 6)
+      calc(100vw / 6)
+      calc(100vw / 6)
+      calc(100vw / 6)
+      calc(100vw / 6)
+      calc(100vw / 6)
+      calc(100vw / 6)
+      calc(100vw / 6);
 
     grid-template-areas:
       "eikonlab eikonlab eikonlab eikonlab contact contact"
       "eikonlab eikonlab eikonlab eikonlab contact contact"
       "img10 img10 edito edito img3 img3"
       "img10 img10 edito edito img3 img3"
+      ". . . . . . "
       "img6 img6 img2 img2 img2 img2"
       "img6 img6 img2 img2 img2 img2"
       "sessions sessions bilan bilan bilan bilan"
@@ -394,19 +407,61 @@
       "img8 img8 img8 img8 annee annee"
       "mot mot img4 img4 img1 img1"
       "mot mot img4 img4 img1 img1"
-      "img11 img11 priorites priorites img13 img13"
-      "img11 img11 priorites priorites img13 img13"
+      ". . . . . . "
+      "img9 img9 priorites priorites img13 img13"
+      "img9 img9 priorites priorites img13 img13"
+      ". . . . . . "
       "img14 img14 img14 img14 partenaires partenaires"
       "img14 img14 img14 img14 partenaires partenaires"
-      "encadrants encadrants img5 img5 img10 img10"
-      "encadrants encadrants img5 img5 img10 img10"
-      "img12 img12 img12 img12 img16 img16"
-      "img12 img12 img12 img12 img16 img16";
+      "encadrants encadrants img11 img11 img12 img12"
+      "encadrants encadrants img11 img11 img12 img12"
+      "img15 img15 img15 img15 img5 img5"
+      "img15 img15 img15 img15 img5 img5"
+      "img7 img7 img16 img16 img16 img16"
+      "img7 img7 img16 img16 img16 img16";
 
     min-height: auto;
 
     &-cell {
       font-size: clamp(22px, 6vw, 34px);
+
+      @for $i from 1 through 26 {
+        &[data-pos="#{$i}"] {
+          grid-area: string.unquote(
+            list.nth(
+              (
+                img1,
+                img2,
+                img3,
+                contact,
+                img4,
+                eikonlab,
+                img5,
+                mot,
+                img6,
+                sessions,
+                img7,
+                edito,
+                img8,
+                img9,
+                img10,
+                bilan,
+                img11,
+                img12,
+                priorites,
+                img13,
+                img14,
+                annee,
+                encadrants,
+                img15,
+                partenaires,
+                img16
+              ),
+              $i
+            )
+          );
+        }
+      }
 
       &-bilan,
       &-annee,
@@ -424,15 +479,15 @@
       grid-column: 1 / -1;
 
       &-r3 {
-        grid-row: 3;
+        grid-row: 5;
       }
 
       &-r2 {
-        grid-row: 13;
+        grid-row: 14;
       }
 
       &-r4 {
-        grid-row: 16;
+        grid-row: 17;
       }
 
       &-content {
