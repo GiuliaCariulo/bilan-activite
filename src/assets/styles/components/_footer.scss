@@ -112,6 +112,10 @@ footer {
     transition: opacity 0.2s ease;
     pointer-events: none;
   }
+
+  img {
+    width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
