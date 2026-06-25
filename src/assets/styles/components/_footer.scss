@@ -68,7 +68,6 @@ footer {
 
   p {
     font-family: $font;
-    font-size: 0.6rem;
     font-weight: $font-weight-text;
   }
 }
@@ -114,13 +113,6 @@ footer {
 
   .footer-contact-copyright {
     gap: 84px;
-  }
-
-  .footer-contact-info p {
-    font-size: 1.3rem;
-  }
-
-  .footer-copyright {
-    font-size: 0.5rem;
+    align-items: end;
   }
 }

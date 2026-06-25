@@ -1,7 +1,6 @@
 @use "../variables" as *;
 
 .project-gallery {
-  width: 100vw;
   overflow: hidden;
   grid-auto-rows: calc(min(100vw, 1100px) / 8);
   &-title {
