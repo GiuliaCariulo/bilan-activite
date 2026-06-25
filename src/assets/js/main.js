@@ -58,22 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // const isMobile = window.innerWidth < 768;
-  // const spacing = 38;
-
-  // gsap.to(lines.slice(1), {
-  //   y: (i) => (i + 1) * spacing,
-  //   ease: "none",
-  //   scrollTrigger: {
-  //     trigger: ".footer-animation",
-  //     start: "top bottom",
-  //     endTrigger: ".footer-contact",
-  //     end: "bottom bottom",
-  //     scrub: true,
-  //     markers: true,
-  //   },
-  // });
-
   // ============================================================
   // hero.js — Gestion de la grille héro et des expansions
   // ============================================================
