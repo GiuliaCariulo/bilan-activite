@@ -52,11 +52,11 @@ a {
   font-size: 0.7rem;
   background: none;
   border: none;
-  &:hover {
-    color: $color-accent;
-    text-decoration: underline;
-    font-weight: $font-weight-legend;
-  }
+  // &:hover {
+  //   color: $color-accent;
+  //   text-decoration: underline;
+  //   font-weight: $font-weight-legend;
+  // }
 }
 
 @media (max-width: 768px) {
@@ -69,7 +69,7 @@ a {
   }
 
   h3 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
   }
 
   p {
@@ -87,10 +87,10 @@ a {
     font-size: 0.7rem;
     background: none;
     border: none;
-    &:hover {
-      color: $color-accent;
-      text-decoration: underline;
-      font-weight: $font-weight-legend;
-    }
+    // &:hover {
+    //   color: $color-accent;
+    //   text-decoration: underline;
+    //   font-weight: $font-weight-legend;
+    // }
   }
 }
