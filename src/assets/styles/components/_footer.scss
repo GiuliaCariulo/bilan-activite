@@ -151,4 +151,39 @@ footer {
     gap: $space-xl;
     align-items: end;
   }
+
+  .hover-box .box {
+    opacity: 0;
+    animation: fadeInOut 6s infinite;
+  }
+
+  .hover-box:nth-child(1) .box {
+    animation-delay: 0s;
+  }
+
+  .hover-box:nth-child(2) .box {
+    animation-delay: 2s;
+  }
+
+  .hover-box:nth-child(3) .box {
+    animation-delay: 4s;
+  }
+
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    30% {
+      opacity: 1;
+    }
+    40% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
 }
