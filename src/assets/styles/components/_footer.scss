@@ -16,12 +16,12 @@ footer {
 }
 
 .footer-title {
-  position: relative;
-  z-index: 2;
-  font-size: 8.5rem;
-  line-height: 0;
-  top: 33px;
-  left: -16px;
+  display: none;
+  // position: relative;
+  // z-index: 2;
+  // font-size: 8.5rem;
+  // top: -48px;
+  // left: -161px;
 }
 
 .footer-track {
@@ -36,7 +36,6 @@ footer {
     top: 0;
     left: 0;
     font-size: 8.5rem;
-    line-height: 0.8;
     white-space: nowrap;
     margin: 0;
   }
@@ -72,10 +71,47 @@ footer {
   }
 }
 
-.footer-copyright {
-  font-family: $font;
-  font-size: 0.4rem;
-  font-weight: $font-weight-text;
+.footer-director {
+  display: flex;
+  gap: $space-md;
+}
+
+.footer-bottom-all {
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+  p {
+    font-size: 0.5rem;
+    font-family: $font;
+    font-weight: $font-weight-text;
+  }
+}
+
+.hover-box {
+  position: relative;
+  display: inline-block;
+
+  p {
+    margin: 0;
+    cursor: pointer;
+
+    &:hover ~ .box {
+      opacity: 1;
+    }
+  }
+
+  .box {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+  }
 }
 
 @media (max-width: 767px) {
@@ -108,11 +144,11 @@ footer {
     text-align: right;
     height: auto;
     width: 100%;
-    padding: 24px;
+    padding: $space-md;
   }
 
   .footer-contact-copyright {
-    gap: 84px;
+    gap: $space-xl;
     align-items: end;
   }
 }
