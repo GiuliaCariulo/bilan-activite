@@ -1,7 +1,6 @@
 @use "../variables" as *;
 
 .project-gallery {
-  width: 100vw;
   overflow: hidden;
   grid-auto-rows: calc(min(100vw) / 8);
   &-title {
@@ -21,6 +20,7 @@
     aspect-ratio: 1 / 1;
     height: 100%;
     width: 100%;
+    scroll-margin-top: 15vh;
 
     &[data-pos="1"] {
       grid-row: 3 / span 4;
@@ -68,6 +68,7 @@
         padding: 0 5px;
         border: 0.5px solid $color-primary;
         background: $color-secondary;
+        font-weight: $font-weight-title;
       }
     }
     img {
@@ -78,10 +79,10 @@
       grid-column: span 4;
     }
   }
-  a:hover {
-    color: $color-accent;
-    font-weight: $font-weight-text;
-  }
+  // a:hover {
+  //   color: $color-accent;
+  //   font-weight: $font-weight-text;
+  // }
 }
 
 @media (max-width: 768px) {
