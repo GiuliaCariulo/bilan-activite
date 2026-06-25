@@ -63,6 +63,7 @@ permalink: "/"
     <h2 class="project-gallery-title">projets</h2>
     {% for projet in projets %}
       <a
+        id="projet-{{ projet.id }}"
         href="{{ ('/projets/' + projet.id + '/') | url }}"
         class="project-gallery-project-card"
         data-pos="{{ loop.index }}"
