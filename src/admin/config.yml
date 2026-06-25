@@ -165,7 +165,8 @@ collections:
         name: sessions
         widget: select
         multiple: true
-        options: ["Automne 2025", "Hiver 2026", "Printemps 2026"]
+        options:
+          ["Automne 2025", "Hiver 2026", "Printemps 2026", "Printemps 2025"]
       - label: Type de mandat
         name: mandate
         widget: string
