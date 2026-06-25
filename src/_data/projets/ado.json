@@ -1,7 +1,17 @@
 {
+  "skills": "Audit stratégique, conception de campagne multi-canaux, direction artistique, motion design, création de contenus réseaux sociaux, signalétique événementielle, approche centrée utilisateur.",
+  "mandate": "Concept de communication",
+  "clients": [
+    "Association AdO (Prévention et réduction des risques en milieu festif)"
+  ],
+  "thumbnail": "/public/images/Project_AdO.webp",
   "title": "AdO",
-  "id": "ado",
-  "description": "Mandaté par l’Association AdO pour transformer sa perception auprès des 14-25 ans, eikonlab a réfléchi à une campagne visant à positionner l’association comme une « safe place » incontournable en milieu festif. Le projet combine un audit des élèves de première année et un workshop créatif pour développer une stratégie sans jugement ni moralisation. Les livrables incluent une identité visuelle adaptée, des formats vidéo dynamiques (motion design, reels) et des outils de signalétique événementielle, tous conçus pour promouvoir l’écoute active, la confidentialité et la réduction des risques par une approche « par les pairs ».",
+  "images": [
+    {
+      "fichier": "/public/images/Project_AdO.webp",
+      "legend": "Lancement du workshop pour l’association ADO avec la session “Printemps 2026”. Fribourg, avril 2026.  "
+    }
+  ],
   "tags": [
     "jeunesse",
     "milieu festif",
@@ -10,23 +20,15 @@
     "safe place",
     "communication digitale"
   ],
-  "skills": "audit stratégique, conception de campagne multi-canaux, direction artistique, motion design, création de contenus réseaux sociaux, signalétique événementielle, approche centrée utilisateur.",
-  "mandate": "Concept de communication",
-  "sessions": ["Printemps 2026"],
-  "clients": [
-    "Association AdO (Prévention et réduction des risques en milieu festif)"
-  ],
   "links": [
     {
       "label": "Site de l'association",
       "url": "https://www.association-ado.ch/fr/"
     }
   ],
-  "thumbnail": "/public/images/Hero-image-thumbnail.webp",
-  "images": [
-    {
-      "fichier": "/public/images/Project_AdO.webp",
-      "legend": "Lancement du workshop pour l’association ADO avec la session “Printemps 2026”. Fribourg, avril 2026."
-    }
+  "id": "ado",
+  "description": "Mandaté par l’Association AdO pour transformer sa perception auprès des 14-25 ans, eikonlab a réfléchi à une campagne visant à positionner l’association comme une « safe place » incontournable en milieu festif. Le projet combine un audit des élèves de première année et un workshop créatif pour développer une stratégie sans jugement ni moralisation. Les livrables incluent une identité visuelle adaptée, des formats vidéo dynamiques (motion design, reels) et des outils de signalétique événementielle, tous conçus pour promouvoir l’écoute active, la confidentialité et la réduction des risques par une approche « par les pairs ».",
+  "sessions": [
+    "Printemps 2026"
   ]
 }

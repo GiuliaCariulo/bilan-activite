@@ -1,7 +1,12 @@
 {
+  "skills": "Stratégie de storytelling, gestion de communauté, production de contenus multimédias (photo/vidéo mobile), coordination d’événements (prologue, restitution).",
+  "mandate": "Réalisation d’interviews",
+  "clients": [
+    "Laurent Dietrich (eBike for Youth) au bénéfice de Pro Junior Fribourg & La Main Tendue"
+  ],
+  "thumbnail": "/public/images/Portfolio_008.webp",
   "title": "Pro Junior",
-  "id": "pro-junior",
-  "description": "Ce projet accompagne un périple de 12 500 km à vélo électrique, reliant Madrid à la Suisse, pour collecter 50 000 CHF au profit de Pro Junior Fribourg et La Main Tendue. Au-delà du défi sportif, l’initiative vise à briser l’isolement des jeunes de 16 à 25 ans et à financer des aides concrètes contre les dettes et la précarité. La mission de communication consiste à construire une narration transmédia (site web, réseaux sociaux, bible de marque) qui documente le voyage, met en lumière les témoignages recueillis et transforme l’aventure individuelle en un levier de mobilisation collective et intergénérationnelle.",
+  "images": [],
   "tags": [
     "solidarité",
     "vélo",
@@ -11,13 +16,10 @@
     "sensibilisation",
     "intergénérationnel"
   ],
-  "skills": "stratégie de storytelling, gestion de communauté, production de contenus multimédias (photo/vidéo mobile), coordination d’événements (prologue, restitution).",
-  "mandate": "Réalisation d’interviews",
-  "sessions": ["Printemps 2026"],
-  "clients": [
-    "Laurent Dietrich (eBike for Youth) au bénéfice de Pro Junior Fribourg & La Main Tendue"
-  ],
   "links": [],
-  "thumbnail": "/public/images/Hero-image-thumbnail.webp",
-  "images": []
+  "id": "pro-junior",
+  "description": "Ce projet accompagne un périple de 12 500 km à vélo électrique, reliant Madrid à la Suisse, pour collecter 50 000 CHF au profit de Pro Junior Fribourg et La Main Tendue. Au-delà du défi sportif, l’initiative vise à briser l’isolement des jeunes de 16 à 25 ans et à financer des aides concrètes contre les dettes et la précarité. La mission de communication consiste à construire une narration transmédia (site web, réseaux sociaux, bible de marque) qui documente le voyage, met en lumière les témoignages recueillis et transforme l’aventure individuelle en un levier de mobilisation collective et intergénérationnelle.",
+  "sessions": [
+    "Printemps 2026"
+  ]
 }
