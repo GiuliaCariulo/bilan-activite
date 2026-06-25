@@ -109,6 +109,8 @@ article.portfolio-popup {
 .portfolio-close-modal {
   padding: $space-md;
   transition: all 0.3s ease;
+  flex: 2;
+  margin-left: auto;
 
   span {
     font-weight: bold;
@@ -389,19 +391,9 @@ article.portfolio-popup {
       ". . . img26 img26 img26";
   }
 
-  .portfolio-card-pos {
-    p {
-      font-size: 0.8rem;
-    }
-  }
-  .portfolio-legend {
-    p {
-      font-size: 0.65rem;
-    }
-  }
-
   .portfolio-legend {
     opacity: 0;
+    display: none;
   }
 
   .porfolio-content-modal-wrapper {
@@ -441,16 +433,10 @@ article.portfolio-popup {
 
     p {
       position: static;
-      flex-shrink: 0;
-      background-color: $color-primary;
-      color: $color-secondary;
-      padding: $space-md;
     }
   }
 
-  button {
-    font-size: 4rem;
-    color: $color-accent;
-    font-weight: bold;
+  .porfolio-modal-header {
+    order: -1;
   }
 }
