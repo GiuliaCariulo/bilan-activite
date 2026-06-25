@@ -469,6 +469,9 @@
         font-size: clamp(42px, 11vw, 62px);
         padding: 8px;
       }
+      &-encadrant {
+        font-size: 1.2rem;
+      }
 
       h2 {
         font-size: inherit;
@@ -516,5 +519,11 @@
         grid-column: 3 / -1;
       }
     }
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-grid h2 {
+    font-size: 0.7rem;
   }
 }
