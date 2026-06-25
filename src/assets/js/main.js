@@ -368,7 +368,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       ScrollTrigger.refresh();
     });
-  }
+  });
 
   // ==========================================================================
   // easter egg 25/26 hihi
