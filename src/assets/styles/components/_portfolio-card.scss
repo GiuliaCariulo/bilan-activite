@@ -172,7 +172,7 @@ article.portfolio-popup {
 // ============================================================
 
 .portfolio-wrapper {
-  grid-auto-rows: calc(min(100vw, 1100px) / 8);
+  grid-auto-rows: calc(min(100vw) / 8);
   grid-template-areas:
     ". . img1 img1 . . . ."
     ". . img1 img1 . . . ."
