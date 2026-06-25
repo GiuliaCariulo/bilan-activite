@@ -38,9 +38,6 @@ permalink: "/"
 // ============================================================ -->
 <div class="porfolio-content-modal portfolio-hidden-modal">
   <div class="porfolio-content-modal-wrapper">
-    <div class="porfolio-modal-header">
-      <button class="portfolio-close-modal">fermer</button>
-    </div>
     <article class="portfolio-popup hidden-modal">
       {% for item in config.portfolio %}
         <div
@@ -52,6 +49,9 @@ permalink: "/"
         </div>
       {% endfor %}
     </article>
+    <div class="porfolio-modal-header">
+      <button class="portfolio-close-modal"><span>fermer</span></button>
+    </div>
   </div>
 </div>
 <!-- // ============================================================
