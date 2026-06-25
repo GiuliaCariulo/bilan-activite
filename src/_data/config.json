@@ -296,6 +296,10 @@
     {
       "image": "/public/images/Partner_AssociationVictimePasSeule.webp",
       "title": "Association Victime Pas Seule"
+    },
+    {
+      "image": "/public/images/Partner_eikon.webp",
+      "title": "eikon"
     }
   ]
 }
