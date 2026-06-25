@@ -25,7 +25,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: $space-md;
   cursor: default;
 
   p {
@@ -49,6 +49,11 @@
     opacity 0.2s ease;
   z-index: 1;
   p {
+    font-size: 0.5rem;
+    font-weight: $font-weight-legend;
+    font-style: $font-style-legend;
+    line-height: $font-line-height-legend;
+    background-color: $color-primary;
     color: $color-secondary;
   }
 }
@@ -101,9 +106,19 @@ article.portfolio-popup {
   padding: 0;
 }
 
-.portfolio-close-modal:hover {
-  font-weight: bold;
-  color: $color-accent;
+.portfolio-close-modal {
+  padding: $space-md;
+  transition: all 0.3s ease;
+  flex: 2;
+  margin-left: auto;
+
+  span {
+    font-weight: bold;
+
+    &:hover {
+      color: $color-accent;
+    }
+  }
 }
 
 .porfolio-content-modal-wrapper {
@@ -134,6 +149,9 @@ article.portfolio-popup {
     right: 0;
     align-items: end;
     justify-self: start;
+    font-weight: $font-weight-legend;
+    font-style: $font-style-legend;
+    line-height: $font-line-height-legend;
     background-color: $color-primary;
     padding: $space-md;
     color: $color-secondary;
@@ -373,19 +391,9 @@ article.portfolio-popup {
       ". . . img26 img26 img26";
   }
 
-  .portfolio-card-pos {
-    p {
-      font-size: 0.8rem;
-    }
-  }
-  .portfolio-legend {
-    p {
-      font-size: 0.65rem;
-    }
-  }
-
   .portfolio-legend {
     opacity: 0;
+    display: none;
   }
 
   .porfolio-content-modal-wrapper {
@@ -425,16 +433,10 @@ article.portfolio-popup {
 
     p {
       position: static;
-      flex-shrink: 0;
-      background-color: $color-primary;
-      color: $color-secondary;
-      padding: $space-md;
     }
   }
 
-  button {
-    font-size: 4rem;
-    color: $color-accent;
-    font-weight: bold;
+  .porfolio-modal-header {
+    order: -1;
   }
 }
