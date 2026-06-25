@@ -3,7 +3,7 @@
 .project-gallery {
   width: 100vw;
   overflow: hidden;
-  grid-auto-rows: calc(min(100vw, 1100px) / 8);
+  grid-auto-rows: calc(min(100vw) / 8);
   &-title {
     font-weight: $font-weight-title;
     font-style: $font-style-title;
