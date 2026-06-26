@@ -14,21 +14,15 @@
   // Thumbnail sticky en arrière-plan
   // ==========================================================================
 
+  article {
+    padding: 0;
+  }
   section {
     grid-column: 1 / -1;
     grid-auto-rows: fit-content(100%);
     width: 100%;
+    margin: 0;
   }
-
-  // &-section-description {
-  //   grid-row: auto / span 7;
-  // }
-  // &-section-images {
-  //   grid-row: auto;
-  // }
-  // &-section-infos {
-  //   grid-row: auto;
-  // }
 
   &-thumbnail {
     position: sticky;
@@ -43,7 +37,6 @@
       height: 115%;
       object-fit: cover;
       display: block;
-      transform: scale(1.08);
       transform-origin: center center;
       will-change: transform;
     }
@@ -51,7 +44,7 @@
 
   &-tags-container {
     position: absolute;
-    right: 24px;
+    right: $space-md;
     bottom: calc(24px + 18vh);
     z-index: 3;
     max-width: 45%;
@@ -109,9 +102,14 @@
     color: $color-primary;
     text-decoration: none;
     padding-block: $space-lg;
+    gap: 10px;
     transition:
       background-color 0.2s ease-in-out,
       text-decoration 0.3s ease-in-out;
+
+    svg {
+      width: 15%;
+    }
 
     button {
       border: 0;
@@ -136,7 +134,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding-right: 24px;
+    padding-right: $space-md;
   }
 
   // ==========================================================================
@@ -228,6 +226,7 @@
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
     grid-auto-rows: minmax(calc(min(100vw, 1100px) / 8), auto);
+    gap: $space-md;
   }
 
   &-info-block {
@@ -235,6 +234,7 @@
     display: flex;
     flex-direction: column;
     align-items: start;
+    text-align: left;
 
     &:nth-child(even) {
       align-items: end;
@@ -251,6 +251,7 @@
     color: $color-primary;
     font-weight: $font-weight-text;
     cursor: pointer;
+    font-size: 1rem;
 
     &:hover {
       color: $color-accent;
@@ -283,7 +284,7 @@
   .projet-page {
     &-thumbnail {
       img {
-        height: 80vh;
+        height: 90vh;
       }
     }
     &-content {
@@ -318,7 +319,8 @@
     &-description {
       grid-column: 1 / -1;
       grid-template-columns: repeat(6, minmax(0, 1fr));
-      padding-inline: 16px;
+      padding-inline: $space-md;
+      gap: $space-md;
     }
 
     &-description-content {
@@ -329,6 +331,7 @@
     &-description-legend {
       grid-column: 1 / -1;
       grid-row: 1;
+      text-align: right;
     }
 
     &-images {
@@ -346,7 +349,10 @@
       grid-column: 1 / -1;
       grid-template-columns: repeat(6, minmax(0, 1fr));
       grid-auto-rows: minmax(calc(100vw / 6), auto);
-      padding-inline: 16px;
+      padding-inline: $space-md;
+    }
+    a {
+      font-size: 0.8rem;
     }
   }
 }
