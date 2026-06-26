@@ -110,6 +110,13 @@ article.portfolio-popup {
   transition: all 0.3s ease;
   flex: 2;
   margin-left: auto;
+  text-decoration: underline;
+}
+
+button.portfolio-close-modal:hover {
+  padding: 2px;
+  background-color: $color-accent;
+  transition: all 0.3s ease;
 }
 
 .porfolio-content-modal-wrapper {
