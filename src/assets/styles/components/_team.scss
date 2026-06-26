@@ -37,22 +37,20 @@
 
 .team-card-member {
   background-color: $color-accent;
-}
+  h2 {
+    font-size: 1.5rem;
+  }
+  figcaption {
+    padding: 0.25rem;
+  }
 
-& h2 {
-  font-size: 1.5rem;
-}
+  figure {
+    border: 1rem;
+  }
 
-& figcaption {
-  padding: 0.25rem;
-}
-
-& figure {
-  border: 1rem;
-}
-
-& img {
-  width: 100%;
+  img {
+    width: 100%;
+  }
 }
 
 .team-cards-member {

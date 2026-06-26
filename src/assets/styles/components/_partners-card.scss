@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   align-content: center;
-  gap: 72px 181px;
+  gap: 72px 300px;
   flex-wrap: wrap;
 }
 
@@ -32,12 +32,5 @@ article.partner-box {
   .partner-box {
     width: 150px;
     height: 150px;
-  }
-}
-
-@media (max-width: 490px) {
-  .partner-box {
-    width: 100px;
-    height: 100px;
   }
 }
