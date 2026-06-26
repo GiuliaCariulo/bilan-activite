@@ -357,13 +357,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ==========================================================================
-  // sessions & encadrants explosion: fiouuuu !
+  // teams & encadrants explosion: fiouuuu !
   // ==========================================================================
-
   window.addEventListener("load", () => {
     const containers = gsap.utils.toArray(".team-container");
 
-    containers.forEach((container) => {
+    containers.forEach((container, containerIndex) => {
       const teamBox = container.querySelector(".team-box");
       const cards = gsap.utils.toArray(
         container.querySelectorAll(".team-card-member"),
@@ -375,45 +374,65 @@ document.addEventListener("DOMContentLoaded", () => {
       const boxCenterX = boxRect.left + boxRect.width / 2;
       const boxCenterY = boxRect.top + boxRect.height / 2;
 
-      cards.forEach((card) => {
-        const cardRect = card.getBoundingClientRect();
-        const cardCenterX = cardRect.left + cardRect.width / 2;
-        const cardCenterY = cardRect.top + cardRect.height / 2;
+      cards.forEach((card, cardIndex) => {
+        try {
+          const cardRect = card.getBoundingClientRect();
+          const cardCenterX = cardRect.left + cardRect.width / 2;
+          const cardCenterY = cardRect.top + cardRect.height / 2;
 
-        const offsetX = boxCenterX - cardCenterX;
-        const offsetY = boxCenterY - cardCenterY;
+          const offsetX = boxCenterX - cardCenterX;
+          const offsetY = boxCenterY - cardCenterY;
 
-        const scaleStart = Math.min(
-          boxRect.width / cardRect.width,
-          boxRect.height / cardRect.height,
-        );
+          const scaleStart = Math.min(
+            boxRect.width / cardRect.width,
+            boxRect.height / cardRect.height,
+          );
 
-        gsap.fromTo(
-          card,
-          { x: offsetX, y: offsetY, scale: scaleStart, zIndex: 0 },
-          {
-            x: 0,
-            y: 0,
-            scale: 1,
-            zIndex: 1,
-            duration: 1,
-            scrollTrigger: {
-              trigger: container,
-              start: "top 80%",
-              end: "bottom 60%",
-              markers: true,
-              toggleActions: "play reverse restart reverse",
+          if (
+            !isFinite(offsetX) ||
+            !isFinite(offsetY) ||
+            !isFinite(scaleStart)
+          ) {
+            console.warn(
+              `Container ${containerIndex}, carte ${cardIndex} : valeur invalide`,
+              {
+                cardRect,
+                boxRect,
+                offsetX,
+                offsetY,
+                scaleStart,
+              },
+            );
+            return;
+          }
+
+          gsap.fromTo(
+            card,
+            { x: offsetX, y: offsetY, scale: scaleStart, zIndex: 0 },
+            {
+              x: 0,
+              y: 0,
+              scale: 1,
+              zIndex: 1,
+              duration: 1,
+              scrollTrigger: {
+                trigger: container,
+                start: "top 80%",
+                end: "bottom 60%",
+                markers: true,
+                toggleActions: "play reverse restart reverse",
+              },
             },
-          },
-        );
+          );
+        } catch (err) {
+          console.error(
+            `Erreur container ${containerIndex}, carte ${cardIndex}`,
+            err,
+          );
+        }
       });
     });
   });
-  if (document.querySelector(".hero-grid-cell-annee-rotate")) {
-    Draggable.create(".hero-grid-cell-annee-rotate", {
-      type: "rotation",
-    });
-  }
 
   // ============================================================
   // projet-page : thumbnail parallax + scale
