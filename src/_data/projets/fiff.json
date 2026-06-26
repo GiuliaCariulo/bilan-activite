@@ -1,5 +1,5 @@
 {
-  "skills": "Conception, production et réalisation d’une séquence filmique, storytelling, travail avec l’agence de communication du FIFF href=\"https://www.volontiers.net/\" target=\"_blank\">Volontiers</a>)..",
+  "skills": "Conception, production et réalisation d’une séquence filmique, storytelling, travail avec l’agence de communication du FIFF Volontiers.",
   "mandate": "Conception, production et réalisation d’un trailer vidéo",
   "clients": [
     "FIFF"
@@ -37,6 +37,10 @@
     {
       "label": "Pré-générique",
       "url": "https://www.youtube.com/watch?si=_ROaMrOaoQGpn-rL&v=DkjENo_75LU&feature=youtu.be"
+    },
+    {
+      "label": "Volontiers",
+      "url": "https://www.volontiers.net/"
     }
   ],
   "id": "fiff",
