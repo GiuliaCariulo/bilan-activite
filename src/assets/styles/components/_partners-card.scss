@@ -5,6 +5,7 @@
   align-content: center;
   gap: 72px 300px;
   flex-wrap: wrap;
+  max-width: 150vh;
 }
 
 article.partner-box {
@@ -22,6 +23,13 @@ article.partner-box {
     width: 100%;
     object-fit: contain;
   }
+}
+
+#sessions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 768px) {

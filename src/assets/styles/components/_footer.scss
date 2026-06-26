@@ -125,6 +125,10 @@ footer {
   max-width: 70ch;
 }
 
+a:hover {
+  padding: 1px;
+}
+
 @media (max-width: 768px) {
   footer {
     flex-direction: column;

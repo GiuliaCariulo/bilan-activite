@@ -107,18 +107,9 @@ article.portfolio-popup {
 }
 
 .portfolio-close-modal {
-  padding: $space-md;
   transition: all 0.3s ease;
   flex: 2;
   margin-left: auto;
-
-  span {
-    font-weight: bold;
-
-    &:hover {
-      color: $color-accent;
-    }
-  }
 }
 
 .porfolio-content-modal-wrapper {
