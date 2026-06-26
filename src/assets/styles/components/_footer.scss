@@ -118,6 +118,13 @@ footer {
   }
 }
 
+.footer-contact-info a {
+  font-weight: $font-weight-text;
+  line-height: $font-line-height-text;
+  font-size: 0.9rem;
+  max-width: 70ch;
+}
+
 @media (max-width: 768px) {
   footer {
     flex-direction: column;
@@ -155,6 +162,11 @@ footer {
     gap: $space-xl;
     gap: 90px;
     align-items: end;
+  }
+
+  .footer-contact-info p {
+    font-size: 1rem;
+    max-width: 100ch;
   }
 
   .hover-box .box {
