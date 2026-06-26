@@ -48,21 +48,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (lines.length) {
     const spacing = 70;
+    const isMobile = window.innerWidth < 768;
 
     gsap.to(lines.slice(1), {
       y: (i) => (i + 1) * spacing,
       ease: "none",
       scrollTrigger: {
-        trigger: ".footer-contact",
-        start: "top bottom",
-        endTrigger: ".footer-contact-copyright",
-        end: "bottom bottom",
+        trigger: isMobile ? ".footer-title" : ".footer-contact",
+        start: isMobile ? "top 90%" : "top bottom",
+        endTrigger: isMobile ? ".footer-contact" : ".footer-contact-copyright",
+        end: isMobile ? "top 90%" : "bottom bottom",
         scrub: true,
         markers: false,
       },
     });
   }
-
   // ============================================================
   // hero.js — Gestion de la grille héro et des expansions
   // ============================================================
@@ -308,9 +308,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ============================================================
+  // ==========================================================================
   // projet-page : thumbnail parallax + scale
-  // ============================================================
+  // ==========================================================================
 
   const thumbnailImage = document.querySelector(".projet-page-thumbnail img");
 
@@ -336,3 +336,32 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 });
+
+// ==========================================================================
+// loader page : loader active
+// ==========================================================================
+
+const isFirstVisit = !localStorage.getItem("visited");
+
+const hideLoader = (selector, delay) => {
+  setTimeout(() => {
+    const loader = document.querySelector(selector);
+    loader.style.transition = "opacity 0.5s ease-out";
+    loader.style.opacity = "0";
+    setTimeout(() => {
+      loader.style.display = "none";
+      document.body.classList.remove("loading");
+    }, 1000);
+  }, delay);
+};
+
+document.body.classList.add("loading");
+
+if (isFirstVisit) {
+  localStorage.setItem("visited", "true");
+  document.querySelector(".loader-dough").style.display = "none";
+  hideLoader(".loader-tetris", 3000);
+} else {
+  document.querySelector(".loader-tetris").style.display = "none";
+  hideLoader(".loader-dough", 1500);
+}

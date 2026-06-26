@@ -400,7 +400,7 @@ article.portfolio-popup {
   .porfolio-content-modal-wrapper {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    inset: 0;
   }
 
   .porfolio-modal-header {
