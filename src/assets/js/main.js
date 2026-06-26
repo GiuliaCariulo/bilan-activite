@@ -380,9 +380,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ============================================================
+  // ==========================================================================
   // projet-page : thumbnail parallax + scale
-  // ============================================================
+  // ==========================================================================
 
   const thumbnailImage = document.querySelector(".projet-page-thumbnail img");
 
@@ -408,3 +408,43 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 });
+
+// ==========================================================================
+// loader page : loader active
+// ==========================================================================
+
+const isFirstVisit = !localStorage.getItem("visited");
+
+const hideLoader = (selector, delay) => {
+  setTimeout(() => {
+    const loader = document.querySelector(selector);
+    loader.style.transition = "opacity 0.5s ease-out";
+    loader.style.opacity = "0";
+    setTimeout(() => {
+      loader.style.display = "none";
+      document.body.classList.remove("loading");
+    }, 1000);
+  }, delay);
+};
+
+document.body.classList.add("loading");
+
+if (isFirstVisit) {
+  localStorage.setItem("visited", "true");
+  document.querySelector(".loader-dough").style.display = "none";
+  hideLoader(".loader-tetris", 3000);
+} else {
+  document.querySelector(".loader-tetris").style.display = "none";
+  hideLoader(".loader-dough", 1500);
+}
+
+// setTimeout(() => {
+//   const loader = document.querySelector(".loader-tetris");
+//   loader.style.backgroundColor = "red";
+//   loader.style.transition = "opacity 1s ease-out";
+//   loader.style.opacity = "0";
+
+//   setTimeout(() => {
+//     loader.style.display = "none";
+//   }, 1000);
+// }, 3000);
