@@ -14,6 +14,7 @@ permalink: "/"
      - sections      → sections.json    (variable = objet entier)
      - interns       → interns.json     (variable = objet entier)
    ============================================================ #}
+   
 {% include "hero.njk" %}
 
 <!-- // ============================================================
@@ -38,9 +39,6 @@ permalink: "/"
 // ============================================================ -->
 <div class="porfolio-content-modal portfolio-hidden-modal">
   <div class="porfolio-content-modal-wrapper">
-    <div class="porfolio-modal-header">
-      <button class="portfolio-close-modal">fermer</button>
-    </div>
     <article class="portfolio-popup hidden-modal">
       {% for item in config.portfolio %}
         <div
@@ -52,16 +50,21 @@ permalink: "/"
         </div>
       {% endfor %}
     </article>
+    <div class="porfolio-modal-header">
+      <button class="portfolio-close-modal"><span>fermer</span></button>
+    </div>
   </div>
 </div>
 <!-- // ============================================================
 // section projets : galerie
 // ============================================================ -->
+<section>
 {% if projets and projets.length %}
   <section class="project-gallery row">
     <h2 class="project-gallery-title">projets</h2>
     {% for projet in projets %}
       <a
+        id="projet-{{ projet.id }}"
         href="{{ ('/projets/' + projet.id + '/') | url }}"
         class="project-gallery-project-card"
         data-pos="{{ loop.index }}"
@@ -78,7 +81,7 @@ permalink: "/"
             {# Tags (tableau de strings) #}
             {% if projet.tags and projet.tags.length %}
               <ul class="tags">
-                {% for tag in projet.tags %}
+                {% for tag in projet.tags.slice(0, 3) %}
                   <li>{{ tag }}</li>
                 {% endfor %}
               </ul>
@@ -88,6 +91,7 @@ permalink: "/"
       </a>
     {% endfor %}
   </section>
+</section>
 {% endif %}
 <!-- // ============================================================
 // section teams : position
@@ -161,8 +165,8 @@ permalink: "/"
       </div>
     </div>
   </section>
-
-  <!-- // ============================================================
+</section>
+<!-- // ============================================================
 // section partenaires : wrapper
 // ============================================================ -->
   <section id="partenaires">

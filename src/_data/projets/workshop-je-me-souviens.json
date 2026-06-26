@@ -1,19 +1,11 @@
 {
-  "title": "Workshop - Je me souviens",
-  "id": "workshop-je-me-souviens",
-  "description": "Afin d’accompagner la présentation du court-métrage « Je me souviens » dans différents contextes (festivals, rencontres dans les écoles, associations, etc.), les stagiaires sont mandaté.e.s pour réaliser trois interviews de personnes à l’origine du projet : le réalisateur Miguel Béchet, Flavie qui est à l’origine de l’histoire relatée par le court-métrage et la psychologue Sandra Tu Quoc.\n\nLes stagiaires doivent scénariser et réaliser les interviews en tenant compte de l’univers visuel du film qui aborde le sujet de la violence domestique.",
-  "tags": ["interview", "documentaire", "mémoire", "sensibilisation"],
-  "skills": " scénarisation d’interview, réalisation vidéo, adaptation tonale, respect d’une charte éthique et visuelle, montage narratif.",
+  "skills": " Scénarisation d’interview, réalisation vidéo, adaptation tonale, respect d’une charte éthique et visuelle, montage narratif.",
   "mandate": "Réalisation d’interviews avec habillage motion ",
-  "sessions": ["Automne 2025"],
-  "clients": ["court-métrage « Je se souviens » (Miguel Béchet)"],
-  "links": [
-    {
-      "label": "Bande-annonce \"Je me souviens\"",
-      "url": "https://www.allocine.fr/film/fichefilm_gen_cfilm=1000028788.html"
-    }
+  "clients": [
+    "court-métrage « Je se souviens » (Miguel Béchet)"
   ],
-  "thumbnail": "/public/images/Hero-image-thumbnail.webp",
+  "thumbnail": "/public/images/Project_Workshop_02.webp",
+  "title": "Workshop - Je me souviens",
   "images": [
     {
       "fichier": "/public/images/Project_Workshop_01.webp",
@@ -27,5 +19,22 @@
       "fichier": "/public/images/Project_Workshop_02.webp",
       "legend": "Extrait de l’interview de Flavie. Fribourg, septembre 2025"
     }
+  ],
+  "tags": [
+    "interview",
+    "documentaire",
+    "mémoire",
+    "sensibilisation"
+  ],
+  "links": [
+    {
+      "label": "Bande-annonce \"Je me souviens\"",
+      "url": "https://www.allocine.fr/film/fichefilm_gen_cfilm=1000028788.html"
+    }
+  ],
+  "id": "workshop-je-me-souviens",
+  "description": "Film d’animation de Miguel Bechet. \nAfin d’accompagner la présentation du court-métrage « Je me souviens » dans différents contextes (festivals, rencontres dans les écoles, associations, etc.), les stagiaires sont mandaté.e.s pour réaliser trois interviews de personnes à l’origine du projet : le réalisateur Miguel Béchet, Flavie qui est à l’origine de l’histoire relatée par le court-métrage et la psychologue Sandra Tu Quoc.\nLes stagiaires doivent scénariser et réaliser les interviews en tenant compte de l’univers visuel du film qui aborde le sujet de la violence domestique.",
+  "sessions": [
+    "Automne 2025"
   ]
 }

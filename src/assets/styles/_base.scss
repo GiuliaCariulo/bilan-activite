@@ -5,7 +5,6 @@
 *::after {
   box-sizing: border-box;
   margin: 0;
-
   padding: 0;
 }
 
@@ -14,6 +13,14 @@ html {
   text-align: right;
   scroll-behavior: smooth;
   font-size: 24px;
+}
+
+section {
+  margin-top: 400px;
+
+  h2 {
+    font-size: 3rem;
+  }
 }
 
 h1,
@@ -26,50 +33,65 @@ h3 {
 
 h1 {
   font-size: 2rem;
+  cursor: default;
 }
 
 h2 {
-  font-size: 1.25rem;
+  font-size: 1.45rem;
+  cursor: default;
 }
 
 h3 {
-  font-size: 1rem;
+  font-size: 1.2rem;
+  cursor: default;
 }
 
 p {
   font-weight: $font-weight-text;
   line-height: $font-line-height-text;
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   max-width: 70ch;
+  cursor: default;
 }
 
 li {
   font-size: 0.7rem;
+  cursor: default;
 }
 
 button,
 a {
-  font-size: 0.7rem;
+  font-size: 1.5rem;
   background: none;
   border: none;
-  &:hover {
-    color: $color-accent;
-    text-decoration: underline;
-    font-weight: $font-weight-legend;
-  }
+  color: $color-primary;
+}
+
+a:hover {
+  padding: 2px;
+  background-color: $color-accent;
+  transition: all 0.3s ease;
 }
 
 @media (max-width: 768px) {
+  section {
+    margin-top: 400px;
+
+    h2 {
+      font-size: 4rem;
+    }
+  }
+
   h1 {
     font-size: 2.75rem;
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 1rem;
   }
 
   h3 {
-    font-size: 1.75rem;
+    font-size: 1.7rem;
   }
 
   p {
@@ -78,19 +100,16 @@ a {
   }
 
   li {
-    font-size: 1rem;
+    font-size: 0.7rem;
     font-weight: $font-weight-text;
   }
 
   button,
   a {
-    font-size: 0.7rem;
+    font-size: 2rem;
     background: none;
     border: none;
-    &:hover {
-      color: $color-accent;
-      text-decoration: underline;
-      font-weight: $font-weight-legend;
-    }
+    color: $color-primary;
+    background-color: $color-accent;
   }
 }

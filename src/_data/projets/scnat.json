@@ -1,19 +1,15 @@
 {
   "title": "SCNAT",
-  "id": "scnat",
-  "description": "L’Akademie der Naturwissenschaften Schweiz (SCNAT) · Plattform Biologie a pris contact avec eikonlab pour la création d’une série de 8 portraits de métiers qui doivent s'adresser aux titulaires d'une maturité et aux étudiants en biologie et en sciences de l'environnement (bachelor et master) de toute la Suisse. Il s'agit de leur présenter des professions pour lesquelles des connaissances approfondies des espèces sont nécessaires.\n\nLes portraits sont établis sur la base de d’interviews vidéo, avec un aperçu de l'environnement de travail ou des tâches typiques de la personne. Les réalisations finales intègrent également de nombreuses illustrations réalisées et animées par les stagiaires.",
+  "thumbnail": "/public/images/Project_Scnat_02.webp",
+  "description": "L’Akademie der Naturwissenschaften Schweiz (SCNAT) · Plattform Biologie a pris contact avec eikonlab pour la création d’une série de 8 portraits de métiers qui doivent s'adresser aux titulaires d'une maturité et aux étudiants en biologie et en sciences de l'environnement (bachelor et master) de toute la Suisse. Il s'agit de leur présenter des professions pour lesquelles des connaissances approfondies des espèces sont nécessaires. \nLes portraits sont établis sur la base de d’interviews vidéo, avec un aperçu de l'environnement de travail ou des tâches typiques de la personne. Les réalisations finales intègrent également de nombreuses illustrations réalisées et animées par les stagiaires.",
   "tags": [
     "vidéo didactique",
     "choix éditorial",
     "mise en scène",
     "interviews"
   ],
-  "skills": "tournage vidéo, illustrations, animation, collaboration professionnelle",
-  "mandate": "Interviews vidéo et habillage par des illustrations animées",
-  "clients": ["SCNAT"],
-  "links": [],
   "sessions": ["Printemps 2025", "Automne 2025", "Hiver 2026"],
-  "thumbnail": "/public/images/Hero-image-thumbnail.webp",
+  "mandate": "Interviews vidéo et habillage par des illustrations animées ",
   "images": [
     {
       "fichier": "/public/images/Project_Scnat_01.webp",
@@ -26,10 +22,7 @@
     {
       "fichier": "/public/images/Project_Scnat_03.webp",
       "legend": "Extraits de la série d’illustrations réalisées pour accompagner les interviews"
-    },
-    {
-      "fichier": "/public/images/Project_Scnat_02.webp",
-      "legend": "Extraits de la série d’illustrations réalisées pour accompagner les interviews"
     }
-  ]
+  ],
+  "skills": "Tournage vidéo, illustrations, animation, collaboration professionnelle"
 }

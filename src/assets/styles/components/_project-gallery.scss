@@ -1,9 +1,14 @@
 @use "../variables" as *;
 
 .project-gallery {
-  width: 100vw;
   overflow: hidden;
-  grid-auto-rows: calc(min(100vw, 1100px) / 8);
+  grid-auto-rows: calc(min(100vw) / 8);
+
+  a:hover {
+    padding: 0;
+    background-color: none;
+  }
+
   &-title {
     font-weight: $font-weight-title;
     font-style: $font-style-title;
@@ -21,12 +26,16 @@
     aspect-ratio: 1 / 1;
     height: 100%;
     width: 100%;
+    scroll-margin-top: 15vh;
 
     &[data-pos="1"] {
       grid-row: 3 / span 4;
     }
     &[data-pos="2"] {
       grid-row: 4 / span 4;
+    }
+    :hover .project-gallery-label {
+      background-color: $color-accent;
     }
   }
   &-label {
@@ -41,6 +50,10 @@
     align-items: flex-start;
     gap: 20px;
     grid-column: span 3;
+    grid-row: span 1;
+    width: 100%;
+    transition: background-color 0.2s ease-in-out;
+    height: 160px;
   }
   article {
     overflow: hidden;
@@ -68,6 +81,7 @@
         padding: 0 5px;
         border: 0.5px solid $color-primary;
         background: $color-secondary;
+        font-weight: $font-weight-title;
       }
     }
     img {
@@ -78,10 +92,10 @@
       grid-column: span 4;
     }
   }
-  a:hover {
-    color: $color-accent;
-    font-weight: $font-weight-text;
-  }
+  // a:hover {
+  //   color: $color-accent;
+  //   font-weight: $font-weight-text;
+  // }
 }
 
 @media (max-width: 768px) {

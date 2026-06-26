@@ -1,9 +1,5 @@
 {
-  "priorites": [
-    "sdsds",
-    "ssdfsdf",
-    "a remplire correctmenet"
-  ],
+  "priorites": [],
   "intro": "Une année riche en rencontres, en créations et en échanges. Voici un aperçu de ce que nous avons construit ensemble.",
   "portfolio": [
     {
@@ -300,6 +296,10 @@
     {
       "image": "/public/images/Partner_AssociationVictimePasSeule.webp",
       "title": "Association Victime Pas Seule"
+    },
+    {
+      "image": "/public/images/Partner_eikon.webp",
+      "title": "eikon"
     }
   ]
 }

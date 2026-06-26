@@ -1,29 +1,12 @@
 {
-  "title": "Runed 26",
-  "id": "runed-26",
-  "description": "En juin 2026, la Faculté EDUFORM de l'université de Fribourg organise un colloque scientifique - international et francophone - sur le thème «Numérique & Capabilités» en éducation et formation (<a href=\"https://events.unifr.ch/runed26/fr/\" target=\"_blank\">RUNED 2026 1</a>).\n\nL'évènement porte sur les perspectives critiques du numérique en éducation. Le mot clé de ce colloque est «capabilités». Dans ce contexte, eikonlab a été approché pour réinterpréter les activités scientifiques du colloque avec ses propres cadres et processus.\n\nAinsi, les élèves ont travaillé sur un système permettant de scanner des documents, de les déstructurer, pour produire des résultats visuels aléatoires qui permettent de questionner l’apport du numérique et la fiabilité des informations.",
-  "tags": [
-    "numérique",
-    "éducation",
-    "capabilités",
-    "art génératif",
-    "critique technologique",
-    "installation interactive"
-  ],
-  "skills": "conception de système interactif (scan/traitement), art algorithmique, médiation culturelle, réflexion critique sur la donnée, intégration événementielle.",
+  "skills": "Conception de système interactif (scan/traitement), art algorithmique, médiation culturelle, réflexion critique sur la donnée, intégration événementielle.",
   "mandate": "Installation interactive",
-  "sessions": ["Hiver 2026", "Printemps 2026"],
   "clients": [
     "Faculté EDUFORM",
     "Université de Fribourg (Colloque RUNED 2026)."
   ],
-  "links": [
-    {
-      "label": "Programme de l'événement",
-      "url": "https://events.unifr.ch/runed26/fr/"
-    }
-  ],
-  "thumbnail": "/public/images/Hero-image-thumbnail.webp",
+  "thumbnail": "/public/images/Project_Runed_01.webp",
+  "title": "Runed 26",
   "images": [
     {
       "fichier": "/public/images/Project_Runed_02.webp",
@@ -41,5 +24,22 @@
       "fichier": "/public/images/Project_Runed_01.webp",
       "legend": "Détail de la fresque au terme des 3 jours d’exposition. Fribourg, juin 2026"
     }
-  ]
+  ],
+  "tags": [
+    "numérique",
+    "éducation",
+    "capabilités",
+    "art génératif",
+    "critique technologique",
+    "installation interactive"
+  ],
+  "links": [
+    {
+      "label": "Programme de l'événement",
+      "url": "https://events.unifr.ch/runed26/fr/"
+    }
+  ],
+  "id": "runed-26",
+  "description": "En juin 2026, la Faculté EDUFORM de l'université de Fribourg organise un colloque scientifique - international et francophone - sur le thème «Numérique & Capabilités» en éducation et formation.\nL'évènement porte sur les perspectives critiques du numérique en éducation. Le mot clé de ce colloque est «capabilités». Dans ce contexte, eikonlab a été approché pour réinterpréter les activités scientifiques du colloque avec ses propres cadres et processus.\nAinsi, les élèves ont travaillé sur un système permettant de scanner des documents, de les déstructurer, pour produire des résultats visuels aléatoires qui permettent de questionner l’apport du numérique et la fiabilité des informations.",
+  "sessions": ["Hiver 2026", "Printemps 2026"]
 }
