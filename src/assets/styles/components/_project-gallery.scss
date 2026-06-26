@@ -3,6 +3,12 @@
 .project-gallery {
   overflow: hidden;
   grid-auto-rows: calc(min(100vw) / 8);
+
+  a:hover {
+    padding: 0;
+    background-color: none;
+  }
+
   &-title {
     font-weight: $font-weight-title;
     font-style: $font-style-title;
@@ -28,6 +34,9 @@
     &[data-pos="2"] {
       grid-row: 4 / span 4;
     }
+    :hover .project-gallery-label {
+      background-color: $color-accent;
+    }
   }
   &-label {
     background: $color-secondary;
@@ -41,6 +50,10 @@
     align-items: flex-start;
     gap: 20px;
     grid-column: span 3;
+    grid-row: span 1;
+    width: 100%;
+    transition: background-color 0.2s ease-in-out;
+    height: 160px;
   }
   article {
     overflow: hidden;
