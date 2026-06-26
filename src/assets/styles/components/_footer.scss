@@ -123,10 +123,9 @@ footer {
   line-height: $font-line-height-text;
   font-size: 0.9rem;
   max-width: 70ch;
-}
-
-a:hover {
-  padding: 1px;
+  a:hover {
+    padding: 1px;
+  }
 }
 
 @media (max-width: 768px) {
