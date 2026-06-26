@@ -1,10 +1,52 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { Draggable } from "gsap/Draggable";
+import { SplitText } from "gsap/SplitText";
 
-gsap.registerPlugin(ScrollTrigger, Draggable);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, Draggable, SplitText);
 
 document.addEventListener("DOMContentLoaded", () => {
+  // ============================================================
+  // scrollsmoother & scroll to
+  // ============================================================
+
+  const smoother = ScrollSmoother.create({
+    wrapper: "#smooth-wrapper",
+    content: "#smooth-content",
+    smooth: 1, // inertie (= plus c’est haut, plus c’est doux)
+    smoothTouch: 0.1, // éviter l'effet trop glissant sur mobile
+    effects: true,
+  });
+
+  document.querySelectorAll(".hero-grid-cell-contact").forEach((cell) => {
+    cell.addEventListener("click", (event) => {
+      event.preventDefault();
+      smoother.scrollTo("#contact", true, "center center");
+    });
+  });
+
+  document.querySelectorAll(".hero-grid-cell-sessions").forEach((cell) => {
+    cell.addEventListener("click", (event) => {
+      event.preventDefault();
+      smoother.scrollTo("#sessions", true, "top top");
+    });
+  });
+
+  document.querySelectorAll(".hero-grid-cell-encadrants").forEach((cell) => {
+    cell.addEventListener("click", (event) => {
+      event.preventDefault();
+      smoother.scrollTo("#encadrantes", true, "top top");
+    });
+  });
+
+  document.querySelectorAll(".hero-grid-cell-partenaires").forEach((cell) => {
+    cell.addEventListener("click", (event) => {
+      event.preventDefault();
+      smoother.scrollTo("#partenaires", true, "top top");
+    });
+  });
+
   // ============================================================
   // section portfolio : pop up
   // ============================================================
@@ -407,4 +449,42 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     );
   }
+
+  // ============================================================
+  // animations
+  // ============================================================
+
+  console.clear();
+
+  gsap.set(".split-text", { opacity: 1 });
+
+  document.fonts.ready.then(() => {
+    let containers = gsap.utils.toArray(".split-text-container");
+
+    containers.forEach((container) => {
+      let text = container.querySelector(".split-text");
+      let animation;
+
+      SplitText.create(text, {
+        type: "words,lines",
+        mask: "lines",
+        linesClass: "line",
+        autoSplit: true,
+        onSplit: (instance) => {
+          console.log("split");
+          return gsap.from(instance.lines, {
+            yPercent: 120,
+            stagger: 0.1,
+            scrollTrigger: {
+              trigger: container,
+              // markers: true,
+              scrub: true,
+              start: "20px 70%",
+              end: "20px 50%",
+            },
+          });
+        },
+      });
+    });
+  });
 });

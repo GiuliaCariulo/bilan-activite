@@ -14,14 +14,13 @@ permalink: "/"
      - sections      → sections.json    (variable = objet entier)
      - interns       → interns.json     (variable = objet entier)
    ============================================================ #}
-   
 {% include "hero.njk" %}
 
 <!-- // ============================================================
 // section portfolio : wrapper
 // ============================================================ -->
 <section>
-  <h2>portfolio</h2>
+  <div class="split-text-container"><h2 class="split-text">portfolio</h2></div>
   <div class="portfolio-wrapper row">
     {% for item in config.portfolio %}
       <div
@@ -59,40 +58,45 @@ permalink: "/"
 // section projets : galerie
 // ============================================================ -->
 <section>
-{% if projets and projets.length %}
-  <section class="project-gallery row">
-    <h2 class="project-gallery-title">projets</h2>
-    {% for projet in projets %}
-      <a
-        id="projet-{{ projet.id }}"
-        href="{{ ('/projets/' + projet.id + '/') | url }}"
-        class="project-gallery-project-card"
-        data-pos="{{ loop.index }}"
-      >
-        <article class="project">
-          {# Image de couverture #}
-          {% if projet.thumbnail %}
-            <img src="{{ projet.thumbnail | url }}" alt="{{ projet.title }}" />
-          {% endif %}
-          <div class="project-gallery-label">
-            {# Titre #}
-            <h3>{{ projet.title }}</h3>
-
-            {# Tags (tableau de strings) #}
-            {% if projet.tags and projet.tags.length %}
-              <ul class="tags">
-                {% for tag in projet.tags.slice(0, 3) %}
-                  <li>{{ tag }}</li>
-                {% endfor %}
-              </ul>
+  {% if projets and projets.length %}
+    <section class="project-gallery row">
+      <div class="split-text-container">
+        <h2 class="project-gallery-title split-text">projets</h2>
+      </div>
+      {% for projet in projets %}
+        <a
+          id="projet-{{ projet.id }}"
+          href="{{ ('/projets/' + projet.id + '/') | url }}"
+          class="project-gallery-project-card"
+          data-pos="{{ loop.index }}"
+        >
+          <article class="project">
+            {# Image de couverture #}
+            {% if projet.thumbnail %}
+              <img
+                src="{{ projet.thumbnail | url }}"
+                alt="{{ projet.title }}"
+              />
             {% endif %}
-          </div>
-        </article>
-      </a>
-    {% endfor %}
-  </section>
+            <div class="project-gallery-label">
+              {# Titre #}
+              <h3>{{ projet.title }}</h3>
+
+              {# Tags (tableau de strings) #}
+              {% if projet.tags and projet.tags.length %}
+                <ul class="tags">
+                  {% for tag in projet.tags.slice(0, 3) %}
+                    <li>{{ tag }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </div>
+          </article>
+        </a>
+      {% endfor %}
+    </section>
+  {% endif %}
 </section>
-{% endif %}
 <!-- // ============================================================
 // section teams : position
 // ============================================================ -->
@@ -118,15 +122,18 @@ permalink: "/"
     </div>
   </section>
 </section>
+
 <!-- // ============================================================
 // section partenaires : wrapper
 // ============================================================ -->
-  <section id="partenaires">
-    <h2>Partenaires</h2>
-    <div class="partners-wrapper">
-      {% for item in config.partners %}
-        <div>{% include "partner-card.njk" %}</div>
-      {% endfor %}
-    </div>
-  </section>
+
+<section id="partenaires">
+  <div class="split-text-container">
+    <h2 class="split-text">Partenaires</h2>
+  </div>
+  <div class="partners-wrapper">
+    {% for item in config.partners %}
+      <div>{% include "partner-card.njk" %}</div>
+    {% endfor %}
+  </div>
 </section>

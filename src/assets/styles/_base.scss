@@ -113,3 +113,17 @@ a:hover {
     background-color: $color-accent;
   }
 }
+
+.split-text-container {
+  text-align: right;
+  grid-column: 1 / -1;
+
+  .split-text {
+    opacity: 0;
+    will-change: transform;
+  }
+
+  .split-text * {
+    will-change: transform;
+  }
+}
