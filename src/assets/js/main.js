@@ -5,48 +5,43 @@ import { Draggable } from "gsap/Draggable";
 gsap.registerPlugin(ScrollTrigger, Draggable);
 
 document.addEventListener("DOMContentLoaded", () => {
-  // ============================================================
-  // section portfolio : pop up
-  // ============================================================
-
+  //   // ============================================================
+  //   // section portfolio : pop up
+  //   // ============================================================
   const modal = document.querySelector(".porfolio-content-modal");
-  const modalCloseButton = document.querySelector(".portfolio-close-modal");
 
-  document.querySelectorAll(".porfolio-open-modal").forEach((card) => {
-    card.addEventListener("click", () => {
-      if (!modal) return;
-
+  document.querySelectorAll(".porfolio-open-modal").forEach(function (card) {
+    card.addEventListener("click", function () {
       const popupId = card.parentElement.getAttribute("data-portfolio-popup");
-      const popup = document.getElementById(popupId);
-
-      if (!popup) return;
-
-      popup.classList.remove("portfolio-selector-hidden");
+      document
+        .getElementById(popupId)
+        .classList.remove("portfolio-selector-hidden");
       modal.classList.remove("portfolio-hidden-modal");
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = "hidden"; // ← ici
     });
   });
 
-  if (modal && modalCloseButton) {
-    modalCloseButton.addEventListener("click", () => {
+  document
+    .querySelector(".portfolio-close-modal")
+    .addEventListener("click", function () {
       modal.classList.add("portfolio-hidden-modal");
-      document.body.style.overflow = "";
+      document.body.style.overflow = ""; // ← ici
 
       document
         .querySelectorAll(".portfolio-body-modal")
-        .forEach((contentModal) => {
+        .forEach(function (contentModal) {
           contentModal.classList.add("portfolio-selector-hidden");
         });
     });
-  }
 
-  // ============================================================
-  // section footer : scrolling texts
-  // ============================================================
-
+  //   // ============================================================
+  //   // section footer : scrolling texts
+  //   // ============================================================
   const lines = gsap.utils.toArray(".footer-track h4");
 
   if (lines.length) {
+    const trackHeight =
+      document.querySelector(".footer-animation").offsetHeight;
     const spacing = 70;
 
     gsap.to(lines.slice(1), {
@@ -63,15 +58,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ============================================================
-  // hero.js — Gestion de la grille héro et des expansions
-  // ============================================================
+  //   // ============================================================
+  //   // hero.js — Gestion de la grille héro et des expansions
+  //   // ============================================================
+
+  //   // ==========================================================================
+  //   // ouverture / fermeture des expands
+  //   // ==========================================================================
 
   const heroGrid = document.querySelector(".hero-grid");
-
-  if (!heroGrid) return;
-
-  const clickableCells = heroGrid.querySelectorAll(
+  const clickableCells = document.querySelectorAll(
     ".hero-grid-cell-mot, .hero-grid-cell-edito, .hero-grid-cell-priorites",
   );
 
@@ -123,45 +119,40 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==========================================================================
 
   function closeAll() {
-    // Très important : on enlève la valeur inline pour redonner la main au CSS.
-    heroGrid.style.removeProperty("grid-template-rows");
-
+    heroGrid.style.gridTemplateRows = DEFAULT_ROWS;
     heroGrid.classList.remove("open-r2", "open-r3", "open-r4");
-
-    clickableCells.forEach((cell) => {
-      cell.classList.remove("active");
-    });
-
-    // Remet "voir plus" par défaut quand on referme une ligne.
-    heroGrid.querySelectorAll(".hero-grid-expand").forEach((expand) => {
-      expand.classList.remove("is-expanded");
-    });
+    clickableCells.forEach((c) => c.classList.remove("active"));
+    // remet "voir plus" par défaut quand on referme une ligne
+    heroGrid
+      .querySelectorAll(".hero-grid-expand")
+      .forEach((expand) => expand.classList.remove("is-expanded"));
   }
 
-  // Calcule la vraie hauteur de l'expand et l'injecte à la bonne ligne.
-  // On fait ça parce qu'une transition CSS ne peut pas animer proprement vers "auto".
+  // Calcule la vraie hauteur de l'expand (scrollHeight) et l'injecte en px
+  // dans grid-template-rows : une transition CSS ne peut pas animer vers "auto".
   function openRow(rowType) {
     const expand = heroGrid.querySelector(`.hero-grid-expand-${rowType}`);
-    const rowIndex = getExpandRowIndex(rowType);
-
-    if (!expand || rowIndex === undefined) return;
-
-    // On enlève d'abord l'inline style pour repartir de la grille CSS actuelle.
-    heroGrid.style.removeProperty("grid-template-rows");
+    if (!expand) return;
 
     const expandHeight = expand.scrollHeight;
-    const rowHeights = getRowsWithOpenExpand(rowIndex, expandHeight);
+
+    const rowHeights = {
+      r2: `20vh 20vh ${expandHeight}px 20vh 0px 20vh 0px 20vh`,
+      r3: `20vh 20vh 0px 20vh ${expandHeight}px 20vh 0px 20vh`,
+      r4: `20vh 20vh 0px 20vh 0px 20vh ${expandHeight}px 20vh`,
+    };
 
     heroGrid.classList.add(`open-${rowType}`);
-    heroGrid.style.gridTemplateRows = rowHeights;
+    heroGrid.style.gridTemplateRows = rowHeights[rowType];
   }
 
+  closeAll();
+
   clickableCells.forEach((cell) => {
-    cell.addEventListener("click", (event) => {
-      event.preventDefault();
+    cell.addEventListener("click", (e) => {
+      e.preventDefault();
 
       const rowType = cell.getAttribute("data-row");
-
       if (!rowType) return;
 
       const isAlreadyOpen = heroGrid.classList.contains(`open-${rowType}`);
@@ -170,11 +161,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!isAlreadyOpen) {
         cell.classList.add("active");
-
-        // Attend le prochain frame pour mesurer la hauteur une fois le DOM stable.
-        requestAnimationFrame(() => {
-          openRow(rowType);
-        });
+        // attend le prochain frame pour mesurer la hauteur une fois le DOM stable
+        requestAnimationFrame(() => openRow(rowType));
       }
     });
   });
@@ -193,7 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // voir plus / voir moins
   // ==========================================================================
 
-  heroGrid.querySelectorAll(".hero-grid-expand").forEach((expand) => {
+  document.querySelectorAll(".hero-grid-expand").forEach((expand) => {
     const suite = expand.querySelector(".hero-grid-expand-text-suite");
     const voirPlus = expand.querySelector(".hero-grid-voir-plus");
     const voirMoins = expand.querySelector(".hero-grid-voir-moins");
@@ -201,15 +189,13 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!suite || !voirPlus || !voirMoins) return;
 
     const rowType = [...expand.classList]
-      .find((className) => /^hero-grid-expand-r\d$/.test(className))
+      .find((cls) => /^hero-grid-expand-r\d$/.test(cls))
       ?.replace("hero-grid-expand-", "");
 
-    // Si cet expand est déjà ouvert, on recalcule sa hauteur après le toggle.
+    // Si cet expand est actuellement ouvert, recalcule sa hauteur après le toggle
     const refreshHeightIfOpen = () => {
       if (rowType && heroGrid.classList.contains(`open-${rowType}`)) {
-        requestAnimationFrame(() => {
-          openRow(rowType);
-        });
+        openRow(rowType);
       }
     };
 
@@ -371,9 +357,58 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ==========================================================================
-  // easter egg 25/26 hihi
+  // sessions & encadrants explosion: fiouuuu !
   // ==========================================================================
 
+  window.addEventListener("load", () => {
+    const containers = gsap.utils.toArray(".team-container");
+
+    containers.forEach((container) => {
+      const teamBox = container.querySelector(".team-box");
+      const cards = gsap.utils.toArray(
+        container.querySelectorAll(".team-card-member"),
+      );
+
+      if (!teamBox || !cards.length) return;
+
+      const boxRect = teamBox.getBoundingClientRect();
+      const boxCenterX = boxRect.left + boxRect.width / 2;
+      const boxCenterY = boxRect.top + boxRect.height / 2;
+
+      cards.forEach((card) => {
+        const cardRect = card.getBoundingClientRect();
+        const cardCenterX = cardRect.left + cardRect.width / 2;
+        const cardCenterY = cardRect.top + cardRect.height / 2;
+
+        const offsetX = boxCenterX - cardCenterX;
+        const offsetY = boxCenterY - cardCenterY;
+
+        const scaleStart = Math.min(
+          boxRect.width / cardRect.width,
+          boxRect.height / cardRect.height,
+        );
+
+        gsap.fromTo(
+          card,
+          { x: offsetX, y: offsetY, scale: scaleStart, zIndex: 0 },
+          {
+            x: 0,
+            y: 0,
+            scale: 1,
+            zIndex: 1,
+            duration: 1,
+            scrollTrigger: {
+              trigger: container,
+              start: "top 80%",
+              end: "bottom 60%",
+              markers: true,
+              toggleActions: "play reverse restart reverse",
+            },
+          },
+        );
+      });
+    });
+  });
   if (document.querySelector(".hero-grid-cell-annee-rotate")) {
     Draggable.create(".hero-grid-cell-annee-rotate", {
       type: "rotation",

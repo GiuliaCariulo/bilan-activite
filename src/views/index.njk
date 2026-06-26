@@ -101,7 +101,7 @@ permalink: "/"
     <div class="teams-sessions">
       <div class="team-container row">
         <div class="team-box">
-          <h2>Printemps</h2>
+          <h2>Automne</h2>
           <div>
             <p>du 31 août au</p>
             <p>18 décembre 2025</p>
@@ -109,6 +109,54 @@ permalink: "/"
         </div>
         <div class="team-members">
           {% for cardMember in interns.aout_decembre %}
+            <div class="team-cards-member" data-member-pos="{{ loop.index }}">
+              {% include "team-card-member.njk" %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="team-container row">
+        <div class="team-box">
+          <h2>Hiver</h2>
+          <div>
+            <p>du 12 janvier au</p>
+            <p>03 avril 2026</p>
+          </div>
+        </div>
+        <div class="team-members">
+          {% for cardMember in interns.janvier_avril %}
+            <div class="team-cards-member" data-member-pos="{{ loop.index }}">
+              {% include "team-card-member.njk" %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="team-container row">
+        <div class="team-box">
+          <h2>Printemps</h2>
+          <div>
+            <p>du 20 avril au</p>
+            <p>01 juillet 2026</p>
+          </div>
+        </div>
+        <div class="team-members">
+          {% for cardMember in interns.avril_juillet %}
+            <div class="team-cards-member" data-member-pos="{{ loop.index }}">
+              {% include "team-card-member.njk" %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="team-container row">
+        <div class="team-box">
+          <h2>Encadrant·e·s</h2>
+          <div>
+            <p>Toujours présent·e·s</p>
+            <p>pour leurs apprenti·e·s</p>
+          </div>
+        </div>
+        <div class="team-members">
+          {% for cardMember in encadrants.encadrants %}
             <div class="team-cards-member" data-member-pos="{{ loop.index }}">
               {% include "team-card-member.njk" %}
             </div>
