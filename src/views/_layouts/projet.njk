@@ -14,17 +14,19 @@ layout: base.njk
   {% if projet.thumbnail %}
     <div class="projet-page-thumbnail">
       <img src="{{ projet.thumbnail | url }}" alt="{{ projet.title }}" />
+      {% if projet.tags and projet.tags.length %}
+        <div class="projet-page-tags-container">
+          <ul class="projet-page-tags tags">
+            {% for tag in projet.tags %}
+              <li>{{ tag }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
     </div>
   {% endif %}
 
   <section class="projet-page-content row">
-    {% if projet.tags and projet.tags.length %}
-      <ul class="projet-page-tags tags">
-        {% for tag in projet.tags %}
-          <li>{{ tag }}</li>
-        {% endfor %}
-      </ul>
-    {% endif %}
     <section class="projet-page-section-description row">
       <a
         href="{{ ('/#projet-' + projet.id) | url }}"

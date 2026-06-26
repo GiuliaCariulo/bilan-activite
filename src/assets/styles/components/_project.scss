@@ -49,19 +49,25 @@
     }
   }
 
-  &-tags {
+  &-tags-container {
     position: absolute;
     right: 24px;
-    top: -70px;
+    bottom: calc(24px + 18vh);
     z-index: 3;
-    list-style-type: none;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    flex-wrap: wrap;
-    gap: 8px;
     max-width: 45%;
-    grid-column: span 6;
+    display: flex;
+    justify-content: end;
+
+    ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    // grid-column: span 6;
 
     li {
       padding: 0 8px;
@@ -82,7 +88,7 @@
     background: $color-secondary;
     display: grid;
     grid-template-columns: repeat(8, minmax(0, 1fr));
-    grid-auto-rows: calc(min(100vw, 1100px) / 8);
+    grid-auto-rows: minmax(calc(min(100vw, 1100px) / 8), auto);
     width: 100%;
     min-height: 100vh;
     margin-top: -18vh;
@@ -181,7 +187,7 @@
     grid-row: span 7;
     display: grid;
     grid-template-columns: repeat(8, minmax(0, 1fr));
-    grid-auto-rows: calc(min(100vw, 1100px) / 8);
+    grid-auto-rows: minmax(calc(min(100vw, 1100px) / 8), auto);
     margin: 0;
   }
 
@@ -221,7 +227,7 @@
     grid-row: span 4;
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
-    grid-auto-rows: calc(min(100vw, 1100px) / 8);
+    grid-auto-rows: minmax(calc(min(100vw, 1100px) / 8), auto);
   }
 
   &-info-block {
@@ -282,7 +288,7 @@
     }
     &-content {
       grid-template-columns: repeat(6, minmax(0, 1fr));
-      grid-auto-rows: calc(100vw / 6);
+      grid-auto-rows: minmax(calc(100vw / 6), auto);
       margin-top: -14vh;
     }
     p {
@@ -290,6 +296,7 @@
     }
 
     &-tags {
+      top: auto;
       right: 16px;
       bottom: 18vh;
       max-width: 70%;
@@ -321,12 +328,12 @@
 
     &-description-legend {
       grid-column: 1 / -1;
-      grid-row: 2;
+      grid-row: 1;
     }
 
     &-images {
       grid-template-columns: repeat(6, minmax(0, 1fr));
-      grid-auto-rows: calc(100vw / 6);
+      grid-auto-rows: minmax(calc(100vw / 6), auto);
       grid-row: span 7;
     }
 
@@ -338,7 +345,7 @@
     &-info {
       grid-column: 1 / -1;
       grid-template-columns: repeat(6, minmax(0, 1fr));
-      grid-auto-rows: calc(100vw / 6);
+      grid-auto-rows: minmax(calc(100vw / 6), auto);
       padding-inline: 16px;
     }
   }
