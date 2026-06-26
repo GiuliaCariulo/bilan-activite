@@ -48,21 +48,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (lines.length) {
     const spacing = 70;
+    const isMobile = window.innerWidth < 768;
 
     gsap.to(lines.slice(1), {
       y: (i) => (i + 1) * spacing,
       ease: "none",
       scrollTrigger: {
-        trigger: ".footer-contact",
-        start: "top bottom",
-        endTrigger: ".footer-contact-copyright",
-        end: "bottom bottom",
+        trigger: isMobile ? ".footer-title" : ".footer-contact",
+        start: isMobile ? "top 90%" : "top bottom",
+        endTrigger: isMobile ? ".footer-contact" : ".footer-contact-copyright",
+        end: isMobile ? "top 90%" : "bottom bottom",
         scrub: true,
-        markers: false,
+        markers: true,
       },
     });
   }
-
   // ============================================================
   // hero.js — Gestion de la grille héro et des expansions
   // ============================================================
@@ -437,14 +437,3 @@ if (isFirstVisit) {
   document.querySelector(".loader-tetris").style.display = "none";
   hideLoader(".loader-dough", 1500);
 }
-
-// setTimeout(() => {
-//   const loader = document.querySelector(".loader-tetris");
-//   loader.style.backgroundColor = "red";
-//   loader.style.transition = "opacity 1s ease-out";
-//   loader.style.opacity = "0";
-
-//   setTimeout(() => {
-//     loader.style.display = "none";
-//   }, 1000);
-// }, 3000);
