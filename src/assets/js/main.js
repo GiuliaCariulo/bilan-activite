@@ -8,46 +8,6 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother, Draggable, SplitText);
 
 document.addEventListener("DOMContentLoaded", () => {
   // ============================================================
-  // scrollsmoother & scroll to
-  // ============================================================
-
-  const smoother = ScrollSmoother.create({
-    wrapper: "#smooth-wrapper",
-    content: "#smooth-content",
-    smooth: 1, // inertie (= plus c’est haut, plus c’est doux)
-    smoothTouch: 0.1, // éviter l'effet trop glissant sur mobile
-    effects: true,
-  });
-
-  document.querySelectorAll(".hero-grid-cell-contact").forEach((cell) => {
-    cell.addEventListener("click", (event) => {
-      event.preventDefault();
-      smoother.scrollTo("#contact", true, "center center");
-    });
-  });
-
-  document.querySelectorAll(".hero-grid-cell-sessions").forEach((cell) => {
-    cell.addEventListener("click", (event) => {
-      event.preventDefault();
-      smoother.scrollTo("#sessions", true, "top top");
-    });
-  });
-
-  document.querySelectorAll(".hero-grid-cell-encadrants").forEach((cell) => {
-    cell.addEventListener("click", (event) => {
-      event.preventDefault();
-      smoother.scrollTo("#encadrantes", true, "top top");
-    });
-  });
-
-  document.querySelectorAll(".hero-grid-cell-partenaires").forEach((cell) => {
-    cell.addEventListener("click", (event) => {
-      event.preventDefault();
-      smoother.scrollTo("#partenaires", true, "top top");
-    });
-  });
-
-  // ============================================================
   // section portfolio : pop up
   // ============================================================
 
@@ -432,11 +392,11 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.fromTo(
       thumbnailImage,
       {
-        scale: 1.5,
+        scale: 1.08,
         yPercent: 0,
       },
       {
-        scale: 1.1,
+        scale: 1,
         yPercent: 8,
         ease: "none",
         scrollTrigger: {
@@ -485,6 +445,60 @@ document.addEventListener("DOMContentLoaded", () => {
           });
         },
       });
+    });
+  });
+
+  ScrollTrigger.batch(".images", {
+    // interval: 0.1, // time window (in seconds) for batching to occur.
+    // batchMax: 3,   // maximum batch size (targets)
+    onEnter: (batch) =>
+      gsap.to(batch, {
+        autoAlpha: 1,
+        stagger: 0.2,
+        duration: 1,
+        ease: "expo.out",
+      }),
+    // also onLeave, onEnterBack, and onLeaveBack
+    // also most normal ScrollTrigger values like start, end, etc.
+  });
+
+  // ============================================================
+  // scrollsmoother & scroll to
+  // ============================================================
+
+  const smoother = ScrollSmoother.create({
+    wrapper: "#smooth-wrapper",
+    content: "#smooth-content",
+    smooth: 1.3, // inertie (= plus c’est haut, plus c’est doux)
+    smoothTouch: 0.1, // éviter l'effet trop glissant sur mobile
+    effects: true,
+  });
+
+  document.querySelectorAll(".hero-grid-cell-contact").forEach((cell) => {
+    cell.addEventListener("click", (event) => {
+      event.preventDefault();
+      smoother.scrollTo("#contact", true, "center center");
+    });
+  });
+
+  document.querySelectorAll(".hero-grid-cell-sessions").forEach((cell) => {
+    cell.addEventListener("click", (event) => {
+      event.preventDefault();
+      smoother.scrollTo("#sessions", true, "top top");
+    });
+  });
+
+  document.querySelectorAll(".hero-grid-cell-encadrants").forEach((cell) => {
+    cell.addEventListener("click", (event) => {
+      event.preventDefault();
+      smoother.scrollTo("#encadrantes", true, "top top");
+    });
+  });
+
+  document.querySelectorAll(".hero-grid-cell-partenaires").forEach((cell) => {
+    cell.addEventListener("click", (event) => {
+      event.preventDefault();
+      smoother.scrollTo("#partenaires", true, "top top");
     });
   });
 });
