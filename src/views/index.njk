@@ -80,7 +80,7 @@ permalink: "/"
             {# Tags (tableau de strings) #}
             {% if projet.tags and projet.tags.length %}
               <ul class="tags">
-                {% for tag in projet.tags %}
+                {% for tag in projet.tags.slice(0, 3) %}
                   <li>{{ tag }}</li>
                 {% endfor %}
               </ul>
