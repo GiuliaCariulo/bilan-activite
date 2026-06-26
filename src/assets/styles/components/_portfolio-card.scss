@@ -111,6 +111,7 @@ article.portfolio-popup {
   flex: 2;
   margin-left: auto;
   text-decoration: underline;
+  cursor: pointer;
 }
 
 button.portfolio-close-modal:hover {
@@ -131,6 +132,7 @@ button.portfolio-close-modal:hover {
   backdrop-filter: blur(10px);
   display: flex;
   padding: $space-lg;
+  cursor: default;
 }
 
 .portfolio-body-modal {
