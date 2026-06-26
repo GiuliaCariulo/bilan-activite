@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
         endTrigger: isMobile ? ".footer-contact" : ".footer-contact-copyright",
         end: isMobile ? "top 90%" : "bottom bottom",
         scrub: true,
-        markers: true,
+        markers: false,
       },
     });
   }
