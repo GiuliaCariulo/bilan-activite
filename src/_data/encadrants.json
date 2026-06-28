@@ -5,49 +5,56 @@
       "image": "/public/images/Encadrant_Martial_Mingam.webp",
       "statut": "Responsable eikonlab Enseignant professionnel ",
       "bio": "Particulièrement attaché au rôle de l’art et de la création dans notre environnement quotidien, il défend une vision éclatée des champs d’expressions et concentre une grande partie de son activité à explorer les technologies sous un angle sociétal. De formation photographe (Ecole des Gobelins), il s’est très tôt intéressé au rapport entre image et son, et débute une activité comme réalisateur et motion designer. Il fait ses premières expériences dans le domaine de la communication, de la publicité et du clip vidéo, puis se tourne vers des projets étendus à l’exposition et la scénographie. Son parcours est rythmé par différentes responsabilités dans le domaine de l’enseignement.",
-      "activity": "le secteur d'activité"
+      "activity": "Direction de création Production Scénographie Vidéo"
     },
     {
       "image": "/public/images/Encadrant_Estève_Despond.webp",
       "title": "Estève Despond",
       "bio": "Maître professionnel à eikon depuis 2021, Estève jongle entre la classe préparatoire, eikonwork et eikonlab où il encadre les stagiaires sur les questions graphiques et typographiques. Il apporte son œil de designer de terrain et sa sensibilité artistique sur les projets, dégainant au besoin ses multiples casquettes en vidéo et en 3D. Fort de quatorze années en tant que co-fondateur de studio et ancien expert aux examens CFC, il apprécie particulièrement accompagner les jeunes talents vers la réalité du monde professionnel, les aidant à faire le pont entre l'exploration créative et les exigences concrètes du métier.",
-      "statut": "Enseignant professionnel"
+      "statut": "Enseignant professionnel",
+      "activity": "Direction de création Graphisme"
     },
     {
       "image": "/public/images/Encadrant_Iris_Wolfisberg.webp",
       "title": "Iris Wolfisberg",
       "statut": "Enseignante professionnelle",
-      "bio": "Développeuse de métier, Iris enseigne à eikon les fondamentaux de la programmation et intervient à eikonlab sur les projets web. Ce qui la caractérise ? Un goût prononcé pour résoudre des problèmes complexes et une conviction que technique et créativité se nourrissent mutuellement. Trouver l'élégance d'une solution, celle qui répond exactement au besoin tout en ouvrant des possibilités inattendues, c'est ce qui anime son travail et sa pédagogie."
+      "bio": "Développeuse de métier, Iris enseigne à eikon les fondamentaux de la programmation et intervient à eikonlab sur les projets web. Ce qui la caractérise ? Un goût prononcé pour résoudre des problèmes complexes et une conviction que technique et créativité se nourrissent mutuellement. Trouver l'élégance d'une solution, celle qui répond exactement au besoin tout en ouvrant des possibilités inattendues, c'est ce qui anime son travail et sa pédagogie.",
+      "activity": "Direction de création Web – Interactivité"
     },
     {
       "image": "/public/images/Encadrant_Julien_Babel.webp",
       "title": "Julien Babel",
       "statut": "Enseignant professionnel ",
-      "bio": "Julien Babel est artiste à Genève où il dessine et il peint. Il enseigne à eikon depuis fort longtemps aux classes de première année un cours de Recherches et Créations Visuelles (RCV). Il est aussi encadrant à eikonlab. Ses passions pour le dessin, l’art contemporain, le cinéma et la bande dessinée l’ont amené à se spécialiser dans le processus créatif du lab : références, inspirations, moodboards, croquis, concept, pitchs, scénarios, storyboards, animatiques, illustrations et animations. C’est toute la partie souvent cachée des projets qu’il est amené à accompagner et développer avec les stagiaires."
+      "bio": "Julien Babel est artiste à Genève où il dessine et il peint. Il enseigne à eikon depuis fort longtemps aux classes de première année un cours de Recherches et Créations Visuelles (RCV). Il est aussi encadrant à eikonlab. Ses passions pour le dessin, l’art contemporain, le cinéma et la bande dessinée l’ont amené à se spécialiser dans le processus créatif du lab : références, inspirations, moodboards, croquis, concept, pitchs, scénarios, storyboards, animatiques, illustrations et animations. C’est toute la partie souvent cachée des projets qu’il est amené à accompagner et développer avec les stagiaires.",
+      "activity": "Direction de création Storytelling – Dessin"
     },
     {
       "image": "/public/images/Encadrant_Julien_Minguely.webp",
       "title": "Julien Minguely",
       "statut": "Enseignant professionnel",
-      "bio": "Ancien étudiant de retour comme enseignant depuis 2021, Julien encadre les stagiaires avec sa double casquette de réalisateur et de développeur frontend. Spécialiste du broadcast, il accompagne notamment les élèves sur le projet eikon.live diffusé sur la chaîne Twitch de l'école. Fort de son expérience de réalisateur pour le Montreux Jazz Festival et ARTE, il transmet sa passion pour l'innovation, faisant habilement le pont entre production vidéo en direct et création d'interfaces interactives."
+      "bio": "Ancien étudiant de retour comme enseignant depuis 2021, Julien encadre les stagiaires avec sa double casquette de réalisateur et de développeur frontend. Spécialiste du broadcast, il accompagne notamment les élèves sur le projet eikon.live diffusé sur la chaîne Twitch de l'école. Fort de son expérience de réalisateur pour le Montreux Jazz Festival et ARTE, il transmet sa passion pour l'innovation, faisant habilement le pont entre production vidéo en direct et création d'interfaces interactives.",
+      "activity": "Direction de création - web Vidéo et broadcast"
     },
     {
       "image": "/public/images/Encadrant_Matyas_Kiss.webp",
       "title": "Matyas Kiss",
       "statut": "Enseignant professionnel ",
-      "bio": "En 1999, Matyas Kiss entre en formation à l’émaf qui deviendra eikon. Juste après l’obtention de son CFC il cofonde Horsform qui comptera parmi les pionniers du motion design en Suisse romande. L’agence développe alors son expertise en communication et en réalisation de films tant à l’échelle nationale qu'internationale pour des structures étatiques privées et culturelles. Aujourd'hui il choisit de transmettre son expérience aux élèves tout en maintenant une démarche exploratoire active dans le domaine des arts visuels et professionnels et dans son exploration musicale."
+      "bio": "En 1999, Matyas Kiss entre en formation à l’émaf qui deviendra eikon. Juste après l’obtention de son CFC il cofonde Horsform qui comptera parmi les pionniers du motion design en Suisse romande. L’agence développe alors son expertise en communication et en réalisation de films tant à l’échelle nationale qu'internationale pour des structures étatiques privées et culturelles. Aujourd'hui il choisit de transmettre son expérience aux élèves tout en maintenant une démarche exploratoire active dans le domaine des arts visuels et professionnels et dans son exploration musicale.",
+      "activity": "Direction de création - Vidéo - communication"
     },
     {
       "image": "/public/images/Encadrant_Nicolas_Nahornyj.webp",
       "title": "Nicolas Nahornyj",
       "statut": "Enseignant professionnel",
-      "bio": "Entre Ébénisterie, Visual Merchandising et design d'interaction, Nicolas se nourrit d'une pratique métissée autour de la création dans le monde des objets et des espaces. Il accompagne les stagiaires sur les aspects tangibles des projets développés par le Lab depuis 2018."
+      "bio": "Entre Ébénisterie, Visual Merchandising et design d'interaction, Nicolas se nourrit d'une pratique métissée autour de la création dans le monde des objets et des espaces. Il accompagne les stagiaires sur les aspects tangibles des projets développés par le Lab depuis 2018.",
+      "activity": "Direction de création Conception installation"
     },
     {
       "image": "/public/images/Encadrant_Rachel_Pilet.webp",
       "title": "Rachel Pilet",
       "statut": "Coordinatrice eikonlab Enseignante professionnelle",
-      "bio": "Collaboratrice en charge du management et de la production exécutive, Rachel apporte son regard d’historienne d’art et de maniaque de la langue française sur les projets. Elle apprécie particulièrement les phases de démarrage, lorsque les idées foisonnent, se structurent peu à peu, pour ensuite passer du papier à l’écran, de l’abstrait au tangible. "
+      "bio": "Collaboratrice en charge du management et de la production exécutive, Rachel apporte son regard d’historienne d’art et de maniaque de la langue française sur les projets. Elle apprécie particulièrement les phases de démarrage, lorsque les idées foisonnent, se structurent peu à peu, pour ensuite passer du papier à l’écran, de l’abstrait au tangible. ",
+      "activity": "Management Production exécutive Histoire de l’art"
     }
   ]
 }
