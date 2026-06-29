@@ -32,6 +32,7 @@
 }
 
 .team-box {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -42,7 +43,7 @@
   aspect-ratio: 1 / 1;
   background-color: $color-accent;
   grid-area: team-box;
-  z-index: 1;
+  z-index: 2;
 }
 
 .team-members {
@@ -50,6 +51,7 @@
 }
 
 .team-card-member {
+  position: relative;
   background-color: $color-accent;
   h2 {
     font-size: 1.5rem;
