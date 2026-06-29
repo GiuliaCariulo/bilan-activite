@@ -431,41 +431,41 @@ document.addEventListener("DOMContentLoaded", () => {
   // scrollsmoother & scroll to
   // ============================================================
 
-  const smoother = ScrollSmoother.create({
-    wrapper: "#smooth-wrapper",
-    content: "#smooth-content",
-    smooth: 1.3, // inertie (= plus c’est haut, plus c’est doux)
-    smoothTouch: 0.1, // éviter l'effet trop glissant sur mobile
-    effects: true,
-  });
+  // const smoother = ScrollSmoother.create({
+  //   wrapper: "#smooth-wrapper",
+  //   content: "#smooth-content",
+  //   smooth: 1.3, // inertie (= plus c’est haut, plus c’est doux)
+  //   smoothTouch: 0.1, // éviter l'effet trop glissant sur mobile
+  //   effects: true,
+  // });
 
-  document.querySelectorAll(".hero-grid-cell-contact").forEach((cell) => {
-    cell.addEventListener("click", (event) => {
-      event.preventDefault();
-      smoother.scrollTo("#contact", true, "center center");
-    });
-  });
+  // document.querySelectorAll(".hero-grid-cell-contact").forEach((cell) => {
+  //   cell.addEventListener("click", (event) => {
+  //     event.preventDefault();
+  //     smoother.scrollTo("#contact", true, "center center");
+  //   });
+  // });
 
-  document.querySelectorAll(".hero-grid-cell-sessions").forEach((cell) => {
-    cell.addEventListener("click", (event) => {
-      event.preventDefault();
-      smoother.scrollTo("#sessions", true, "top top");
-    });
-  });
+  // document.querySelectorAll(".hero-grid-cell-sessions").forEach((cell) => {
+  //   cell.addEventListener("click", (event) => {
+  //     event.preventDefault();
+  //     smoother.scrollTo("#sessions", true, "top top");
+  //   });
+  // });
 
-  document.querySelectorAll(".hero-grid-cell-encadrants").forEach((cell) => {
-    cell.addEventListener("click", (event) => {
-      event.preventDefault();
-      smoother.scrollTo("#encadrantes", true, "top top");
-    });
-  });
+  // document.querySelectorAll(".hero-grid-cell-encadrants").forEach((cell) => {
+  //   cell.addEventListener("click", (event) => {
+  //     event.preventDefault();
+  //     smoother.scrollTo("#encadrantes", true, "top top");
+  //   });
+  // });
 
-  document.querySelectorAll(".hero-grid-cell-partenaires").forEach((cell) => {
-    cell.addEventListener("click", (event) => {
-      event.preventDefault();
-      smoother.scrollTo("#partenaires", true, "top top");
-    });
-  });
+  // document.querySelectorAll(".hero-grid-cell-partenaires").forEach((cell) => {
+  //   cell.addEventListener("click", (event) => {
+  //     event.preventDefault();
+  //     smoother.scrollTo("#partenaires", true, "top top");
+  //   });
+  // });
 });
 // ==========================================================================
 // loader page : loader active
@@ -477,7 +477,8 @@ const hideLoader = (selector, delay) => {
     loader.style.transition = "opacity 0.5s ease-out";
     loader.style.opacity = "0";
     setTimeout(() => {
-      loader.style.display = "none";
+      loader.classList.remove("active");
+      loader.style.opacity = "";
       document.body.classList.remove("loading");
     }, 1000);
   }, delay);
@@ -489,10 +490,10 @@ const isDough = sessionStorage.getItem("dough");
 sessionStorage.removeItem("dough");
 
 if (isDough) {
-  document.querySelector(".loader-tetris").style.display = "none";
+  document.querySelector(".loader-dough").classList.add("active");
   hideLoader(".loader-dough", 1500);
 } else {
-  document.querySelector(".loader-dough").style.display = "none";
+  document.querySelector(".loader-tetris").classList.add("active");
   hideLoader(".loader-tetris", 3000);
 }
 
