@@ -127,7 +127,7 @@ permalink: "/"
         </div>
         <div class="team-members">
           {% for cardMember in interns.janvier_avril %}
-            <div class="team-cards-member" data-member-pos="{{ loop.index }}">
+            <div class="team-cards-member team-cards-border" data-member-pos="{{ loop.index }}">
               {% include "team-card-member.njk" %}
             </div>
           {% endfor %}
