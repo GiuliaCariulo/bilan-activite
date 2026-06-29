@@ -86,6 +86,7 @@ collections:
             fields:
               - { label: Nom, name: title, widget: string }
               - { label: Titre pro, name: statut, widget: string }
+              - { label: Secteur d'activité, name: activity, widget: string }
               - { label: Bio, name: bio, widget: string }
               - { label: Image, name: image, widget: image, required: false }
 

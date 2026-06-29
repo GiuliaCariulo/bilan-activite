@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="une petit description" />
-    <link rel="icon" href="{{ "/public/images/Icon-pate.png" | url }}" />
+    <link rel="icon" href="{{ '/public/images/Icon-pate.png' | url }}" />
     {# Le titre de la page est défini dans chaque page,
          avec un fallback sur config.titre #}
     <title>
@@ -39,52 +39,62 @@
           <h2>contact</h2>
           <div class="footer-contact-copyright">
             <div class="footer-contact-info">
-              <div class="footer-contact-eikon">
+              <div>
                 <p>
                   <a href="mailto:eikon_lab@edufr.ch">eikon_lab@edufr.ch</a>
                 </p>
                 <p><a href="tel:+41263054696">+41 26 305 46 96</a></p>
               </div>
               <p>Rte des Arsenaux 41<br />1700 Fribourg<br />Suisse</p>
-              <p><a href="https://eikon.ch/" target="_blank"> eikon.ch </a></p>
+              <p>
+                <a
+                  href="eikon - école professionnelle en arts appliqués du canton de Fribourg"
+                  target="_blank"
+                >
+                  eikon.ch
+                </a>
+              </p>
             </div>
             <div class="footer-bottom-all">
-              <div class="footer-director">
-                <a
-                  href="https://giulia-cariulo.ch/"
-                  target="_blank"
-                  class="hover-box"
-                  ><p>Giulia Cariulo</p>
-                  <div class="box">
-                    <img
-                      src="{{ '/public/images/Fetish-Giulia.webp' | url }}"
-                      alt="l'icone de giulia"
-                    /></div
-                ></a>
-                <a
-                  href="http://amelie-rako.ch/"
-                  target="_blank"
-                  class="hover-box"
-                >
-                  <p>Amélie Rakowiecki</p>
-                  <div class="box">
-                    <img
-                      src="{{ '/public/images/Fetish-Amelie.webp' | url }}"
-                      alt="le portrait d'amelie"
-                    />
-                  </div>
-                </a>
-                <a
-                  href="https://camille-magnin.ch/"
-                  target="_blank"
-                  class="hover-box"
-                  ><p>Camille Magnin</p>
-                  <div class="box">
-                    <img
-                      src="{{ '/public/images/Fetish-Camille.webp' | url }}"
-                      alt="le chat de camille"
-                    /></div
-                ></a>
+              <div>
+                <p>Réalisé par</p>
+                <div class="footer-director">
+                  <a
+                    href="Portfolio – Giulia Cariulo"
+                    target="_blank"
+                    class="hover-box"
+                    ><p>Giulia Cariulo</p>
+                    <div class="box">
+                      <img
+                        src="{{ '/public/images/Fetish-Giulia.webp' | url }}"
+                        alt="l'icone de giulia"
+                      /></div
+                  ></a>
+                  <a
+                    href="http://amelie-rako.ch/"
+                    target="_blank"
+                    class="hover-box"
+                  >
+                    <p>Amélie Rakowiecki</p>
+                    <div class="box">
+                      <img
+                        src="{{ '/public/images/Fetish-Amelie.webp' | url }}"
+                        alt="le portrait d'amelie"
+                      />
+                    </div>
+                  </a>
+                  <a
+                    href="*portfolio camille magnin*"
+                    target="_blank"
+                    class="hover-box"
+                    ><p>Camille Magnin</p>
+                    <div class="box">
+                      <img
+                        src="{{ '/public/images/Fetish-Camille.webp' | url }}"
+                        alt="le chat de camille"
+                      /></div
+                  ></a>
+                </div>
               </div>
               <p class="footer-copyright">
                 © eikonlab 2026, tous droits réservés.
@@ -94,6 +104,21 @@
         </article>
       </footer>
     </section>
+
+    <div class="loader loader-tetris">
+      <video autoplay muted playsinline preload="auto">
+        <source
+          src="{{ '/public/tetris-loader.mp4' | url }}"
+          type="video/mp4"
+        />
+      </video>
+    </div>
+
+    <div class="loader loader-dough">
+      <video autoplay muted playsinline preload="auto" loop>
+        <source src="{{ '/public/dough-loader.mp4' | url }}" type="video/mp4" />
+      </video>
+    </div>
 
     <script type="module" src="{{ '/assets/js/main.js' | url }}"></script>
     {% block scripts %}{% endblock %}

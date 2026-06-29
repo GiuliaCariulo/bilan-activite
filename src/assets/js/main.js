@@ -1,8 +1,12 @@
+"use strict";
+
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { Draggable } from "gsap/Draggable";
+import { SplitText } from "gsap/SplitText";
 
-gsap.registerPlugin(ScrollTrigger, Draggable);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, Draggable, SplitText);
 
 document.addEventListener("DOMContentLoaded", () => {
   // ============================================================
@@ -39,6 +43,41 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
   }
+  // ============================================================
+  // section biography : pop up
+  // ============================================================
+
+  document.querySelectorAll(".biography-open-modal").forEach((card) => {
+    card.addEventListener("click", () => {
+      const pos = card.getAttribute("data-member-pos");
+      const modalBio = document.querySelector(
+        `.biography-content-modal[data-index="${pos - 1}"]`,
+      );
+      if (!modalBio) return;
+
+      modalBio.classList.remove("biography-hidden-modal");
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  document.querySelectorAll(".biography-close-modal").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      btn
+        .closest(".biography-content-modal")
+        .classList.add("biography-hidden-modal");
+      document.body.style.overflow = "";
+    });
+  });
+
+  document.querySelectorAll(".biography-content-modal").forEach((modal) => {
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.classList.add("biography-hidden-modal");
+        document.body.style.overflow = "";
+      }
+    });
+  });
 
   // ============================================================
   // section footer : scrolling texts
@@ -48,21 +87,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (lines.length) {
     const spacing = 70;
+    const isMobile = window.innerWidth < 768;
 
     gsap.to(lines.slice(1), {
       y: (i) => (i + 1) * spacing,
       ease: "none",
       scrollTrigger: {
-        trigger: ".footer-contact",
-        start: "top bottom",
-        endTrigger: ".footer-contact-copyright",
-        end: "bottom bottom",
+        trigger: isMobile ? ".footer-title" : ".footer-contact",
+        start: isMobile ? "top 90%" : "top bottom",
+        endTrigger: isMobile ? ".footer-contact" : ".footer-contact-copyright",
+        end: isMobile ? "top 90%" : "bottom bottom",
         scrub: true,
         markers: false,
       },
     });
   }
-
   // ============================================================
   // hero.js — Gestion de la grille héro et des expansions
   // ============================================================
@@ -233,140 +272,68 @@ document.addEventListener("DOMContentLoaded", () => {
       heroGrid.classList.contains(`open-${rowType}`),
     );
 
-    // ==========================================================================
-    // lignes de la grille
-    // ==========================================================================
-
-    function getCssRows() {
-      return getComputedStyle(heroGrid).gridTemplateRows;
-    }
-
-    function getRowsArray() {
-      return getCssRows().split(" ");
-    }
-
-    function getRowsWithOpenExpand(rowIndex, expandHeight) {
-      const rows = getRowsArray();
-      rows[rowIndex] = `${expandHeight}px`;
-      return rows.join(" ");
-    }
-
-    function getExpandRowIndex(rowType) {
-      const rows = {
-        r2: window.matchMedia("(max-width: 768px)").matches ? 13 : 2,
-        r3: window.matchMedia("(max-width: 768px)").matches ? 4 : 4,
-        r4: window.matchMedia("(max-width: 768px)").matches ? 16 : 6,
-      };
-
-      return rows[rowType];
-    }
-
-    // ==========================================================================
-    // ouverture / fermeture des expands
-    // ==========================================================================
-
-    function closeAll() {
+    if (openedRow) {
+      requestAnimationFrame(() => {
+        openRow(openedRow);
+      });
+    } else {
       heroGrid.style.removeProperty("grid-template-rows");
-      heroGrid.classList.remove("open-r2", "open-r3", "open-r4");
-
-      clickableCells.forEach((cell) => {
-        cell.classList.remove("active");
-      });
-
-      heroGrid.querySelectorAll(".hero-grid-expand").forEach((expand) => {
-        expand.classList.remove("is-expanded");
-      });
     }
 
-    function openRow(rowType) {
-      const expand = heroGrid.querySelector(`.hero-grid-expand-${rowType}`);
-      const rowIndex = getExpandRowIndex(rowType);
+    ScrollTrigger.refresh();
+  });
 
-      if (!expand || rowIndex === undefined) return;
+  // ==========================================================================
+  // sessions & encadrants explosion: fiouuuu !
+  // ==========================================================================
 
-      heroGrid.style.removeProperty("grid-template-rows");
+  window.addEventListener("load", () => {
+    const containers = gsap.utils.toArray(".team-container");
 
-      const expandHeight = expand.scrollHeight;
-      const rowHeights = getRowsWithOpenExpand(rowIndex, expandHeight);
-
-      heroGrid.classList.add(`open-${rowType}`);
-      heroGrid.style.gridTemplateRows = rowHeights;
-    }
-
-    clickableCells.forEach((cell) => {
-      cell.addEventListener("click", (event) => {
-        event.preventDefault();
-
-        const rowType = cell.getAttribute("data-row");
-
-        if (!rowType) return;
-
-        const isAlreadyOpen = heroGrid.classList.contains(`open-${rowType}`);
-
-        closeAll();
-
-        if (!isAlreadyOpen) {
-          cell.classList.add("active");
-
-          requestAnimationFrame(() => {
-            openRow(rowType);
-          });
-        }
-      });
-    });
-
-    // ==========================================================================
-    // voir plus / voir moins
-    // ==========================================================================
-
-    heroGrid.querySelectorAll(".hero-grid-expand").forEach((expand) => {
-      const suite = expand.querySelector(".hero-grid-expand-text-suite");
-      const voirPlus = expand.querySelector(".hero-grid-voir-plus");
-      const voirMoins = expand.querySelector(".hero-grid-voir-moins");
-
-      if (!suite || !voirPlus || !voirMoins) return;
-
-      const rowType = [...expand.classList]
-        .find((className) => /^hero-grid-expand-r\d$/.test(className))
-        ?.replace("hero-grid-expand-", "");
-
-      const refreshHeightIfOpen = () => {
-        if (rowType && heroGrid.classList.contains(`open-${rowType}`)) {
-          requestAnimationFrame(() => {
-            openRow(rowType);
-          });
-        }
-      };
-
-      voirPlus.addEventListener("click", () => {
-        expand.classList.add("is-expanded");
-        refreshHeightIfOpen();
-      });
-
-      voirMoins.addEventListener("click", () => {
-        expand.classList.remove("is-expanded");
-        refreshHeightIfOpen();
-      });
-    });
-
-    // ==========================================================================
-    // recalcul au resize
-    // ==========================================================================
-
-    window.addEventListener("resize", () => {
-      const openedRow = ["r2", "r3", "r4"].find((rowType) =>
-        heroGrid.classList.contains(`open-${rowType}`),
+    containers.forEach((container) => {
+      const teamBox = container.querySelector(".team-box");
+      const cards = gsap.utils.toArray(
+        container.querySelectorAll(".team-card-member"),
       );
 
-      if (openedRow) {
-        requestAnimationFrame(() => {
-          openRow(openedRow);
-        });
-      } else {
-        heroGrid.style.removeProperty("grid-template-rows");
-      }
+      if (!teamBox || !cards.length) return;
 
-      ScrollTrigger.refresh();
+      const boxRect = teamBox.getBoundingClientRect();
+      const boxCenterX = boxRect.left + boxRect.width / 2;
+      const boxCenterY = boxRect.top + boxRect.height / 2;
+
+      cards.forEach((card) => {
+        const cardRect = card.getBoundingClientRect();
+        const cardCenterX = cardRect.left + cardRect.width / 2;
+        const cardCenterY = cardRect.top + cardRect.height / 2;
+
+        const offsetX = boxCenterX - cardCenterX;
+        const offsetY = boxCenterY - cardCenterY;
+
+        const scaleStart = Math.min(
+          boxRect.width / cardRect.width,
+          boxRect.height / cardRect.height,
+        );
+
+        gsap.fromTo(
+          card,
+          { x: offsetX, y: offsetY, scale: scaleStart, zIndex: 0 },
+          {
+            x: 0,
+            y: 0,
+            scale: 1,
+            zIndex: 1,
+            duration: 1,
+            scrollTrigger: {
+              trigger: container,
+              start: "top 80%",
+              end: "bottom 60%",
+              markers: false,
+              toggleActions: "play reverse restart reverse",
+            },
+          },
+        );
+      });
     });
   });
 
@@ -380,9 +347,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ============================================================
+  // ==========================================================================
   // projet-page : thumbnail parallax + scale
-  // ============================================================
+  // ==========================================================================
 
   const thumbnailImage = document.querySelector(".projet-page-thumbnail img");
 
@@ -390,11 +357,11 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.fromTo(
       thumbnailImage,
       {
-        scale: 1.5,
+        scale: 1.08,
         yPercent: 0,
       },
       {
-        scale: 1.1,
+        scale: 1,
         yPercent: 8,
         ease: "none",
         scrollTrigger: {
@@ -407,4 +374,95 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     );
   }
+
+  // ============================================================
+  // animations
+  // ============================================================
+
+  console.clear();
+
+  gsap.set(".split-text", { opacity: 1 });
+
+  document.fonts.ready.then(() => {
+    let containers = gsap.utils.toArray(".split-text-container");
+
+    containers.forEach((container) => {
+      let text = container.querySelector(".split-text");
+      let animation;
+
+      SplitText.create(text, {
+        type: "words,lines",
+        mask: "lines",
+        linesClass: "line",
+        autoSplit: true,
+        onSplit: (instance) => {
+          console.log("split");
+          return gsap.from(instance.lines, {
+            yPercent: 120,
+            stagger: 0.1,
+            scrollTrigger: {
+              trigger: container,
+              // markers: true,
+              scrub: true,
+              start: "20px 70%",
+              end: "20px 50%",
+            },
+          });
+        },
+      });
+    });
+  });
+
+  ScrollTrigger.batch(".images", {
+    // interval: 0.1, // time window (in seconds) for batching to occur.
+    // batchMax: 3,   // maximum batch size (targets)
+    onEnter: (batch) =>
+      gsap.to(batch, {
+        autoAlpha: 1,
+        stagger: 0.2,
+        duration: 1,
+        ease: "expo.out",
+      }),
+    // also onLeave, onEnterBack, and onLeaveBack
+    // also most normal ScrollTrigger values like start, end, etc.
+  });
 });
+// ==========================================================================
+// loader page : loader active
+// ==========================================================================
+
+const hideLoader = (selector, delay) => {
+  setTimeout(() => {
+    const loader = document.querySelector(selector);
+    loader.style.transition = "opacity 0.5s ease-out";
+    loader.style.opacity = "0";
+    setTimeout(() => {
+      loader.style.display = "none";
+      document.body.classList.remove("loading");
+    }, 1000);
+  }, delay);
+};
+
+document.body.classList.add("loading");
+
+const isDough = sessionStorage.getItem("dough");
+sessionStorage.removeItem("dough");
+
+if (isDough) {
+  document.querySelector(".loader-tetris").style.display = "none";
+  hideLoader(".loader-dough", 1500);
+} else {
+  document.querySelector(".loader-dough").style.display = "none";
+  hideLoader(".loader-tetris", 3000);
+}
+
+// clic projet ou retour → dough
+document
+  .querySelectorAll(".project-gallery-project-card, .projet-page-retour")
+  .forEach((el) => {
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      sessionStorage.setItem("dough", "true");
+      window.location.href = el.getAttribute("href");
+    });
+  });

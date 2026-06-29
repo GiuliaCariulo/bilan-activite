@@ -72,10 +72,22 @@ article.portfolio-card {
       height: 100%;
       object-fit: cover;
       border-radius: 0;
+      opacity: 0;
+      will-change: transform;
     }
 
     figcaption {
       width: 100%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-card-text {
+    padding: 12px;
+    overflow: hidden;
+    p {
+      font-size: 0.75rem;
     }
   }
 }
@@ -107,18 +119,17 @@ article.portfolio-popup {
 }
 
 .portfolio-close-modal {
-  padding: $space-md;
   transition: all 0.3s ease;
   flex: 2;
   margin-left: auto;
+  text-decoration: underline;
+  cursor: pointer;
+}
 
-  span {
-    font-weight: bold;
-
-    &:hover {
-      color: $color-accent;
-    }
-  }
+button.portfolio-close-modal:hover {
+  padding: 2px;
+  background-color: $color-accent;
+  transition: all 0.3s ease;
 }
 
 .porfolio-content-modal-wrapper {
@@ -133,6 +144,7 @@ article.portfolio-popup {
   backdrop-filter: blur(10px);
   display: flex;
   padding: $space-lg;
+  cursor: default;
 }
 
 .portfolio-body-modal {
@@ -399,7 +411,7 @@ article.portfolio-popup {
   .porfolio-content-modal-wrapper {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    inset: 0;
   }
 
   .porfolio-modal-header {
@@ -438,5 +450,72 @@ article.portfolio-popup {
 
   .porfolio-modal-header {
     order: -1;
+  }
+}
+
+@media (max-width: 576px) {
+  .portfolio-wrapper {
+    grid-auto-rows: calc(min(100vw, 1100px) / 6);
+    grid-template-areas:
+      "img1 img1 img1 . . ."
+      "img1 img1 img1 . . ."
+      "img1 img1 img1 . . ."
+      ". . . img3 img3 img3"
+      ". . . img3 img3 img3"
+      ". . . img3 img3 img3"
+      "img2 img2 img2 quo1 quo1 quo1"
+      "img2 img2 img2 quo1 quo1 quo1"
+      "img2 img2 img2 quo1 quo1 quo1"
+      "img4 img4 img4 quo1 quo1 quo1"
+      "img4 img4 img4 quo1 quo1 quo1"
+      "img4 img4 img4 quo1 quo1 quo1"
+      "quo2 quo2 quo2 img5 img5 img5"
+      "quo2 quo2 quo2 img5 img5 img5"
+      "quo2 quo2 quo2 img5 img5 img5"
+      "quo2 quo2 quo2 img6 img6 img6"
+      "quo2 quo2 quo2 img6 img6 img6"
+      "quo2 quo2 quo2 img6 img6 img6"
+      "img7 img7 img7 quo3 quo3 quo3"
+      "img7 img7 img7 quo3 quo3 quo3"
+      "img7 img7 img7 quo3 quo3 quo3"
+      "img8 img8 img8 img9 img9 img9"
+      "img8 img8 img8 img9 img9 img9"
+      "img8 img8 img8 img9 img9 img9"
+      "img10 img10 img10 img11 img11 img11"
+      "img10 img10 img10 img11 img11 img11"
+      "img10 img10 img10 img11 img11 img11"
+      "img12 img12 img12 img13 img13 img13"
+      "img12 img12 img12 img13 img13 img13"
+      "img12 img12 img12 img13 img13 img13"
+      "quo4 quo4 quo4 img15 img15 img15"
+      "quo4 quo4 quo4 img15 img15 img15"
+      "quo4 quo4 quo4 img15 img15 img15"
+      "img17 img17 img17 img17 img17 img17"
+      "img17 img17 img17 img17 img17 img17"
+      "img17 img17 img17 img17 img17 img17"
+      "img16 img16 img16 quo5 quo5 quo5"
+      "img16 img16 img16 quo5 quo5 quo5"
+      "img16 img16 img16 quo5 quo5 quo5"
+      "img18 img18 img18 quo5 quo5 quo5"
+      "img18 img18 img18 quo5 quo5 quo5"
+      "img18 img18 img18 quo5 quo5 quo5"
+      ". . . img19 img19 img19"
+      ". . . img19 img19 img19"
+      ". . . img19 img19 img19"
+      "img20 img20 img20 img21 img21 img21"
+      "img20 img20 img20 img21 img21 img21"
+      "img20 img20 img20 img21 img21 img21"
+      "img22 img22 img22 img14 img14 img14"
+      "img22 img22 img22 img14 img14 img14"
+      "img22 img22 img22 img14 img14 img14"
+      "img23 img23 img23 img24 img24 img24"
+      "img23 img23 img23 img24 img24 img24"
+      "img23 img23 img23 img24 img24 img24"
+      "img25 img25 img25 quo6 quo6 quo6"
+      "img25 img25 img25 quo6 quo6 quo6"
+      "img25 img25 img25 quo6 quo6 quo6"
+      ". . . img26 img26 img26"
+      ". . . img26 img26 img26"
+      ". . . img26 img26 img26";
   }
 }
