@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const lines = gsap.utils.toArray(".footer-track h4");
 
   if (lines.length) {
-    const spacing = 70;
+    const spacing = 80;
     const isMobile = window.innerWidth < 768;
 
     gsap.to(lines.slice(1), {
@@ -94,11 +94,11 @@ document.addEventListener("DOMContentLoaded", () => {
       ease: "none",
       scrollTrigger: {
         trigger: isMobile ? ".footer-title" : ".footer-contact",
-        start: isMobile ? "top 90%" : "top bottom",
+        start: isMobile ? "top 90%" : "-20% bottom",
         endTrigger: isMobile ? ".footer-contact" : ".footer-contact-copyright",
-        end: isMobile ? "top 90%" : "bottom bottom",
+        end: isMobile ? "top 90%" : "72% bottom",
         scrub: true,
-        markers: false,
+        markers: true,
       },
     });
   }
@@ -457,13 +457,14 @@ if (isDough) {
   hideLoader(".loader-tetris", 3000);
 }
 
-// clic projet ou retour → dough
-document
-  .querySelectorAll(".project-gallery-project-card, .projet-page-retour")
-  .forEach((el) => {
-    el.addEventListener("click", (e) => {
-      e.preventDefault();
-      sessionStorage.setItem("dough", "true");
-      window.location.href = el.getAttribute("href");
+document.addEventListener("DOMContentLoaded", () => {
+  document
+    .querySelectorAll(".project-gallery-project-card, .projet-page-retour")
+    .forEach((el) => {
+      el.addEventListener("click", (e) => {
+        e.preventDefault();
+        sessionStorage.setItem("dough", "true");
+        window.location.href = el.getAttribute("href");
+      });
     });
-  });
+});
