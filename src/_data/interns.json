@@ -43,11 +43,11 @@
   ],
   "janvier_avril": [
     {
-      "title": "Bertschy Victor",
+      "title": "Victor Bertschy",
       "image": "/public/images/S-Winter_Victor.webp"
     },
     {
-      "title": "Schüler Noé",
+      "title": "Noé Schüler",
       "image": "/public/images/S-Winter_Noe.webp"
     },
     {
@@ -93,46 +93,72 @@
   ],
   "avril_juillet": [
     {
-      "title": "Oscar Tomasetti"
+      "title": "Oscar Tomasetti",
+      "image": "/public/images/S-Spring_Oscar.webp"
     },
     {
-      "title": "Lysiane Rial"
+      "title": "Lysiane Rial",
+      "image": "/public/images/S-Spring_Lysiane.webp"
     },
     {
-      "title": "Matéo Reichenbach"
+      "title": "Matéo Reichenbach",
+      "image": "/public/images/S-Spring_Mateo.webp"
     },
     {
-      "title": "Magnolia Occhipinti"
+      "title": "Magnolia Occhipinti",
+      "image": "/public/images/S-Spring_Magnolia.webp"
     },
     {
-      "title": "Paula Melo"
+      "title": "Paula Melo",
+      "image": "/public/images/S-Spring_Paula.webp"
     },
     {
-      "title": "Elisa Kahraman"
+      "title": "Elisa Kahraman",
+      "image": "/public/images/S-Spring_Elisa.webp"
     },
     {
-      "title": "Andrea Iacoviello"
+      "title": "Andrea Iacoviello",
+      "image": "/public/images/S-Spring_Andrea.webp"
     },
     {
-      "title": "Nina Toscanelli"
+      "title": "Nina Toscanelli",
+      "image": "/public/images/S-Spring_Nina.webp"
     },
     {
-      "title": "Simon Ruchet"
+      "title": "Simon Ruchet",
+      "image": "/public/images/S-Spring_Simon.webp"
     },
     {
-      "title": "Fiona Perina"
+      "title": "Fiona Perina",
+      "image": "/public/images/S-Spring_Fiona.webp"
     },
     {
-      "title": "Camille Magnin"
+      "title": "Camille Magnin",
+      "image": "/public/images/S-Spring_Camille.webp"
     },
     {
-      "title": "Charlot Kolly"
+      "title": "Charlot Kolly",
+      "image": "/public/images/S-Spring_Charlot.webp"
     },
     {
-      "title": "Liam Kohler"
+      "title": "Liam Kohler",
+      "image": "/public/images/S-Spring_Liam.webp"
     },
     {
-      "title": "Jade Gomez"
+      "title": "Jade Gomez",
+      "image": "/public/images/S-Spring_Jade.webp"
+    },
+    {
+      "title": "Giulia Cariulo",
+      "image": "/public/images/S-Spring_Camille.webp"
+    },
+    {
+      "title": "Eva Kohli",
+      "image": "/public/images/S-Spring_Magnolia.webp"
+    },
+    {
+      "title": "Amélie Rakowiecki",
+      "image": "/public/images/S-Spring_Camille.webp"
     }
   ]
 }

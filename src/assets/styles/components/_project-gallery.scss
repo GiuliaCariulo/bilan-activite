@@ -99,7 +99,6 @@
 
 @media (max-width: 768px) {
   .project-gallery {
-    min-width: 400px;
     grid-auto-rows: calc(100vw / 6);
 
     &-title {
