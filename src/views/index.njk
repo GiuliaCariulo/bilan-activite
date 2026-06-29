@@ -18,44 +18,6 @@ permalink: "/"
 {% include "hero.njk" %}
 
 <!-- // ============================================================
-// section portfolio : wrapper
-// ============================================================ -->
-<section>
-  <h2>portfolio</h2>
-  <div class="portfolio-wrapper row">
-    {% for item in config.portfolio %}
-      <div
-        class="portfolio-card-pos portfolio-card-img"
-        data-portfolio-pos="{{ loop.index }}"
-        data-portfolio-popup="portfolio{{ loop.index }}"
-      >
-        {% include "portfolio-card.njk" %}
-      </div>
-    {% endfor %}
-  </div>
-</section>
-<!-- // ============================================================
-// section portfolio : pop up
-// ============================================================ -->
-<div class="porfolio-content-modal portfolio-hidden-modal">
-  <div class="porfolio-content-modal-wrapper">
-    <article class="portfolio-popup hidden-modal">
-      {% for item in config.portfolio %}
-        <div
-          class="portfolio-body-modal portfolio-selector-hidden"
-          id="portfolio{{ loop.index }}"
-        >
-          <img src="{{ item.media.image | url }}" alt="marche" />
-          <p class="porfolio-card-legend">{{ item.media.legend }}</p>
-        </div>
-      {% endfor %}
-    </article>
-    <div class="porfolio-modal-header">
-      <button class="portfolio-close-modal">fermer</button>
-    </div>
-  </div>
-</div>
-<!-- // ============================================================
 // section projets : galerie
 // ============================================================ -->
 <section>
@@ -93,6 +55,44 @@ permalink: "/"
   </section>
 </section>
 {% endif %}
+<!-- // ============================================================
+// section portfolio : wrapper
+// ============================================================ -->
+<section>
+  <h2>portfolio</h2>
+  <div class="portfolio-wrapper row">
+    {% for item in config.portfolio %}
+      <div
+        class="portfolio-card-pos portfolio-card-img"
+        data-portfolio-pos="{{ loop.index }}"
+        data-portfolio-popup="portfolio{{ loop.index }}"
+      >
+        {% include "portfolio-card.njk" %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
+<!-- // ============================================================
+// section portfolio : pop up
+// ============================================================ -->
+<div class="porfolio-content-modal portfolio-hidden-modal">
+  <div class="porfolio-content-modal-wrapper">
+    <article class="portfolio-popup hidden-modal">
+      {% for item in config.portfolio %}
+        <div
+          class="portfolio-body-modal portfolio-selector-hidden"
+          id="portfolio{{ loop.index }}"
+        >
+          <img src="{{ item.media.image | url }}" alt="marche" />
+          <p class="porfolio-card-legend">{{ item.media.legend }}</p>
+        </div>
+      {% endfor %}
+    </article>
+    <div class="porfolio-modal-header">
+      <button class="portfolio-close-modal">fermer</button>
+    </div>
+  </div>
+</div>
 <!-- // ============================================================
 // section teams : position
 // ============================================================ -->

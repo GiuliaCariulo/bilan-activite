@@ -1,3 +1,5 @@
+"use strict";
+
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Draggable } from "gsap/Draggable";
@@ -376,8 +378,6 @@ document.addEventListener("DOMContentLoaded", () => {
 // loader page : loader active
 // ==========================================================================
 
-const isFirstVisit = !localStorage.getItem("visited");
-
 const hideLoader = (selector, delay) => {
   setTimeout(() => {
     const loader = document.querySelector(selector);
@@ -392,11 +392,24 @@ const hideLoader = (selector, delay) => {
 
 document.body.classList.add("loading");
 
-if (isFirstVisit) {
-  localStorage.setItem("visited", "true");
-  document.querySelector(".loader-dough").style.display = "none";
-  hideLoader(".loader-tetris", 3000);
-} else {
+const isDough = sessionStorage.getItem("dough");
+sessionStorage.removeItem("dough");
+
+if (isDough) {
   document.querySelector(".loader-tetris").style.display = "none";
   hideLoader(".loader-dough", 1500);
+} else {
+  document.querySelector(".loader-dough").style.display = "none";
+  hideLoader(".loader-tetris", 3000);
 }
+
+// clic projet ou retour → dough
+document
+  .querySelectorAll(".project-gallery-project-card, .projet-page-retour")
+  .forEach((el) => {
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      sessionStorage.setItem("dough", "true");
+      window.location.href = el.getAttribute("href");
+    });
+  });
