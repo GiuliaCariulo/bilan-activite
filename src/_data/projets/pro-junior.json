@@ -4,9 +4,22 @@
   "clients": [
     "Laurent Dietrich (eBike for Youth) au bénéfice de Pro Junior Fribourg & La Main Tendue"
   ],
-  "thumbnail": "/public/images/Portfolio_008.webp",
+  "thumbnail": "/public/images/Project_Pro-junior_06.webp",
   "title": "Pro Junior",
-  "images": [],
+  "images": [
+    {
+      "legend": "Extrait des capsules en cours de réalisation",
+      "fichier": "/public/images/Project_Pro-junior_02.webp"
+    },
+    {
+      "fichier": "/public/images/Project_Pro-junior_04.webp",
+      "legend": "Extrait des capsules en cours de réalisation"
+    },
+    {
+      "fichier": "/public/images/Project_Pro-junior_05.webp",
+      "legend": "Extrait des capsules en cours de réalisation"
+    }
+  ],
   "tags": [
     "Réseaux sociaux",
     "Culture",

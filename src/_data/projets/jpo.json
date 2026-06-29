@@ -4,12 +4,20 @@
   "clients": [
     "eikon, Fribourg"
   ],
-  "thumbnail": "/public/images/Project_Interne_03.webp",
+  "thumbnail": "/public/images/Project_JPO_scéno_04.webp",
   "title": "JPO",
   "images": [
     {
-      "fichier": "/public/images/Project_Interne_03.webp",
-      "legend": "Présentation de la stratégie de communication pour les Journées Portes Ouvertes 2025 à la Direction de eikon. Fribourg, septembre 2025"
+      "fichier": "/public/images/Project_JPO_prépa_02.webp",
+      "legend": "Préparation du plateau pour la table ronde organisée sur le thème de l’impact de l’IA sur la formation. A voir à cette adresse : https://youtu.be/lzudqzJSYZ8?si=e7vGv-39Tjozu1Se"
+    },
+    {
+      "fichier": "/public/images/Project_JPO_prépa_03.webp",
+      "legend": "Collaboration entre l’enseignant Christophe Roulet et eikonlab pour une installation interactive développée pour les Journées Portes Ouvertes 2025 en collaboration avec le centre musical MIAM "
+    },
+    {
+      "fichier": "/public/images/Project_JPO_comm_01.webp",
+      "legend": "Annonce TPF animée pour les Journées Portes Ouvertes 2025"
     }
   ],
   "tags": [

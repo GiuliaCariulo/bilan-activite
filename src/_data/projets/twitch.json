@@ -4,12 +4,16 @@
   "clients": [
     "eikon, Fribourg"
   ],
-  "thumbnail": "/public/images/Project_Interne_02.webp",
+  "thumbnail": "/public/images/Project_Twitch_03.webp",
   "title": "Twitch",
   "images": [
     {
-      "fichier": "/public/images/Project_Interne_02.webp",
-      "legend": "Tournage de l’émission Twitch des Journées Portes Ouvertes 2025. Un design imaginé en relation à la charte visuelle de l’évènement. Fribourg, novembre 2025"
+      "fichier": "/public/images/Project_Twitch_02.webp",
+      "legend": "Extrait de l’émission « MoodBoard à l’envers », juin 2026"
+    },
+    {
+      "fichier": "/public/images/Project_Twitch_01.webp",
+      "legend": "Réalisation émission Twitch en live durant les Journées Portes Ouvertes 2025"
     }
   ],
   "tags": [
