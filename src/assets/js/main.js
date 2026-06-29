@@ -338,6 +338,33 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ==========================================================================
+  // projet-gallery : parallax — les cartes montent depuis le bas
+  // ==========================================================================
+
+  window.addEventListener("load", () => {
+    const cards = gsap.utils.toArray(".project-gallery-project-card");
+
+    cards.forEach((card) => {
+      gsap.fromTo(
+        card,
+        { yPercent: 30 },
+        {
+          yPercent: 0,
+          ease: "none",
+          scrollTrigger: {
+            trigger: card,
+            start: "top bottom",
+            end: "top 20%",
+            scrub: 1.2,
+            toggleActions: "play none none reverse",
+            markers: false,
+          },
+        },
+      );
+    });
+  });
+
+  // ==========================================================================
   // easter egg 25/26 hihi
   // ==========================================================================
 
