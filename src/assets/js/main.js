@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const lines = gsap.utils.toArray(".footer-track h4");
 
   if (lines.length) {
-    const spacing = 80;
+    const spacing = 70;
     const isMobile = window.innerWidth < 768;
 
     gsap.to(lines.slice(1), {
@@ -96,9 +96,9 @@ document.addEventListener("DOMContentLoaded", () => {
         trigger: isMobile ? ".footer-title" : ".footer-contact",
         start: isMobile ? "top 90%" : "-20% bottom",
         endTrigger: isMobile ? ".footer-contact" : ".footer-contact-copyright",
-        end: isMobile ? "top 90%" : "72% bottom",
+        end: isMobile ? "top 100%" : "55% bottom",
         scrub: true,
-        markers: true,
+        markers: false,
       },
     });
   }
