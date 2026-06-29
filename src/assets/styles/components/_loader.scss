@@ -1,0 +1,25 @@
+@use "../variables" as *;
+@use "../layout" as *;
+@use "../base" as *;
+
+body.loading {
+  overflow: hidden;
+}
+
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.loader video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+  transition: opacity 1s ease-out;
+}
+
+body.loaded .loader video {
+  opacity: 0;
+}

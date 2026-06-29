@@ -5,13 +5,125 @@
 *::after {
   box-sizing: border-box;
   margin: 0;
-
   padding: 0;
 }
 
 html {
   font-family: $font;
-  font-weight: $font-weight-text;
-  font-size: 24px;
+  text-align: right;
   scroll-behavior: smooth;
+  font-size: 24px;
+}
+
+section {
+  margin-top: 200px;
+
+  h2 {
+    font-size: 3rem;
+  }
+}
+
+h1,
+h2,
+h3 {
+  font-weight: $font-weight-title;
+  font-style: $font-style-title;
+  line-height: $font-line-height-title;
+}
+
+h1 {
+  font-size: 2rem;
+  cursor: default;
+}
+
+h2 {
+  font-size: 1.45rem;
+  cursor: default;
+}
+
+h3 {
+  font-size: 1.8rem;
+  cursor: default;
+}
+
+p {
+  font-weight: $font-weight-text;
+  line-height: $font-line-height-text;
+  font-size: 0.9rem;
+  max-width: 70ch;
+  cursor: default;
+}
+
+li {
+  font-size: 1rem;
+  cursor: default;
+}
+
+button,
+a {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: $color-primary;
+}
+
+a:hover {
+  padding: 2px;
+  background-color: $color-accent;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  section {
+    margin-top: 100px;
+
+    h2 {
+      font-size: 2.5rem;
+    }
+  }
+
+  h1 {
+    font-size: 2.75rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  h3 {
+    font-size: 1.7rem;
+  }
+
+  p {
+    font-size: 1rem;
+    max-width: 100ch;
+  }
+
+  li {
+    font-size: 1.2rem;
+    font-weight: $font-weight-text;
+  }
+
+  button,
+  a {
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: $color-primary;
+    background-color: $color-accent;
+  }
+}
+
+.split-text-container {
+  text-align: right;
+  grid-column: 1 / -1;
+
+  .split-text {
+    opacity: 0;
+    will-change: transform;
+  }
+
+  .split-text * {
+    will-change: transform;
+  }
 }

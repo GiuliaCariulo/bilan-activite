@@ -1,0 +1,10 @@
+<div class="team-card-member">
+  {% if cardMember.image %}
+    <figure class="team-card">
+      <img src="{{ cardMember.image | url }}" alt="" />
+    </figure>
+  {% endif %}
+  <figcaption>
+    <h4>{{ cardMember.title }}</h4>
+  </figcaption>
+</div>

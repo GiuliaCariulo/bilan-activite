@@ -1,0 +1,353 @@
+@use "../variables" as *;
+
+// ==========================================================================
+// projet-page — Page de détail d'un projet
+// ==========================================================================
+
+.projet-page {
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: visible;
+
+  // ==========================================================================
+  // Thumbnail sticky en arrière-plan
+  // ==========================================================================
+
+  article {
+    padding: 0;
+  }
+  section {
+    grid-column: 1 / -1;
+    grid-auto-rows: fit-content(100%);
+    width: 100%;
+    margin: 0;
+  }
+
+  &-thumbnail {
+    position: sticky;
+    top: 0;
+    z-index: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: $color-primary;
+
+    img {
+      position: sticky;
+      width: 100%;
+      height: 115%;
+      object-fit: cover;
+      display: block;
+      transform-origin: center center;
+      will-change: transform;
+    }
+  }
+
+  &-tags-container {
+    position: absolute;
+    right: $space-md;
+    bottom: calc(24px + 18vh);
+    z-index: 3;
+    max-width: 45%;
+    display: flex;
+    justify-content: end;
+
+    ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    // grid-column: span 6;
+
+    li {
+      padding: 5px 10px;
+      border: 0.5px solid $color-primary;
+      background: $color-secondary;
+      color: $color-primary;
+      font-weight: $font-weight-title;
+    }
+  }
+
+  // ==========================================================================
+  // Contenu blanc qui passe devant la thumbnail
+  // ==========================================================================
+
+  &-content {
+    position: relative;
+    z-index: 2;
+    background: $color-secondary;
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    grid-auto-rows: minmax(calc(min(100vw, 1100px) / 8), auto);
+    width: 100%;
+    min-height: 100vh;
+    margin-top: -18vh;
+  }
+
+  // ==========================================================================
+  // Navigation + titre
+  // ==========================================================================
+
+  &-retour {
+    grid-column: 1 / 2;
+    grid-row: span 1;
+    font-size: clamp(32px, 2.2vw, 36px);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $color-primary;
+    text-decoration: none;
+    padding-block: $space-lg;
+    gap: 10px;
+    transition:
+      background-color 0.2s ease-in-out,
+      text-decoration 0.3s ease-in-out;
+
+    button {
+      border: 0;
+      padding: 0;
+      background: none;
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+    }
+    &:hover {
+      padding-block: $space-lg;
+      height: 100%;
+      text-decoration: underline;
+      background-color: $color-accent;
+    }
+  }
+
+  &-title {
+    grid-column: 2 / -1;
+    grid-row: span 1;
+    font-weight: $font-weight-title;
+    font-style: $font-style-title;
+    line-height: $font-line-height-title;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: $space-md;
+  }
+
+  // ==========================================================================
+  // Spacer
+  // ==========================================================================
+
+  &-spacer {
+    grid-column: 1 / -1;
+    grid-row: span 1;
+    min-height: calc(min(100vw, 1100px) / 8);
+  }
+
+  // ==========================================================================
+  // Description
+  // ==========================================================================
+
+  &-description {
+    grid-column: 2 / 8;
+    grid-row: 3;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    height: auto;
+    align-self: start;
+    p {
+      height: 100%;
+    }
+  }
+
+  &-description-content {
+    grid-column: 1 / 5;
+  }
+
+  &-description-legend {
+    grid-column: 5 / -1;
+    font-size: 14px;
+    font-style: $font-style-legend;
+    font-weight: $font-weight-legend;
+    text-align: left;
+    padding-left: $space-md;
+  }
+
+  // ==========================================================================
+  // Figures / images
+  // ==========================================================================
+
+  &-images {
+    grid-column: 1 / -1;
+    grid-row: span 7;
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    grid-auto-rows: minmax(calc(min(100vw, 1100px) / 8), auto);
+    margin: 0;
+  }
+
+  &-images img {
+    grid-column: 1 / -1;
+    grid-row: span 6;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  &-images-caption {
+    grid-column: 1 / -1;
+    grid-row: span 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding: $space-md;
+    font-size: 14px;
+    color: $color-primary;
+    font-style: $font-style-legend;
+    font-weight: $font-weight-legend;
+
+    p {
+      max-width: 1000ch;
+    }
+  }
+
+  // ==========================================================================
+  // Infos supplémentaires
+  // ==========================================================================
+
+  &-info {
+    grid-column: 2 / 8;
+    grid-row: span 4;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-auto-rows: minmax(calc(min(100vw, 1100px) / 8), auto);
+    gap: $space-md;
+  }
+
+  &-info-block {
+    grid-column: span 3;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    text-align: left;
+
+    &:nth-child(even) {
+      align-items: end;
+      text-align: right;
+    }
+  }
+
+  &-info-title {
+    font-weight: $font-weight-legend;
+    font-style: $font-style-legend;
+  }
+
+  &-info a {
+    color: $color-primary;
+    font-weight: $font-weight-text;
+    cursor: pointer;
+    font-size: 1rem;
+
+    &:hover {
+      color: $color-accent;
+      font-weight: $font-weight-legend;
+    }
+  }
+}
+
+// ==========================================================================
+// Large screens
+// ==========================================================================
+
+@media (min-width: 1200px) {
+  .projet-page {
+    &-images {
+      grid-row: span 9;
+
+      img {
+        grid-row: span 8;
+      }
+    }
+  }
+}
+
+// ==========================================================================
+// Mobile
+// ==========================================================================
+
+@media (max-width: 768px) {
+  .projet-page {
+    &-thumbnail {
+      img {
+        height: 90vh;
+      }
+    }
+    &-content {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      grid-auto-rows: minmax(calc(100vw / 6), auto);
+      margin-top: -14vh;
+    }
+    p {
+      font-size: 0.8rem;
+    }
+
+    &-tags {
+      top: auto;
+      right: 16px;
+      bottom: 18vh;
+    }
+
+    &-retour {
+      grid-column: 1 / 3;
+    }
+
+    &-title {
+      grid-column: 3 / -1;
+      padding-right: 16px;
+    }
+
+    &-spacer {
+      min-height: calc(100vw / 6);
+    }
+
+    &-description {
+      grid-column: 1 / -1;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      padding-inline: $space-md;
+      gap: $space-md;
+    }
+
+    &-description-content {
+      grid-column: 1 / -1;
+      grid-row: 2;
+    }
+
+    &-description-legend {
+      grid-column: 1 / -1;
+      grid-row: 1;
+      text-align: right;
+    }
+
+    &-images {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      grid-auto-rows: minmax(calc(100vw / 6), auto);
+      grid-row: span 7;
+    }
+
+    &-images img {
+      grid-column: 1 / -1;
+      grid-row: span 6;
+    }
+
+    &-info {
+      grid-column: 1 / -1;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      grid-auto-rows: minmax(calc(100vw / 6), auto);
+      padding-inline: $space-md;
+    }
+  }
+}

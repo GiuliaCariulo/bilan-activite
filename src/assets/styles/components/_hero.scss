@@ -1,0 +1,551 @@
+@use "../variables" as *;
+@use "sass:list";
+@use "sass:string";
+
+// ==========================================================================
+// hero-grid — Grille héro de la page d'accueil
+// ==========================================================================
+
+.hero-grid {
+  width: 100%;
+  min-height: 100vh;
+  height: auto; // ← permet à la grille de grandir
+  overflow: visible;
+  grid-template-rows: 20vh 20vh 0px 20vh 0px 20vh 0px 20vh;
+  grid-template-areas:
+    "img1     img2     img2  img3      contact   contact     img4        img4"
+    "eikonlab eikonlab img5  mot       mot       img6        sessions    sessions"
+    ".        .        .     .         .         .           .           ."
+    "img7     edito    img8  img8      img9      img10       bilan       bilan"
+    ".        .        .     .         .         .           .           ."
+    "img11    img12    priorites priorites img13 img14       img14       annee"
+    ".        .        .     .         .         .           .           ."
+    "encadrants encadrants encadrants img15 img15 partenaires partenaires img16";
+  gap: 0;
+  transition: grid-template-rows 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+  h1 {
+    span {
+      opacity: 0;
+      font-size: 0;
+      cursor: default;
+    }
+  }
+
+  // ==========================================================================
+  // États d'ouverture des expands
+  // ==========================================================================
+
+  &.open-r2 {
+    grid-template-rows: 20vh 20vh auto 20vh 0px 20vh 0px 20vh;
+    .hero-grid-expand-r2 .hero-grid-expand-content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &.open-r3 {
+    grid-template-rows: 20vh 20vh 0px 20vh auto 20vh 0px 20vh;
+    .hero-grid-expand-r3 .hero-grid-expand-content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &.open-r4 {
+    grid-template-rows: 20vh 20vh 0px 20vh 0px 20vh auto 20vh;
+    .hero-grid-expand-r4 .hero-grid-expand-content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  // ==========================================================================
+  // Cellules
+  // ==========================================================================
+
+  &-cell {
+    min-height: 0;
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: $font;
+    font-size: clamp(32px, 2.2vw, 36px);
+    font-weight: $font-weight-title;
+    font-style: $font-style-title;
+    line-height: $font-line-height-title;
+    color: $color-primary;
+    text-decoration: none;
+
+    h2 {
+      cursor: pointer;
+    }
+
+    @for $i from 1 through 26 {
+      &[data-pos="#{$i}"] {
+        grid-area: string.unquote(
+          list.nth(
+            (
+              img1,
+              img2,
+              img3,
+              contact,
+              img4,
+              eikonlab,
+              img5,
+              mot,
+              img6,
+              sessions,
+              img7,
+              edito,
+              img8,
+              img9,
+              img10,
+              bilan,
+              img11,
+              img12,
+              priorites,
+              img13,
+              img14,
+              annee,
+              encadrants,
+              img15,
+              partenaires,
+              img16
+            ),
+            $i
+          )
+        );
+      }
+    }
+
+    // ==========================================================================
+    // Cellules image
+    // ==========================================================================
+
+    &-img {
+      display: block;
+      overflow: hidden;
+      flex: 1;
+      align-self: stretch;
+      min-height: 0;
+      filter: contrast(2);
+      transition: filter 0.5s ease-in-out;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        filter: grayscale(1);
+        transition:
+          filter 0.5s ease-in-out,
+          transform 0.5s ease-in-out;
+      }
+      &:hover {
+        filter: contrast(1.2);
+        img {
+          filter: grayscale(0);
+          transform: scale(1.1);
+        }
+      }
+    }
+
+    // ==========================================================================
+    // Cellules interactives
+    // ==========================================================================
+
+    &-contact,
+    &-mot,
+    &-sessions,
+    &-edito,
+    &-priorites,
+    &-encadrants,
+    &-partenaires {
+      background: $color-secondary;
+      transition: color 0.2s ease-in-out;
+      &:hover {
+        color: $color-accent;
+        font-weight: 900;
+        text-decoration: none;
+        cursor: pointer;
+        background-color: $color-secondary;
+      }
+
+      &.active {
+        color: $color-accent;
+      }
+    }
+
+    // ==========================================================================
+    // Cellules titres (fond accent)
+    // ==========================================================================
+
+    &-bilan,
+    &-annee,
+    &-eikonlab {
+      background: $color-accent;
+      color: $color-primary;
+      font-family: $font;
+      font-size: clamp(60px, 3.2vw, 64px);
+      font-weight: $font-weight-title;
+      font-style: $font-style-title;
+      line-height: $font-line-height-title;
+      padding: 14px 18px;
+      cursor: default;
+    }
+
+    &-annee {
+      cursor: grab;
+      touch-action: none;
+      user-select: none;
+      transform-origin: center center;
+
+      &-rotate-mobile {
+        display: none;
+      }
+    }
+
+    // ==========================================================================
+    // Sous-éléments priorités (générés en JS)
+    // ==========================================================================
+
+    &-priorites {
+      &-title {
+        grid-column: 2 / 4;
+        font-size: clamp(18px, 2vw, 28px);
+        font-weight: $font-weight-title;
+        line-height: $font-line-height-title;
+      }
+
+      &-text {
+        grid-column: 4 / 8;
+        font-size: clamp(15px, 1.3vw, 18px);
+        font-weight: $font-weight-text;
+        line-height: $font-line-height-text;
+        color: $color-primary;
+        text-align: right;
+      }
+    }
+  }
+
+  // ==========================================================================
+  // Blocs expand
+  // ==========================================================================
+
+  &-expand {
+    grid-column: 1 / -1;
+    overflow: hidden; // masque le contenu quand grid-row = 0px
+    background: $color-secondary;
+
+    &-r2 {
+      grid-row: 3;
+    }
+    &-r3 {
+      grid-row: 5;
+    }
+    &-r4 {
+      grid-row: 7;
+    }
+    &-r4 &-expand-content {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      row-gap: 60px;
+      column-gap: 0;
+    }
+
+    &-sizer {
+      overflow: hidden;
+    }
+
+    &-content {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      background: $color-secondary;
+      padding: 80px 0;
+      opacity: 0;
+      transform: translateY(20px);
+      transition:
+        opacity 1s 0.5s,
+        transform 1s 0.5s;
+    }
+    &-priorite-wrapper {
+      grid-column: 2 / 8;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: $space-xl;
+    }
+    &-priorite-titre {
+      display: flex;
+      width: 100%;
+      grid-column: 1 / 3;
+      font-size: clamp(18px, 2vw, 28px);
+      font-weight: $font-weight-title;
+      line-height: 1.15;
+      justify-content: end;
+      align-items: start;
+    }
+
+    // texte associé au titre (colonnes 4-7)
+    &-priorite-texte {
+      grid-column: 3 / 8;
+      font-size: clamp(15px, 1.3vw, 18px);
+      line-height: 1.37;
+      letter-spacing: 0.9px;
+      font-weight: 300;
+    }
+
+    &-left {
+      grid-column: 2 / 6;
+    }
+
+    &-signature {
+      grid-column: 7 / 8;
+      font-size: 14px;
+      font-style: $font-style-legend;
+      font-weight: $font-weight-legend;
+      text-align: left;
+    }
+
+    &-text,
+    &-text-suite p {
+      font-size: clamp(15px, 1.3vw, 18px);
+      font-weight: $font-weight-text;
+      line-height: $font-line-height-text;
+      color: $color-primary;
+      text-align: right;
+    }
+
+    &-r4 .hero-grid-expand-content {
+      row-gap: 60px;
+    }
+
+    // état "voir plus" fermé par défaut
+    &-text-suite {
+      display: none;
+    }
+
+    &.is-expanded {
+      .hero-grid-expand-text-suite {
+        display: block;
+      }
+      .hero-grid-voir-plus {
+        display: none;
+      }
+      .hero-grid-voir-moins {
+        display: block;
+      }
+    }
+  }
+
+  // ==========================================================================
+  // Boutons voir plus / voir moins
+  // ==========================================================================
+
+  &-voir-plus,
+  &-voir-moins {
+    background: none;
+    border: none;
+    color: $color-primary;
+    font-size: clamp(15px, 1.3vw, 18px);
+    font-weight: 700;
+    cursor: pointer;
+    padding: 12px 0 0;
+    display: block;
+
+    &:hover {
+      color: $color-accent;
+      text-decoration: underline;
+    }
+  }
+
+  // "voir moins" caché par défaut, révélé via .is-expanded ci-dessus
+  &-voir-moins {
+    display: none;
+  }
+  a:hover {
+    color: $color-accent;
+    font-weight: 800;
+    text-decoration: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-grid {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 4.5vh 4.5vh 4.5vh 4.5vh 0px 4.5vh 4.5vh 4.5vh 4.5vh 4.5vh 4.5vh 4.5vh 4.5vh 0px 4.5vh 4.5vh 0px 4.5vh 4.5vh 4.5vh 4.5vh 4.5vh 4.5vh 4.5vh 4.5vh;
+    grid-template-rows:
+      calc(100vw / 6)
+      calc(100vw / 6)
+      calc(100vw / 6)
+      calc(100vw / 6)
+      0px
+      calc(100vw / 6)
+      calc(100vw / 6)
+      calc(100vw / 6)
+      calc(100vw / 6)
+      calc(100vw / 6)
+      calc(100vw / 6)
+      calc(100vw / 6)
+      calc(100vw / 6)
+      0px
+      calc(100vw / 6)
+      calc(100vw / 6)
+      0px
+      calc(100vw / 6)
+      calc(100vw / 6)
+      calc(100vw / 6)
+      calc(100vw / 6)
+      calc(100vw / 6)
+      calc(100vw / 6)
+      calc(100vw / 6)
+      calc(100vw / 6);
+
+    grid-template-areas:
+      "eikonlab eikonlab eikonlab eikonlab contact contact"
+      "eikonlab eikonlab eikonlab eikonlab contact contact"
+      "img10 img10 edito edito img3 img3"
+      "img10 img10 edito edito img3 img3"
+      ". . . . . . "
+      "img6 img6 img2 img2 img2 img2"
+      "img6 img6 img2 img2 img2 img2"
+      "sessions sessions bilan bilan bilan bilan"
+      "sessions sessions bilan bilan bilan bilan"
+      "img8 img8 img8 img8 annee annee"
+      "img8 img8 img8 img8 annee annee"
+      "mot mot img4 img4 img1 img1"
+      "mot mot img4 img4 img1 img1"
+      ". . . . . . "
+      "img9 img9 priorites priorites img13 img13"
+      "img9 img9 priorites priorites img13 img13"
+      ". . . . . . "
+      "img14 img14 img14 img14 partenaires partenaires"
+      "img14 img14 img14 img14 partenaires partenaires"
+      "encadrants encadrants img11 img11 img12 img12"
+      "encadrants encadrants img11 img11 img12 img12"
+      "img15 img15 img15 img15 img5 img5"
+      "img15 img15 img15 img15 img5 img5"
+      "img7 img7 img16 img16 img16 img16"
+      "img7 img7 img16 img16 img16 img16";
+
+    min-height: auto;
+
+    &-cell {
+      h2 {
+        color: $color-primary;
+        background-color: $color-accent;
+      }
+
+      &-mot,
+      &-priorites,
+      &-edito {
+        text-decoration: underline;
+      }
+
+      @for $i from 1 through 26 {
+        &[data-pos="#{$i}"] {
+          grid-area: string.unquote(
+            list.nth(
+              (
+                img1,
+                img2,
+                img3,
+                contact,
+                img4,
+                eikonlab,
+                img5,
+                mot,
+                img6,
+                sessions,
+                img7,
+                edito,
+                img8,
+                img9,
+                img10,
+                bilan,
+                img11,
+                img12,
+                priorites,
+                img13,
+                img14,
+                annee,
+                encadrants,
+                img15,
+                partenaires,
+                img16
+              ),
+              $i
+            )
+          );
+        }
+      }
+
+      &-bilan,
+      &-annee,
+      &-eikonlab {
+        font-size: clamp(42px, 10vw, 62px);
+        padding: 8px;
+      }
+
+      &-encadrants {
+        h2 {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    &-expand {
+      grid-column: 1 / -1;
+
+      &-r3 {
+        grid-row: 5;
+      }
+
+      &-r2 {
+        grid-row: 14;
+      }
+
+      &-r4 {
+        grid-row: 17;
+      }
+
+      &-content {
+        grid-template-columns: repeat(6, 1fr);
+        padding: 48px 8px;
+      }
+
+      &-left {
+        grid-column: 1 / 6;
+      }
+
+      &-signature {
+        grid-column: 5 / -1;
+      }
+
+      &-priorite-wrapper {
+        grid-column: 1 / -1;
+        grid-template-columns: repeat(6, 1fr);
+      }
+
+      &-priorite-titre {
+        grid-column: 1 / 3;
+      }
+
+      &-priorite-texte {
+        grid-column: 3 / -1;
+      }
+    }
+  }
+}
+
+@media (max-width: 1300px) {
+  .hero-grid {
+    &-cell-annee-rotate-desktop {
+      display: none;
+    }
+
+    &-cell-annee-rotate-mobile {
+      display: block;
+    }
+  }
+}

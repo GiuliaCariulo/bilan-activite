@@ -1,0 +1,34 @@
+{
+  "skills": "Gestion de production, graphisme et décoration de plateau, réalisation, animation des émissions.",
+  "mandate": "Réalisation Live",
+  "clients": [
+    "eikon, Fribourg"
+  ],
+  "thumbnail": "/public/images/Project_Interne_02.webp",
+  "title": "Twitch",
+  "images": [
+    {
+      "fichier": "/public/images/Project_Interne_02.webp",
+      "legend": "Tournage de l’émission Twitch des Journées Portes Ouvertes 2025. Un design imaginé en relation à la charte visuelle de l’évènement. Fribourg, novembre 2025"
+    }
+  ],
+  "tags": [
+    "réseaux sociaux",
+    "métiers de l'audiovisuel",
+    "ligne éditoriale",
+    "diffusion live"
+  ],
+  "links": [
+    {
+      "label": "Chaine eikon.live",
+      "url": "https://www.twitch.tv/eikonlive"
+    }
+  ],
+  "id": "twitch",
+  "description": "Suite à l’analyse des canaux de diffusion actuels et à l’expérience des Journées Portes Ouvertes 2022, eikonlab développe une programmation régulière pour la chaîne Twitch de l’école.\nAu-delà de l’enjeu pédagogique et technique pour les stagiaires, ce choix relève d’une stratégie en termes d’objectifs de communication (attirer de futur.e.s candidat.e.s, être une institution de référence quant aux métiers d’IMD, transmettre des valeurs, entretenir la relation avec notre environne-ment professionnel).\nLes formats sont organisés autour de différentes collections.",
+  "sessions": [
+    "Automne 2025",
+    "Hiver 2026",
+    "Printemps 2026"
+  ]
+}

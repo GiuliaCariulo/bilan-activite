@@ -5,7 +5,7 @@ on:
     branches:
       - main
       - master
-      - dev #temporaire
+      # - dev #temporaire
   workflow_dispatch:
 
 jobs:
@@ -14,10 +14,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 24
           cache: npm

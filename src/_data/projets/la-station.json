@@ -1,0 +1,26 @@
+{
+  "skills": "Conception de plateforme web, architecture de l’information, développement CMS, direction artistique et identité visuelle, expérience utilisateur (UX).",
+  "mandate": "Conception d’un micro-site",
+  "clients": [
+    "Réservoir, Bulle"
+  ],
+  "thumbnail": "/public/images/Project_Station.webp",
+  "title": "La Station",
+  "images": [
+    {
+      "fichier": "/public/images/Project_Station.webp",
+      "legend": "Séance de travail sur les différentes options pour coder la maquette du site."
+    }
+  ],
+  "tags": [
+    "musiques actuelles",
+    "annuaire",
+    "réseau professionnel"
+  ],
+  "links": [],
+  "id": "la-station",
+  "description": "Pour dynamiser l’écosystème des musiques actuelles dans le canton de Fribourg, l’association Réservoir se dote d’un annuaire en ligne centralisant musicien·ne·s, technicien·ne·s, lieux et organismes. Ce projet vise à favoriser la création de liens, particulièrement auprès des jeunes, tout en assurant la pérennité de la plateforme. Développé sur mesure avec un CMS pour garder la main sur l’outil, le site s’articule autour d’une direction artistique libre, invitant à réinterpréter l’univers mécanique de « station-service » déjà propre à l’identité visuelle de l’association.",
+  "sessions": [
+    "Hiver 2026"
+  ]
+}

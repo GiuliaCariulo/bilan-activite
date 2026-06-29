@@ -1,6 +1,8 @@
-# Bilan d'activité eikonlab — Template annuel
+# Bilan d'activité eikonlab — 2025-26
 
-Ce projet est un **template reproductible** : chaque année, une nouvelle instance est créée pour générer le bilan d'activité d'eikonlab. La structure reste la même, seul le contenu et style visuel changent.
+Ce projet génère le bilan d'activité 2025-26 d'eikonlab, publié à l'adresse [eikonlab-bilan-activite.eikon.ch/2026/](https://eikonlab-bilan-activite.eikon.ch/2026/).
+
+Il repose sur un [template reproductible](https://github.com/eikonlab/template-bilan-activite) : chaque année, une nouvelle instance est créée à partir de ce même socle technique pour générer le bilan d'activité d'eikonlab. La structure reste la même d'une année à l'autre, seul le contenu et le style visuel changent.
 
 ---
 
@@ -88,17 +90,20 @@ Toutes les données du site vivent dans ce dossier sous forme de fichiers JSON. 
 
 ```
 src/_data/
-├── config.json          ← Infos générales : titre, organisation, édito, partenaires…
-├── encadrants.json      ← Liste des encadrant·es (nom, photo, titre, secteurs)
-├── stagiaires.json      ← Stagiaires groupés par session (août–déc, jan–avr, avr–juil)
+├── config.json          ← Infos générales : titre, organisation, intro, priorités, portfolio, ressources, partenaires…
+├── encadrants.json      ← Liste des encadrant·es (nom, titre pro, bio, photo)
+├── sections.json        ← Sections de texte libre (titre, auteur·rice, accroche, texte)
+├── interns.json         ← Stagiaires groupés par session (automne, hiver, printemps)
+├── projets.js           ← Lit le dossier projets/ et retourne un tableau
 └── projets/             ← Un fichier JSON par projet
-    ├── miam.json
-    └── ecole-de-couture.json
+    ├── fiff.json
+    ├── reper.json
+    └── ...
 ```
 
 Chaque fichier projet contient : titre, sessions, stagiaires associé·es, type de mandat, client·es, description, images, vidéos, compétences, liens, témoignage client.
 
-`projets.js` lit automatiquement tous les fichiers du dossier `projets/` et les expose comme un tableau dans les templates — son nom de fichier devient l'identifiant URL du projet (`miam.json` → `/projets/miam/`).
+`projets.js` lit automatiquement tous les fichiers du dossier `projets/` et les expose comme un tableau dans les templates — son nom de fichier devient l'identifiant URL du projet (`fiff.json` → `/projets/fiff/`).
 
 ### Face 2 — Intégration : templates, styles, JS
 
@@ -170,10 +175,20 @@ SCSS est une extension de CSS qui ajoute des variables, de l'imbrication et des 
 
 ```
 src/assets/styles/
-├── main.scss          ← Point d'entrée — importe tous les autres fichiers
-├── _variables.scss    ← Couleurs, polices, espacements — commencer ici
-├── _base.scss         ← Reset global, typographie, polices Google
-└── _pages.scss        ← Mise en page des sections, cartes, blockquotes…
+├── main.scss           ← Point d'entrée — importe tous les autres fichiers
+├── _variables.scss     ← Couleurs, polices, espacements — commencer ici
+├── _base.scss          ← Reset global, typographie
+├── _fonts.scss         ← Déclarations @font-face
+├── _layout.scss        ← Grilles et mise en page générale
+└── components/         ← Un fichier par section/composant
+    ├── _hero.scss
+    ├── _portfolio-card.scss
+    ├── _project.scss
+    ├── _project-gallery.scss
+    ├── _team.scss
+    ├── _partners-card.scss
+    ├── _footer.scss
+    └── _loader.scss
 ```
 
 `main.scss` importe tout :
@@ -181,7 +196,11 @@ src/assets/styles/
 ```scss
 @use "variables" as *; // rend les variables disponibles partout avec $
 @use "base";
-@use "pages";
+@use "layout";
+@use "components/hero";
+@use "components/portfolio-card";
+@use "components/footer";
+// ...et les autres composants
 ```
 
 Modifier `_variables.scss` en premier — couleurs, typographie et espacements se propagent à tout le site.
@@ -219,46 +238,54 @@ esbuild (le bundler) détecte l'import, intègre GSAP dans le fichier final et g
 ## Structure complète du projet
 
 ```
-bilan-eleventy/
+2026-bilan-activite/
 │
 ├── src/
-│   ├── _data/                 ← Contenu (JSON) — saisie via CMS ou éditeur
+│   ├── _data/                  ← Contenu (JSON) — saisie via CMS ou éditeur
 │   │   ├── config.json
 │   │   ├── encadrants.json
-│   │   ├── stagiaires.json
-│   │   ├── projets.js         ← Lit le dossier projets/ et retourne un tableau
+│   │   ├── sections.json
+│   │   ├── interns.json
+│   │   ├── projets.js          ← Lit le dossier projets/ et retourne un tableau
 │   │   └── projets/
 │   │       └── *.json
 │   │
-│   ├── views/                 ← Tous les fichiers de templates
-│   │   ├── _layouts/          ← Squelettes de pages
-│   │   │   ├── base.njk       ← Wrappeur universel (head, body, CSS, JS)
-│   │   │   └── projet.njk     ← Page de détail d'un projet
-│   │   ├── _includes/         ← Composants réutilisables
-│   │   │   └── project-card.njk
-│   │   ├── index.njk          ← Page d'accueil
-│   │   └── projets.njk        ← Génère une page par projet (pagination Eleventy)
+│   ├── views/                  ← Tous les fichiers de templates
+│   │   ├── _layouts/           ← Squelettes de pages
+│   │   │   ├── base.njk        ← Wrappeur universel (head, body, CSS, JS)
+│   │   │   └── projet.njk      ← Page de détail d'un projet
+│   │   ├── _includes/          ← Composants réutilisables
+│   │   │   ├── hero.njk
+│   │   │   ├── partner-card.njk
+│   │   │   ├── portfolio-card.njk
+│   │   │   ├── project-card.njk
+│   │   │   └── team-card-member.njk
+│   │   ├── index.njk           ← Page d'accueil
+│   │   ├── post-it.njk
+│   │   └── projets.njk         ← Génère une page par projet (pagination Eleventy)
 │   │
-│   ├── assets/                ← Fichiers compilés/bundlés par les outils de build
+│   ├── assets/                 ← Fichiers compilés/bundlés par les outils de build
 │   │   ├── styles/
 │   │   │   ├── main.scss
 │   │   │   ├── _variables.scss
 │   │   │   ├── _base.scss
-│   │   │   ├── _pages.scss
+│   │   │   ├── _fonts.scss
+│   │   │   ├── _layout.scss
 │   │   │   └── components/
 │   │   └── js/
 │   │       ├── main.js
 │   │       └── projet.js
 │   │
-│   ├── admin/                 ← Interface Decap CMS (dev uniquement, non déployé)
+│   ├── admin/                  ← Interface Decap CMS (dev uniquement, non déployé)
 │   │   ├── index.html
-│   │   └── config.yml         ← Configuration des collections CMS
+│   │   └── config.yml          ← Configuration des collections CMS
 │   │
-│   └── public/                ← Images et fichiers statiques (copiés tels quels)
-│       └── images/
+│   └── public/                 ← Images et fichiers statiques (copiés tels quels)
+│       ├── images/
+│       └── fonts/
 │
-├── _site/                     ← Build final (généré — ne pas modifier)
-├── eleventy.config.js         ← Configuration Eleventy
+├── _site/                      ← Build final (généré — ne pas modifier)
+├── eleventy.config.js          ← Configuration Eleventy
 ├── package.json
 └── README.md
 ```

@@ -1,0 +1,143 @@
+@use "../variables" as *;
+@use "sass:list";
+@use "sass:string";
+
+.team-container {
+  grid-template-areas:
+    "intern1 intern1 . . . . . ."
+    "intern1 intern1 . . . . intern2 intern2"
+    ". . intern3 intern3 . . intern2 intern2"
+    ". . intern3 intern3 . intern4 intern4 ."
+    "intern5 intern5 . . . intern4 intern4 ."
+    "intern5 intern5 team-box team-box team-box . . ."
+    ". . team-box team-box team-box . intern6 intern6"
+    ". intern7 intern7 . . . intern6 intern6"
+    ". intern7 intern7 intern8 intern8 . . ."
+    ". . . intern8 intern8 . intern9 intern9"
+    "intern10 intern10 . . . . intern9 intern9"
+    "intern10 intern10 . . intern11 intern11 . ."
+    ". . . . intern11 intern11 . ."
+    ". intern12 intern12 . . . intern13 intern13"
+    ". intern12 intern12 . . . intern13 intern13"
+    ". . . intern14 intern14 . . ."
+    "intern15 intern15 . intern14 intern14 intern16 intern16 ."
+    "intern15 intern15 . . . intern16 intern16 ."
+    ". . . . . . . ."
+    ". . . intern17 intern17 . . ."
+    ". . . intern17 intern17 . . .";
+}
+
+.team-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+  gap: 1rem;
+  padding: 1rem;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: $color-accent;
+  grid-area: team-box;
+  z-index: 1;
+}
+
+.team-members {
+  display: contents;
+}
+
+.team-card-member {
+  background-color: $color-accent;
+  h2 {
+    font-size: 1.5rem;
+  }
+  h4 {
+    font-weight: 100;
+  }
+
+  figcaption {
+    padding: 0.25rem;
+  }
+
+  figure {
+    border: 1rem;
+  }
+
+  img {
+    width: 100%;
+    border: 0.25px solid $color-primary;
+    border-bottom: none;
+  }
+}
+
+.team-cards-member {
+  @for $i from 1 through 17 {
+    &[data-member-pos="#{$i}"] {
+      grid-area: string.unquote(
+        list.nth(
+          (
+            intern1,
+            intern2,
+            intern3,
+            intern4,
+            intern5,
+            intern6,
+            intern7,
+            intern8,
+            intern9,
+            intern10,
+            intern11,
+            intern12,
+            intern13,
+            intern14,
+            intern15,
+            intern16,
+            intern17
+          ),
+          $i
+        )
+      );
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .team-box h3 {
+    font-size: 1.25rem;
+  }
+  .team-box div p {
+    font-size: 0.75rem;
+  }
+  .team-container {
+    grid-template-areas:
+      "intern1 intern1 . . . ."
+      "intern1 intern1 . . . ."
+      ". . . intern3 intern3 ."
+      "intern2 intern2 . intern3 intern3 ."
+      "intern2 intern2 . . intern4 intern4"
+      ". . . . intern4 intern4"
+      "intern5 intern5 . . . ."
+      "intern5 intern5 team-box team-box team-box ."
+      ". . team-box team-box team-box ."
+      "intern7 intern7 . . intern6 intern6"
+      "intern7 intern7 . . intern6 intern6"
+      ". intern8 intern8 . . ."
+      ". intern8 intern8 . intern10 intern10"
+      ". . . . intern10 intern10"
+      "intern9 intern9 . . . ."
+      "intern9 intern9 . intern11 intern11 ."
+      ". . . intern11 intern11 ."
+      ". intern12 intern12 . . ."
+      ". intern12 intern12 . intern13 intern13"
+      "intern14 intern14 . . intern13 intern13"
+      "intern14 intern14 . . . ."
+      ". . . intern15 intern15 ."
+      ". intern16 intern16 intern15 intern15 ."
+      ". intern16 intern16 . . ."
+      ". . . . intern17 intern17"
+      ". . . . intern17 intern17";
+  }
+  .team-card-member h4 {
+    font-size: 0.65rem;
+    font-weight: 100;
+  }
+}

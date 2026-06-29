@@ -1,0 +1,215 @@
+@use "../variables" as *;
+@use "../layout" as *;
+
+footer {
+  display: flex;
+}
+
+.footer-animation {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  height: 787px;
+  overflow: hidden;
+}
+
+.footer-title {
+  display: none;
+  // position: relative;
+  // z-index: 2;
+  // font-size: 8.5rem;
+  // top: -48px;
+  // left: -161px;
+}
+
+.footer-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 1;
+
+  h4 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 8.5rem;
+    white-space: nowrap;
+    margin: 0;
+  }
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  gap: 29px;
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin-left: auto;
+  margin-top: 197px;
+  height: 540px;
+}
+
+.footer-contact-copyright {
+  display: flex;
+  flex-direction: column;
+  gap: 90px;
+  height: 100%;
+}
+
+.footer-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 29px;
+
+  p {
+    font-family: $font;
+    font-weight: $font-weight-text;
+  }
+}
+
+.footer-director {
+  display: flex;
+  gap: $space-md;
+
+  a {
+    padding: 2px;
+    transition: background-color 0.3s ease;
+  }
+}
+
+.footer-bottom-all {
+  display: flex;
+  flex-direction: column;
+  gap: 29px;
+
+  p {
+    font-size: 0.5rem;
+    font-family: $font;
+    font-weight: $font-weight-text;
+  }
+}
+
+.hover-box {
+  position: relative;
+  display: inline-block;
+
+  p {
+    margin: 0;
+    cursor: pointer;
+
+    &:hover ~ .box {
+      opacity: 1;
+    }
+  }
+
+  .box {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+.footer-contact-info a {
+  font-weight: $font-weight-text;
+  line-height: $font-line-height-text;
+  font-size: 0.9rem;
+  max-width: 70ch;
+  a:hover {
+    padding: 1px;
+  }
+}
+
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column;
+  }
+
+  .footer-animation {
+    order: 1;
+    height: 730px;
+    overflow: hidden;
+    flex: none;
+    width: 100%;
+    position: relative;
+  }
+
+  .footer-title {
+    display: none;
+  }
+
+  .footer-track h4 {
+    font-size: 7.5rem;
+  }
+
+  .footer-contact {
+    order: 2;
+    margin-top: 0;
+    margin-left: 0;
+    align-self: flex-end;
+    text-align: right;
+    height: auto;
+    width: 100%;
+    padding: $space-md;
+  }
+
+  .footer-contact-copyright {
+    gap: $space-xl;
+    gap: 90px;
+    align-items: end;
+  }
+
+  .footer-contact-info p {
+    font-size: 1rem;
+    max-width: 100ch;
+  }
+
+  .hover-box .box {
+    opacity: 0;
+    animation: fadeInOut 6s infinite;
+  }
+
+  .hover-box:nth-child(1) .box {
+    animation-delay: 0s;
+  }
+
+  .hover-box:nth-child(2) .box {
+    animation-delay: 2s;
+  }
+
+  .hover-box:nth-child(3) .box {
+    animation-delay: 4s;
+  }
+
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    30% {
+      opacity: 1;
+    }
+    40% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}
