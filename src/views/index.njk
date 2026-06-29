@@ -19,7 +19,7 @@ permalink: "/"
 <!-- // ============================================================
 // section projets : galerie
 // ============================================================ -->
-<section>
+<section class="projects" id="projets">
   {% if projets and projets.length %}
     <section class="project-gallery row">
       <div class="split-text-container">
@@ -62,7 +62,7 @@ permalink: "/"
 <!-- // ============================================================
 // section portfolio : wrapper
 // ============================================================ -->
-<section>
+<section id="portfolio">
   <h2>portfolio</h2>
   <div class="portfolio-wrapper row">
     {% for item in config.portfolio %}
@@ -153,7 +153,7 @@ permalink: "/"
         {% endfor %}
       </div>
     </div>
-    <div class="team-container row">
+    <div class="team-container row" id="encadrants">
       <div class="team-box">
         <h2>Encadrant·e·s</h2>
         <div>
