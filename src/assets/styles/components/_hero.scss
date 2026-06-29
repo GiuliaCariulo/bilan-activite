@@ -77,6 +77,10 @@
     color: $color-primary;
     text-decoration: none;
 
+    h2 {
+      cursor: pointer;
+    }
+
     @for $i from 1 through 26 {
       &[data-pos="#{$i}"] {
         grid-area: string.unquote(
@@ -113,12 +117,6 @@
           )
         );
       }
-    }
-
-    a:hover {
-      color: $color-accent;
-      font-weight: $font-weight-legend;
-      text-decoration: none;
     }
 
     // ==========================================================================
@@ -167,6 +165,7 @@
         font-weight: 900;
         text-decoration: none;
         cursor: pointer;
+        background-color: $color-secondary;
       }
 
       &.active {
@@ -270,7 +269,7 @@
       grid-column: 2 / 8;
       display: grid;
       grid-template-columns: repeat(6, 1fr);
-      gap: 24px;
+      gap: $space-xl;
     }
     &-priorite-titre {
       display: flex;
@@ -305,7 +304,7 @@
     }
 
     &-text,
-    &-text-suite {
+    &-text-suite p {
       font-size: clamp(15px, 1.3vw, 18px);
       font-weight: $font-weight-text;
       line-height: $font-line-height-text;
@@ -428,7 +427,16 @@
     min-height: auto;
 
     &-cell {
-      // font-size: clamp(22px, 6vw, 34px);
+      h2 {
+        color: $color-primary;
+        background-color: $color-accent;
+      }
+
+      &-mot,
+      &-priorites,
+      &-edito {
+        text-decoration: underline;
+      }
 
       @for $i from 1 through 26 {
         &[data-pos="#{$i}"] {
@@ -471,7 +479,7 @@
       &-bilan,
       &-annee,
       &-eikonlab {
-        font-size: clamp(42px, 11vw, 62px);
+        font-size: clamp(42px, 10vw, 62px);
         padding: 8px;
       }
 
@@ -499,7 +507,7 @@
 
       &-content {
         grid-template-columns: repeat(6, 1fr);
-        padding: 48px 0;
+        padding: 48px 8px;
       }
 
       &-left {

@@ -48,21 +48,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (lines.length) {
     const spacing = 70;
+    const isMobile = window.innerWidth < 768;
 
     gsap.to(lines.slice(1), {
       y: (i) => (i + 1) * spacing,
       ease: "none",
       scrollTrigger: {
-        trigger: ".footer-contact",
-        start: "top bottom",
-        endTrigger: ".footer-contact-copyright",
-        end: "bottom bottom",
+        trigger: isMobile ? ".footer-title" : ".footer-contact",
+        start: isMobile ? "top 90%" : "top bottom",
+        endTrigger: isMobile ? ".footer-contact" : ".footer-contact-copyright",
+        end: isMobile ? "top 90%" : "bottom bottom",
         scrub: true,
         markers: false,
       },
     });
   }
-
   // ============================================================
   // hero.js — Gestion de la grille héro et des expansions
   // ============================================================
@@ -233,140 +233,68 @@ document.addEventListener("DOMContentLoaded", () => {
       heroGrid.classList.contains(`open-${rowType}`),
     );
 
-    // ==========================================================================
-    // lignes de la grille
-    // ==========================================================================
-
-    function getCssRows() {
-      return getComputedStyle(heroGrid).gridTemplateRows;
-    }
-
-    function getRowsArray() {
-      return getCssRows().split(" ");
-    }
-
-    function getRowsWithOpenExpand(rowIndex, expandHeight) {
-      const rows = getRowsArray();
-      rows[rowIndex] = `${expandHeight}px`;
-      return rows.join(" ");
-    }
-
-    function getExpandRowIndex(rowType) {
-      const rows = {
-        r2: window.matchMedia("(max-width: 768px)").matches ? 13 : 2,
-        r3: window.matchMedia("(max-width: 768px)").matches ? 4 : 4,
-        r4: window.matchMedia("(max-width: 768px)").matches ? 16 : 6,
-      };
-
-      return rows[rowType];
-    }
-
-    // ==========================================================================
-    // ouverture / fermeture des expands
-    // ==========================================================================
-
-    function closeAll() {
+    if (openedRow) {
+      requestAnimationFrame(() => {
+        openRow(openedRow);
+      });
+    } else {
       heroGrid.style.removeProperty("grid-template-rows");
-      heroGrid.classList.remove("open-r2", "open-r3", "open-r4");
-
-      clickableCells.forEach((cell) => {
-        cell.classList.remove("active");
-      });
-
-      heroGrid.querySelectorAll(".hero-grid-expand").forEach((expand) => {
-        expand.classList.remove("is-expanded");
-      });
     }
 
-    function openRow(rowType) {
-      const expand = heroGrid.querySelector(`.hero-grid-expand-${rowType}`);
-      const rowIndex = getExpandRowIndex(rowType);
+    ScrollTrigger.refresh();
+  });
 
-      if (!expand || rowIndex === undefined) return;
+  // ==========================================================================
+  // sessions & encadrants explosion: fiouuuu !
+  // ==========================================================================
 
-      heroGrid.style.removeProperty("grid-template-rows");
+  window.addEventListener("load", () => {
+    const containers = gsap.utils.toArray(".team-container");
 
-      const expandHeight = expand.scrollHeight;
-      const rowHeights = getRowsWithOpenExpand(rowIndex, expandHeight);
-
-      heroGrid.classList.add(`open-${rowType}`);
-      heroGrid.style.gridTemplateRows = rowHeights;
-    }
-
-    clickableCells.forEach((cell) => {
-      cell.addEventListener("click", (event) => {
-        event.preventDefault();
-
-        const rowType = cell.getAttribute("data-row");
-
-        if (!rowType) return;
-
-        const isAlreadyOpen = heroGrid.classList.contains(`open-${rowType}`);
-
-        closeAll();
-
-        if (!isAlreadyOpen) {
-          cell.classList.add("active");
-
-          requestAnimationFrame(() => {
-            openRow(rowType);
-          });
-        }
-      });
-    });
-
-    // ==========================================================================
-    // voir plus / voir moins
-    // ==========================================================================
-
-    heroGrid.querySelectorAll(".hero-grid-expand").forEach((expand) => {
-      const suite = expand.querySelector(".hero-grid-expand-text-suite");
-      const voirPlus = expand.querySelector(".hero-grid-voir-plus");
-      const voirMoins = expand.querySelector(".hero-grid-voir-moins");
-
-      if (!suite || !voirPlus || !voirMoins) return;
-
-      const rowType = [...expand.classList]
-        .find((className) => /^hero-grid-expand-r\d$/.test(className))
-        ?.replace("hero-grid-expand-", "");
-
-      const refreshHeightIfOpen = () => {
-        if (rowType && heroGrid.classList.contains(`open-${rowType}`)) {
-          requestAnimationFrame(() => {
-            openRow(rowType);
-          });
-        }
-      };
-
-      voirPlus.addEventListener("click", () => {
-        expand.classList.add("is-expanded");
-        refreshHeightIfOpen();
-      });
-
-      voirMoins.addEventListener("click", () => {
-        expand.classList.remove("is-expanded");
-        refreshHeightIfOpen();
-      });
-    });
-
-    // ==========================================================================
-    // recalcul au resize
-    // ==========================================================================
-
-    window.addEventListener("resize", () => {
-      const openedRow = ["r2", "r3", "r4"].find((rowType) =>
-        heroGrid.classList.contains(`open-${rowType}`),
+    containers.forEach((container) => {
+      const teamBox = container.querySelector(".team-box");
+      const cards = gsap.utils.toArray(
+        container.querySelectorAll(".team-card-member"),
       );
 
-      if (openedRow) {
-        requestAnimationFrame(() => {
-          openRow(openedRow);
-        });
-      } else {
-        heroGrid.style.removeProperty("grid-template-rows");
-      }
+      if (!teamBox || !cards.length) return;
 
-      ScrollTrigger.refresh();
+      const boxRect = teamBox.getBoundingClientRect();
+      const boxCenterX = boxRect.left + boxRect.width / 2;
+      const boxCenterY = boxRect.top + boxRect.height / 2;
+
+      cards.forEach((card) => {
+        const cardRect = card.getBoundingClientRect();
+        const cardCenterX = cardRect.left + cardRect.width / 2;
+        const cardCenterY = cardRect.top + cardRect.height / 2;
+
+        const offsetX = boxCenterX - cardCenterX;
+        const offsetY = boxCenterY - cardCenterY;
+
+        const scaleStart = Math.min(
+          boxRect.width / cardRect.width,
+          boxRect.height / cardRect.height,
+        );
+
+        gsap.fromTo(
+          card,
+          { x: offsetX, y: offsetY, scale: scaleStart, zIndex: 0 },
+          {
+            x: 0,
+            y: 0,
+            scale: 1,
+            zIndex: 1,
+            duration: 1,
+            scrollTrigger: {
+              trigger: container,
+              start: "top 80%",
+              end: "bottom 60%",
+              markers: false,
+              toggleActions: "play reverse restart reverse",
+            },
+          },
+        );
+      });
     });
   });
 
@@ -380,9 +308,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ============================================================
+  // ==========================================================================
   // projet-page : thumbnail parallax + scale
-  // ============================================================
+  // ==========================================================================
 
   const thumbnailImage = document.querySelector(".projet-page-thumbnail img");
 
@@ -408,3 +336,32 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 });
+
+// ==========================================================================
+// loader page : loader active
+// ==========================================================================
+
+const isFirstVisit = !localStorage.getItem("visited");
+
+const hideLoader = (selector, delay) => {
+  setTimeout(() => {
+    const loader = document.querySelector(selector);
+    loader.style.transition = "opacity 0.5s ease-out";
+    loader.style.opacity = "0";
+    setTimeout(() => {
+      loader.style.display = "none";
+      document.body.classList.remove("loading");
+    }, 1000);
+  }, delay);
+};
+
+document.body.classList.add("loading");
+
+if (isFirstVisit) {
+  localStorage.setItem("visited", "true");
+  document.querySelector(".loader-dough").style.display = "none";
+  hideLoader(".loader-tetris", 3000);
+} else {
+  document.querySelector(".loader-tetris").style.display = "none";
+  hideLoader(".loader-dough", 1500);
+}

@@ -97,11 +97,13 @@ permalink: "/"
 // section teams : position
 // ============================================================ -->
 <section class="teams" id="sessions">
+  <div class="split text container">
+<h2 class="split-text">Sessions</h2>
+  </div>
   <section>
-    <div class="teams-sessions">
       <div class="team-container row">
         <div class="team-box">
-          <h2>Printemps</h2>
+          <h3>Automne</h3>
           <div>
             <p>du 31 août au</p>
             <p>18 décembre 2025</p>
@@ -115,7 +117,54 @@ permalink: "/"
           {% endfor %}
         </div>
       </div>
-    </div>
+      <div class="team-container row">
+        <div class="team-box">
+          <h3>Hiver</h3>
+          <div>
+            <p>du 05 janvier au</p>
+            <p>03 avril 2026</p>
+          </div>
+        </div>
+        <div class="team-members">
+          {% for cardMember in interns.janvier_avril %}
+            <div class="team-cards-member" data-member-pos="{{ loop.index }}">
+              {% include "team-card-member.njk" %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="team-container row">
+        <div class="team-box">
+          <h3>Printemps</h3>
+          <div>
+            <p>du 20 avril au</p>
+            <p>01 juillet 2026</p>
+          </div>
+        </div>
+        <div class="team-members">
+          {% for cardMember in interns.avril_juillet %}
+            <div class="team-cards-member" data-member-pos="{{ loop.index }}">
+              {% include "team-card-member.njk" %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="team-container row">
+        <div class="team-box">
+          <h2>Encadrant·e·s</h2>
+          <div>
+            <p>Toujours présent·e·s</p>
+            <p>pour leurs apprenti·e·s</p>
+          </div>
+        </div>
+        <div class="team-members">
+          {% for cardMember in encadrants.encadrants %}
+            <div class="team-cards-member" data-member-pos="{{ loop.index }}">
+              {% include "team-card-member.njk" %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
   </section>
 </section>
 <!-- // ============================================================
