@@ -1,8 +1,12 @@
+"use strict";
+
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { Draggable } from "gsap/Draggable";
+import { SplitText } from "gsap/SplitText";
 
-gsap.registerPlugin(ScrollTrigger, Draggable);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, Draggable, SplitText);
 
 document.addEventListener("DOMContentLoaded", () => {
   // ============================================================
@@ -353,11 +357,11 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.fromTo(
       thumbnailImage,
       {
-        scale: 1.5,
+        scale: 1.08,
         yPercent: 0,
       },
       {
-        scale: 1.1,
+        scale: 1,
         yPercent: 8,
         ease: "none",
         scrollTrigger: {
@@ -370,13 +374,102 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     );
   }
-});
 
+  // ============================================================
+  // animations
+  // ============================================================
+
+  console.clear();
+
+  gsap.set(".split-text", { opacity: 1 });
+
+  document.fonts.ready.then(() => {
+    let containers = gsap.utils.toArray(".split-text-container");
+
+    containers.forEach((container) => {
+      let text = container.querySelector(".split-text");
+      let animation;
+
+      SplitText.create(text, {
+        type: "words,lines",
+        mask: "lines",
+        linesClass: "line",
+        autoSplit: true,
+        onSplit: (instance) => {
+          console.log("split");
+          return gsap.from(instance.lines, {
+            yPercent: 120,
+            stagger: 0.1,
+            scrollTrigger: {
+              trigger: container,
+              // markers: true,
+              scrub: true,
+              start: "20px 70%",
+              end: "20px 50%",
+            },
+          });
+        },
+      });
+    });
+  });
+
+  ScrollTrigger.batch(".images", {
+    // interval: 0.1, // time window (in seconds) for batching to occur.
+    // batchMax: 3,   // maximum batch size (targets)
+    onEnter: (batch) =>
+      gsap.to(batch, {
+        autoAlpha: 1,
+        stagger: 0.2,
+        duration: 1,
+        ease: "expo.out",
+      }),
+    // also onLeave, onEnterBack, and onLeaveBack
+    // also most normal ScrollTrigger values like start, end, etc.
+  });
+
+  // ============================================================
+  // scrollsmoother & scroll to
+  // ============================================================
+
+  const smoother = ScrollSmoother.create({
+    wrapper: "#smooth-wrapper",
+    content: "#smooth-content",
+    smooth: 1.3, // inertie (= plus c’est haut, plus c’est doux)
+    smoothTouch: 0.1, // éviter l'effet trop glissant sur mobile
+    effects: true,
+  });
+
+  document.querySelectorAll(".hero-grid-cell-contact").forEach((cell) => {
+    cell.addEventListener("click", (event) => {
+      event.preventDefault();
+      smoother.scrollTo("#contact", true, "center center");
+    });
+  });
+
+  document.querySelectorAll(".hero-grid-cell-sessions").forEach((cell) => {
+    cell.addEventListener("click", (event) => {
+      event.preventDefault();
+      smoother.scrollTo("#sessions", true, "top top");
+    });
+  });
+
+  document.querySelectorAll(".hero-grid-cell-encadrants").forEach((cell) => {
+    cell.addEventListener("click", (event) => {
+      event.preventDefault();
+      smoother.scrollTo("#encadrantes", true, "top top");
+    });
+  });
+
+  document.querySelectorAll(".hero-grid-cell-partenaires").forEach((cell) => {
+    cell.addEventListener("click", (event) => {
+      event.preventDefault();
+      smoother.scrollTo("#partenaires", true, "top top");
+    });
+  });
+});
 // ==========================================================================
 // loader page : loader active
 // ==========================================================================
-
-const isFirstVisit = !localStorage.getItem("visited");
 
 const hideLoader = (selector, delay) => {
   setTimeout(() => {
@@ -392,11 +485,24 @@ const hideLoader = (selector, delay) => {
 
 document.body.classList.add("loading");
 
-if (isFirstVisit) {
-  localStorage.setItem("visited", "true");
-  document.querySelector(".loader-dough").style.display = "none";
-  hideLoader(".loader-tetris", 3000);
-} else {
+const isDough = sessionStorage.getItem("dough");
+sessionStorage.removeItem("dough");
+
+if (isDough) {
   document.querySelector(".loader-tetris").style.display = "none";
   hideLoader(".loader-dough", 1500);
+} else {
+  document.querySelector(".loader-dough").style.display = "none";
+  hideLoader(".loader-tetris", 3000);
 }
+
+// clic projet ou retour → dough
+document
+  .querySelectorAll(".project-gallery-project-card, .projet-page-retour")
+  .forEach((el) => {
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      sessionStorage.setItem("dough", "true");
+      window.location.href = el.getAttribute("href");
+    });
+  });

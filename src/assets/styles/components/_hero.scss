@@ -27,6 +27,7 @@
     span {
       opacity: 0;
       font-size: 0;
+      cursor: default;
     }
   }
 
@@ -188,7 +189,7 @@
       font-style: $font-style-title;
       line-height: $font-line-height-title;
       padding: 14px 18px;
-      pointer-events: auto;
+      cursor: default;
     }
 
     &-annee {
@@ -534,7 +535,7 @@
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1300px) {
   .hero-grid {
     &-cell-annee-rotate-desktop {
       display: none;
