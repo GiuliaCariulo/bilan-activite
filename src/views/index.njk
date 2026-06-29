@@ -14,47 +14,89 @@ permalink: "/"
      - sections      → sections.json    (variable = objet entier)
      - interns       → interns.json     (variable = objet entier)
    ============================================================ #}
-   
 {% include "hero.njk" %}
 
+<!-- // ============================================================
+// section portfolio : wrapper
+// ============================================================ -->
+<section>
+  <div class="split-text-container"><h2 class="split-text">portfolio</h2></div>
+  <div class="portfolio-wrapper row">
+    {% for item in config.portfolio %}
+      <div
+        class="portfolio-card-pos portfolio-card-img"
+        data-portfolio-pos="{{ loop.index }}"
+        data-portfolio-popup="portfolio{{ loop.index }}"
+      >
+        {% include "portfolio-card.njk" %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
+<!-- // ============================================================
+// section portfolio : pop up
+// ============================================================ -->
+<div class="porfolio-content-modal portfolio-hidden-modal">
+  <div class="porfolio-content-modal-wrapper">
+    <article class="portfolio-popup hidden-modal">
+      {% for item in config.portfolio %}
+        <div
+          class="portfolio-body-modal portfolio-selector-hidden"
+          id="portfolio{{ loop.index }}"
+        >
+          <img src="{{ item.media.image | url }}" alt="marche" />
+          <p class="porfolio-card-legend">{{ item.media.legend }}</p>
+        </div>
+      {% endfor %}
+    </article>
+    <div class="porfolio-modal-header">
+      <button class="portfolio-close-modal">fermer</button>
+    </div>
+  </div>
+</div>
 <!-- // ============================================================
 // section projets : galerie
 // ============================================================ -->
 <section>
-{% if projets and projets.length %}
-  <section class="project-gallery row">
-    <h2 class="project-gallery-title">projets</h2>
-    {% for projet in projets %}
-      <a
-        id="projet-{{ projet.id }}"
-        href="{{ ('/projets/' + projet.id + '/') | url }}"
-        class="project-gallery-project-card"
-        data-pos="{{ loop.index }}"
-      >
-        <article class="project">
-          {# Image de couverture #}
-          {% if projet.thumbnail %}
-            <img src="{{ projet.thumbnail | url }}" alt="{{ projet.title }}" />
-          {% endif %}
-          <div class="project-gallery-label">
-            {# Titre #}
-            <h3>{{ projet.title }}</h3>
-
-            {# Tags (tableau de strings) #}
-            {% if projet.tags and projet.tags.length %}
-              <ul class="tags">
-                {% for tag in projet.tags.slice(0, 3) %}
-                  <li>{{ tag }}</li>
-                {% endfor %}
-              </ul>
+  {% if projets and projets.length %}
+    <section class="project-gallery row">
+      <div class="split-text-container">
+        <h2 class="project-gallery-title split-text">projets</h2>
+      </div>
+      {% for projet in projets %}
+        <a
+          id="projet-{{ projet.id }}"
+          href="{{ ('/projets/' + projet.id + '/') | url }}"
+          class="project-gallery-project-card"
+          data-pos="{{ loop.index }}"
+        >
+          <article class="project">
+            {# Image de couverture #}
+            {% if projet.thumbnail %}
+              <img
+                src="{{ projet.thumbnail | url }}"
+                alt="{{ projet.title }}"
+              />
             {% endif %}
-          </div>
-        </article>
-      </a>
-    {% endfor %}
-  </section>
+            <div class="project-gallery-label">
+              {# Titre #}
+              <h3>{{ projet.title }}</h3>
+
+              {# Tags (tableau de strings) #}
+              {% if projet.tags and projet.tags.length %}
+                <ul class="tags">
+                  {% for tag in projet.tags.slice(0, 3) %}
+                    <li>{{ tag }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </div>
+          </article>
+        </a>
+      {% endfor %}
+    </section>
+  {% endif %}
 </section>
-{% endif %}
 <!-- // ============================================================
 // section portfolio : wrapper
 // ============================================================ -->
@@ -98,115 +140,124 @@ permalink: "/"
 // ============================================================ -->
 <section class="teams" id="sessions">
   <div class="split text container">
-<h2 class="split-text">Sessions</h2>
+    <h2 class="split-text">Sessions</h2>
   </div>
   <section>
-      <div class="team-container row">
-        <div class="team-box">
-          <h3>Automne</h3>
-          <div>
-            <p>du 31 août au</p>
-            <p>18 décembre 2025</p>
-          </div>
-        </div>
-        <div class="team-members">
-          {% for cardMember in interns.aout_decembre %}
-            <div class="team-cards-member" data-member-pos="{{ loop.index }}">
-              {% include "team-card-member.njk" %}
-            </div>
-          {% endfor %}
+    <div class="team-container row">
+      <div class="team-box">
+        <h3>Automne</h3>
+        <div>
+          <p>du 31 août au</p>
+          <p>18 décembre 2025</p>
         </div>
       </div>
-      <div class="team-container row">
-        <div class="team-box">
-          <h3>Hiver</h3>
-          <div>
-            <p>du 05 janvier au</p>
-            <p>03 avril 2026</p>
+      <div class="team-members">
+        {% for cardMember in interns.aout_decembre %}
+          <div class="team-cards-member" data-member-pos="{{ loop.index }}">
+            {% include "team-card-member.njk" %}
           </div>
-        </div>
-        <div class="team-members">
-          {% for cardMember in interns.janvier_avril %}
-            <div class="team-cards-member" data-member-pos="{{ loop.index }}">
-              {% include "team-card-member.njk" %}
-            </div>
-          {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+    <div class="team-container row">
+      <div class="team-box">
+        <h3>Hiver</h3>
+        <div>
+          <p>du 05 janvier au</p>
+          <p>03 avril 2026</p>
         </div>
       </div>
-      <div class="team-container row">
-        <div class="team-box">
-          <h3>Printemps</h3>
-          <div>
-            <p>du 20 avril au</p>
-            <p>01 juillet 2026</p>
+      <div class="team-members">
+        {% for cardMember in interns.janvier_avril %}
+          <div class="team-cards-member" data-member-pos="{{ loop.index }}">
+            {% include "team-card-member.njk" %}
           </div>
-        </div>
-        <div class="team-members">
-          {% for cardMember in interns.avril_juillet %}
-            <div class="team-cards-member" data-member-pos="{{ loop.index }}">
-              {% include "team-card-member.njk" %}
-            </div>
-          {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+    <div class="team-container row">
+      <div class="team-box">
+        <h3>Printemps</h3>
+        <div>
+          <p>du 20 avril au</p>
+          <p>01 juillet 2026</p>
         </div>
       </div>
-      <div class="team-container row">
-        <div class="team-box">
-          <h2>Encadrant·e·s</h2>
-          <div>
-            <p>Toujours présent·e·s</p>
-            <p>pour leurs apprenti·e·s</p>
+      <div class="team-members">
+        {% for cardMember in interns.avril_juillet %}
+          <div class="team-cards-member" data-member-pos="{{ loop.index }}">
+            {% include "team-card-member.njk" %}
           </div>
-        </div>
-        <div class="team-members">
-          {% for cardMember in encadrants.encadrants %}
-            <div class="team-cards-member biography-popup biography-open-modal" data-member-pos="{{ loop.index }}">
-              {% include "team-card-member.njk" %}
-            </div>
-          {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+    <div class="team-container row">
+      <div class="team-box">
+        <h2>Encadrant·e·s</h2>
+        <div>
+          <p>Toujours présent·e·s</p>
+          <p>pour leurs apprenti·e·s</p>
         </div>
       </div>
+      <div class="team-members">
+        {% for cardMember in encadrants.encadrants %}
+          <div
+            class="team-cards-member biography-popup biography-open-modal"
+            data-member-pos="{{ loop.index }}"
+          >
+            {% include "team-card-member.njk" %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
   </section>
 </section>
+
 <!-- // ============================================================
 // section biography : pop up
 // ============================================================ -->
 {% for encadrant in encadrants.encadrants %}
-<div class="biography-content-modal biography-hidden-modal" data-index="{{ loop.index0 }}">
-  <article class="biography-card">
-    {% if encadrant.image %}
-      <figure>
-        <img src="{{ encadrant.image | url }}" alt="{{ encadrant.title }}" />
-      </figure>
-    {% endif %}
-    <div class="biography-info">
-      {% if encadrant.title %}
-        <h3 class="biography-title">{{ encadrant.title }}</h3>
+  <div
+    class="biography-content-modal biography-hidden-modal"
+    data-index="{{ loop.index0 }}"
+  >
+    <article class="biography-card">
+      {% if encadrant.image %}
+        <figure>
+          <img src="{{ encadrant.image | url }}" alt="{{ encadrant.title }}" />
+        </figure>
       {% endif %}
-      {% if encadrant.statut %}
-        <p class="biography-statut">{{ encadrant.statut }}</p>
-      {% endif %}
-      {% if encadrant.activity %}
-        <p class="biography-activity">{{ encadrant.activity }}</p>
-      {% endif %}
-      {% if encadrant.bio %}
-        <p class="biography-bio">{{ encadrant.bio }}</p>
-      {% endif %}
-    </div>
-    <div class="biography-modal-header">
-      <button class="biography-close-modal">fermer</button>
-    </div>
-  </article>
-</div>
+      <div class="biography-info">
+        {% if encadrant.title %}
+          <h3 class="biography-title">{{ encadrant.title }}</h3>
+        {% endif %}
+        {% if encadrant.statut %}
+          <p class="biography-statut">{{ encadrant.statut }}</p>
+        {% endif %}
+        {% if encadrant.activity %}
+          <p class="biography-activity">{{ encadrant.activity }}</p>
+        {% endif %}
+        {% if encadrant.bio %}
+          <p class="biography-bio">{{ encadrant.bio }}</p>
+        {% endif %}
+      </div>
+      <div class="biography-modal-header">
+        <button class="biography-close-modal">fermer</button>
+      </div>
+    </article>
+  </div>
 {% endfor %}
 <!-- // ============================================================
 // section partenaires : wrapper
 // ============================================================ -->
-  <section id="partenaires">
-    <h2>Partenaires</h2>
-    <div class="partners-wrapper">
-      {% for item in config.partners %}
-        <div>{% include "partner-card.njk" %}</div>
-      {% endfor %}
-    </div>
-  </section>
+
+<section id="partenaires">
+  <div class="split-text-container">
+    <h2 class="split-text">Partenaires</h2>
+  </div>
+  <div class="partners-wrapper">
+    {% for item in config.partners %}
+      <div>{% include "partner-card.njk" %}</div>
+    {% endfor %}
+  </div>
 </section>
