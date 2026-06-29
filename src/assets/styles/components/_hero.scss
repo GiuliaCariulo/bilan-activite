@@ -67,8 +67,10 @@
     min-height: 0;
     min-width: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: $space-xs;
     text-align: center;
     font-family: $font;
     font-size: clamp(32px, 2.2vw, 36px);
@@ -77,6 +79,13 @@
     line-height: $font-line-height-title;
     color: $color-primary;
     text-decoration: none;
+
+    hr {
+      height: 0.5px;
+      width: 100px;
+      color: $color-primary;
+      background-color: $color-primary;
+    }
 
     h2 {
       cursor: pointer;
@@ -157,7 +166,7 @@
 
     &-contact,
     &-mot,
-    &-sessions,
+    &-portfolio,
     &-edito,
     &-priorites,
     &-encadrants,
@@ -197,17 +206,19 @@
 
     &-annee {
       cursor: grab;
-      touch-action: none;
-      user-select: none;
       transform-origin: center center;
 
       &-rotate-mobile {
         display: none;
       }
+      h2 {
+        font-size: clamp(50px, 3.2vw, 54px);
+        cursor: grab;
+      }
     }
 
     // ==========================================================================
-    // Sous-éléments priorités (générés en JS)
+    // Sous-éléments
     // ==========================================================================
 
     &-priorites {
@@ -225,6 +236,24 @@
         line-height: $font-line-height-text;
         color: $color-primary;
         text-align: right;
+      }
+    }
+    &-sessions {
+      height: 100%;
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        height: 100%;
+        width: 100%;
+        &:hover {
+          color: $color-accent;
+          font-weight: 900;
+          text-decoration: none;
+          cursor: pointer;
+          background-color: $color-secondary;
+        }
       }
     }
   }
