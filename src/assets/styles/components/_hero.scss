@@ -23,13 +23,6 @@
     "encadrants encadrants encadrants img15 img15 partenaires partenaires img16";
   gap: 0;
   transition: grid-template-rows 0.6s cubic-bezier(0.77, 0, 0.175, 1);
-  h1 {
-    span {
-      opacity: 0;
-      font-size: 0;
-      cursor: default;
-    }
-  }
 
   // ==========================================================================
   // États d'ouverture des expands
@@ -153,6 +146,7 @@
       }
       &:hover {
         filter: contrast(1.2);
+        background-color: $color-primary;
         img {
           filter: grayscale(0);
           transform: scale(1.1);
@@ -202,6 +196,23 @@
       line-height: $font-line-height-title;
       padding: 14px 18px;
       cursor: default;
+    }
+
+    &-eikonlab {
+      display: flex;
+      gap: 0px;
+      span {
+        opacity: 0;
+        font-size: 0;
+        cursor: default;
+      }
+      p {
+        text-align: left;
+        line-height: 1.2;
+        font-size: 0.6rem;
+        width: 185px;
+        margin-left: 55px;
+      }
     }
 
     &-annee {
