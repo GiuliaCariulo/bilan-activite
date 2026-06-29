@@ -29,10 +29,10 @@
     scroll-margin-top: 15vh;
 
     &[data-pos="1"] {
-      grid-row: 3 / span 4;
+      grid-row: 2 / span 4;
     }
     &[data-pos="2"] {
-      grid-row: 4 / span 4;
+      grid-row: 3 / span 4;
     }
     :hover .project-gallery-label {
       background-color: $color-accent;
@@ -89,12 +89,12 @@
       object-fit: cover;
       position: relative;
       grid-column: span 4;
+      transition: transform 0.2s ease-in-out;
     }
   }
-  // a:hover {
-  //   color: $color-accent;
-  //   font-weight: $font-weight-text;
-  // }
+  :hover img {
+    transform: scale(1.05);
+  }
 }
 
 @media (max-width: 768px) {
