@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const lines = gsap.utils.toArray(".footer-track h4");
 
   if (lines.length) {
-    const spacing = 70;
+    const spacing = 80;
     const isMobile = window.innerWidth < 768;
 
     gsap.to(lines.slice(1), {
@@ -94,11 +94,11 @@ document.addEventListener("DOMContentLoaded", () => {
       ease: "none",
       scrollTrigger: {
         trigger: isMobile ? ".footer-title" : ".footer-contact",
-        start: isMobile ? "top 90%" : "top bottom",
+        start: isMobile ? "top 90%" : "-20% bottom",
         endTrigger: isMobile ? ".footer-contact" : ".footer-contact-copyright",
-        end: isMobile ? "top 90%" : "bottom bottom",
+        end: isMobile ? "top 90%" : "72% bottom",
         scrub: true,
-        markers: false,
+        markers: true,
       },
     });
   }
@@ -431,41 +431,41 @@ document.addEventListener("DOMContentLoaded", () => {
   // scrollsmoother & scroll to
   // ============================================================
 
-  const smoother = ScrollSmoother.create({
-    wrapper: "#smooth-wrapper",
-    content: "#smooth-content",
-    smooth: 1.3, // inertie (= plus c’est haut, plus c’est doux)
-    smoothTouch: 0.1, // éviter l'effet trop glissant sur mobile
-    effects: true,
-  });
+  //   const smoother = ScrollSmoother.create({
+  //     wrapper: "#smooth-wrapper",
+  //     content: "#smooth-content",
+  //     smooth: 1.3, // inertie (= plus c’est haut, plus c’est doux)
+  //     smoothTouch: 0.1, // éviter l'effet trop glissant sur mobile
+  //     effects: true,
+  //   });
 
-  document.querySelectorAll(".hero-grid-cell-contact").forEach((cell) => {
-    cell.addEventListener("click", (event) => {
-      event.preventDefault();
-      smoother.scrollTo("#contact", true, "center center");
-    });
-  });
+  //   document.querySelectorAll(".hero-grid-cell-contact").forEach((cell) => {
+  //     cell.addEventListener("click", (event) => {
+  //       event.preventDefault();
+  //       smoother.scrollTo("#contact", true, "center center");
+  //     });
+  //   });
 
-  document.querySelectorAll(".hero-grid-cell-sessions").forEach((cell) => {
-    cell.addEventListener("click", (event) => {
-      event.preventDefault();
-      smoother.scrollTo("#sessions", true, "top top");
-    });
-  });
+  //   document.querySelectorAll(".hero-grid-cell-sessions").forEach((cell) => {
+  //     cell.addEventListener("click", (event) => {
+  //       event.preventDefault();
+  //       smoother.scrollTo("#sessions", true, "top top");
+  //     });
+  //   });
 
-  document.querySelectorAll(".hero-grid-cell-encadrants").forEach((cell) => {
-    cell.addEventListener("click", (event) => {
-      event.preventDefault();
-      smoother.scrollTo("#encadrantes", true, "top top");
-    });
-  });
+  //   document.querySelectorAll(".hero-grid-cell-encadrants").forEach((cell) => {
+  //     cell.addEventListener("click", (event) => {
+  //       event.preventDefault();
+  //       smoother.scrollTo("#encadrantes", true, "top top");
+  //     });
+  //   });
 
-  document.querySelectorAll(".hero-grid-cell-partenaires").forEach((cell) => {
-    cell.addEventListener("click", (event) => {
-      event.preventDefault();
-      smoother.scrollTo("#partenaires", true, "top top");
-    });
-  });
+  //   document.querySelectorAll(".hero-grid-cell-partenaires").forEach((cell) => {
+  //     cell.addEventListener("click", (event) => {
+  //       event.preventDefault();
+  //       smoother.scrollTo("#partenaires", true, "top top");
+  //     });
+  //   });
 });
 // ==========================================================================
 // loader page : loader active
@@ -496,13 +496,14 @@ if (isDough) {
   hideLoader(".loader-tetris", 3000);
 }
 
-// clic projet ou retour → dough
-document
-  .querySelectorAll(".project-gallery-project-card, .projet-page-retour")
-  .forEach((el) => {
-    el.addEventListener("click", (e) => {
-      e.preventDefault();
-      sessionStorage.setItem("dough", "true");
-      window.location.href = el.getAttribute("href");
+document.addEventListener("DOMContentLoaded", () => {
+  document
+    .querySelectorAll(".project-gallery-project-card, .projet-page-retour")
+    .forEach((el) => {
+      el.addEventListener("click", (e) => {
+        e.preventDefault();
+        sessionStorage.setItem("dough", "true");
+        window.location.href = el.getAttribute("href");
+      });
     });
-  });
+});

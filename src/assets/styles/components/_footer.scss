@@ -11,17 +11,12 @@ footer {
   flex-direction: column;
   flex: 1;
   width: 100%;
-  height: 787px;
+  height: 840px;
   overflow: hidden;
 }
 
 .footer-title {
   display: none;
-  // position: relative;
-  // z-index: 2;
-  // font-size: 8.5rem;
-  // top: -48px;
-  // left: -161px;
 }
 
 .footer-track {
@@ -50,14 +45,13 @@ footer {
   align-self: flex-start;
   margin-left: auto;
   margin-top: 197px;
-  height: 540px;
+  height: 664px;
 }
 
 .footer-contact-copyright {
   display: flex;
   flex-direction: column;
-  gap: 90px;
-  height: 100%;
+  gap: 70px;
 }
 
 .footer-contact-info {
