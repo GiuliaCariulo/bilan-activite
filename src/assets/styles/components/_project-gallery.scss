@@ -52,6 +52,10 @@
     grid-row: span 1;
     width: 100%;
     transition: background-color 0.2s ease-in-out;
+
+    h3 {
+      text-align: left;
+    }
   }
   article {
     overflow: hidden;

@@ -320,7 +320,7 @@
       width: 100%;
       grid-column: 1 / 3;
       font-size: clamp(18px, 2vw, 28px);
-      font-weight: $font-weight-title;
+      font-weight: $font-weight-legend;
       line-height: 1.15;
       justify-content: end;
       align-items: start;
@@ -476,12 +476,6 @@
         background-color: $color-accent;
       }
 
-      &-mot,
-      &-priorites,
-      &-edito {
-        text-decoration: underline;
-      }
-
       @for $i from 1 through 26 {
         &[data-pos="#{$i}"] {
           grid-area: string.unquote(
@@ -572,18 +566,20 @@
         grid-column: 5 / -1;
         grid-row: 1 / 2;
         text-align: right;
+        padding-bottom: 10px;
       }
 
       &-priorite-wrapper {
         width: 100%;
         grid-column: 1 / -1;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(6, 1fr);
+        column-gap: 0;
+        row-gap: 20px;
       }
 
       &-priorite-titre {
         grid-column: 2 / -1;
         grid-row: span 1;
-        max-width: 30ch;
       }
 
       &-priorite-texte {
