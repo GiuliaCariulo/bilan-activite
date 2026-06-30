@@ -4,12 +4,16 @@
   "clients": [
     "Fribourg Films"
   ],
-  "thumbnail": "/public/images/Project_Fri-Film.webp",
+  "thumbnail": "/public/images/Project_Fri-Film_03.webp",
   "title": "Fribourg Films",
   "images": [
     {
       "fichier": "/public/images/Project_Fri-Film.webp",
       "legend": "Et la légende c'est une décoration ???"
+    },
+    {
+      "fichier": "/public/images/Project_Fri-Film_02.webp",
+      "legend": "Montage du Fribourg Film"
     }
   ],
   "tags": [
