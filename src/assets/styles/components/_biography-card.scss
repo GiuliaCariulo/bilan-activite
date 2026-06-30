@@ -13,14 +13,23 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   z-index: 100;
   overflow-y: auto;
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
   display: flex;
+  gap: $space-md;
   padding: $space-lg;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.biography-img {
+  object-fit: cover;
 }
 
 .biography-title {
@@ -32,12 +41,14 @@
 
 .biography-info {
   display: flex;
-  padding: 24px;
+  padding: $space-md;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-shrink: 0;
-  align-self: stretch;
+  color: $color-primary;
+  background-color: $color-secondary;
+  h3 {
+    padding: 0;
+    font-size: 3rem;
+  }
 }
 
 // ============================================================
@@ -48,20 +59,55 @@
   display: none;
 }
 
+.biography-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: end;
+  .biography-legend {
+    font-size: 0.5rem;
+    font-weight: $font-weight-legend;
+    font-style: $font-style-legend;
+    line-height: $font-line-height-legend;
+  }
+}
+
+.biography-middle-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: $space-xl;
+  height: 80%;
+}
+
+.biography-middle-top-content {
+  display: flex;
+  flex-direction: column;
+  gap: 100%;
+}
+
+.biography-card-element {
+  display: flex;
+}
+
 .biography-close-modal {
+  transition: all 0.3s ease;
+  flex: 2;
+  margin-left: auto;
+  text-decoration: underline;
   cursor: pointer;
 }
 
-figure.biography-content-modal,
-img.biography-card,
-.biography-info {
-  cursor: default;
+button.biography-close-modal:hover {
+  padding: 2px;
+  background-color: $color-accent;
+  transition: all 0.3s ease;
 }
 
 .biography-content-modal {
   font-weight: normal;
   color: $color-accent;
-  cursor: pointer;
+  cursor: default;
 }
 
 article.biography-popup {
@@ -74,5 +120,54 @@ article.biography-popup {
   margin-left: auto;
 }
 
+@media (max-width: 1200px) {
+  .biography-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    img {
+      width: 100%;
+      flex: 1;
+    }
+
+    h3 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+    }
+  }
+
+  .biography-modal-header {
+    order: -1;
+  }
+
+  .biography-group {
+    gap: 5px;
+  }
+
+  .biography-middle-content {
+    margin-top: 25px;
+    gap: 60px;
+    height: 100%;
+  }
+
+  .biography-middle-top-content {
+    gap: 15px;
+  }
+
+  .biography-card-element {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+}
+
 @media (max-width: 768px) {
+  p.biography-bio {
+    font-size: 0.9rem;
+  }
 }
