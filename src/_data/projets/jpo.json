@@ -1,18 +1,16 @@
 {
   "skills": "Scénographie, communication visuelle. Organisation événementielle. Gestion humaine. ",
   "mandate": "Évènementiel, communication, organisation, arts numériques.",
-  "clients": [
-    "eikon, Fribourg"
-  ],
-  "thumbnail": "/public/images/Project_JPO_scéno_04.webp",
+  "clients": ["eikon, Fribourg"],
+  "thumbnail": "/public/images/Project_JPO_sceno_04.webp",
   "title": "JPO",
   "images": [
     {
-      "fichier": "/public/images/Project_JPO_prépa_02.webp",
+      "fichier": "/public/images/Project_JPO_prepa_02.webp",
       "legend": "Préparation du plateau pour la table ronde organisée sur le thème de l’impact de l’IA sur la formation. A voir à cette adresse : https://youtu.be/lzudqzJSYZ8?si=e7vGv-39Tjozu1Se"
     },
     {
-      "fichier": "/public/images/Project_JPO_prépa_03.webp",
+      "fichier": "/public/images/Project_JPO_prepa_03.webp",
       "legend": "Collaboration entre l’enseignant Christophe Roulet et eikonlab pour une installation interactive développée pour les Journées Portes Ouvertes 2025 en collaboration avec le centre musical MIAM "
     },
     {
@@ -20,11 +18,7 @@
       "legend": "Annonce TPF animée pour les Journées Portes Ouvertes 2025"
     }
   ],
-  "tags": [
-    "Événementiel",
-    "Communication",
-    "Arts numériques"
-  ],
+  "tags": ["Événementiel", "Communication", "Arts numériques"],
   "links": [
     {
       "label": "eikon",
@@ -33,7 +27,5 @@
   ],
   "id": "jpo",
   "description": "Jusqu’à l’édition 2025, eikonlab a pris en charge la conception et l’organisation des Journées Portes Ouvertes. La scénographie s’est développée autour des productions des élèves, avec différents éléments de mobiliers et une signalétique conçus pour ces journées. L’objectif est d’offrir un parcours de découverte de l’école, qui se dévoile à travers une diversité de formats et de supports : installations, projections, travaux préparatoires, supports de communication, dispositifs interactifs, etc.",
-  "sessions": [
-    "Automne 2025"
-  ]
+  "sessions": ["Automne 2025"]
 }

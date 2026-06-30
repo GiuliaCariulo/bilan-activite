@@ -8,8 +8,20 @@
   "title": "AdO",
   "images": [
     {
+      "fichier": "/public/images/Project_AdO_02.webp",
+      "legend": "Brainstorming"
+    },
+    {
+      "fichier": "/public/images/Project_AdO_04.webp",
+      "legend": "Plusieurs essaye pour le post Instagram de AdO"
+    },
+    {
       "fichier": "/public/images/Project_AdO.webp",
       "legend": "Lancement du workshop pour l’association ADO avec la session “Printemps 2026”. Fribourg, avril 2026.  "
+    },
+    {
+      "fichier": "/public/images/Project_AdO_03.webp",
+      "legend": "Une version presque finaliser"
     }
   ],
   "tags": [

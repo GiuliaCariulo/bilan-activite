@@ -18,8 +18,10 @@ article {
     grid-template-columns: repeat(8, minmax(0, 1fr));
   }
 }
-#smooth-wrapper,
-body {
+
+section,
+article,
+footer {
   max-width: 1500px;
   margin: auto;
 }
