@@ -14,6 +14,8 @@ permalink: "/"
      - sections      → sections.json    (variable = objet entier)
      - interns       → interns.json     (variable = objet entier)
    ============================================================ #}
+<button id="myBtn" title="Go to top">top</button>
+
 {% include "hero.njk" %}
 
 <!-- // ============================================================
@@ -100,9 +102,9 @@ permalink: "/"
 <!-- // ============================================================
 // section teams : position
 // ============================================================ -->
-<section class="teams" id="sessions">
-  <div class="split text container">
-    <h2 class="split-text">Sessions</h2>
+<section class="teams">
+  <div class="split-text-container">
+    <h2 id="sessions" class="split-text">Sessions</h2>
   </div>
   <section>
     <div class="team-container row">
@@ -131,7 +133,10 @@ permalink: "/"
       </div>
       <div class="team-members">
         {% for cardMember in interns.janvier_avril %}
-          <div class="team-cards-member" data-member-pos="{{ loop.index }}">
+          <div
+            class="team-cards-member team-cards-border"
+            data-member-pos="{{ loop.index }}"
+          >
             {% include "team-card-member.njk" %}
           </div>
         {% endfor %}
@@ -153,9 +158,12 @@ permalink: "/"
         {% endfor %}
       </div>
     </div>
-    <div class="team-container row" id="encadrants">
+    <div class="split-text-container">
+      <h2 id="encadrants" class="split-text">Encadrant·e·s</h2>
+    </div>
+    <div class="team-container row">
       <div class="team-box">
-        <h2>Encadrant·e·s</h2>
+        <h3>Encadrant·e·s</h3>
         <div>
           <p>Toujours présent·e·s</p>
           <p>pour leurs apprenti·e·s</p>

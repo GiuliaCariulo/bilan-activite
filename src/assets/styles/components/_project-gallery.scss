@@ -2,7 +2,7 @@
 
 .project-gallery {
   overflow: hidden;
-  grid-auto-rows: calc(min(100vw) / 8);
+  grid-auto-rows: calc(min(100vw, 1500px) / 8);
 
   a:hover {
     padding: 0;
@@ -52,6 +52,10 @@
     grid-row: span 1;
     width: 100%;
     transition: background-color 0.2s ease-in-out;
+
+    h3 {
+      text-align: left;
+    }
   }
   article {
     overflow: hidden;
@@ -99,7 +103,7 @@
 
 @media (max-width: 768px) {
   .project-gallery {
-    grid-auto-rows: calc(100vw / 6);
+    grid-auto-rows: calc(min(100vw, 1500px) / 6);
 
     &-title {
       grid-column: 1 / -1;
