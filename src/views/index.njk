@@ -19,7 +19,7 @@ permalink: "/"
 <!-- // ============================================================
 // section projets : galerie
 // ============================================================ -->
-<section>
+<section class="projects" id="projets">
   {% if projets and projets.length %}
     <section class="project-gallery row">
       <div class="split-text-container">
@@ -62,7 +62,7 @@ permalink: "/"
 <!-- // ============================================================
 // section portfolio : wrapper
 // ============================================================ -->
-<section>
+<section id="portfolio">
   <h2>portfolio</h2>
   <div class="portfolio-wrapper row">
     {% for item in config.portfolio %}
@@ -180,7 +180,6 @@ permalink: "/"
     </div>
   </section>
 </section>
-
 <!-- // ============================================================
 // section biography : pop up
 // ============================================================ -->
@@ -190,24 +189,42 @@ permalink: "/"
     data-index="{{ loop.index0 }}"
   >
     <article class="biography-card">
-      {% if encadrant.image %}
-        <figure>
-          <img src="{{ encadrant.image | url }}" alt="{{ encadrant.title }}" />
-        </figure>
-      {% endif %}
-      <div class="biography-info">
-        {% if encadrant.title %}
-          <h3 class="biography-title">{{ encadrant.title }}</h3>
+      <div class="biography-card-element">
+        {% if encadrant.image %}
+          <figure>
+            <img
+              src="{{ encadrant.image | url }}"
+              alt="{{ encadrant.title }}"
+            />
+          </figure>
         {% endif %}
-        {% if encadrant.statut %}
-          <p class="biography-statut">{{ encadrant.statut }}</p>
-        {% endif %}
-        {% if encadrant.activity %}
-          <p class="biography-activity">{{ encadrant.activity }}</p>
-        {% endif %}
-        {% if encadrant.bio %}
-          <p class="biography-bio">{{ encadrant.bio }}</p>
-        {% endif %}
+        <div class="biography-info">
+          {% if encadrant.title %}
+            <h3 class="biography-title">{{ encadrant.title }}</h3>
+          {% endif %}
+          <div class="biography-middle-content">
+            <div class="biography-middle-top-content">
+              <div class="biography-group">
+                <p class="biography-legend">Status</p>
+                {% if encadrant.statut %}
+                  <p class="biography-statut">{{ encadrant.statut }}</p>
+                {% endif %}
+              </div>
+              <div class="biography-group">
+                <p class="biography-legend">Secteur d'activités</p>
+                {% if encadrant.activity %}
+                  <p class="biography-activity">{{ encadrant.activity }}</p>
+                {% endif %}
+              </div>
+            </div>
+            <div class="biography-group">
+              <p class="biography-legend">Biography</p>
+              {% if encadrant.bio %}
+                <p class="biography-bio">{{ encadrant.bio }}</p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
       </div>
       <div class="biography-modal-header">
         <button class="biography-close-modal">fermer</button>

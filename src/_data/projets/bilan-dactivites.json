@@ -4,20 +4,34 @@
   "clients": [
     "eikonlab, Fribourg"
   ],
-  "thumbnail": "/public/images/Portfolio_012.webp",
+  "thumbnail": "/public/images/Project_Bilan_01.webp",
   "title": "Bilan d’activités",
   "images": [
     {
-      "fichier": "/public/images/Hero-image-thumbnail.webp",
-      "legend": "on na tj pas dimage >:("
+      "fichier": "/public/images/Project_Bilan_04.webp",
+      "legend": "Première recherche du wireframe"
+    },
+    {
+      "fichier": "/public/images/Project_Bilan_03.webp",
+      "legend": "Reunion intermédiaire, réorientation artistique"
+    },
+    {
+      "fichier": "/public/images/Project_Bilan_02.webp",
+      "legend": "Nouvelle maquette"
+    },
+    {
+      "fichier": "/public/images/Project_Bilan_05.webp",
+      "legend": "Test traitement d'images"
+    },
+    {
+      "fichier": "/public/images/Project_Bilan_06.webp",
+      "legend": "Trois cerveaux, des milliers de lignes de code, zéro pause"
     }
   ],
   "tags": [
-    "mise en page",
-    "hiérarchisation",
-    "design éditorial",
-    "communication visuelle",
-    "bilan"
+    "Communication digitale",
+    "Éditorial",
+    "UI design"
   ],
   "links": [],
   "id": "bilan-dactivites",

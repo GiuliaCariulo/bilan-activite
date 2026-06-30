@@ -22,6 +22,9 @@ section {
     font-size: 3rem;
   }
 }
+section.projects {
+  margin-top: 300px;
+}
 
 h1,
 h2,
@@ -71,6 +74,10 @@ a:hover {
   padding: 2px;
   background-color: $color-accent;
   transition: all 0.3s ease;
+}
+
+::selection {
+  background-color: $color-accent;
 }
 
 @media (max-width: 768px) {

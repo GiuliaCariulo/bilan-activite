@@ -94,9 +94,9 @@ document.addEventListener("DOMContentLoaded", () => {
       ease: "none",
       scrollTrigger: {
         trigger: isMobile ? ".footer-title" : ".footer-contact",
-        start: isMobile ? "top 90%" : "top bottom",
+        start: isMobile ? "top 90%" : "-20% bottom",
         endTrigger: isMobile ? ".footer-contact" : ".footer-contact-copyright",
-        end: isMobile ? "top 90%" : "bottom bottom",
+        end: isMobile ? "top 100%" : "55% bottom",
         scrub: true,
         markers: false,
       },
@@ -337,6 +337,33 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ==========================================================================
+  // projet-gallery : parallax — les cartes montent depuis le bas
+  // ==========================================================================
+
+  window.addEventListener("load", () => {
+    const cards = gsap.utils.toArray(".project-gallery-project-card");
+
+    cards.forEach((card) => {
+      gsap.fromTo(
+        card,
+        { yPercent: 30 },
+        {
+          yPercent: 0,
+          ease: "power.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top bottom",
+            end: "top 70%",
+            scrub: 1.2,
+            toggleActions: "play reverse",
+            markers: false,
+          },
+        },
+      );
+    });
+  });
+
+  // ==========================================================================
   // easter egg 25/26 hihi
   // ==========================================================================
 
@@ -425,46 +452,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // also onLeave, onEnterBack, and onLeaveBack
     // also most normal ScrollTrigger values like start, end, etc.
   });
-
-  // ============================================================
-  // scrollsmoother & scroll to
-  // ============================================================
-
-  const smoother = ScrollSmoother.create({
-    wrapper: "#smooth-wrapper",
-    content: "#smooth-content",
-    smooth: 1.3, // inertie (= plus c’est haut, plus c’est doux)
-    smoothTouch: 0.1, // éviter l'effet trop glissant sur mobile
-    effects: true,
-  });
-
-  document.querySelectorAll(".hero-grid-cell-contact").forEach((cell) => {
-    cell.addEventListener("click", (event) => {
-      event.preventDefault();
-      smoother.scrollTo("#contact", true, "center center");
-    });
-  });
-
-  document.querySelectorAll(".hero-grid-cell-sessions").forEach((cell) => {
-    cell.addEventListener("click", (event) => {
-      event.preventDefault();
-      smoother.scrollTo("#sessions", true, "top top");
-    });
-  });
-
-  document.querySelectorAll(".hero-grid-cell-encadrants").forEach((cell) => {
-    cell.addEventListener("click", (event) => {
-      event.preventDefault();
-      smoother.scrollTo("#encadrantes", true, "top top");
-    });
-  });
-
-  document.querySelectorAll(".hero-grid-cell-partenaires").forEach((cell) => {
-    cell.addEventListener("click", (event) => {
-      event.preventDefault();
-      smoother.scrollTo("#partenaires", true, "top top");
-    });
-  });
 });
 // ==========================================================================
 // loader page : loader active
@@ -476,7 +463,8 @@ const hideLoader = (selector, delay) => {
     loader.style.transition = "opacity 0.5s ease-out";
     loader.style.opacity = "0";
     setTimeout(() => {
-      loader.style.display = "none";
+      loader.classList.remove("active");
+      loader.style.opacity = "";
       document.body.classList.remove("loading");
     }, 1000);
   }, delay);
@@ -488,20 +476,21 @@ const isDough = sessionStorage.getItem("dough");
 sessionStorage.removeItem("dough");
 
 if (isDough) {
-  document.querySelector(".loader-tetris").style.display = "none";
+  document.querySelector(".loader-dough").classList.add("active");
   hideLoader(".loader-dough", 1500);
 } else {
-  document.querySelector(".loader-dough").style.display = "none";
+  document.querySelector(".loader-tetris").classList.add("active");
   hideLoader(".loader-tetris", 3000);
 }
 
-// clic projet ou retour → dough
-document
-  .querySelectorAll(".project-gallery-project-card, .projet-page-retour")
-  .forEach((el) => {
-    el.addEventListener("click", (e) => {
-      e.preventDefault();
-      sessionStorage.setItem("dough", "true");
-      window.location.href = el.getAttribute("href");
+document.addEventListener("DOMContentLoaded", () => {
+  document
+    .querySelectorAll(".project-gallery-project-card, .projet-page-retour")
+    .forEach((el) => {
+      el.addEventListener("click", (e) => {
+        e.preventDefault();
+        sessionStorage.setItem("dough", "true");
+        window.location.href = el.getAttribute("href");
+      });
     });
-  });
+});

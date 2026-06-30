@@ -4,18 +4,22 @@
   "clients": [
     "eikonlab, Fribourg"
   ],
-  "thumbnail": "/public/images/Project_Interne_01.webp",
+  "thumbnail": "/public/images/Project_IG_eikonlab_02.webp",
   "title": "IG eikonlab",
   "images": [
     {
       "fichier": "/public/images/Project_Interne_01.webp",
       "legend": "Tournage d’une séquence au sein du bureau de eikonlab pour une série de sketchs réalisée par les stagiaires mettant en scène les élèves de la session “Hivers 2026”. Fribourg, avril 2026 "
+    },
+    {
+      "fichier": "/public/images/Project_IG_eikonlab_01.webp",
+      "legend": "Shooting préparatif pour présentation de la session « Automne 2026 »"
     }
   ],
   "tags": [
-    "réseaux sociaux",
-    "créatif",
-    "reportage"
+    "Réseaux sociaux",
+    "Créatif",
+    "Reportage"
   ],
   "links": [
     {
