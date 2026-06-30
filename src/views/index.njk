@@ -100,9 +100,9 @@ permalink: "/"
 <!-- // ============================================================
 // section teams : position
 // ============================================================ -->
-<section class="teams" id="sessions">
+<section class="teams">
   <div class="split-text-container">
-    <h2 class="split-text">Sessions</h2>
+    <h2 id="sessions" class="split-text">Sessions</h2>
   </div>
   <section>
     <div class="team-container row">
@@ -131,7 +131,10 @@ permalink: "/"
       </div>
       <div class="team-members">
         {% for cardMember in interns.janvier_avril %}
-          <div class="team-cards-member" data-member-pos="{{ loop.index }}">
+          <div
+            class="team-cards-member team-cards-border"
+            data-member-pos="{{ loop.index }}"
+          >
             {% include "team-card-member.njk" %}
           </div>
         {% endfor %}
@@ -153,7 +156,10 @@ permalink: "/"
         {% endfor %}
       </div>
     </div>
-    <div class="team-container row" id="encadrants">
+    <div class="split-text-container">
+      <h2 id="encadrants" class="split-text">Encadrant·e·s</h2>
+    </div>
+    <div class="team-container row">
       <div class="team-box">
         <h3>Encadrant·e·s</h3>
         <div>

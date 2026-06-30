@@ -326,9 +326,8 @@ document.addEventListener("DOMContentLoaded", () => {
             duration: 1,
             scrollTrigger: {
               trigger: container,
-              start: "top 80%",
+              start: "top 50%",
               end: "bottom 60%",
-              markers: false,
               toggleActions: "play reverse restart reverse",
             },
           },
