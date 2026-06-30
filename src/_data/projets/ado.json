@@ -4,7 +4,7 @@
   "clients": [
     "Association AdO (Prévention et réduction des risques en milieu festif)"
   ],
-  "thumbnail": "/public/images/Project_AdO.webp",
+  "thumbnail": "/public/images/Project_AdO_05.webp",
   "title": "AdO",
   "images": [
     {
@@ -22,6 +22,10 @@
     {
       "fichier": "/public/images/Project_AdO_03.webp",
       "legend": "Une version presque finaliser"
+    },
+    {
+      "fichier": "/public/images/Project_AdO_06.webp",
+      "legend": "Finalisation des post Instagram pour Ado"
     }
   ],
   "tags": [
