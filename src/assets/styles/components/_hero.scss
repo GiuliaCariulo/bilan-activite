@@ -532,6 +532,16 @@
           font-size: 1rem;
         }
       }
+
+      &-annee {
+        h2 {
+          font-size: clamp(30px, 1.2vw, 34px);
+        }
+      }
+    }
+
+    a {
+      background-color: inherit;
     }
 
     &-expand {

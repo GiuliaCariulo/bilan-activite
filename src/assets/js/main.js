@@ -350,13 +350,13 @@ document.addEventListener("DOMContentLoaded", () => {
         { yPercent: 30 },
         {
           yPercent: 0,
-          ease: "none",
+          ease: "power.out",
           scrollTrigger: {
             trigger: card,
             start: "top bottom",
-            end: "top 20%",
+            end: "top 70%",
             scrub: 1.2,
-            toggleActions: "play none none reverse",
+            toggleActions: "play reverse",
             markers: false,
           },
         },
