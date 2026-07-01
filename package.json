@@ -1,7 +1,7 @@
 {
   "name": "bilan-eleventy",
   "version": "1.0.0",
-  "description": "Starterkit bilan d'activité — Eleventy + SCSS",
+  "description": "Bilan d'activité eikonlab — 2025-26",
   "type": "module",
   "scripts": {
     "postinstall": "node scripts/postinstall.cjs",
@@ -9,7 +9,7 @@
     "dev:eleventy": "eleventy --serve",
     "dev:cms": "decap-server",
     "dev:sass": "sass src/assets/styles/main.scss:_site/assets/styles/main.css --watch --no-source-map",
-    "dev:js": "esbuild src/assets/js/main.js src/assets/js/projet.js --bundle --outdir=_site/assets/js --watch --format=esm",
+    "dev:js": "esbuild src/assets/js/main.js --bundle --outdir=_site/assets/js --watch --format=esm",
     "build": "rm -rf _site && NODE_ENV=production eleventy && sass src/assets/styles/main.scss _site/assets/styles/main.css --no-source-map --style=compressed && esbuild src/assets/js/main.js src/assets/js/projet.js --bundle --outdir=_site/assets/js --format=esm --minify"
   },
   "dependencies": {
