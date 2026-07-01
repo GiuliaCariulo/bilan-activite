@@ -15,9 +15,9 @@ export function initFooterMarquee() {
     ease: "none",
     scrollTrigger: {
       trigger: isMobile ? ".footer-title" : ".footer-contact",
-      start: isMobile ? "top 90%" : "-20% bottom",
+      start: isMobile ? "top 85%" : "-2% bottom",
       endTrigger: isMobile ? ".footer-contact" : ".footer-contact-copyright",
-      end: isMobile ? "top 100%" : "55% bottom",
+      end: isMobile ? "top 100%" : "85% bottom",
       scrub: true,
       markers: false,
     },
