@@ -28,6 +28,9 @@ document.addEventListener("DOMContentLoaded", () => {
       popup.classList.remove("portfolio-selector-hidden");
       modal.classList.remove("portfolio-hidden-modal");
       document.body.style.overflow = "hidden";
+
+      const myBtn = document.getElementById("myBtn");
+      if (myBtn) myBtn.style.display = "none";
     });
   });
 
@@ -41,6 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
         .forEach((contentModal) => {
           contentModal.classList.add("portfolio-selector-hidden");
         });
+
+      scrollFunction(); // ré-évalue si le bouton doit être visible
     });
   }
   // ============================================================
@@ -57,6 +62,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       modalBio.classList.remove("biography-hidden-modal");
       document.body.style.overflow = "hidden";
+
+      const myBtn = document.getElementById("myBtn");
+      if (myBtn) myBtn.style.display = "none";
     });
   });
 
@@ -67,6 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .closest(".biography-content-modal")
         .classList.add("biography-hidden-modal");
       document.body.style.overflow = "";
+      scrollFunction();
     });
   });
 
@@ -75,6 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (e.target === modal) {
         modal.classList.add("biography-hidden-modal");
         document.body.style.overflow = "";
+        scrollFunction();
       }
     });
   });
