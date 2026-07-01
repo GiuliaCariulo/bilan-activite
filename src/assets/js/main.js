@@ -453,6 +453,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // also most normal ScrollTrigger values like start, end, etc.
   });
 
+  // ==========================================================================
+  // button top
+  // ==========================================================================
+
   // Get the button:
   let mybutton = document.getElementById("myBtn");
 
