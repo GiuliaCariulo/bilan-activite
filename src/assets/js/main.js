@@ -6,6 +6,20 @@ import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { Draggable } from "gsap/Draggable";
 import { SplitText } from "gsap/SplitText";
 
+import { initLoader, initDoughNavigation } from "./modules/pageLoader.js";
+import { initPortfolioModal } from "./modules/portfolioModal.js";
+import { initBiographyModal } from "./modules/biographyModal.js";
+import { initFooterMarquee } from "./modules/footerMarquee.js";
+import { initHeroGrid } from "./modules/heroGrid.js";
+import { initEasterEggRotate } from "./modules/easterEggRotate.js";
+import { initProjetPageThumbnail } from "./modules/projetPageThumbnail.js";
+import { initSplitTextReveal } from "./modules/splitTextReveal.js";
+import { initImagesBatchReveal } from "./modules/imagesBatchReveal.js";
+import { initScrollTopButton } from "./modules/scrollTopButton.js";
+import { initTeamExplosion } from "./modules/teamExplosion.js";
+import { initProjectGalleryParallax } from "./modules/projectGalleryParallax.js";
+import { initDvdScreensaver } from "./modules/screensaverDvd.js";
+
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, Draggable, SplitText);
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -630,15 +644,25 @@ if (isDough) {
   document.querySelector(".loader-tetris").classList.add("active");
   hideLoader(".loader-tetris", 3000);
 }
+// Le loader et l'écran de veille doivent démarrer dès que possible,
+// sans attendre DOMContentLoaded.
+initLoader();
+initDvdScreensaver();
 
 document.addEventListener("DOMContentLoaded", () => {
-  document
-    .querySelectorAll(".project-gallery-project-card, .projet-page-retour")
-    .forEach((el) => {
-      el.addEventListener("click", (e) => {
-        e.preventDefault();
-        sessionStorage.setItem("dough", "true");
-        window.location.href = el.getAttribute("href");
-      });
-    });
+  initPortfolioModal();
+  initBiographyModal();
+  initFooterMarquee();
+  initHeroGrid();
+  initEasterEggRotate();
+  initProjetPageThumbnail();
+  initSplitTextReveal();
+  initImagesBatchReveal();
+  initScrollTopButton();
+  initDoughNavigation();
+});
+
+window.addEventListener("load", () => {
+  initTeamExplosion();
+  initProjectGalleryParallax();
 });
