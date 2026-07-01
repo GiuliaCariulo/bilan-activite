@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
         endTrigger: isMobile ? ".footer-contact" : ".footer-contact-copyright",
         end: isMobile ? "top 100%" : "85% bottom",
         scrub: true,
-        markers: true,
+        markers: false,
       },
     });
   }
